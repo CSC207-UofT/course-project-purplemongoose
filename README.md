@@ -1,6 +1,3 @@
-## Replace this README.md!
+#kard.
 
-This is a standard README.md file for you to replace. You'll want to include your own content here!
-
-MD (Markdown) files use [Markdown formatting](https://guides.github.com/features/mastering-markdown/): 
-these look very much like .txt files, so you can write them in a very similar way.
+kard is the business card for the 21st century. Forget those paper cards that everyone just trows out. Keep your business contacts digitally so that they're just one tap away.
