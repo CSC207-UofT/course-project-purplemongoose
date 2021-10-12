@@ -1,0 +1,98 @@
+{
+  "main": {
+    "id": "8e127b9a51e12450",
+    "type": "split",
+    "children": [
+      {
+        "id": "1cf8770716ec3a42",
+        "type": "leaf",
+        "state": {
+          "type": "graph",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0dcec901659e59f0",
+    "type": "split",
+    "children": [
+      {
+        "id": "97fcae4b2e23a11a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3c7eb61a1c8ce6dc",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "7db58305c7ee7814",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "32076873cd291cb2",
+    "type": "split",
+    "children": [
+      {
+        "id": "7e639f770d78db6d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "472ec5598989eeff",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "1cf8770716ec3a42",
+  "lastOpenFiles": [
+    "Person/Phone.md",
+    "Person/Name.md",
+    "Person/Email.md",
+    "Person/ContactMethod (I).md",
+    "Person/Company.md",
+    "Person.md",
+    "Card (I).md",
+    "Person/SocialMedia/SocialMedia.md",
+    "Person/SocialMedia/Twitter.md",
+    "Untitled.md"
+  ]
+}
