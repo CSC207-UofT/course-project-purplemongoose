@@ -8,6 +8,6 @@ Stores the information of an individual user.
 - [[Name]]
 - [[Email]]
 - [[Phone]]
-- [[Company]]
+- [[Corporation]]
 - [[Website]]
 

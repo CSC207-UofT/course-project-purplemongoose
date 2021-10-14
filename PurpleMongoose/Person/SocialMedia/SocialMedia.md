@@ -1,4 +1,9 @@
 # SocialMedia
-*TODO: Fill this out*
+Implements [[ContactMethod (I)]]
 
-Implementation TBD
+## Responsibilities
+Stores list of social media services and associated username
+
+
+## Collaborators
+None.
