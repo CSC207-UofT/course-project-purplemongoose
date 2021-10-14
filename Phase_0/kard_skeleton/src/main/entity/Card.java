@@ -1,6 +1,6 @@
 package main.entity;
 
-public class Card {
+public abstract class Card {
     // Details are WIP
 
 }
