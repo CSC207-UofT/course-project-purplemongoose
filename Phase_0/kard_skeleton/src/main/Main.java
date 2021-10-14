@@ -28,10 +28,8 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         String input;
-
+        /* TODO fix.
         System.out.println("""
-
-
                 ██╗  ██╗ █████╗ ██████╗ ██████╗\s
                 ██║ ██╔╝██╔══██╗██╔══██╗██╔══██╗
                 █████╔╝ ███████║██████╔╝██║  ██║
@@ -39,6 +37,7 @@ public class Main {
                 ██║  ██╗██║  ██║██║  ██║██████╔╝
                 ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝\s
                 """);
+        */
         System.out.println("Press enter to continue...");
         try {
             System.in.read();
