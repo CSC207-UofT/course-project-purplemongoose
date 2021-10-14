@@ -1,8 +1,9 @@
 # BusinessCard
-Implements [[Card (I)]]
+### Parent Class
+Card
 
 ## Responsibilities
-Provides a general interface for interacting with a [[Person]]
+- stores business information such as company and contacts 
 
 ## Collaborators
 [[Person]]

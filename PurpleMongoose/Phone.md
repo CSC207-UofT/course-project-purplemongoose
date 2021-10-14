@@ -1,5 +1,5 @@
 # Phone:
-Implements [[ContactMethod (I)]]
+Implements [[Contactable (I)]]
 
 ## Responsibilities
 Stores and provides methods for accessing phone

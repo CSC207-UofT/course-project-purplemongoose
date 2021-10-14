@@ -4,11 +4,14 @@
     "type": "split",
     "children": [
       {
-        "id": "1cf8770716ec3a42",
+        "id": "adf6c0c0860e7f0b",
         "type": "leaf",
         "state": {
-          "type": "graph",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "Email.md",
+            "mode": "source"
+          }
         }
       }
     ],
@@ -65,6 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Email.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -82,17 +86,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "1cf8770716ec3a42",
+  "active": "adf6c0c0860e7f0b",
   "lastOpenFiles": [
-    "Card (I).md",
-    "BusinessCard.md",
-    "Person/Name.md",
+    "Email.md",
+    "ContactMethod (I).md",
     "Person.md",
-    "0.CRC-README.md",
-    "Person/Phone.md",
-    "Person/Email.md",
-    "Person/ContactMethod (I).md",
+    "Name.md",
     "Person/Company.md",
-    "Person/SocialMedia/SocialMedia.md"
+    "Person/SocialMedia/SocialMedia.md",
+    "Person/Email.md",
+    "Person/Name.md",
+    "Person/ContactMethod (I).md",
+    "Person/Phone.md"
   ]
 }
