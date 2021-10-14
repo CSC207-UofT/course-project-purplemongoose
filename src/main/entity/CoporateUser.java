@@ -1,7 +1,7 @@
-package main.entity;
+package entity;
 
 // This is a company account for Kard
-public class CoporateUser implements User {
+public class CoporateUser extends User {
     // Details are WIP
 
     @Override

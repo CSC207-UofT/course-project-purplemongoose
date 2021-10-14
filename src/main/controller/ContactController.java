@@ -1,8 +1,8 @@
-package main.controller;
+package controller;
 
-import main.database.MainFrame;
-import main.entity.Entity;
-import main.entity.User;
+import database.MainFrame;
+import entity.Entity;
+import entity.User;
 
 public class ContactController {
     MainFrame mf;
@@ -13,6 +13,11 @@ public class ContactController {
         this.user = user;
     }
 
+    /**
+     * Add a contact to the mainframe mf
+     *
+     * @param id the unique ID of the contact to add to mf
+     */
     public void addContactMainFrame(String id) {
         Entity e = mf.query(id);
         if (e==null) {
@@ -30,6 +35,11 @@ public class ContactController {
 
     }
 
+    /**
+     * Remove a contact from the mainframe mf
+     *
+     * @param id the unique ID of the contact to remove from mf
+     */
     public void removeContactMainFrame(String id) {
         Entity e = mf.query(id);
         if (e==null) {

@@ -1,9 +1,9 @@
-package main.entity;
+package entity;
 
 import java.util.ArrayList;
 
 // This is a personal account for Kard
-public class PersonalUser implements User {
+public class PersonalUser extends User {
     private ArrayList<Entity> contacts; // This is the local copy of User's contacts
 
     public PersonalUser()

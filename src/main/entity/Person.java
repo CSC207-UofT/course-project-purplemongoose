@@ -1,4 +1,4 @@
-package main.entity;
+package entity;
 
 public class Person implements Entity {
     private String name;
