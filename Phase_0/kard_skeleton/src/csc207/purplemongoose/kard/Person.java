@@ -11,4 +11,16 @@ public class Person {
         this.email = email;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
 }
