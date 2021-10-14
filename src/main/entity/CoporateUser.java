@@ -1,4 +1,4 @@
-package main.entity;
+package entity;
 
 // This is a company account for Kard
 public class CoporateUser extends User {

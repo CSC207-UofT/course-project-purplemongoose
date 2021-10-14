@@ -1,9 +1,7 @@
-package main;
-
-import main.controller.ContactController;
-import main.database.MainFrame;
-import main.entity.PersonalUser;
-import main.entity.Person;
+import controller.ContactController;
+import database.MainFrame;
+import entity.PersonalUser;
+import entity.Person;
 
 import java.util.Scanner;
 
@@ -88,6 +86,7 @@ public class Main {
                     addPerson(mf, sc);
                     break;
                 case "quit":
+                    System.out.println("Thank you for using Kard");
                     break eventLoop;
                 default:
                     System.out.println("Command not recognized... Try again\n");
