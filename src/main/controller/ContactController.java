@@ -1,8 +1,8 @@
-package main.controller;
+package controller;
 
-import main.database.MainFrame;
-import main.entity.Entity;
-import main.entity.User;
+import database.MainFrame;
+import entity.Entity;
+import entity.User;
 
 public class ContactController {
     MainFrame mf;

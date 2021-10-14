@@ -1,6 +1,6 @@
-package main.database;
+package database;
 
-import main.entity.Entity;
+import entity.Entity;
 import java.util.HashMap;
 
 

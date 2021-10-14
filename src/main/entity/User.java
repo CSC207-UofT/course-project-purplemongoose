@@ -1,4 +1,4 @@
-package main.entity;
+package entity;
 
 public abstract class User {
     public abstract boolean addContact(Entity e); // return true if added successfully
