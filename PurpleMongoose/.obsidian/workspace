@@ -4,11 +4,14 @@
     "type": "split",
     "children": [
       {
-        "id": "1cf8770716ec3a42",
+        "id": "32be3d3adb9dddf6",
         "type": "leaf",
         "state": {
-          "type": "graph",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "DataFileIOStream.md",
+            "mode": "source"
+          }
         }
       }
     ],
@@ -65,6 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "DataFileIOStream.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -82,17 +86,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "1cf8770716ec3a42",
+  "active": "32be3d3adb9dddf6",
   "lastOpenFiles": [
-    "Person/Phone.md",
-    "Person/Name.md",
-    "Person/Email.md",
-    "Person/ContactMethod (I).md",
-    "Person/Company.md",
+    "DataFileIOStream.md",
+    "DataIOStream (a).md",
+    "LoadSavable (I).md",
+    "DataTable (a).md",
+    "DataManager.md",
     "Person.md",
+    "CardDataTable.md",
+    "Untitled.md",
     "Card (I).md",
-    "Person/SocialMedia/SocialMedia.md",
-    "Person/SocialMedia/Twitter.md",
-    "Untitled.md"
+    "BusinessCard.md"
   ]
 }
