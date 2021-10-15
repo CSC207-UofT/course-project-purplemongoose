@@ -91,3 +91,6 @@ fabric.properties
 
 # Synology Sync File
 .DS_store
+
+# The .obsidian folder
+.PurpleMongoose/.obsidian
