@@ -1,6 +1,6 @@
 package database;
 
-import entity.Entity;
+import entity.Client;
 import java.util.HashMap;
 
 
@@ -10,7 +10,7 @@ import java.util.HashMap;
  * The current implementation is simplified for the purpose of the skeleton program
  */
 public class MainFrame {
-    private HashMap<String, Entity> users;
+    private HashMap<String, Client> users;
 
     public MainFrame() {
         // Each Person would have some identifier associated with them
@@ -24,7 +24,7 @@ public class MainFrame {
      * @param id unique identifier of the person to find
      * @return the unique user with the ID: id
      */
-    public Entity query(String id) {
+    public Client query(String id) {
         return users.get(id);
     }
 
@@ -34,7 +34,7 @@ public class MainFrame {
      * @param e the user to add to the mainframe
      * @param id the ID of the user to add
      */
-    public void addEntity(Entity e, String id) {
+    public void addEntity(Client e, String id) {
         users.put(id, e);
     }
 

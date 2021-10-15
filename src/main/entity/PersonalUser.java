@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 // This is a personal account for Kard
 public class PersonalUser extends User {
-    private ArrayList<Entity> contacts; // This is the local copy of User's contacts
+    private ArrayList<Client> contacts; // This is the local copy of User's contacts
 
     public PersonalUser()
     {
@@ -12,7 +12,7 @@ public class PersonalUser extends User {
     }
 
     @Override
-    public boolean addContact(Entity p) {
+    public boolean addContact(Client p) {
         if (!contacts.contains(p)) {
             contacts.add(p);
             return true;
@@ -23,7 +23,7 @@ public class PersonalUser extends User {
     }
 
     @Override
-    public boolean removeContact(Entity p) {
+    public boolean removeContact(Client p) {
         if (contacts.contains(p)) {
             contacts.remove(p);
             return true;
@@ -36,7 +36,7 @@ public class PersonalUser extends User {
     public Object getContact() {
         // The type of object this method returns will depend on how we choose to display the contacts
         StringBuilder ret = new StringBuilder();
-        for (Entity p: this.contacts) {
+        for (Client p: this.contacts) {
             ret.append(String.format("%s | %s | %s\n", p.getName(), p.getPhone(), p.getEmail()));
         }
         return ret.toString();
