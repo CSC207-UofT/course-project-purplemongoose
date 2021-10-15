@@ -8,4 +8,4 @@ Used for storing/adding/removing people from the database.
 
 ## Collaborators
 - [HashMap](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)
-- [[Client]]
+- [[Client (I)]]

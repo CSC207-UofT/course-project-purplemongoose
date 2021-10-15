@@ -10,4 +10,4 @@ Used for adding contacts from the main frame to the user.
 
 ## Collaborators
 - [[MainFrame]]
-- [[User]]
+- [[User (A)]]
