@@ -1,4 +1,4 @@
-# DataFileIOStream\<T extends Serializable\>
+# DataFileIOStream\<T  implements Serializable\>
 
 An abstract class for reading/writing serialized data to/from a file(s).
 

@@ -1,5 +1,6 @@
 # Phone:
-Implements [[Contactable (I)]]
+### Parent Classes 
+- [[Contactable (I)]]
 
 ## Responsibilities
 Stores and provides methods for accessing phone

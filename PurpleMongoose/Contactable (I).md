@@ -1,5 +1,5 @@
-# ContactMethod (I)
-### Implementors
+# Contactable (I)
+### Subclasses
 - [[Email]]
 - [[Phone]]
 
