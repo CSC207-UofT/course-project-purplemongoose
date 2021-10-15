@@ -5,6 +5,11 @@ import entity.Person;
 
 import java.util.Scanner;
 
+// TODO remove scanner as parameter being passed around. Make it a global static variable
+// TODO: 2021-10-14 Remove scanner as param once above is done^^^^^^ 
+// TODO When making this a class, make it so that there could be multiple "users". They should share a database tho
+
+
 public class Main {
 
     public static void main(String[] args) {
@@ -30,8 +35,8 @@ public class Main {
 
         System.out.println("Press enter to continue...");
         try {
-            System.in.read();
-        } catch (Exception e) {
+            sc.nextLine();
+        } catch (Exception ignored) {
         }
 
         events(user, cc, sc, mf);
@@ -43,6 +48,7 @@ public class Main {
      * @param mf Mainframe, the database for the program
      */
     private static void buildInitialContacts(MainFrame mf) {
+        // TODO: 2021-10-14 Add a few more starting people. Also consider adding some contacts to the user to start out
         // Assume these are people the user can find and add
         Person p1 = new Person("Jack Daniels", "123-456-6789", "jack.daniel@whiskey.com");
         Person p2 = new Person("Bob", "111-222-3333", "bob@thebuilder.com");
@@ -55,16 +61,23 @@ public class Main {
     }
 
     /**
-     * todo add!
+     * Events loop for simple cli. The user can choose between the following functions
+     *  - Add an existing user from the database to their individual contacts list
+     *  - Add a new user to the database
+     *  - Remove an existing user from the current user's contact list
+     *      NOTE: This DOES NOT remove the user from the overall database
+     *  - Display all the contacts of the current user
+     *  - Quit the program
      *
-     * @param user
-     * @param cc
-     * @param sc
+     * @param user The current user
+     * @param cc The database of the user's contacts
+     * @param sc Scanner for system input
      */
     private static void events(PersonalUser user, ContactController cc, Scanner sc, MainFrame mf) {
         String input;
         eventLoop:
         while (true) {
+            // TODO: 2021-10-14 consider making this a function...
             System.out.println("Type 'add' to add users to your contacts list");
             System.out.println("Type 'add person' to add a user to the database");
             System.out.println("Type 'remove' to remove users from your contacts list");
@@ -73,30 +86,21 @@ public class Main {
 
             input = sc.nextLine();
             switch (input) {
-                case "add":
-                    addContact(cc, sc);
-                    break;
-                case "remove":
-                    removeContact(cc, sc);
-                    break;
-                case "display":
-                    System.out.println(user.getContact()); //temporary; should be part of ContactController
-                    break;
-                case "add person":
-                    addPerson(mf, sc);
-                    break;
-                case "quit":
+                case "add" -> addContact(cc, sc);
+                case "remove" -> removeContact(cc, sc);
+                case "display" -> System.out.println(user.getContact()); //todo temporary; should be part of ContactController
+                case "add person" -> addPerson(mf, sc);
+                case "quit" -> {
                     System.out.println("Thank you for using Kard");
                     break eventLoop;
-                default:
-                    System.out.println("Command not recognized... Try again\n");
-                    break;
+                }
+                default -> System.out.println("Command not recognized... Try again\n");
             }
         }
     }
 
-    /** todo fix: does not add to database
-     * Remove a person from the mainframe using the contact controller
+    /**
+     * Remove a person from the current user's contact list
      *
      * @param cc the contact controller instance
      * @param sc the scanner used for user input
@@ -111,8 +115,8 @@ public class Main {
         }
     }
 
-    /** todo fix: does not remove from database
-     * Add a person to the mainframe using the contact controller
+    /**
+     * Add a person to the current user's contact list
      *
      * @param cc the contact controller instance
      * @param sc the scanner used for user input
@@ -130,8 +134,8 @@ public class Main {
     /**
      * Add a new person to the database
      *
-     * @param mf
-     * @param sc
+     * @param mf Mainframe - the database for the project
+     * @param sc Scanner for user input
      */
     private static void addPerson(MainFrame mf, Scanner sc) {
         System.out.println("Enter the name of the person to add:");
