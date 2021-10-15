@@ -1,5 +1,5 @@
 # Client (I):
-### Sublasses 
+### Subclasses 
 - [[Person]]
 - [[Company]]
 
@@ -7,4 +7,4 @@
 Interface defining how the name, phone number and email address of a Person or Company are accessed. 
 
 ## Collaborators
-None.
+None. 
