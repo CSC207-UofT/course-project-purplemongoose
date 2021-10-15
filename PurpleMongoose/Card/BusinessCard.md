@@ -1,6 +1,6 @@
 # BusinessCard
 ### Parent Class
-Card
+[[Card (A)]]
 
 ## Responsibilities
 - stores business information such as company and contacts 
