@@ -47,7 +47,7 @@ public class MainFrame {
      *
      * @param id the ID of the user to remove
      */
-    public void removeEntity(String id) {
+    public void removeClient(String id) {
         users.remove(id);
     }
 
