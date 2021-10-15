@@ -7,27 +7,36 @@ import static org.junit.jupiter.api.Assertions.*;
 class PersonalUserTest {
 
     // Initialize a user
-    PersonalUser user = new PersonalUser();
+    private final PersonalUser user = new PersonalUser();
 
     // Initialize a person to add to contacts
-    Person newUser = new Person("Name", "1234567890", "name@name.com");
+    private final Person newUser = new Person("Name", "1234567890", "name@name.com");
 
     @Test
-    void addContact() {
+    void addContactNotExisting() {
         boolean added = user.addContact(newUser);
         assertTrue(added);
+    }
 
-        added = user.addContact(newUser);
+    @Test
+    void addContactExisting() {
+        user.addContact(newUser);
+        boolean added = user.addContact(newUser);
         assertFalse(added);
     }
 
     @Test
-    void removeContact() {
+    void removeContactExisting() {
         user.addContact(newUser);
         boolean removed = user.removeContact(newUser);
         assertTrue(removed);
+    }
 
-        removed = user.removeContact(newUser);
+    @Test
+    void removeContatctNotExisting() {
+        user.addContact(newUser);
+        user.removeContact(newUser);
+        boolean removed = user.removeContact(newUser);
         assertFalse(removed);
     }
 

@@ -49,9 +49,9 @@ gradle-app.setting
 # auto-import.
 # .idea/artifacts
 # .idea/compiler.xml
-# .idea/jarRepositories.xml
-# .idea/modules.xml
-# .idea/*.iml
+ .idea/jarRepositories.xml
+ .idea/modules.xml
+ .idea/*.iml
 # .idea/modules
 # *.iml
 # *.ipr
@@ -94,3 +94,6 @@ fabric.properties
 
 # The .obsidian folder
 .PurpleMongoose/.obsidian
+
+# idea settings folder
+.idea/misc.xml

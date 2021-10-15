@@ -1,6 +1,8 @@
 package database;
 
 import entity.Client;
+import entity.Person;
+
 import java.util.HashMap;
 
 
@@ -36,7 +38,7 @@ public class MainFrame {
      * @param e the user to add to the mainframe
      * @param id the ID of the user to add
      */
-    public void addEntity(Client e, String id) {
+    public void addClient(Client e, String id) {
         users.put(id, e);
     }
 
@@ -48,4 +50,5 @@ public class MainFrame {
     public void removeEntity(String id) {
         users.remove(id);
     }
+
 }

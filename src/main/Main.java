@@ -1,10 +1,7 @@
-import controller.ContactController;
 import database.MainFrame;
 import entity.PersonalUser;
 import entity.Person;
 import userInterface.CommandLineInterface;
-
-import java.util.Scanner;
 // TODO When making this a class, make it so that there could be multiple "users". They should share a database tho
 
 
@@ -34,9 +31,9 @@ public class Main {
         Person p3 = new Person("Jenn Ifer", "121-323-4343", "jennifer@mail.com");
 
         //Adding users to the mf
-        mf.addEntity(p1, "Jack Daniels");
-        mf.addEntity(p2, "Bob");
-        mf.addEntity(p3, "Jenn Ifer");
+        mf.addClient(p1, "Jack Daniels");
+        mf.addClient(p2, "Bob");
+        mf.addClient(p3, "Jenn Ifer");
     }
 }
 

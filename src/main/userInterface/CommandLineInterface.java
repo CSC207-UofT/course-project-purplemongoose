@@ -8,10 +8,10 @@ import entity.PersonalUser;
 import java.util.Scanner;
 
 public class CommandLineInterface {
-    private PersonalUser user;
-    private Scanner sc;
-    private MainFrame mf;
-    private ContactController cc;
+    private final PersonalUser user;
+    private final Scanner sc;
+    private final MainFrame mf;
+    private final ContactController cc;
 
     public CommandLineInterface(MainFrame mf, PersonalUser user) {
         this.mf = mf;
@@ -117,7 +117,7 @@ public class CommandLineInterface {
         String email = sc.nextLine();
 
         Person newPerson = new Person(name, phone, email);
-        mf.addEntity(newPerson, name);
+        mf.addClient(newPerson, name);
 
         System.out.println(name + " has been added to the database!");
     }
