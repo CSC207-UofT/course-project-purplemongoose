@@ -1,6 +1,6 @@
 package entity;
 
-public class Company implements Entity {
+public class Company implements Client {
     private Object name;
     private Object phone;
     private Object Email;

@@ -1,7 +1,7 @@
 package controller;
 
 import database.MainFrame;
-import entity.Entity;
+import entity.Client;
 import entity.User;
 
 public class ContactController {
@@ -19,8 +19,10 @@ public class ContactController {
      * @param id the unique ID of the contact to add to mf
      */
     public void addContactMainFrame(String id) {
-        Entity e = mf.query(id);
+
+        Client e = mf.query(id);
         if (e==null) {
+
             //display message that this user does not exist in the db
             // using display classes (in the future)
             System.out.printf("%s could not be found!\n", id);
@@ -28,11 +30,9 @@ public class ContactController {
         }
         if (user.addContact(e)) {
             System.out.printf("%s has been successfully added!\n", id);
-        }
-        else {
+        } else {
             System.out.printf("%s is already a contact!\n", id);
         }
-
     }
 
     /**
@@ -41,8 +41,10 @@ public class ContactController {
      * @param id the unique ID of the contact to remove from mf
      */
     public void removeContactMainFrame(String id) {
-        Entity e = mf.query(id);
+
+        Client e = mf.query(id);
         if (e==null) {
+
             //display message that this user does not exist in the db
             // using display classes
             System.out.printf("%s could not be found!\n", id);
@@ -50,11 +52,8 @@ public class ContactController {
         }
         if (user.removeContact(e)) {
             System.out.printf("%s has been successfully removed!\n", id);
-        }
-        else {
+        } else {
             System.out.printf("%s is not a contact!\n", id);
         }
-
     }
-
 }

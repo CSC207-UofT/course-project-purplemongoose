@@ -5,12 +5,12 @@ public class CoporateUser extends User {
     // Details are WIP
 
     @Override
-    public boolean addContact(Entity e) {
+    public boolean addContact(Client e) {
         return false;
     }
 
     @Override
-    public boolean removeContact(Entity e) {
+    public boolean removeContact(Client e) {
         return false;
     }
 

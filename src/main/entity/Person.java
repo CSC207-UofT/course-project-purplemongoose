@@ -1,6 +1,6 @@
 package entity;
 
-public class Person implements Entity {
+public class Person implements Client {
     private String name;
     private String phone;
     private String email;
