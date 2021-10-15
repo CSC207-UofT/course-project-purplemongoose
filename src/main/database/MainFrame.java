@@ -5,12 +5,12 @@ import java.util.HashMap;
 
 
 /**
- * Mainframe is the database for the Kard program
+ * Mainframe is the database for the kard. program
  *
  * The current implementation is simplified for the purpose of the skeleton program
  */
 public class MainFrame {
-    private HashMap<String, Entity> users;
+    private final HashMap<String, Entity> users;
 
     public MainFrame() {
         // Each Person would have some identifier associated with them
@@ -29,7 +29,7 @@ public class MainFrame {
     }
 
     /**
-     * Add an entity to the mainframe
+     * Add a client to the mainframe
      *
      * @param e the user to add to the mainframe
      * @param id the ID of the user to add
@@ -39,7 +39,7 @@ public class MainFrame {
     }
 
     /**
-     * Remove an entity from the mainframe
+     * Remove a client from the mainframe
      *
      * @param id the ID of the user to remove
      */
