@@ -1,6 +1,5 @@
 package entity;
 
 public abstract class Card {
-    // Details are WIP
-
+    // TODO: 2021-10-14 Implement this class
 }

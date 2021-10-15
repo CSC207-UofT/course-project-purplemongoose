@@ -8,7 +8,9 @@ import java.util.ArrayList;
  * Store all of the user's individual contacts and provides methods to add, remove, and display them
  */
 public class PersonalUser extends User {
-    private final ArrayList<Entity> contacts; // This is the local copy of User's contacts
+
+    private final ArrayList<Client> contacts; // This is the local copy of User's contacts
+
 
     public PersonalUser() {
         this.contacts = new ArrayList<>();
@@ -21,7 +23,7 @@ public class PersonalUser extends User {
      * @return Success of adding to contacts list
      */
     @Override
-    public boolean addContact(Entity p) {
+    public boolean addContact(Client p) {
         if (!contacts.contains(p)) {
             contacts.add(p);
             return true;
@@ -37,7 +39,7 @@ public class PersonalUser extends User {
      * @return Success of removing from contacts list
      */
     @Override
-    public boolean removeContact(Entity p) {
+    public boolean removeContact(Client p) {
         if (contacts.contains(p)) {
             contacts.remove(p);
             return true;
@@ -59,7 +61,8 @@ public class PersonalUser extends User {
     public Object getContact() {
         // The type of object this method returns will depend on how we choose to display the contacts
         StringBuilder ret = new StringBuilder();
-        for (Entity p : this.contacts)
+
+        for (Client p: this.contacts)
             ret.append(String.format("%s | %s | %s\n", p.getName(), p.getPhone(), p.getEmail()));
 
         return ret.toString();
