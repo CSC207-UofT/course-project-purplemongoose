@@ -9,5 +9,5 @@ Stores:
 Used for adding contacts from the main frame to the user.
 
 ## Collaborators
-- [[MainFrame]]
-- [[User]]
+- [[CRC_WIP/MainFrame]]
+- [[User (A)]]

@@ -1,6 +1,6 @@
 package entity;
 
-// This is a company account for Kard
+// This is a company account for kard
 public class CoporateUser extends User {
     // Details are WIP
 

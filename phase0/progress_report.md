@@ -22,8 +22,11 @@ The goal of kard is the move the concept of the "business card" to the 21st cent
 
 ## CRC Cards
 
-TODO: fill out. I don't know enough about them to write this section
+CRC cards were grouped into two: 
+- CRC cards for classes and interfaces that are present in the skeleton program
+- CRC cards for classes and interfaces that are still in-progress. 
 
+The current CRC cards may or may not represent all the responsibilities and the collaborators of the classes as of now, but will be updated and added onto as the development of the program progresses. 
 
 
 ## Skeleton Program
@@ -64,9 +67,9 @@ Given the relative simplicity of the current implementation, there is not much t
 | Member   | Contribution                                                 | Plans                                                        |
 | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Arthur   | Early CRC Card design,<br />Manage and organize git<br />Clean up and document skeleton program<br />Write JUnit tests from skeleton program | Continue ensure quality of final product<br />User interface design an implementation<br />Documentation and tests writing |
-| Ling     |                                                              |                                                              |
+| Ling     | Wrote initial version of the skeleton program<br />Worked on CRC cards | Design and implement parts of backend<br />Ensure project follows clean architecture |
 | Stewart  |                                                              |                                                              |
 | Kevin    |                                                              |                                                              |
 | Victoria |                                                              |                                                              |
-| Sila     |                                                              |                                                              |
+| Sila     | Added, designed and edited CRC Cards.                        | - Add and code the missing / in-progress classes and interfaces into the program.<br /> - Update CRC cards as the program is developed.<br />                                                              |
 

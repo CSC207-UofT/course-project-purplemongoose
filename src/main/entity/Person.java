@@ -1,15 +1,6 @@
 package entity;
 
-public class Person implements Client {
-    private String name;
-    private String phone;
-    private String email;
-
-    public Person (String name, String phone, String email) {
-        this.name = name;
-        this.phone = phone;
-        this.email = email;
-    }
+public record Person(String name, String phone, String email) implements Client {
 
     public String getName() {
         return name;
