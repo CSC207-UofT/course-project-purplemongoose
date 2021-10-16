@@ -5,6 +5,9 @@ An abstract class for representing a user.
 - [[PersonalUser]]
 - [[CorporateUser]]
 
+### Clean Architecture Layer
+Enterprise Business Rule [entity]
+
 ## Responsibilities
  Defines functions for:
  - Adding contacts.

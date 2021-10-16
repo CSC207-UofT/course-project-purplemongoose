@@ -1,6 +1,9 @@
 # MainFrame
 A class for storing all the cards.
 
+### Clean Architecture Layer
+Framework & Driver [database]
+
 ## Responsibilities
 Stores:
 - `HashMap<String, Client> users` instance variable that is used for storing the users referenced by name.

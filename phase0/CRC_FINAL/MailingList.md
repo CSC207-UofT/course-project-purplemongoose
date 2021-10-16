@@ -1,6 +1,9 @@
 # MailingList
 A class for creating a mailing list from the contents of the [[MainFrame]].
 
+### Clean Architecture Layer
+Application Business Rule [use case]
+
 ## Responsibilities
 - Stores names on the mailing lists.
 - Stores a [[MainFrame]], of which it draws the contacts from.

@@ -12,7 +12,7 @@ Unit tests are written with [Junit5.7](https://junit.org/junit5/)
 
 ## Phase_0 Parts
 
-- Click [here](https://github.com/CSC207-UofT/course-project-purplemongoose/blob/main/Phase_0/specsheet.md) for the project spec sheet
+- Click [here](https://github.com/CSC207-UofT/course-project-purplemongoose/blob/main/Phase_0/specification.md) for the project spec sheet
 - Click [here](https://github.com/CSC207-UofT/course-project-purplemongoose/blob/main/phase0/progress_report.md) for the phase 0 progress report
 - Click [here](https://github.com/CSC207-UofT/course-project-purplemongoose/blob/main/phase0/walkthrough.md) for the walkthrough
 - There are two versions of the CRC cards - `phase0/CRC_FINAL` and `phase0/CRC_WIP`

@@ -1,6 +1,9 @@
 # CommandLineInterface:
 Mention any parent or child class or interfaces the class implements
 
+### Clean Architecture Layer
+Framework & Driver [user interface]
+
 ## Responsibilities
 Stores:
 - `PersonalUser user`instance variable, that is used to store the user interacting with the program.

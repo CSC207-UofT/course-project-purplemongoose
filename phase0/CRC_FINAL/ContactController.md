@@ -1,6 +1,9 @@
 # ContactController
 A class used for managing the contacts of a user.
 
+### Clean Architecture Layer
+Interface Adapter [controller]
+
 ## Responsibilities
 Stores:
 - `MainFrame mf` instance variable for referencing the main contact book.
