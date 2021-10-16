@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 // This is a personal account for Kard
 public class PersonalUser extends User {
-    private ArrayList<Client> contacts; // This is the local copy of User's contacts
+    private final ArrayList<Client> contacts; // This is the local copy of User's contacts
 
     public PersonalUser()
     {
