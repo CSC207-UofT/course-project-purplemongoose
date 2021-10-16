@@ -7,7 +7,7 @@ N/A
 N/A
 
 ## Responsibilities
-Displays app data to an Android device
+Represents the command line interface (e.g. terminal)
 
 ## Collaborators
 - [[AppViewModel]]

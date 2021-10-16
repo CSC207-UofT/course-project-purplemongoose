@@ -12,3 +12,4 @@ Adds and removes contacts from a user's local contact list
 ## Collaborators:
 - [[User(A)]]
 - [[SortContacts]]
+- [[EntityGateway(I)]]
