@@ -12,6 +12,6 @@ Handles interaction with the user throught the command line and the controller.
 ## Collaborators
 - [[ContactController]]
 - [Scanner](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html)
-- [[MainFrame]]
+- [[CRC_FINAL/MainFrame]]
 - [[User (A)]]
 
