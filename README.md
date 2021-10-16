@@ -6,12 +6,12 @@ kard is the business card for the 21st century. Forget those paper cards that ev
 
 This project uses [Open JDK Java 17](https://jdk.java.net/17/) If you experince compiler issues, please check your JDK version
 
-Unit tests are written in [Junit5](https://junit.org/junit5/) 
+Unit tests are written with [Junit5.7](https://junit.org/junit5/) 
 
 
 
 ## Phase_0 Parts
 
 - Click [here](https://github.com/CSC207-UofT/course-project-purplemongoose/blob/main/Phase_0/specsheet.md) for the project spec sheet
-- The initial skeleton program is in `./Phase_0/kard_skeleton` and is lodable in Intellij.
+- The root directry of the program is an [IntelliJ](https://www.jetbrains.com/idea/) project. Please download IntelliJ to develop on the project.
 
