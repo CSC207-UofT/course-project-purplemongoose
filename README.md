@@ -20,3 +20,4 @@ Unit tests are written with [Junit5.7](https://junit.org/junit5/)
     - `phase0/CRC_WIP` includes CRC cards for the database that are currently being worked through.
 - The root directry of the program is an [IntelliJ](https://www.jetbrains.com/idea/) project. Please download IntelliJ to develop on the project.
 
+ 
