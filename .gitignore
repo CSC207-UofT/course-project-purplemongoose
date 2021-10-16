@@ -93,7 +93,7 @@ fabric.properties
 .DS_store
 
 # The .obsidian folder
-.PurpleMongoose/.obsidian
+.obsidian
 
 # idea settings folder
 .idea/misc.xml

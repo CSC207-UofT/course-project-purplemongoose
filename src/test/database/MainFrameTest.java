@@ -25,7 +25,7 @@ class MainFrameTest {
 
     @Test
     void removeEntity() {
-        mf.removeEntity(newUser.getName());
+        mf.removeClient(newUser.getName());
 
         Client found = mf.query(newUser.getName());
         assertNull(found);
