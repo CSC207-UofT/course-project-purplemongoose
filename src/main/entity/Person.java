@@ -6,6 +6,7 @@ public class Person implements Client {
     private final String phone;
     private final String email;
 
+
     public Person(String name, String phone, String email) {
         this.name = name;
         this.phone = phone;
