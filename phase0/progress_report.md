@@ -20,13 +20,11 @@ The goal of kard is the move the concept of the "business card" to the 21st cent
 
 ## CRC Cards
 
-
+We made the CRC cards in a way such that it follows clean architecture and is easy to follow and understand. The CRC cards we have right now do not fully represent our program as the implementation details (e.g. database) make it quite obscure what we need. However, they do contain some important details such as our Entities (User, Client), the EntityGateway, couple controllers and the use cases they would call upon and the presenter/UI model.
 
 A map of the CRC cards, including their clean architecture layer can be seen below:
 
 <img src="/Users/arthurgao/Documents/course-project-purplemongoose/phase0/CRC_Map_Cropped.png" alt="CRC_Map_Cropped" style="zoom:40%;" />
-
-***<u>TODO include some summary of the CRC cards.</u>***
 
 ## [Scenario Walk Through](https://github.com/CSC207-UofT/course-project-purplemongoose/blob/main/phase0/walkthrough.md)
 
