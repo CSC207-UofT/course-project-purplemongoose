@@ -1,5 +1,10 @@
 # User (Abstract Class)
-A class for representing a user.
+An abstract class for representing a user.
+
+### Subclasses
+- [[PersonalUser]]
+- [[CorporateUser]]
+
 ## Responsibilities
  Defines functions for:
  - Adding contacts.
