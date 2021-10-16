@@ -31,7 +31,7 @@ public class Main {
 
         mf.addClient(p1, "Jack Daniels");
         mf.addClient(p2, "Bob");
-        mf.addClient(p3, "Jenn Ifer");
+        mf.addClient(p3, "Jennifer");
 
     }
 }

@@ -66,7 +66,7 @@ public class CommandLineInterface {
             switch (input) {
                 case "add" -> addContact();
                 case "remove" -> removeContact();
-                case "display" -> System.out.println(user.getContact()); //todo temporary; should be part of ContactController
+                case "display" -> displayContacts();
                 case "add person" -> addPerson();
                 case "quit" -> {
                     System.out.println("Thank you for using Kard");
@@ -77,13 +77,22 @@ public class CommandLineInterface {
         }
     }
 
+    /**
+     * Print a list of all contacts obtained through user.getContact() with some styling;
+     */
+    private void displayContacts() {
+        //todo temporary; should be part of ContactController
+        System.out.println("+-------------------------CONTACTS LIST---------------------------+");
+        System.out.println(user.getContact());
+        System.out.println("+-----------------------------------------------------------------+");
+    }
 
     /**
      * Remove a person from the current user's contact list.
      */
     private void removeContact() {
         String input;
-        System.out.println("Type the name of the person you want to remove; type 'back' to exit");
+        System.out.println("Type the name of the person you want to remove; type 'back' to return to the main menu");
         System.out.print("[remove]: ");
         input = sc.next();
         while (!input.equals("back")) {
@@ -98,7 +107,7 @@ public class CommandLineInterface {
      */
     private void addContact() {
         String input;
-        System.out.println("Type the name of the person you want to add; type 'back' to exit");
+        System.out.println("Type the name of the person you want to add; type 'back' to return to the main menu");
         System.out.print("[add]: ");
         input = sc.next();
         while (!input.equals("back")) {

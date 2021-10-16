@@ -1,7 +1,6 @@
 package database;
 
 import entity.Client;
-import entity.Person;
 
 import java.util.HashMap;
 

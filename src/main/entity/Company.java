@@ -1,3 +1,7 @@
+/* Unimplemented Class - Commented out for simplicity
+
+TODO: 2021-10-16 Determine implementation and implement.
+
 package entity;
 
 public class Company implements Client {
@@ -21,3 +25,4 @@ public class Company implements Client {
         return null;
     }
 }
+*/

@@ -1,7 +1,11 @@
+/* Unimplemented Class - Commented out for simplicity
+
+TODO: 2021-10-16 Determine implementation and implement.
+
 package entity;
 
 // This is a company account for kard
-public class CoporateUser extends User {
+public class CorporateUser extends User {
     // Details are WIP
 
     @Override
@@ -19,3 +23,5 @@ public class CoporateUser extends User {
         return null;
     }
 }
+
+*/
