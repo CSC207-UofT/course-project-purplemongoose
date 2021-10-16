@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * The account of a user of kard
  *
- * Store all of the user's individual contacts and provides methods to add, remove, and display them
+ * Store all the user's individual contacts and provides methods to add, remove, and display them
  */
 public class PersonalUser extends User {
 

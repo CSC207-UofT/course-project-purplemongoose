@@ -64,7 +64,7 @@ Given the relative simplicity of the current implementation, there is not much t
 | Member   | Contribution                                                 | Plans                                                        |
 | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Arthur   | Early CRC Card design,<br />Manage and organize git<br />Clean up and document skeleton program<br />Write JUnit tests from skeleton program | Continue ensure quality of final product<br />User interface design an implementation<br />Documentation and tests writing |
-| Ling     |                                                              |                                                              |
+| Ling     | Wrote initial version of the skeleton program<br />Worked on CRC cards | Design and implement parts of backend<br />Ensure project follows clean architecture |
 | Stewart  |                                                              |                                                              |
 | Kevin    |                                                              |                                                              |
 | Victoria |                                                              |                                                              |

@@ -1,4 +1,4 @@
-# PURPLEmONGOOSE Project Specification
+# kard Specification
 
 Running the project presents the user the ability to enter their personal information and create a digital personal business card for themselves.
 
