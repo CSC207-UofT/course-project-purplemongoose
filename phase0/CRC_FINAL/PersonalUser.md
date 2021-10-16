@@ -1,6 +1,6 @@
-# CorporateUser:
+# PersonalUser:
 ### Parent Classes 
-- [[User]]
+- [[User (A)]]
 
 ## Responsibilities
 - Stores this user's contacts
