@@ -1,9 +1,16 @@
 # Company:
 Implements [[Client (I)]]
 
+Subclass of [[Organization]]
+
 ## Responsibilities
-- Stores the name, phone number and email address of this company. 
+Stores:
+- Name of company
+- Phone number of company
+- Email address of company
+- List of employees 
 
 ## Collaborators
 - [[Phone]]
 - [[Email]]
+- [[PersonDataTable]]
