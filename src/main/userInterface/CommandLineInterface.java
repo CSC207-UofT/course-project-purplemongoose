@@ -8,10 +8,10 @@ import entity.PersonalUser;
 import java.util.Scanner;
 
 public class CommandLineInterface {
-    private PersonalUser user;
-    private Scanner sc;
-    private MainFrame mf;
-    private ContactController cc;
+    private final PersonalUser user;
+    private final Scanner sc;
+    private final MainFrame mf;
+    private final ContactController cc;
 
     public CommandLineInterface(MainFrame mf, PersonalUser user) {
         this.mf = mf;
@@ -19,7 +19,7 @@ public class CommandLineInterface {
 
         this.cc = new ContactController(mf, user);
 
-        sc = new Scanner(System.in);
+        sc = new Scanner(System.in).useDelimiter("\\n");
     }
 
     /**
@@ -40,6 +40,7 @@ public class CommandLineInterface {
         System.out.println("Press enter to continue...");
         try {
             sc.nextLine();
+            instructionScreen();
         } catch (Exception ignored) {
         }
 
@@ -59,9 +60,9 @@ public class CommandLineInterface {
         String input;
         eventLoop:
         while (true) {
-            instructionScreen();
-
-            input = sc.nextLine();
+//            instructionScreen();
+            System.out.print("> ");
+            input = sc.next();
             switch (input) {
                 case "add" -> addContact();
                 case "remove" -> removeContact();
@@ -83,10 +84,12 @@ public class CommandLineInterface {
     private void removeContact() {
         String input;
         System.out.println("Type the name of the person you want to remove; type 'back' to exit");
-        input = sc.nextLine();
+        System.out.print("[remove]: ");
+        input = sc.next();
         while (!input.equals("back")) {
             cc.removeContactMainFrame(input);
-            input = sc.nextLine();
+            System.out.print("[remove]: ");
+            input = sc.next();
         }
     }
 
@@ -96,10 +99,12 @@ public class CommandLineInterface {
     private void addContact() {
         String input;
         System.out.println("Type the name of the person you want to add; type 'back' to exit");
-        input = sc.nextLine();
+        System.out.print("[add]: ");
+        input = sc.next();
         while (!input.equals("back")) {
             cc.addContactMainFrame(input);
-            input = sc.nextLine();
+            System.out.print("[add]: ");
+            input = sc.next();
         }
     }
 
@@ -107,14 +112,14 @@ public class CommandLineInterface {
      * Add a new person to the database.
      */
     private void addPerson() {
-        System.out.println("Enter the name of the person to add:");
-        String name = sc.nextLine();
+        System.out.print("Enter the name of the person to add: ");
+        String name = sc.next();
 
-        System.out.println("Enter the phone number of the person to add:");
-        String phone = sc.nextLine();
+        System.out.print("Enter the phone number of the person to add: ");
+        String phone = sc.next();
 
-        System.out.println("Enter the email of the person to add:");
-        String email = sc.nextLine();
+        System.out.print("Enter the email of the person to add: ");
+        String email = sc.next();
 
         Person newPerson = new Person(name, phone, email);
         mf.addEntity(newPerson, name);

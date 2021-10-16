@@ -36,9 +36,14 @@ public class PersonalUser extends User {
     public Object getContact() {
         // The type of object this method returns will depend on how we choose to display the contacts
         StringBuilder ret = new StringBuilder();
+        if(this.contacts.isEmpty()){
+            return "your contacts list is empty!";
+        }
+        ret.append("+-------------------------CONTACTS LIST---------------------------+\n");
         for (Client p: this.contacts) {
             ret.append(String.format("%s | %s | %s\n", p.getName(), p.getPhone(), p.getEmail()));
         }
+        ret.append("+-----------------------------------------------------------------+\n");
         return ret.toString();
     }
 }
