@@ -1,12 +1,12 @@
 # Person
 
 ## Parent Class:
-- [[Client(I)]]
+- [[Profile(A)]]
 
 ## Subclasses:
 N/A
 
-## Responsibilities
+## Responsibilities:
 Stores information about individual users.
 
 ## Collaborators:

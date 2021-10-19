@@ -6,8 +6,8 @@ N/A
 ## Subclasses:
 N/A
 
-## Responsibilities
+## Responsibilities:
 Displays app data to an Android device
 
-## Collaborators
+## Collaborators:
 - [[AppViewModel]]

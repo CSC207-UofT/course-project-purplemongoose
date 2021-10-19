@@ -6,10 +6,10 @@
 ## Subclasses:
 N/A
 
-## Responsibilities
+## Responsibilities:
 Represents a collection of people who are related via a business they are part of.
 
-## Collaborators
+## Collaborators:
 - [[User(A)]]
 - [[Phone]]
 - [[Email]]

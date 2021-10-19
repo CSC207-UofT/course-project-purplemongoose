@@ -6,8 +6,8 @@
 ## Subclasses:
 N/A
 
-## Responsibilities
+## Responsibilities:
 Stores information about coporate users; those who are using the app to represent an entire organization.
 
-## Collaborators:
-- [[Client(I)]]
+## Collaborators::
+- [[Profile(A)]]
