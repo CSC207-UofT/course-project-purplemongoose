@@ -4,9 +4,9 @@ kard is the business card for the 21st century. Forget those paper cards that ev
 
 ## Contents
 
-- [Roadmap](##roadmap)
-- [Framework and Technologies](##frameworks-and-technologies)
-- [Project phases](##project-phases)
+- [Roadmap](https://github.com/CSC207-UofT/course-project-purplemongoose##roadmap)
+- [Framework and Technologies](https://github.com/CSC207-UofT/course-project-purplemongoose##frameworks-and-technologies)
+- [Project phases](https://github.com/CSC207-UofT/course-project-purplemongoose##project-phases)
 
 ## Roadmap
 
