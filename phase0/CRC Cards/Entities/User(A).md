@@ -7,7 +7,7 @@ N/A
 - [[NormalUser]]
 - [[CorporateUser]]
 
-## Responsibilities
+## Responsibilities:
 An abstract class representing a user.
 
 Defines methods for:
@@ -18,4 +18,4 @@ Defines methods for:
 Contains a local database for contacts.
 
 ## Collaborators:
-- [[Client(I)]]
+- [[Profile(A)]]

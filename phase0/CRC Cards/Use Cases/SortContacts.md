@@ -6,9 +6,9 @@ N/A
 ## Subclasses:
 N/A
 
-## Responsibilities
-Given some data from the controller, return a view model for the UI to display.
+## Responsibilities:
+Return a truncated list (e.g. top 10) of Profiles that correspond to some sorting condition
 
-## Collaborators
+## Collaborators:
 - [[User(A)]]
-- [[EntityGateway(I)]]
+- [[Gateway(I)]]
