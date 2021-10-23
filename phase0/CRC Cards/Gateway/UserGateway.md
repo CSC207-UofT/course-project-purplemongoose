@@ -1,12 +1,12 @@
 # UserGateway
 
 ## Parent Class:
--[[EntityGateway(I)]]
+-[[Gateway(I)]]
 
 ## Subclasses:
 N/A
 
-## Responsibility
+## Responsibility:
 Takes in data values returned by MainFrame API and creates a User for the use cases to interact with. Also serialize Users into a format which can be written to the MainFrame
 
 ## Collaborators

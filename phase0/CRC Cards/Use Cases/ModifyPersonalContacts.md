@@ -1,4 +1,4 @@
-# ModifyContacts
+# ModifyPersonalContacts
 
 ## Parent Class:
 N/A
@@ -6,10 +6,10 @@ N/A
 ## Subclasses:
 N/A
 
-## Responsibilities
+## Responsibilities:
 Adds and removes contacts from a user's local contact list
 
 ## Collaborators:
 - [[User(A)]]
 - [[SortContacts]]
-- [[EntityGateway(I)]]
+- [[Gateway(I)]]
