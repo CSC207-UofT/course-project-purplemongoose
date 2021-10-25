@@ -1,5 +1,6 @@
 package database;
 
+import entity.Client;
 import entity.Person;
 
 import java.sql.*;
@@ -56,14 +57,31 @@ public class AccountGateway extends MainFrameGateway {
         // WIP
     }
 
-
     // for testing purposes
     public static void main(String[] args) {
-        Person p1 = new Person("bob", "1234567890", "hello@bob.com");
-        insertUserData("bob", "pass", p1); // comment out if already inserted
-        Person p2 = (Person)getUserData("bob", "pass");
-        assert p2 != null;
-        System.out.println(p2.getEmail());
+        Person p1 = new Person("bob", "111-222-3333", "hello@bob.com");
+        Person p2 = new Person("joe", "647-647-6477", "joe@mama.com");
+        Person p3 = new Person("sandy", "123-456-7890", "sandy@cheeks.com");
+
+        if (true) { // set as false if entries are already in db
+            insertUserData("bobthegamer", "password", p1);
+            insertUserData("joemama69", "hahagotem", p2);
+            insertUserData("squirrel123", "nuts", p3);
+        }
+        else {
+            Client pd1 = (Client)getUserData("bobthegamer", "password");
+            Client pd2 = (Client)getUserData("joemama69", "hahagotem");
+            Client pd3 = (Client)getUserData("squirrel123", "nuts");
+
+            assert pd1 != null;
+            assert pd2 != null;
+            assert pd3 != null;
+
+            System.out.printf("%s | %s | %s\n", pd1.getName(), pd1.getPhone(), pd1.getEmail());
+            System.out.printf("%s | %s | %s\n", pd2.getName(), pd2.getPhone(), pd2.getEmail());
+            System.out.printf("%s | %s | %s\n", pd3.getName(), pd3.getPhone(), pd3.getEmail());
+
+        }
     }
 }
 
