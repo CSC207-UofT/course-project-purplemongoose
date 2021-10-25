@@ -1,28 +1,29 @@
-/* Unimplemented Class - Commented out for simplicity
-
-TODO: 2021-10-16 Determine implementation and implement.
-
 package entity;
 
 public class Company implements Client {
-    private Object name;
-    private Object phone;
-    private Object Email;
-    // Details are WIP
+
+    private final Object name;
+    private final Object phone;
+    private final Object Email;
+
+    public Company(String name, String phone, String Email) {
+        this.name = name;
+        this.phone = phone;
+        this.Email = Email;
+    }
 
     @Override
     public Object getName() {
-        return null;
+        return name;
     }
 
     @Override
     public Object getPhone() {
-        return null;
+        return phone;
     }
 
     @Override
     public Object getEmail() {
-        return null;
+        return Email;
     }
 }
-*/
