@@ -5,6 +5,11 @@ public class Name {
     /** A class to store all the detail of a person's name
      * This class assumes that all names that are passed in are already
      * divided for their first and last name, pronouns, and titles.
+     *
+     * For the methods that retrieve the name from the user, need
+     * to implement a parser for the input so that the first and last name,
+     * optional pronouns and titles are passed into class Name as 4 distinct
+     * arguments.
      */
 
     private final String first;
