@@ -6,8 +6,8 @@ N/A
 ## Subclasses:
 N/A
 
-## Responsibilities
+## Responsibilities:
 Represents the command line interface (e.g. terminal)
 
-## Collaborators
+## Collaborators:
 - [[AppViewModel]]

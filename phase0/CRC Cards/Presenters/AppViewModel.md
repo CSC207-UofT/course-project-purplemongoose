@@ -6,11 +6,11 @@ N/A
 ## Subclasses:
 N/A
 
-## Responsibilities
+## Responsibilities:
 Given some data from the controller, return a view model for the UI to display.
 
 ## Collaborators
-- [[AdjustUser]]
-- [[FetchClients]]
-- [[FetchContacts]]
-- [[ParseInitUser]]
+- [[SeachController]]
+- [[LoginController]]
+- [[CardController]]
+- [[UserController]]

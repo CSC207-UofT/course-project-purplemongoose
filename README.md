@@ -4,9 +4,9 @@ kard is the business card for the 21st century. Forget those paper cards that ev
 
 ## Contents
 
-- [Roadmap](##roadmap)
-- [Framework and Technologies](##frameworks-and-technologies)
-- [Project phases](##project-phases)
+- [Roadmap](#roadmap)
+- [Framework and Technologies](#frameworks-and-technologies)
+- [Project phases](#project-phases)
 
 ## Roadmap
 
@@ -24,9 +24,9 @@ Unit tests are written with [Junit5.7](https://junit.org/junit5/)
 
 ## Project Phases
 
-Project [Phase 0]()
+Project [Phase 0](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/phase0)
 
-Project [Phase 1]()
+Project [Phase 1] Link coming soon...
 
 ## Authors
 

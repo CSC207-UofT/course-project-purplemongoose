@@ -1,4 +1,4 @@
-# EntityGateway(I)
+# Gateway(I)
 
 ## Parent Class:
 N/A
@@ -7,8 +7,8 @@ N/A
 - [[ClientGateway]]
 - [[UserGateway]]
 
-## Responsibility
+## Responsibility:
 Interface for MainFrame to Entity IO mechanism for Use Cases
 
-## Collaborators
+## Collaborators:
 N/A

@@ -6,8 +6,8 @@
 ## Subclasses:
 N/A
 
-## Responsibilities
+## Responsibilities:
 Stores information about normal users; those who are using the app to represent a single person. 
 
 ## Collaborators:
-- [[Client(I)]]
+- [[Profile(A)]]
