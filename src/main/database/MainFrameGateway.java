@@ -3,7 +3,7 @@ package database;
 import java.io.*;
 import java.sql.*;
 
-public abstract class MainFrameGateway {
+public class MainFrameGateway {
 
     public MainFrameGateway() {
     }
