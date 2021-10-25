@@ -1,12 +1,12 @@
 # Organization
 
 ## Parent Class:
--[[Client(I)]]
+- [[Profile(A)]]
 
 ## Subclasses:
 - [[Business]]
 
-## Responsibilities
+## Responsibilities:
 Represents a collection of people who are related via an organization they are members of.
 
 ## Collaborators:
