@@ -1,5 +1,7 @@
 package entity;
 
+import java.io.Serializable;
+
 public abstract class User {
     public abstract boolean addContact(Client e); // return true if added successfully
     public abstract boolean removeContact(Client e); // return true if removed successfully
