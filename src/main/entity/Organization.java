@@ -6,7 +6,8 @@ public class Organization extends Profile {
 
     private final ArrayList<Client> Coworkers;
 
-    /** Stores a collection of people who are associated to a certain Organization
+    /** Stores a collection of Persons who are associated to a certain Organization
+     * Can also run basic operations about the Persons associated to an Organization
      *
      * @param c Client
      */

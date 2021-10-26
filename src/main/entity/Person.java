@@ -23,6 +23,10 @@ public class Person implements Client, Serializable {
         return name.getFullName();
     }
 
+    public String getPronouns() {
+        return name.getPronouns();
+    }
+
     public String getPhone() {
         return phone.getPhone();
     }

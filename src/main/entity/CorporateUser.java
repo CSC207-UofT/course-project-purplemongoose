@@ -1,27 +1,26 @@
 package entity;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class CorporateUser extends User {
+public class CorporateUser extends User implements Iterator {
 
     /** Represents the User account created by an Organization
      *
-     * Suggestion: refactor Corporate user as "OrganizationUser
+     * Suggestion: refactor Corporate user as "OrganizationUser"
+     *
+     * Currently also implements Iterator to prepare for any iterative
+     * mechanism to fetch information about contacts
      */
 
     private final String orgName;
     private final ArrayList<Client> contacts;
-    private Integer size;
 
     // setters
 
     public CorporateUser(String orgName) {
         this.orgName = orgName;
         this.contacts = new ArrayList<>();
-    }
-
-    public void setOrgSize(Integer size) {
-        this.size = size;
     }
 
     // manipulators
@@ -58,42 +57,34 @@ public class CorporateUser extends User {
 
     // the getters
 
+    /** As of right now, just returns an ArrayList of all the contacts.
+     * Maybe add another method that produces a String of all the contacts if need
+     * something for human use
+     *
+     * @return ArrayList Clients
+     */
     @Override
     public Object getContact() {
-        return null;
+        return contacts;
     }
 
     public String getOrgName() {
         return orgName;
     }
-}
 
+    // other methods to get info about the organization
 
-
-/* Unimplemented Class - Commented out for simplicity
-
-TODO: 2021-10-16 Determine implementation and implement.
-
-package entity;
-
-// This is a company account for kard
-public class CorporateUser extends User {
-    // Details are WIP
+    public int getOrgSize() {
+        return contacts.size();
+    }
 
     @Override
-    public boolean addContact(Client e) {
+    public boolean hasNext() {
         return false;
     }
 
     @Override
-    public boolean removeContact(Client e) {
-        return false;
-    }
-
-    @Override
-    public Object getContact() {
+    public Object next() {
         return null;
     }
 }
-
-*/
