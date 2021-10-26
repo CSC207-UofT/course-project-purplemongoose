@@ -9,6 +9,9 @@ public class CorporateUser extends User implements Iterator {
      *
      * Suggestion: refactor Corporate user as "OrganizationUser"
      *
+     * Stores information about the User's contacts and provides
+     * associated methods
+     *
      * Currently also implements Iterator to prepare for any iterative
      * mechanism to fetch information about contacts
      */

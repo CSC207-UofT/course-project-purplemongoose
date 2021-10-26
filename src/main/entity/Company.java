@@ -2,28 +2,34 @@ package entity;
 
 public class Company implements Client {
 
-    private final Object name;
-    private final Object phone;
-    private final Object Email;
+    /** Store and retrieves identifying information about the Organization
+     *
+     * Identifying information: name, phone number, and email
+     *
+     */
 
-    public Company(String name, String phone, String Email) {
+    private final String name;
+    private final Phone phone;
+    private final Email Email;
+
+    public Company(String name, Phone phone, Email Email) {
         this.name = name;
         this.phone = phone;
         this.Email = Email;
     }
 
     @Override
-    public Object getName() {
+    public String getName() {
         return name;
     }
 
     @Override
-    public Object getPhone() {
-        return phone;
+    public String getPhone() {
+        return phone.getPhone();
     }
 
     @Override
-    public Object getEmail() {
-        return Email;
+    public String getEmail() {
+        return Email.getEmail();
     }
 }
