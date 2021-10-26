@@ -3,7 +3,7 @@ package entity;
 import java.util.ArrayList;
 
 /**
- * The account of a user of kard
+ * The account of a Person of kard
  *
  * Store all the user's individual contacts and provides methods to add, remove, and display them
  */
