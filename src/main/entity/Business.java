@@ -18,7 +18,7 @@ public class Business extends Organization {
     // The setters
 
     public Business(String companyName) {
-        this.companyName = companyName;
+        super(companyName);
     }
 
     public void setOwner(Name ownerName) {

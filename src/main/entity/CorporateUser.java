@@ -1,6 +1,7 @@
 package entity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class CorporateUser extends User implements Iterator {
@@ -17,26 +18,28 @@ public class CorporateUser extends User implements Iterator {
      */
 
     private final String orgName;
-    private final ArrayList<Client> contacts;
+    private final ArrayList<Person> contacts;
+    private final HashMap<Company, String> associatedOrganizations;
 
     // setters
 
-    public CorporateUser(String orgName) {
+    public CorporateUser(String orgName, ArrayList<Company> associatedOrganizations) {
         this.orgName = orgName;
+        this.associatedOrganizations = new HashMap<>();
         this.contacts = new ArrayList<>();
     }
 
     // manipulators
 
-    /** Add a contact to this CorporateUser's contact list
+    /** Add a Person to this CorporateUser's contact list
      *
-     * @param e Client
+     * @param p Person
      * @return true if the client is added to contacts successfully
      */
     @Override
-    public boolean addContact(Client e) {
-        if (!contacts.contains(e)) {
-            contacts.add(e);
+    public boolean addContact(Person p) {
+        if (!contacts.contains(p)) {
+            contacts.add(p);
             return true;
         } else {
             return false;
@@ -45,13 +48,13 @@ public class CorporateUser extends User implements Iterator {
 
     /** Remove a contact from this CorporateUser's contact list
      *
-     * @param e Client
+     * @param p Client
      * @return true if client is removed from contacts successfully
      */
     @Override
-    public boolean removeContact(Client e) {
-        if (contacts.contains(e)) {
-            contacts.remove(e);
+    public boolean removeContact(Person p) {
+        if (contacts.contains(p)) {
+            contacts.remove(p);
             return true;
         } else {
             return false;

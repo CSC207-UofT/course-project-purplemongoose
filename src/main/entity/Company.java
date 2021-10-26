@@ -2,9 +2,14 @@ package entity;
 
 public class Company implements Client {
 
-    /** Store and retrieves identifying information about the Organization
+    /** Company is used to create the app user's interface, so all the
+     * information is not initialized here, but is retrieved from
+     * Organization and compiled here.
      *
-     * Identifying information: name, phone number, and email
+     * Assume that all information about the company is stored in the
+     * mainframe via initialization in the organization.
+     *
+     * TODO: Consider refactoring class for clarity
      *
      */
 

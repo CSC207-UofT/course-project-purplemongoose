@@ -13,6 +13,7 @@ public class Organization extends Profile {
      * Additionally, also stores a collection of related companies
      */
 
+    private final String orgName;
     private final ArrayList<Person> Coworkers;
     private final HashMap<Company, String> associatedOrgs;
 
@@ -21,7 +22,8 @@ public class Organization extends Profile {
     /** Organization starts off not having any clients
      *
      */
-    public Organization() {
+    public Organization(String orgName) {
+        this.orgName = orgName;
         this.Coworkers = new ArrayList<>();
         this.associatedOrgs = new HashMap<>();
     }
@@ -45,6 +47,14 @@ public class Organization extends Profile {
     }
 
     // the getters
+
+    /** Organization name getter
+     *
+     * @return String of organization's name
+     */
+    public String getOrgName() {
+        return orgName;
+    }
 
     /**
      * Coworkers getter
