@@ -48,7 +48,7 @@ public class CorporateUser extends User implements Iterator {
 
     /** Remove a contact from this CorporateUser's contact list
      *
-     * @param p Client
+     * @param p Person
      * @return true if client is removed from contacts successfully
      */
     @Override
