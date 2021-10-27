@@ -1,5 +1,8 @@
 package entity;
 
+import entity.profiles.Organization;
+import entity.profiles.Person;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -19,13 +22,13 @@ public class CorporateUser extends User implements Iterator {
 
     private final String orgName;
     private final ArrayList<Person> contacts;
-    private final HashMap<Company, String> associatedOrganizations;
+    private final HashMap<Organization, String> associatedOrgs;
 
     // setters
 
     public CorporateUser(String orgName, ArrayList<Company> associatedOrganizations) {
         this.orgName = orgName;
-        this.associatedOrganizations = new HashMap<>();
+        this.associatedOrgs = new HashMap<>();
         this.contacts = new ArrayList<>();
     }
 
@@ -59,6 +62,15 @@ public class CorporateUser extends User implements Iterator {
         } else {
             return false;
         }
+    }
+
+    /** Add other companies that are associated to the current one,
+     * such as parent companies or child companies
+     * @param o Organization
+     * @param association String
+     */
+    public void addOrgs(Organization o, String association) {
+        associatedOrgs.put(o, association);
     }
 
     // the getters

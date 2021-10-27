@@ -1,6 +1,6 @@
 import database.MainFrame;
 import entity.PersonalUser;
-import entity.Person;
+import entity.profiles.Person;
 import userInterface.CommandLineInterface;
 
 public class Main {

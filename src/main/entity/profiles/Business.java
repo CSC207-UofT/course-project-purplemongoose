@@ -1,4 +1,6 @@
-package entity;
+package entity.profiles;
+
+import entity.dataFiles.Name;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package entity;
+package entity.dataFiles;
 
 public class Name {
 

@@ -1,5 +1,6 @@
 package entity;
 
+import entity.profiles.Person;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

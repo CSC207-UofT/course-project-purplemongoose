@@ -1,7 +1,7 @@
 package controller;
 
 import database.MainFrame;
-import entity.Person;
+import entity.profiles.Person;
 import entity.PersonalUser;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

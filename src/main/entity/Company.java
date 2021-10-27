@@ -1,5 +1,8 @@
 package entity;
 
+import entity.dataFiles.Email;
+import entity.dataFiles.Phone;
+
 public class Company implements Client {
 
     /** Company is used to create the app user's interface, so all the
@@ -15,7 +18,7 @@ public class Company implements Client {
 
     private final String name;
     private final Phone phone;
-    private final Email Email;
+    private final entity.dataFiles.Email Email;
 
     public Company(String name, Phone phone, Email Email) {
         this.name = name;

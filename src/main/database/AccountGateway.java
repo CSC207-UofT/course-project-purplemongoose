@@ -1,7 +1,7 @@
 package database;
 
 import entity.Client;
-import entity.Person;
+import entity.profiles.Person;
 
 import java.sql.*;
 

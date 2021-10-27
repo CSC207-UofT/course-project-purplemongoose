@@ -1,6 +1,6 @@
 package use_cases;
 
-import entity.Person;
+import entity.profiles.Person;
 import entity.PersonalUser;
 
 public class CreateUser {

@@ -1,36 +1,85 @@
 package entity;
 
+import entity.connections.Contacts;
+import entity.profiles.Organization;
+import entity.profiles.Person;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * The account of a Person of kard
  *
- * Store all the user's individual contacts and provides methods to add, remove, and display them
+ * Stores information about each individual User's contacts and optionally,
+ * their association, which is how they're related to them (ex. current coworker,
+ * previous coworker, client, etc).
+ *
+ * If no connection was declared during initialization of contact, then
+ * connection is null.
+ *
+ * Provides methods to add and remove connections and display them.
+ *
  */
 public class PersonalUser extends User {
 
-    private final ArrayList<Client> contacts; // This is the local copy of User's contacts
+    // Two types of connections: contacts and affiliations
+    // A local copy of the User's contacts:
+    private final HashMap<Person, String> contacts;
+    // A local copy of the User's affiliations:
+    private final ArrayList<Organization> affiliations;
 
 
+    // Initialize two empty ArrayLists for each connection
     public PersonalUser() {
-        this.contacts = new ArrayList<>();
+        this.contacts = new HashMap<>();
+        this.affiliations = new ArrayList<>();
     }
 
-    /**
-     * Add a person to the user's contact list. Return true if the person was successfully added.
-     *
-     * @param p person to add to contacts list
-     * @return Success of adding to contacts list
-     */
     @Override
-    public boolean addContact(Client p) {
-        if (!contacts.contains(p)) {
-            contacts.add(p);
-            return true;
-        } else {
-            return false;
-        }
+    public boolean addContact(Person p) {
+        Connections conn = new Connections();
+        conn.addConnection(contacts, p);
+
     }
+
+//    /**
+//     * Add a person to the User's contact list
+//     *
+//     * This is an overloaded method: if no association is provided,
+//     * then add new contact to contacts as a key with a null value
+//     *
+//     * @param p person to add to contacts list
+//     * @return Success of adding to contacts list
+//     */
+//    @Override
+//    public boolean addContact(Person p) {
+//        if (!contacts.containsKey(p)) {
+//            contacts.put(p, null);
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
+//
+//    /**
+//     * Add a person to the User's contact list
+//     *
+//     * This is an overloaded method: if an association is provided,
+//     * then add a new contact to contacts as a key with the value
+//     * provided in association
+//     *
+//     * @param p person to add to contacts list
+//     * @param association type of association to user
+//     * @return success of adding to contacts list
+//     */
+//    public boolean addContact(Person p, String association) {
+//        if (!contacts.containsKey(p)) {
+//            contacts.put(p, association);
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
 
     /**
      * Remove a person to the user's contact list. Return true if the person was successfully removed.
@@ -39,8 +88,8 @@ public class PersonalUser extends User {
      * @return Success of removing from contacts list
      */
     @Override
-    public boolean removeContact(Client p) {
-        if (contacts.contains(p)) {
+    public boolean removeContact(Person p) {
+        if (contacts.containsKey(p)) {
             contacts.remove(p);
             return true;
         } else {

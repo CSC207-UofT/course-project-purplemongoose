@@ -1,7 +1,7 @@
 package database;
 
 import entity.Client;
-import entity.Person;
+import entity.profiles.Person;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

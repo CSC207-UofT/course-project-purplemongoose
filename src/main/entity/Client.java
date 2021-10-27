@@ -1,6 +1,7 @@
 package entity;
 
-/** Interface that for Company and Person who are both 'accounts' on kard
+/** Interface defining all required methods for the classes
+ * that represent accounts on kard
  *
  */
 public interface Client {

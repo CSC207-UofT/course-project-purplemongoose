@@ -1,8 +1,8 @@
-package entity;
+package entity.profiles;
+
+import entity.Company;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Objects;
 
 public class Organization extends Profile {
@@ -14,8 +14,6 @@ public class Organization extends Profile {
      */
 
     private final String orgName;
-    private final ArrayList<Person> Coworkers;
-    private final HashMap<Company, String> associatedOrgs;
 
     // the setters
 
@@ -24,26 +22,6 @@ public class Organization extends Profile {
      */
     public Organization(String orgName) {
         this.orgName = orgName;
-        this.Coworkers = new ArrayList<>();
-        this.associatedOrgs = new HashMap<>();
-    }
-
-    /** Add in Coworkers one by one after Organization has
-     * been initialized
-     *
-     * Coworkers must be initialized as clients
-     */
-    public void addCoworkers(Person p) {
-        Coworkers.add(p);
-    }
-
-    /** A tentative method to add other companies that are associated to
-     * the current one, such as parent companies or child companies
-     * @param c Company
-     * @param association String
-     */
-    public void addOrganizations(Company c, String association) {
-        associatedOrgs.put(c, association);
     }
 
     // the getters
@@ -54,14 +32,6 @@ public class Organization extends Profile {
      */
     public String getOrgName() {
         return orgName;
-    }
-
-    /**
-     * Coworkers getter
-     * @return ArrayList of all Coworkers at this Organization
-     */
-    public ArrayList<Person> getCoworkers() {
-        return Coworkers;
     }
 
     /** Gets an ArrayList of the companies that are associated
@@ -82,11 +52,11 @@ public class Organization extends Profile {
 
     /**
      * Inherited method
-     * @param e Client
+     * @param p Client
      * @return true if e is a Coworker
      */
     @Override
-    public boolean isCoworker(Client e) {
-        return Coworkers.contains(e);
+    public boolean isCoworker(Person p) {
+        return Coworkers.contains(p);
     }
 }
