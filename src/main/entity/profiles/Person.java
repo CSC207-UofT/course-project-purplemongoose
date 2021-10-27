@@ -7,7 +7,7 @@ import entity.dataFiles.Phone;
 
 import java.io.Serializable;
 
-public class Person extends Profile implements Client, Serializable {
+public class Person implements Client, Serializable, ProfileType {
 
     /** Stores all values as subclasses
      * Getters return all values as Strings
@@ -38,10 +38,5 @@ public class Person extends Profile implements Client, Serializable {
 
     public String getEmail() {
         return email.getEmail();
-    }
-
-    @Override
-    public boolean isCoworker(Person p) {
-        return false;
     }
 }

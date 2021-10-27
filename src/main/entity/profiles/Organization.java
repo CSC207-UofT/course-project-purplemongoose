@@ -1,11 +1,9 @@
 package entity.profiles;
 
-import entity.Company;
+import entity.dataFiles.Email;
+import entity.dataFiles.Phone;
 
-import java.util.ArrayList;
-import java.util.Objects;
-
-public class Organization extends Profile {
+public class Organization implements ProfileType {
 
     /** Stores a collection of Persons who are associated to a certain Organization
      * Can also run basic operations about the Persons associated to an Organization
@@ -14,49 +12,34 @@ public class Organization extends Profile {
      */
 
     private final String orgName;
+    private final Phone orgPhone;
+    private final Email orgEmail;
 
     // the setters
 
-    /** Organization starts off not having any clients
-     *
+    /**
+     * Organization starts off not having any clients
      */
-    public Organization(String orgName) {
+    public Organization(String orgName, Phone phone, Email Email) {
         this.orgName = orgName;
+        this.orgPhone = phone;
+        this.orgEmail = Email;
     }
 
     // the getters
 
-    /** Organization name getter
-     *
-     * @return String of organization's name
-     */
-    public String getOrgName() {
+    @Override
+    public String getName() {
         return orgName;
     }
 
-    /** Gets an ArrayList of the companies that are associated
-     * to this current organization by virtue of type of association,
-     * as defined during initialization
-     * @return list of associated companies
-     */
-    public ArrayList<Company> filterAssociatedOrgs(String associationType) {
-        ArrayList<Company> companiesAssociated = new ArrayList<>();
-        for (Company c : associatedOrgs.keySet()) {
-            // search through hash map
-            if (Objects.equals(associatedOrgs.get(c), associationType)) {
-                companiesAssociated.add(c);
-            }
-        }
-        return companiesAssociated;
+    @Override
+    public String getPhone() {
+        return orgPhone.getPhone();
     }
 
-    /**
-     * Inherited method
-     * @param p Client
-     * @return true if e is a Coworker
-     */
     @Override
-    public boolean isCoworker(Person p) {
-        return Coworkers.contains(p);
+    public String getEmail() {
+        return orgEmail.getEmail();
     }
 }

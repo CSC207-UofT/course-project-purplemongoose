@@ -1,5 +1,6 @@
-package entity;
+package entity.Users;
 
+import entity.profiles.Organization;
 import entity.profiles.Person;
 
 public abstract class User {
@@ -24,5 +25,9 @@ public abstract class User {
     public abstract boolean addContact(Person p); // return true if added successfully
     public abstract boolean removeContact(Person p); // return true if removed successfully
     public abstract Object getContact(); // return some sort of container for contacts
+
+    public abstract boolean addAffiliation(Organization o); // return true if added successfully
+    public abstract boolean removeAffiliation(Organization o); // return true if removed successfully
+    public abstract Object getAffiliation(); // return some sort of container for affiliations
 
 }
