@@ -1,6 +1,8 @@
 package userInterface;
 
 import controller.ContactController;
+import controller.LoginController;
+import controller.UserController;
 import database.MainFrame;
 import entity.Person;
 import entity.PersonalUser;
@@ -11,14 +13,14 @@ public class CommandLineInterface {
     private final PersonalUser user;
     private final Scanner sc;
     private final MainFrame mf;
-    private final ContactController cc;
+    private final UserController uc;
+    private final LoginController lc;
 
     public CommandLineInterface(MainFrame mf, PersonalUser user) {
         this.mf = mf;
         this.user = user;
-
-        this.cc = new ContactController(mf, user);
-
+        this.uc = new UserController();
+        this.lc = new LoginController();
         sc = new Scanner(System.in).useDelimiter("\\n");
     }
 
@@ -40,6 +42,29 @@ public class CommandLineInterface {
         System.out.println("Press enter to continue...");
         try {
             sc.nextLine();
+            loginScreen();
+//            instructionScreen();
+        } catch (Exception ignored) {
+        }
+
+//        events();
+    }
+
+    private void loginScreen() {
+        System.out.println("Please log in:");
+        int status = 0;
+        eventloop:
+        while(status != 1){
+            System.out.print("username: ");
+            String username = sc.next();
+            System.out.print("password: ");
+            String password = sc.next();
+            status = (int) lc.submitLogin(username, password);
+            System.out.println("wrong username or password, please try again! \n");
+        }
+
+        System.out.println("logged in! \n");
+        try {
             instructionScreen();
         } catch (Exception ignored) {
         }
@@ -81,7 +106,6 @@ public class CommandLineInterface {
      * Print a list of all contacts obtained through user.getContact() with some styling;
      */
     private void displayContacts() {
-        //todo temporary; should be part of ContactController
         System.out.println("+-------------------------CONTACTS LIST---------------------------+");
         System.out.println(user.getContact());
         System.out.println("+-----------------------------------------------------------------+");
@@ -96,7 +120,15 @@ public class CommandLineInterface {
         System.out.print("[remove]: ");
         input = sc.next();
         while (!input.equals("back")) {
-            cc.removeContactMainFrame(input);
+            if (uc.submitSearch(input)==null) {
+
+                //display message that this user does not exist in the db
+                // using display classes
+                System.out.printf("%s could not be found!\n", input);
+            }
+
+            this.uc.submitContactRemoval(this.user, input);
+            System.out.printf("%s has been successfully removed!\n", input);
             System.out.print("[remove]: ");
             input = sc.next();
         }
@@ -111,7 +143,16 @@ public class CommandLineInterface {
         System.out.print("[add]: ");
         input = sc.next();
         while (!input.equals("back")) {
-            cc.addContactMainFrame(input);
+            if (uc.submitSearch(input)==null) {
+
+                //display message that this user does not exist in the db
+                // using display classes (in the future)
+                System.out.printf("%s could not be found!\n", user);
+                return;
+            }
+
+            this.uc.submitContactAddition(this.user, input);
+            System.out.printf("%s has been successfully added!\n", input);
             System.out.print("[add]: ");
             input = sc.next();
         }
