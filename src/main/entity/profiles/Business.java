@@ -1,6 +1,8 @@
 package entity.profiles;
 
+import entity.dataFiles.Email;
 import entity.dataFiles.Name;
+import entity.dataFiles.Phone;
 
 import java.util.ArrayList;
 
@@ -19,8 +21,8 @@ public class Business extends Organization {
 
     // The setters
 
-    public Business(String companyName) {
-        super(companyName);
+    public Business(String companyName, Phone phone, Email email) {
+        super(companyName, phone, email);
     }
 
     public void setOwner(Name ownerName) {

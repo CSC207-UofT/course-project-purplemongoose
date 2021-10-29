@@ -1,9 +1,9 @@
-package entity.Users;
+package entity.accounts;
 
 import entity.profiles.Organization;
 import entity.profiles.Person;
 
-public abstract class User {
+public abstract class Account {
 
     /** A User is any account on kard.
      *
@@ -24,6 +24,7 @@ public abstract class User {
 
     public abstract boolean addContact(Person p); // return true if added successfully
     public abstract boolean removeContact(Person p); // return true if removed successfully
+    public abstract boolean checkContacts(Person p); // check if the contact already exists
     public abstract Object getContact(); // return some sort of container for contacts
 
     public abstract boolean addAffiliation(Organization o); // return true if added successfully

@@ -1,14 +1,15 @@
 package entity;
 
+import entity.accounts.PersonalAccount;
 import entity.profiles.Person;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PersonalUserTest {
+class PersonalAccountTest {
 
     // Initialize a user
-    private final PersonalUser user = new PersonalUser();
+    private final PersonalAccount user = new PersonalAccount();
 
     // Initialize a person to add to contacts
     private final Person newUser = new Person("Name", "1234567890", "name@name.com");

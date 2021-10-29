@@ -20,11 +20,12 @@ public class Organization implements ProfileType {
     /**
      * Organization starts off not having any clients
      */
-    public Organization(String orgName, Phone phone, Email Email) {
+    public Organization(String orgName, Phone phone, Email email) {
         this.orgName = orgName;
         this.orgPhone = phone;
-        this.orgEmail = Email;
+        this.orgEmail = email;
     }
+
 
     // the getters
 

@@ -1,11 +1,13 @@
 package controller;
 
 
-import usecase.CreateAccount;
+import usecase.AccountUseCases;
 import usecase.LoginAuth;
-import view.ViewModel;
 
 public class LoginController {
+    LoginAuth auth = new LoginAuth();
+    AccountUseCases accUseCase = new AccountUseCases();
+
 
     public Object submitLogin(String username, String password) {
         LoginAuth auth = new LoginAuth();
@@ -19,9 +21,9 @@ public class LoginController {
     }
 
     public Object submitSignUp(Object signup) {
-        CreateAccount creator = new CreateAccount();
+        AccountUseCases acc = new AccountUseCases();
 
-        if (creator.generateUser("signup.username", "signup.password")) {
+        if (acc.createNewAccount("signup.username", "signup.password")) {
             return 1; //new ViewModel(success());
         }
         else {

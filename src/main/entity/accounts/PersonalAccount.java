@@ -1,4 +1,4 @@
-package entity.Users;
+package entity.accounts;
 
 import entity.profiles.Organization;
 import entity.profiles.Person;
@@ -26,7 +26,7 @@ import java.util.HashMap;
  * 2. Affiliations - connections with organization accounts
  *
  */
-public class PersonalUser extends User {
+public class PersonalAccount extends Account {
 
     // Two types of connections: contacts and affiliations
     // Same data structure, different data.
@@ -37,7 +37,7 @@ public class PersonalUser extends User {
 
 
     // Initialize two empty HashMaps for each connection
-    public PersonalUser() {
+    public PersonalAccount() {
         this.contacts = new HashMap<>();
         this.affiliations = new HashMap<>();
     }
@@ -84,6 +84,11 @@ public class PersonalUser extends User {
     @Override
     public Object getContact() {
         return contacts.keySet();
+    }
+
+    @Override
+    public boolean checkContacts(Person p) {
+        return contacts.containsKey(p);
     }
 
     /**

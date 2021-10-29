@@ -1,7 +1,5 @@
-package entity.Users;
+package entity.accounts;
 
-import entity.profiles.Person;
-import entity.profiles.Profile;
 import entity.profiles.ProfileType;
 
 import java.util.HashMap;

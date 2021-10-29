@@ -1,25 +1,21 @@
 package userInterface;
 
-import controller.ContactController;
 import controller.LoginController;
-import controller.UserController;
-import database.MainFrame;
-import entity.profiles.Person;
-import entity.PersonalUser;
+import controller.AccountController;
+import entity.accounts.Account;
+
 
 import java.util.Scanner;
 
 public class CommandLineInterface {
-    private final PersonalUser user;
     private final Scanner sc;
-    private final MainFrame mf;
-    private final UserController uc;
+    private final AccountController uc;
     private final LoginController lc;
+    private final Account acc;
 
-    public CommandLineInterface(MainFrame mf, PersonalUser user) {
-        this.mf = mf;
-        this.user = user;
-        this.uc = new UserController();
+    public CommandLineInterface() {
+        this.acc = null;
+        this.uc = new AccountController();
         this.lc = new LoginController();
         sc = new Scanner(System.in).useDelimiter("\\n");
     }
@@ -92,7 +88,6 @@ public class CommandLineInterface {
                 case "add" -> addContact();
                 case "remove" -> removeContact();
                 case "display" -> displayContacts();
-                case "add person" -> addPerson();
                 case "quit" -> {
                     System.out.println("Thank you for using Kard");
                     break eventLoop;
@@ -158,24 +153,7 @@ public class CommandLineInterface {
         }
     }
 
-    /**
-     * Add a new person to the database.
-     */
-    private void addPerson() {
-        System.out.print("Enter the name of the person to add: ");
-        String name = sc.next();
 
-        System.out.print("Enter the phone number of the person to add: ");
-        String phone = sc.next();
-
-        System.out.print("Enter the email of the person to add: ");
-        String email = sc.next();
-
-        Person newPerson = new Person(name, phone, email);
-        mf.addClient(newPerson, name);
-
-        System.out.println(name + " has been added to the database!");
-    }
 
     /**
      * Display a list of commands.
@@ -185,7 +163,6 @@ public class CommandLineInterface {
         
         +---kard.--------------------------------------------------+
         | Type 'add' to add users to your contacts list            |
-        | Type 'add person' to add a user to the database          |
         | Type 'remove' to remove users from your contacts list    |
         | Type 'display' to display your contacts list             |
         | Type 'quit' to exit the program                          |

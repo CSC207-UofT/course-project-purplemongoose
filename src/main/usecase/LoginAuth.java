@@ -3,8 +3,10 @@ package usecase;
 import database.AuthGateway;
 
 public class LoginAuth {
+    AuthGateway gw = new AuthGateway();
+
     public boolean requestLogin(String username, String password) {
-        return AuthGateway.checkLoginInfo(username, password);
+        return this.gw.authLoginInfo(username, password);
     }
 
 }

@@ -1,22 +1,44 @@
 package database;
 
+import java.io.File;
 import java.sql.*;
 
-public final class AuthGateway extends MainFrameGateway {
+public class AuthGateway extends MainFrameGateway{
 
-    public AuthGateway() {
-        super();
+    private final String mfLocation = "data/account.db";
+
+    @Override
+    Connection mfConnect() {
+        File file = new File(mfLocation);
+        Connection conn = null;
+
+        if (file.exists()) {
+            try {
+                conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", this.mfLocation));
+            }
+            catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+        }
+        return conn;
     }
 
-    // return value subject to change
-    public static boolean checkLoginInfo(String username, String password) {
-        // some sqlite code queries and code here
-        return username.equals(password); //placeholder
-    }
+    public boolean authLoginInfo(String username, String password) {
+        String getSQL = "SELECT data FROM accounts WHERE username = ? AND password = ?";
+        try {
+            Connection conn = mfConnect();
+            PreparedStatement stmt = conn.prepareStatement(getSQL);
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            ResultSet rs = stmt.executeQuery();
 
-    // for testing purposes
-    public static void main(String[] args) {
-        AuthGateway gw = new AuthGateway();
-        Connection conn = gw.mfConnect();
+            if (rs.next()) {
+                return true;
+            }
+        }
+        catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return false;
     }
 }

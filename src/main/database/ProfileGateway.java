@@ -3,9 +3,9 @@ package database;
 import java.io.File;
 import java.sql.*;
 
-public class AccountGateway extends MainFrameGateway {
+public class ProfileGateway extends MainFrameGateway {
 
-    private final String mfLocation = "data/account.db";
+    private final String mfLocation = "data/profile.db";
 
     @Override
     public Connection mfConnect() {
@@ -23,7 +23,7 @@ public class AccountGateway extends MainFrameGateway {
         else { // if such a db doesn't exist, create one and add a table
             try {
                 conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", this.mfLocation));
-                createAccountTable(conn);
+                createProfileTable(conn);
             }
             catch (Exception e) {
                 System.err.println(e.getMessage());
@@ -32,16 +32,13 @@ public class AccountGateway extends MainFrameGateway {
         return conn; // return a connection for other methods to use
     }
 
-    // create table with username and password fields
-    private void createAccountTable(Connection conn) {
+    public void createProfileTable(Connection conn) {
         try {
             Statement stmt = conn.createStatement();
             String tableSQL = """
-                        CREATE TABLE IF NOT EXISTS "accounts" (
-                        	"username"	TEXT NOT NULL UNIQUE,
-                        	"password"	TEXT NOT NULL,
-                        	"uuid"      TEXT NOT NULL UNIQUE,
-                        	"account"   BLOB,
+                        CREATE TABLE IF NOT EXISTS "profiles" (
+                        	"uuid"	    TEXT NOT NULL UNIQUE,
+                        	"profile"   BLOB
                         );""";
             stmt.execute(tableSQL);
         }
@@ -50,11 +47,11 @@ public class AccountGateway extends MainFrameGateway {
         }
     }
 
-    public Object getAccountData(String uuid) {
-        String sqlQuery = "SELECT account FROM accounts WHERE uuid = ?";
+    public Object getProfileData(String uuid) {
+        String getSQL = "SELECT profile FROM profiles WHERE uuid = ?";
         try {
             Connection conn = mfConnect();
-            PreparedStatement stmt = conn.prepareStatement(sqlQuery);
+            PreparedStatement stmt = conn.prepareStatement(getSQL);
             stmt.setString(1, uuid);
             ResultSet rs = stmt.executeQuery();
 
@@ -70,15 +67,13 @@ public class AccountGateway extends MainFrameGateway {
     }
 
     // should only be used when the user creates an account
-    public boolean insertAccountData(String username, String password, String uuid, Object acc) {
-        String sqlQuery = "INSERT INTO accounts(username, password, uuid, account) VALUES(?, ?, ?, ?)";
+    public boolean insertProfileData(String uuid, Object prof) {
+        String insertSQL = "INSERT INTO profiles(uuid, profile) VALUES(?, ?)";
         try {
             Connection conn = mfConnect();
-            PreparedStatement stmt = conn.prepareStatement(sqlQuery);
-            stmt.setString(1, username);
-            stmt.setString(2, password);
-            stmt.setString(3, uuid);
-            stmt.setBytes(4, toBytes(acc));
+            PreparedStatement stmt = conn.prepareStatement(insertSQL);
+            stmt.setString(1, uuid);
+            stmt.setBytes(2, toBytes(prof));
             stmt.executeUpdate();
         }
         catch (SQLException e) {
@@ -88,12 +83,12 @@ public class AccountGateway extends MainFrameGateway {
         return true;
     }
 
-    public boolean updateAccountData(String uuid, Object acc) {
-        String sqlQuery = "UPDATE accounts SET account = ? WHERE uuid = ?";
+    public boolean updateProfileData(String uuid, Object prof) {
+        String updateSQL = "UPDATE profiles SET profile = ? WHERE uuid = ?";
         try {
             Connection conn = mfConnect();
-            PreparedStatement stmt = conn.prepareStatement(sqlQuery);
-            stmt.setBytes(1, toBytes(acc));
+            PreparedStatement stmt = conn.prepareStatement(updateSQL);
+            stmt.setBytes(1, toBytes(prof));
             stmt.setString(2, uuid);
             stmt.executeUpdate();
         }
@@ -103,6 +98,4 @@ public class AccountGateway extends MainFrameGateway {
         }
         return true;
     }
-
 }
-

@@ -1,6 +1,5 @@
 package controller;
 
-import database.MainFrame;
 import entity.profiles.Person;
 import entity.PersonalUser;
 import org.junit.jupiter.api.AfterEach;
