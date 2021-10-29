@@ -2,7 +2,7 @@ package userInterface;
 
 import controller.ContactController;
 import database.MainFrame;
-import entity.Person;
+import entity.profiles.Person;
 import entity.PersonalUser;
 
 import java.util.Scanner;

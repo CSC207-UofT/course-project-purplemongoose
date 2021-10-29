@@ -1,6 +1,6 @@
 package use_cases;
 
-import entity.Person;
+import entity.profiles.Person;
 import entity.PersonalUser;
 import org.junit.jupiter.api.Test;
 
