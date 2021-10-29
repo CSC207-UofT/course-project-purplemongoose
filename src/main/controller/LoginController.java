@@ -7,10 +7,10 @@ import view.ViewModel;
 
 public class LoginController {
 
-    public Object submitLogin(Object login) {
+    public Object submitLogin(String username, String password) {
         LoginAuth auth = new LoginAuth();
 
-        if (auth.requestLogin("login.username", "login.password")) {
+        if (auth.requestLogin(username, password)) {
             return 1; //new ViewModel(success());
         }
         else {

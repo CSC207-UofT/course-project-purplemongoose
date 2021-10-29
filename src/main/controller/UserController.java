@@ -1,9 +1,19 @@
 package controller;
 
+import database.MainFrame;
+import entity.Client;
+import entity.User;
+import use_cases.ModifyContacts;
+
 public class UserController {
     // TBA until merge with new use cases
+    ModifyContacts contacts;
+    public UserController(){
+        this.contacts = new ModifyContacts();
+    }
 
-    public Object submitSearch(Object request) {
+    public Client submitSearch(String name) {
+        // TODO: accesses the mainframe and returns the Client corresponding to the id (name)
         return null;
     }
 
@@ -11,11 +21,11 @@ public class UserController {
         return null;
     }
 
-    public Object submitContactRemoval(Object request) {
-        return null;
+    public void submitContactRemoval(User user, String name) {
+        contacts.remove(user, submitSearch(name));
     }
 
-    public Object submitContactAddition(Object request) {
-        return null;
+    public void submitContactAddition(User user, String name) {
+        contacts.add(user, submitSearch(name));
     }
 }
