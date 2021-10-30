@@ -2,10 +2,10 @@ package usecase;
 
 import entity.profiles.Organization;
 import state.AppState;
-import database.ProfileGateway;
+import gateway.ProfileGateway;
 import entity.accounts.Account;
 import entity.accounts.PersonalAccount;
-import database.AccountGateway;
+import gateway.AccountGateway;
 import entity.profiles.Person;
 
 import java.util.Set;

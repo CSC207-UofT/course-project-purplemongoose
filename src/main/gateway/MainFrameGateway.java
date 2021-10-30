@@ -1,4 +1,4 @@
-package database;
+package gateway;
 
 import java.io.*;
 import java.sql.*;

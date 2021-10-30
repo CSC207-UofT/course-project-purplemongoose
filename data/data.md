@@ -1,2 +1,2 @@
-this folder stores the two sqlite database files for this project
+this folder stores the two sqlite gateway files for this project
 

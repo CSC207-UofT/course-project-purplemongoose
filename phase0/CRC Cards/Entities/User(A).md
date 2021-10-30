@@ -15,7 +15,7 @@ Defines methods for:
 - Removing contacts
 - Fetching all contacts
 
-Contains a local database for contacts.
+Contains a local gateway for contacts.
 
 ## Collaborators:
 - [[Profile(A)]]

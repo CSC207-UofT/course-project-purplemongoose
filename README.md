@@ -14,7 +14,7 @@ Last updated October 21, 2021
 
 - Implement the storage classes of a person. These included the `name.java`, `phone.java`, `email.java` classes.
 - Re-implement the core of the program to follow design set out in the [Phase 0 CRC](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/phase0/CRC%20Cards) cards including re-writing most controllers, and use cases while mantaining functionality with the current CLI.
-- Implement a database and frameworks for accessing the database and integrate this with the main program.
+- Implement a gateway and frameworks for accessing the gateway and integrate this with the main program.
 
 ## Frameworks and Technologies
 

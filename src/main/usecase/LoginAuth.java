@@ -1,7 +1,7 @@
 package usecase;
 
 import state.AppState;
-import database.AccountGateway;
+import gateway.AccountGateway;
 
 public class LoginAuth {
     AccountGateway ag = new AccountGateway();
