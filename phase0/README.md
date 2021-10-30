@@ -24,7 +24,7 @@ We made the CRC cards in a way such that it follows clean architecture and is ea
 
 A map of the CRC cards, including their clean architecture layer can be seen below:
 
-<img src="https://github.com/CSC207-UofT/course-project-purplemongoose/blob/main/phase0/image_assets/CRC_Map_Cropped.png" alt="CRC_Map_Cropped" style="zoom:40%;" />
+<img src="https://github.com/CSC207-UofT/course-project-purplemongoose/blob/documentation/phase0/image_assets/CRC_Map.png" alt="CRC_Map_Cropped" style="zoom:40%;" />
 
 A node map of all of the references between different classes is shown below:
 
