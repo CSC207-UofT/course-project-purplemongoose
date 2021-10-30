@@ -7,7 +7,7 @@ import entity.dataFiles.Phone;
 
 import java.io.Serializable;
 
-public class Person implements Client, Serializable, ProfileType {
+public class Person implements Serializable, ProfileType {
 
     /** Stores all values as subclasses
      * Getters return all values as Strings

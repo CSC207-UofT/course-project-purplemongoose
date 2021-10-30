@@ -1,5 +1,5 @@
 import database.MainFrame;
-import entity.Users.PersonalAccount;
+import entity.Accounts.PersonalAccount;
 import entity.profiles.Person;
 import userInterface.CommandLineInterface;
 

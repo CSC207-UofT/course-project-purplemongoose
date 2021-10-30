@@ -1,4 +1,4 @@
-package entity.Users;
+package entity.Accounts;
 
 import entity.profiles.Organization;
 import entity.profiles.Person;
@@ -83,13 +83,6 @@ public class CorporateAccount extends Account {
         return employees.keySet();
     }
 
-    public String getContacts() {
-        if (employees.isEmpty()) {
-            return "your employees list is empty!";
-        }
-        Connections conn = new Connections();
-        return conn.getConnections(employees);
-    }
 
     @Override
     public boolean addAffiliation(Organization o) {
@@ -110,23 +103,5 @@ public class CorporateAccount extends Account {
     @Override
     public Object getAffiliation() {
         return affiliations.keySet();
-    }
-
-    /**
-     * Get a String representation of all other Organizations in this instance of
-     * PersonalAccount's contact list.
-     *
-     * Strings are formatted in the following way:
-     *      "[name of user] | [phone number of user] | [email of user]"
-     *      with one user per line.
-     *
-     * @return String representation of contacts list
-     */
-    public String getAffiliations() {
-        if (affiliations.isEmpty()) {
-            return "your affiliations list is empty!";
-        }
-        Connections conn = new Connections();
-        return conn.getConnections(affiliations);
     }
 }

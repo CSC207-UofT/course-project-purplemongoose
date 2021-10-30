@@ -1,4 +1,4 @@
-package entity.Users;
+package entity.Accounts;
 
 import entity.profiles.Organization;
 import entity.profiles.Person;

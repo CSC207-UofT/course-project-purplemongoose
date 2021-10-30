@@ -1,4 +1,4 @@
-package entity.Users;
+package entity.Accounts;
 
 import entity.profiles.ProfileType;
 
@@ -42,23 +42,25 @@ public class Connections {
         return false;
     }
 
-    public String getConnections(HashMap<ProfileType, String> otherUsers) {
-        // otherUsers identifies all the other Account accounts this Account is
-        // connected to.
-
-        String allUsers = "";
-
-        for (ProfileType p : otherUsers.keySet()) {
-            if (otherUsers.get(p) != null) {
-                allUsers = allUsers.concat(p.getName() + " | "
-                        + p.getEmail() + " | " + p.getPhone()
-                        + " | Association: "
-                        + otherUsers.get(p) + "\n");
-            } else {
-                allUsers = allUsers.concat(p.getName() + " | "
-                        + p.getEmail() + " | " + p.getPhone() + "\n");
-            }
-        }
-        return allUsers;
-    }
+    // getConnections() no longer needed because String formatting already
+    // addressed in usecases, commented out and not deleted in case need code
+//    public String getConnections(HashMap<ProfileType, String> otherUsers) {
+//        // otherUsers identifies all the other Account accounts this Account is
+//        // connected to.
+//
+//        String allUsers = "";
+//
+//        for (ProfileType p : otherUsers.keySet()) {
+//            if (otherUsers.get(p) != null) {
+//                allUsers = allUsers.concat(p.getName() + " | "
+//                        + p.getEmail() + " | " + p.getPhone()
+//                        + " | Association: "
+//                        + otherUsers.get(p) + "\n");
+//            } else {
+//                allUsers = allUsers.concat(p.getName() + " | "
+//                        + p.getEmail() + " | " + p.getPhone() + "\n");
+//            }
+//        }
+//        return allUsers;
+//    }
 }
