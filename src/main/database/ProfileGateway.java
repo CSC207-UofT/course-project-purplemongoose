@@ -66,7 +66,6 @@ public class ProfileGateway extends MainFrameGateway {
         return null;
     }
 
-    // should only be used when the user creates an account
     public boolean insertProfileData(String uuid, Object prof) {
         String insertSQL = "INSERT INTO profiles(uuid, profile) VALUES(?, ?)";
         try {
@@ -98,4 +97,6 @@ public class ProfileGateway extends MainFrameGateway {
         }
         return true;
     }
+
+    // add delete profile data
 }

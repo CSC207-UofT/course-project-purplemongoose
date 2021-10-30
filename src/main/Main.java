@@ -3,8 +3,8 @@ import userInterface.CommandLineInterface;
 public class Main {
 
     public static void main(String[] args) {
-        // Database for storing Persons
-        new CommandLineInterface().run();
+
+
     }
 
     /**

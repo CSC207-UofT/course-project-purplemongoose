@@ -9,26 +9,30 @@ import entity.profiles.Person;
 import entity.profiles.ProfileType;
 
 public class ProfileUseCases {
-    ProfileGateway gw = new ProfileGateway();
+    ProfileGateway pg = new ProfileGateway();
 
     public boolean createNewPerson(String uuid, String first, String last, String pronouns, String titles, String phone,
                                    String email) {
         Name n = new Name(first, last, pronouns, titles);
         Phone p = new Phone(phone);
         Email e = new Email(email);
-        Person person = new Person(n, p, e);
-        return this.gw.insertProfileData(uuid, person);
+        Person person = new Person(n, p, e, uuid);
+        return this.pg.insertProfileData(uuid, person);
     }
 
     public boolean createNewOrganization(String uuid, String name, String phone, String email) {
         Phone p = new Phone(phone);
         Email e = new Email(email);
         Organization org = new Organization(name, p, e);
-        return this.gw.insertProfileData(uuid, org);
+        return this.pg.insertProfileData(uuid, org);
     }
 
-    public boolean updateProfile(String uuid, ProfileType pt) {
-        // Not sure best to implement this - inheritance? or individual update methods for person and organization?
-        return this.gw.updateProfileData(uuid, pt);
+    public boolean updatePersonProfile(String uuid, ProfileType pt) {
+        // not too sure how to implement this effectively without having 15 methods for each profile data entry
+        return this.pg.updateProfileData(uuid, pt);
     }
+
+
+
+
 }

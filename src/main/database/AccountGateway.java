@@ -41,7 +41,7 @@ public class AccountGateway extends MainFrameGateway {
                         	"username"	TEXT NOT NULL UNIQUE,
                         	"password"	TEXT NOT NULL,
                         	"uuid"      TEXT NOT NULL UNIQUE,
-                        	"account"   BLOB,
+                        	"account"   BLOB
                         );""";
             stmt.execute(tableSQL);
         }
@@ -102,6 +102,27 @@ public class AccountGateway extends MainFrameGateway {
             return false;
         }
         return true;
+    }
+
+    // add delete account data
+
+    public boolean authAccountData(String username, String password) {
+        String getSQL = "SELECT data FROM accounts WHERE username = ? AND password = ?";
+        try {
+            Connection conn = mfConnect();
+            PreparedStatement stmt = conn.prepareStatement(getSQL);
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                return true;
+            }
+        }
+        catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return false;
     }
 
 }

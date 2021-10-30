@@ -43,4 +43,5 @@ public class Organization implements ProfileType {
     public String getEmail() {
         return orgEmail.getEmail();
     }
+
 }

@@ -1,12 +1,12 @@
 package usecase;
 
-import database.AuthGateway;
+import database.AccountGateway;
 
 public class LoginAuth {
-    AuthGateway gw = new AuthGateway();
+    AccountGateway ag = new AccountGateway();
 
     public boolean requestLogin(String username, String password) {
-        return this.gw.authLoginInfo(username, password);
+        return this.ag.authAccountData(username, password);
     }
 
 }

@@ -29,5 +29,4 @@ public abstract class MainFrameGateway {
         }
         return null;
     }
-
 }

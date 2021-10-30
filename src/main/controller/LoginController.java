@@ -1,6 +1,5 @@
 package controller;
 
-
 import usecase.AccountUseCases;
 import usecase.LoginAuth;
 
@@ -10,24 +9,22 @@ public class LoginController {
 
 
     public Object submitLogin(String username, String password) {
-        LoginAuth auth = new LoginAuth();
 
-        if (auth.requestLogin(username, password)) {
-            return 1; //new ViewModel(success());
+        if (this.auth.requestLogin(username, password)) {
+            return 1;
         }
         else {
-            return 0; //new ViewModel(failure());
+            return 0;
         }
     }
 
-    public Object submitSignUp(Object signup) {
-        AccountUseCases acc = new AccountUseCases();
+    public boolean submitSignUp(String username, String password) {
 
-        if (acc.createNewAccount("signup.username", "signup.password")) {
-            return 1; //new ViewModel(success());
+        if (this.accUseCase.createNewAccount(username, password)) {
+            return true;
         }
         else {
-            return 0; //new ViewModel(failure());
+            return false;
         }
     }
 }

@@ -1,6 +1,5 @@
 package controller;
 
-import entity.Client;
 import entity.accounts.Account;
 import usecase.AccountUseCases;
 
@@ -12,20 +11,21 @@ public class AccountController {
         this.accUseCase = new AccountUseCases();
     }
 
-    public Client submitSearch(String name) {
-        // TODO: accesses the mainframe and returns the Client corresponding to the id (name)
-        return null;
+    public void submitContactRemoval(String contactUUID) {
+        // some method that fetches your own (account) uuid
+        if (this.accUseCase.checkForContact("accountuuidhere", contactUUID))
+            this.accUseCase.removeContact("accountuuidhere", contactUUID );
+        else {
+            //some code here for which warns the user that such a contact does not exist
+        }
     }
 
-    public Object submitProfileChanges(Object request) {
-        return null;
-    }
-
-    public void submitContactRemoval(Account acc, String name) {
-        this.accUseCase.removeContact(acc, submitSearch(name));
-    }
-
-    public void submitContactAddition(Account acc, String name) {
-        this.accUseCase.addContact(acc, submitSearch(name));
+    public void submitContactAddition(String contactUUID) {
+        if (!this.accUseCase.checkForContact("accountuuidhere", contactUUID))
+            this.accUseCase.removeContact("accountuuidhere", contactUUID );
+        else {
+            //some code here for which warns the user that such a contact already exists
+        }
     }
 }
+

@@ -11,18 +11,18 @@ public class CommandLineInterface {
     private final Scanner sc;
     private final AccountController uc;
     private final LoginController lc;
-    private final Account acc;
+    private final String accountUUID; // hack for the program state tracker class
 
     public CommandLineInterface() {
-        this.acc = null;
         this.uc = new AccountController();
         this.lc = new LoginController();
-        sc = new Scanner(System.in).useDelimiter("\\n");
+        this.sc = new Scanner(System.in).useDelimiter("\\n");
+        this.accountUUID = null;
     }
 
     /**
      * Function that starts up the CLI for interacting with the user.
-     */
+     *//*
     public void run() {
 
         System.out.println("""
@@ -68,7 +68,7 @@ public class CommandLineInterface {
         events();
     }
 
-    /**
+    *//**
      * Events loop for simple cli. The user can choose between the following functions
      *  - Add an existing user from the database to their individual contacts list
      *  - Add a new user to the database
@@ -76,7 +76,7 @@ public class CommandLineInterface {
      *      NOTE: This DOES NOT remove the user from the overall database
      *  - Display all the contacts of the current user
      *  - Quit the program
-     */
+     *//*
     private void events() {
         String input;
         eventLoop:
@@ -97,18 +97,18 @@ public class CommandLineInterface {
         }
     }
 
-    /**
+    *//**
      * Print a list of all contacts obtained through user.getContact() with some styling;
-     */
+     *//*
     private void displayContacts() {
         System.out.println("+-------------------------CONTACTS LIST---------------------------+");
         System.out.println(user.getContact());
         System.out.println("+-----------------------------------------------------------------+");
     }
 
-    /**
+    *//**
      * Remove a person from the current user's contact list.
-     */
+     *//*
     private void removeContact() {
         String input;
         System.out.println("Type the name of the person you want to remove; type 'back' to return to the main menu");
@@ -129,9 +129,9 @@ public class CommandLineInterface {
         }
     }
 
-    /**
+    *//**
      * Add a person to the current user's contact list.
-     */
+     *//*
     private void addContact() {
         String input;
         System.out.println("Type the name of the person you want to add; type 'back' to return to the main menu");
@@ -155,9 +155,9 @@ public class CommandLineInterface {
 
 
 
-    /**
+    *//**
      * Display a list of commands.
-     */
+     *//*
     private void instructionScreen() {
         System.out.println("""
         
@@ -170,4 +170,6 @@ public class CommandLineInterface {
         
         """);
     }
+
+*/
 }
