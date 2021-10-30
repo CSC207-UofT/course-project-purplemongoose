@@ -9,8 +9,8 @@ import java.util.HashMap;
 /**
  * The account of an Organization on kard
  *
- * Stores information about each corporate User's contacts.
- * Stores information about each corporate User's affiliations with
+ * Stores information about each corporate Account's contacts.
+ * Stores information about each corporate Account's affiliations with
  * other corporations and association, which is how they're related
  * to them (ex. partner, rival, parent company, etc).
  *
@@ -22,13 +22,13 @@ import java.util.HashMap;
  *
  */
 
-public class CorporateUser extends User {
+public class CorporateAccount extends Account {
 
-    /** Represents the User account created by an Organization
+    /** Represents the Account account created by an Organization
      *
      * Suggestion: refactor Corporate user as "OrganizationUser"
      *
-     * Stores information about the User's contacts and provides
+     * Stores information about the Account's contacts and provides
      * associated methods
      *
      * Currently also implements Iterator to prepare for any iterative
@@ -39,13 +39,13 @@ public class CorporateUser extends User {
     private final HashMap<ProfileType, String> affiliations;
 
     // Initialize two empty HashMaps for each connection
-    public CorporateUser() {
+    public CorporateAccount() {
         this.employees = new HashMap<>();
         this.affiliations = new HashMap<>();
     }
 
     /**
-     * Add an employee to a User's employees list
+     * Add an employee to a Account's employees list
      *
      * This method uses methods defined in Connections, which provides an
      * algorithmic framework for the types of connections a corporation
@@ -63,7 +63,7 @@ public class CorporateUser extends User {
         return conn.addConnection(employees, p);
     }
 
-    /** Remove a contact from the User's contact list.
+    /** Remove a contact from the Account's contact list.
      *
      * @param p Person
      * @return true if client is removed from contacts successfully
@@ -75,7 +75,7 @@ public class CorporateUser extends User {
     }
 
     /**
-     * Return some sort of container that contains all employees of this User
+     * Return some sort of container that contains all employees of this Account
      * @return HashMap of all employees
      */
     @Override
@@ -114,7 +114,7 @@ public class CorporateUser extends User {
 
     /**
      * Get a String representation of all other Organizations in this instance of
-     * PersonalUser's contact list.
+     * PersonalAccount's contact list.
      *
      * Strings are formatted in the following way:
      *      "[name of user] | [phone number of user] | [email of user]"

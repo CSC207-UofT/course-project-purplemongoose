@@ -1,5 +1,5 @@
 import database.MainFrame;
-import entity.Users.PersonalUser;
+import entity.Users.PersonalAccount;
 import entity.profiles.Person;
 import userInterface.CommandLineInterface;
 
@@ -11,7 +11,7 @@ public class Main {
 
         buildInitialContacts(mf);
 
-        PersonalUser user = new PersonalUser();
+        PersonalAccount user = new PersonalAccount();
 
         new CommandLineInterface(mf, user).run();
     }

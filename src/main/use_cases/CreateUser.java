@@ -7,7 +7,7 @@ public class CreateUser {
 
     public void create(String name, String phone, String email, String kind) {
 
-        // kind is p if this is a PersonalUser and the first letter of the type of organization if CorporateUser.
+        // kind is p if this is a PersonalAccount and the first letter of the type of organization if CorporateAccount.
         // right now we only have Business as a child class of Organization so only that case will be implemented.
 
         // assuming this user is not already in the database
@@ -17,7 +17,7 @@ public class CreateUser {
             Person p = new Person(name, phone, email);
             // add to database
         } else {
-            // CorporateUser cu = new CorporateUser();
+            // CorporateAccount cu = new CorporateAccount();
             // Then we should determine what kind of organization it is
             if (kind.equals("b")) {
                 // Business b = new Business(name, phone, email);

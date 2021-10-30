@@ -9,7 +9,7 @@ import java.util.HashMap;
 /**
  * The account of a Person of kard
  *
- * Stores information about each individual User's contacts and optionally,
+ * Stores information about each individual Account's contacts and optionally,
  * their association, which is how they're related to them (ex. current coworker,
  * previous coworker, client, etc).
  *
@@ -26,24 +26,24 @@ import java.util.HashMap;
  * 2. Affiliations - connections with organization accounts
  *
  */
-public class PersonalUser extends User {
+public class PersonalAccount extends Account {
 
     // Two types of connections: contacts and affiliations
     // Same data structure, different data.
-    // A local copy of the User's contacts:
+    // A local copy of the Account's contacts:
     private final HashMap<ProfileType, String> contacts;
-    // A local copy of the User's affiliations:
+    // A local copy of the Account's affiliations:
     private final HashMap<ProfileType, String> affiliations;
 
 
     // Initialize two empty HashMaps for each connection
-    public PersonalUser() {
+    public PersonalAccount() {
         this.contacts = new HashMap<>();
         this.affiliations = new HashMap<>();
     }
 
     /**
-     * Add a contact to a User's contacts list
+     * Add a contact to a Account's contacts list
      *
      * The following two methods overload each other: if no association is
      * provided, then add a new contact to contacts with a null value.
@@ -67,7 +67,7 @@ public class PersonalUser extends User {
     }
 
     /**
-     * Remove a person to the User's contact list.
+     * Remove a person to the Account's contact list.
      *
      * @param p person to remove from contacts list
      * @return Success of removing from contacts list
@@ -79,7 +79,7 @@ public class PersonalUser extends User {
     }
 
     /**
-     * @return a set of all the Persons that this User is connected to
+     * @return a set of all the Persons that this Account is connected to
      */
     @Override
     public Object getContact() {
@@ -88,7 +88,7 @@ public class PersonalUser extends User {
 
     /**
      * Get a String representation of all other Persons in this instance of
-     * PersonalUser's contact list.
+     * PersonalAccount's contact list.
      *
      * Strings are formatted in the following way:
      *      "[name of user] | [phone number of user] | [email of user]"
@@ -123,7 +123,7 @@ public class PersonalUser extends User {
 
     /**
      * Get a String representation of all other Organizations in this instance of
-     * PersonalUser's contact list.
+     * PersonalAccount's contact list.
      *
      * Strings are formatted in the following way:
      *      "[name of user] | [phone number of user] | [email of user]"
@@ -140,7 +140,7 @@ public class PersonalUser extends User {
     }
 
 //    /**
-//     * Get a String representation of all people in this instance of PersonalUser's contact list.
+//     * Get a String representation of all people in this instance of PersonalAccount's contact list.
 //     *
 //     * Strings are formatted in the following way:
 //     *      "[name of user] | [phone number of user] | [email of user]"

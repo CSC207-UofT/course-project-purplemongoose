@@ -1,7 +1,5 @@
 package entity.Users;
 
-import entity.profiles.Person;
-import entity.profiles.Profile;
 import entity.profiles.ProfileType;
 
 import java.util.HashMap;
@@ -45,7 +43,7 @@ public class Connections {
     }
 
     public String getConnections(HashMap<ProfileType, String> otherUsers) {
-        // otherUsers identifies all the other User accounts this User is
+        // otherUsers identifies all the other Account accounts this Account is
         // connected to.
 
         String allUsers = "";
