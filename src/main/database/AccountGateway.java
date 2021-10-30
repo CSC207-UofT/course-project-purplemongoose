@@ -1,28 +1,61 @@
 package database;
 
-import entity.Client;
-import entity.profiles.Person;
-
+import java.io.File;
 import java.sql.*;
 
 public class AccountGateway extends MainFrameGateway {
 
-    public AccountGateway() {
-        super();
+    private final String mfLocation = "data/account.db";
+
+    @Override
+    public Connection mfConnect() {
+        File file = new File(mfLocation);
+        Connection conn = null;
+
+        if (file.exists()) {
+            try {
+                conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", this.mfLocation));
+            }
+            catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+        }
+        else { // if such a db doesn't exist, create one and add a table
+            try {
+                conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", this.mfLocation));
+                createAccountTable(conn);
+            }
+            catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+        }
+        return conn; // return a connection for other methods to use
     }
 
-    public static boolean generateUser(String username, String password) {
-        // some sqlite code queries and code here
-        return username.equals(password); //placeholder
+    // create table with username and password fields
+    private void createAccountTable(Connection conn) {
+        try {
+            Statement stmt = conn.createStatement();
+            String tableSQL = """
+                        CREATE TABLE IF NOT EXISTS "accounts" (
+                        	"username"	TEXT NOT NULL UNIQUE,
+                        	"password"	TEXT NOT NULL,
+                        	"uuid"      TEXT NOT NULL UNIQUE,
+                        	"account"   BLOB
+                        );""";
+            stmt.execute(tableSQL);
+        }
+        catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
 
-    public static Object getUserData(String username, String password) {
-        String sqlQuery = "SELECT data FROM users WHERE username = ? AND password = ?";
+    public Object getAccountData(String uuid) {
+        String sqlQuery = "SELECT account FROM accounts WHERE uuid = ?";
         try {
             Connection conn = mfConnect();
             PreparedStatement stmt = conn.prepareStatement(sqlQuery);
-            stmt.setString(1, username);
-            stmt.setString(2, password);
+            stmt.setString(1, uuid);
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
@@ -37,51 +70,60 @@ public class AccountGateway extends MainFrameGateway {
     }
 
     // should only be used when the user creates an account
-    public static void insertUserData(String username, String password, Object user) {
-        String sqlQuery = "INSERT INTO users(username, password, data) VALUES(?, ?, ?)";
+    public boolean insertAccountData(String username, String password, String uuid, Object acc) {
+        String sqlQuery = "INSERT INTO accounts(username, password, uuid, account) VALUES(?, ?, ?, ?)";
         try {
             Connection conn = mfConnect();
             PreparedStatement stmt = conn.prepareStatement(sqlQuery);
             stmt.setString(1, username);
             stmt.setString(2, password);
-            stmt.setBytes(3, toBytes(user));
+            stmt.setString(3, uuid);
+            stmt.setBytes(4, toBytes(acc));
             stmt.executeUpdate();
         }
         catch (SQLException e) {
             System.err.println(e.getMessage());
+            return false;
         }
-
+        return true;
     }
 
-    public static void updateUserData(String username, String password, Object user) {
-        // WIP
+    public boolean updateAccountData(String uuid, Object acc) {
+        String sqlQuery = "UPDATE accounts SET account = ? WHERE uuid = ?";
+        try {
+            Connection conn = mfConnect();
+            PreparedStatement stmt = conn.prepareStatement(sqlQuery);
+            stmt.setBytes(1, toBytes(acc));
+            stmt.setString(2, uuid);
+            stmt.executeUpdate();
+        }
+        catch (SQLException e) {
+            System.err.println(e.getMessage());
+            return false;
+        }
+        return true;
     }
 
-    // for testing purposes
-    public static void main(String[] args) {
-        Person p1 = new Person("bob", "111-222-3333", "hello@bob.com");
-        Person p2 = new Person("joe", "647-647-6477", "joe@mama.com");
-        Person p3 = new Person("sandy", "123-456-7890", "sandy@cheeks.com");
+    // add delete account data
 
-        if (true) { // set as false if entries are already in db
-            insertUserData("bobthegamer", "password", p1);
-            insertUserData("joemama69", "hahagotem", p2);
-            insertUserData("squirrel123", "nuts", p3);
+    public String authAccountData(String username, String password) {
+        String getSQL = "SELECT uuid FROM accounts WHERE username = ? AND password = ?";
+        try {
+            Connection conn = mfConnect();
+            PreparedStatement stmt = conn.prepareStatement(getSQL);
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                return rs.getString(1);
+            }
         }
-        else {
-            Client pd1 = (Client)getUserData("bobthegamer", "password");
-            Client pd2 = (Client)getUserData("joemama69", "hahagotem");
-            Client pd3 = (Client)getUserData("squirrel123", "nuts");
-
-            assert pd1 != null;
-            assert pd2 != null;
-            assert pd3 != null;
-
-            System.out.printf("%s | %s | %s\n", pd1.getName(), pd1.getPhone(), pd1.getEmail());
-            System.out.printf("%s | %s | %s\n", pd2.getName(), pd2.getPhone(), pd2.getEmail());
-            System.out.printf("%s | %s | %s\n", pd3.getName(), pd3.getPhone(), pd3.getEmail());
-
+        catch (SQLException e) {
+            System.err.println(e.getMessage());
         }
+        return null;
     }
+
 }
 

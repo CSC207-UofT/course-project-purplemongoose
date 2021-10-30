@@ -1,31 +1,30 @@
 package controller;
 
-
-import usecase.CreateAccount;
+import usecase.AccountUseCases;
 import usecase.LoginAuth;
-import view.ViewModel;
 
 public class LoginController {
+    LoginAuth auth = new LoginAuth();
+    AccountUseCases accUseCase = new AccountUseCases();
 
-    public Object submitLogin(String username, String password) {
-        LoginAuth auth = new LoginAuth();
 
-        if (auth.requestLogin(username, password)) {
-            return 1; //new ViewModel(success());
+    public boolean submitLogin(String username, String password) {
+
+        if (this.auth.requestLogin(username, password)) {
+            return true;
         }
         else {
-            return 0; //new ViewModel(failure());
+            return false;
         }
     }
 
-    public Object submitSignUp(Object signup) {
-        CreateAccount creator = new CreateAccount();
+    public boolean submitSignUp(String username, String password) {
 
-        if (creator.generateUser("signup.username", "signup.password")) {
-            return 1; //new ViewModel(success());
+        if (this.accUseCase.createNewAccount(username, password)) {
+            return true;
         }
         else {
-            return 0; //new ViewModel(failure());
+            return false;
         }
     }
 }

@@ -3,7 +3,9 @@ package entity.profiles;
 import entity.dataFiles.Email;
 import entity.dataFiles.Phone;
 
-public class Organization implements ProfileType {
+import java.io.Serializable;
+
+public class Organization implements ProfileType, Serializable {
 
     /** Stores a collection of Persons who are associated to a certain Organization
      * Can also run basic operations about the Persons associated to an Organization
@@ -20,11 +22,12 @@ public class Organization implements ProfileType {
     /**
      * Organization starts off not having any clients
      */
-    public Organization(String orgName, Phone phone, Email Email) {
+    public Organization(String orgName, Phone phone, Email email) {
         this.orgName = orgName;
         this.orgPhone = phone;
-        this.orgEmail = Email;
+        this.orgEmail = email;
     }
+
 
     // the getters
 
@@ -42,4 +45,5 @@ public class Organization implements ProfileType {
     public String getEmail() {
         return orgEmail.getEmail();
     }
+
 }

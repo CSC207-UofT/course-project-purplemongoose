@@ -1,6 +1,8 @@
 package entity.dataFiles;
 
-public class Name {
+import java.io.Serializable;
+
+public class Name implements Serializable {
 
     /** A class to store all the detail of a person's name
      * This class assumes that all names that are passed in are already

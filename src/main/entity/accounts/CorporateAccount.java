@@ -1,9 +1,10 @@
-package entity.Users;
+package entity.accounts;
 
 import entity.profiles.Organization;
 import entity.profiles.Person;
 import entity.profiles.ProfileType;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
@@ -22,7 +23,7 @@ import java.util.HashMap;
  *
  */
 
-public class CorporateUser extends User {
+public class CorporateAccount extends Account implements Serializable {
 
     /** Represents the User account created by an Organization
      *
@@ -39,7 +40,7 @@ public class CorporateUser extends User {
     private final HashMap<ProfileType, String> affiliations;
 
     // Initialize two empty HashMaps for each connection
-    public CorporateUser() {
+    public CorporateAccount() {
         this.employees = new HashMap<>();
         this.affiliations = new HashMap<>();
     }
@@ -81,6 +82,11 @@ public class CorporateUser extends User {
     @Override
     public Object getContact() {
         return employees.keySet();
+    }
+
+    @Override
+    public boolean checkContacts(Person p) {
+        return employees.containsKey(p);
     }
 
     public String getContacts() {
