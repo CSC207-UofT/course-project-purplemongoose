@@ -43,13 +43,13 @@ public class CommandLineInterface {
 
         while (true) {
             System.out.print("Username: ");
-            String username = sc.next();
+            String username = sc.nextLine();
             if (username.equals("back")) {
                 startingScreen();
                 break;
             }
             System.out.print("Password: ");
-            String password = sc.next();
+            String password = sc.nextLine();
             if (password.equals("back")) {
                 startingScreen();
                 break;
@@ -72,13 +72,13 @@ public class CommandLineInterface {
 
         while (true) {
             System.out.print("Username: ");
-            String username = sc.next();
+            String username = sc.nextLine();
             System.out.print("Password: ");
-            String password = sc.next();
+            String password = sc.nextLine();
 
             System.out.print("Are you sure?\n");
             System.out.print("Press 'y' to continue or press 'n' to restart\n");
-            String input = sc.next();
+            String input = sc.nextLine();
             if (input.equals("y")) {
                 lc.submitSignUp(username, password);
                 System.out.println("Account made successfully!\n");
