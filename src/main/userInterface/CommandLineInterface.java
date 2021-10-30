@@ -1,50 +1,94 @@
 package userInterface;
 
-import controller.ContactController;
-import database.MainFrame;
-import entity.Person;
-import entity.PersonalUser;
+import controller.LoginController;
+import controller.AccountController;
+import controller.ProfileController;
+
+// add ability to edit your profile later
 
 import java.util.Scanner;
 
 public class CommandLineInterface {
-    private final PersonalUser user;
     private final Scanner sc;
-    private final MainFrame mf;
-    private final ContactController cc;
+    private final AccountController ac;
+    private final LoginController lc;
 
-    public CommandLineInterface(MainFrame mf, PersonalUser user) {
-        this.mf = mf;
-        this.user = user;
-
-        this.cc = new ContactController(mf, user);
-
-        sc = new Scanner(System.in).useDelimiter("\\n");
+    public CommandLineInterface() {
+        this.ac = new AccountController();
+        this.lc = new LoginController();
+        this.sc = new Scanner(System.in).useDelimiter("\\n");
     }
 
     /**
      * Function that starts up the CLI for interacting with the user.
      */
     public void run() {
+        logoScreen();
+        startingScreen();
+    }
 
-        System.out.println("""
-
-                ██╗  ██╗ █████╗ ██████╗ ██████╗
-                ██║ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-                █████╔╝ ███████║██████╔╝██║  ██║
-                ██╔═██╗ ██╔══██║██╔══██╗██║  ██║
-                ██║  ██╗██║  ██║██║  ██║██████╔╝
-                ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝"""
-        );
-
-        System.out.println("Press enter to continue...");
-        try {
-            sc.nextLine();
-            instructionScreen();
-        } catch (Exception ignored) {
+    public void startingScreen() {
+        while (true) {
+            System.out.println("Type 'login' to login or 'signup' to create an account");
+            String input = sc.nextLine();
+            switch (input) {
+                case "login" -> loginScreen();
+                case "signup" -> signUpScreen();
+            }
         }
+    }
 
-        events();
+    private void loginScreen() {
+        System.out.println("Please log in:");
+
+        while (true) {
+            System.out.print("Username: ");
+            String username = sc.nextLine();
+            if (username.equals("back")) {
+                startingScreen();
+                break;
+            }
+            System.out.print("Password: ");
+            String password = sc.nextLine();
+            if (password.equals("back")) {
+                startingScreen();
+                break;
+            }
+
+            if (lc.submitLogin(username, password)) {
+                System.out.println("Logged in!\n");
+                instructionScreen();
+                events();
+                break;
+            }
+            else {
+                System.out.println("Wrong username or password, please try again!\n");
+            }
+        }
+    }
+
+    private void signUpScreen() {
+        System.out.println("Sign up:");
+
+        while (true) {
+            System.out.print("Username: ");
+            String username = sc.nextLine();
+            System.out.print("Password: ");
+            String password = sc.nextLine();
+
+            System.out.print("Are you sure?\n");
+            System.out.print("Press 'y' to continue or press 'n' to restart\n");
+            String input = sc.nextLine();
+            if (input.equals("y")) {
+                lc.submitSignUp(username, password);
+                System.out.println("Account made successfully!\n");
+                startingScreen();
+                break;
+            }
+            else if (!input.equals("n")) {
+                System.out.println("Command not recognized... Try again\n");
+            }
+        }
     }
 
     /**
@@ -67,24 +111,42 @@ public class CommandLineInterface {
                 case "add" -> addContact();
                 case "remove" -> removeContact();
                 case "display" -> displayContacts();
-                case "add person" -> addPerson();
                 case "quit" -> {
-                    System.out.println("Thank you for using Kard");
                     break eventLoop;
                 }
                 default -> System.out.println("Command not recognized... Try again\n");
             }
         }
+        System.out.println("Thank you for using Kard");
     }
 
     /**
-     * Print a list of all contacts obtained through user.getContact() with some styling;
+     * Add a person to the current user's contact list.
      */
-    private void displayContacts() {
-        //todo temporary; should be part of ContactController
-        System.out.println("+-------------------------CONTACTS LIST---------------------------+");
-        System.out.println(user.getContact());
-        System.out.println("+-----------------------------------------------------------------+");
+    private void addContact() {
+        String input;
+        System.out.println("Type the ID of the person you want to add; type 'back' to return to the main menu");
+        System.out.print("[add]: ");
+        input = sc.next();
+        while (!input.equals("back")) {
+            int res = ac.submitContactAddition(input);
+            if (res == -1) {
+
+                //display message that this user does not exist in the db
+                // using display classes (in the future)
+                System.out.printf("The ID [%s] could not be found!\n", input);
+                return;
+            }
+            else if (res == 0) {
+                System.out.printf("The user corresponding to ID [%s] is already a contact!\n", input);
+                return;
+            }
+            else {
+                System.out.printf("The user corresponding to ID [%s] has been successfully added!\n", input);
+            }
+            System.out.print("[add]: ");
+            input = sc.next();
+        }
     }
 
     /**
@@ -96,44 +158,34 @@ public class CommandLineInterface {
         System.out.print("[remove]: ");
         input = sc.next();
         while (!input.equals("back")) {
-            cc.removeContactMainFrame(input);
+            int res = ac.submitContactRemoval(input);
+            if (res == -1) {
+                System.out.printf("The ID [%s] could not be found!\n", input);
+                return;
+            }
+            else if (res == 0) {
+                System.out.printf("The user corresponding to ID [%s] is not a contact!\n", input);
+                return;
+            }
+            else {
+                System.out.printf("The user corresponding to ID [%s] has been successfully removed!\n", input);
+            }
             System.out.print("[remove]: ");
             input = sc.next();
         }
     }
 
     /**
-     * Add a person to the current user's contact list.
+     * Print a list of all contacts obtained through user.getContact() with some styling;
      */
-    private void addContact() {
-        String input;
-        System.out.println("Type the name of the person you want to add; type 'back' to return to the main menu");
-        System.out.print("[add]: ");
-        input = sc.next();
-        while (!input.equals("back")) {
-            cc.addContactMainFrame(input);
-            System.out.print("[add]: ");
-            input = sc.next();
-        }
+    private void displayContacts() {
+        System.out.println("+-------------------------CONTACTS LIST---------------------------+");
+        System.out.println(ac.submitContactDisplay());
+        System.out.println("+-----------------------------------------------------------------+");
     }
 
-    /**
-     * Add a new person to the database.
-     */
-    private void addPerson() {
-        System.out.print("Enter the name of the person to add: ");
-        String name = sc.next();
-
-        System.out.print("Enter the phone number of the person to add: ");
-        String phone = sc.next();
-
-        System.out.print("Enter the email of the person to add: ");
-        String email = sc.next();
-
-        Person newPerson = new Person(name, phone, email);
-        mf.addClient(newPerson, name);
-
-        System.out.println(name + " has been added to the database!");
+    private void addProfile() {
+        // must have the ability to create profile to add other users (otherwise no profiles exist to add)
     }
 
     /**
@@ -144,12 +196,26 @@ public class CommandLineInterface {
         
         +---kard.--------------------------------------------------+
         | Type 'add' to add users to your contacts list            |
-        | Type 'add person' to add a user to the database          |
         | Type 'remove' to remove users from your contacts list    |
         | Type 'display' to display your contacts list             |
         | Type 'quit' to exit the program                          |
         +----------------------------------------------------------+
         
         """);
+    }
+
+    private void logoScreen() {
+        System.out.println("""
+
+                ██╗  ██╗ █████╗ ██████╗ ██████╗
+                ██║ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+                █████╔╝ ███████║██████╔╝██║  ██║
+                ██╔═██╗ ██╔══██║██╔══██╗██║  ██║
+                ██║  ██╗██║  ██║██║  ██║██████╔╝
+                ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝"""
+        );
+
+        System.out.println("Press enter to continue...");
+        try {sc.nextLine();} catch (Exception ignored) {}
     }
 }
