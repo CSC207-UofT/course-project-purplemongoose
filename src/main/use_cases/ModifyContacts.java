@@ -1,6 +1,5 @@
 package use_cases;
 
-import entity.Client;
 import entity.User;
 
 public class ModifyContacts {

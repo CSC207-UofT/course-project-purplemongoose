@@ -1,6 +1,5 @@
 package database;
 
-import entity.Client;
 import entity.profiles.Person;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

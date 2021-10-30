@@ -1,7 +1,6 @@
 package controller;
 
 import database.MainFrame;
-import entity.Client;
 import entity.User;
 
 public class ContactController {

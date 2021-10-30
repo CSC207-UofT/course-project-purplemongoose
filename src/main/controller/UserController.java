@@ -1,7 +1,5 @@
 package controller;
 
-import database.MainFrame;
-import entity.Client;
 import entity.User;
 import use_cases.ModifyContacts;
 

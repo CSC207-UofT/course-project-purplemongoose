@@ -1,6 +1,5 @@
 package database;
 
-import entity.Client;
 import entity.profiles.Person;
 
 import java.sql.*;
