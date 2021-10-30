@@ -8,13 +8,13 @@ public class LoginController {
     AccountUseCases accUseCase = new AccountUseCases();
 
 
-    public Object submitLogin(String username, String password) {
+    public boolean submitLogin(String username, String password) {
 
         if (this.auth.requestLogin(username, password)) {
-            return 1;
+            return true;
         }
         else {
-            return 0;
+            return false;
         }
     }
 

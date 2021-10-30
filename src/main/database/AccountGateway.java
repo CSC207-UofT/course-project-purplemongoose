@@ -106,8 +106,8 @@ public class AccountGateway extends MainFrameGateway {
 
     // add delete account data
 
-    public boolean authAccountData(String username, String password) {
-        String getSQL = "SELECT data FROM accounts WHERE username = ? AND password = ?";
+    public String authAccountData(String username, String password) {
+        String getSQL = "SELECT uuid FROM accounts WHERE username = ? AND password = ?";
         try {
             Connection conn = mfConnect();
             PreparedStatement stmt = conn.prepareStatement(getSQL);
@@ -116,13 +116,13 @@ public class AccountGateway extends MainFrameGateway {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                return true;
+                return rs.getString(1);
             }
         }
         catch (SQLException e) {
             System.err.println(e.getMessage());
         }
-        return false;
+        return null;
     }
 
 }

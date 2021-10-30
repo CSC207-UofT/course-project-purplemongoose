@@ -1,31 +1,48 @@
 package controller;
 
-import entity.accounts.Account;
 import usecase.AccountUseCases;
+import usecase.ProfileUseCases;
+
+import java.util.ArrayList;
 
 public class AccountController {
     // TBA until merge with new use cases
-    AccountUseCases accUseCase;
+    AccountUseCases accUC;
+    ProfileUseCases proUC;
 
     public AccountController(){
-        this.accUseCase = new AccountUseCases();
+        this.accUC = new AccountUseCases();
     }
 
-    public void submitContactRemoval(String contactUUID) {
-        // some method that fetches your own (account) uuid
-        if (this.accUseCase.checkForContact("accountuuidhere", contactUUID))
-            this.accUseCase.removeContact("accountuuidhere", contactUUID );
+    // should change return to object type; viewModel object
+    public int submitContactRemoval(String contactUUID) {
+        if (proUC.checkForProfile(contactUUID)) {
+            return -1; // if the profile doesn't exist; missing or wrong uuid
+        }
+        else if (!this.accUC.checkForContact(contactUUID)){
+            return 0; // if the profile is not in your contacts
+        }
         else {
-            //some code here for which warns the user that such a contact does not exist
+            this.accUC.removeContact(contactUUID);
+            return 1;
         }
     }
 
-    public void submitContactAddition(String contactUUID) {
-        if (!this.accUseCase.checkForContact("accountuuidhere", contactUUID))
-            this.accUseCase.removeContact("accountuuidhere", contactUUID );
-        else {
-            //some code here for which warns the user that such a contact already exists
+    public int submitContactAddition(String contactUUID) {
+        if (proUC.checkForProfile(contactUUID)) {
+            return -1; // if the profile doesn't exist; missing or wrong uuid
         }
+        else if (this.accUC.checkForContact(contactUUID)){
+            return 0; // if the profile is already a contact
+        }
+        else {
+            this.accUC.addContact(contactUUID);
+            return 1;
+        }
+    }
+
+    public String submitContactDisplay() {
+        return accUC.getContacts();
     }
 }
 

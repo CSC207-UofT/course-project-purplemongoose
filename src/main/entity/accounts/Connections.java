@@ -43,7 +43,7 @@ public class Connections {
     }
 
     public String getConnections(HashMap<ProfileType, String> otherUsers) {
-        // otherUsers identifies all the other User accounts this User is
+        // otherUsers identifies all the other profiles this User is
         // connected to.
 
         String allUsers = "";

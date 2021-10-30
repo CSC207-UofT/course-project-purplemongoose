@@ -3,7 +3,9 @@ package entity.profiles;
 import entity.dataFiles.Email;
 import entity.dataFiles.Phone;
 
-public class Organization implements ProfileType {
+import java.io.Serializable;
+
+public class Organization implements ProfileType, Serializable {
 
     /** Stores a collection of Persons who are associated to a certain Organization
      * Can also run basic operations about the Persons associated to an Organization

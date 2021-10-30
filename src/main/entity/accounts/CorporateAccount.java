@@ -4,6 +4,7 @@ import entity.profiles.Organization;
 import entity.profiles.Person;
 import entity.profiles.ProfileType;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
@@ -22,7 +23,7 @@ import java.util.HashMap;
  *
  */
 
-public class CorporateAccount extends Account {
+public class CorporateAccount extends Account implements Serializable {
 
     /** Represents the User account created by an Organization
      *

@@ -4,10 +4,10 @@ import usecase.ProfileUseCases;
 
 public class ProfileController {
 
-    ProfileUseCases proUseCase;
+    ProfileUseCases proUC;
 
     public ProfileController(){
-        this.proUseCase = new ProfileUseCases();
+        this.proUC = new ProfileUseCases();
     }
 
     public void submitNewPersonalProfile(String profileUUID) {
@@ -26,6 +26,7 @@ public class ProfileController {
     public void submitProfileRemove(String profileUUID) {
         //this.proUseCase.
     }
+
 }
 
 // implement these methods accordingly

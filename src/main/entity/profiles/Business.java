@@ -4,9 +4,10 @@ import entity.dataFiles.Email;
 import entity.dataFiles.Name;
 import entity.dataFiles.Phone;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Business extends Organization {
+public class Business extends Organization implements Serializable {
 
     /** Represents a Business, which is a special type of Organization.
      *

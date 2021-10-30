@@ -4,6 +4,7 @@ import entity.profiles.Organization;
 import entity.profiles.Person;
 import entity.profiles.ProfileType;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
@@ -26,7 +27,7 @@ import java.util.HashMap;
  * 2. Affiliations - connections with organization accounts
  *
  */
-public class PersonalAccount extends Account {
+public class PersonalAccount extends Account implements Serializable {
 
     // Two types of connections: contacts and affiliations
     // Same data structure, different data.

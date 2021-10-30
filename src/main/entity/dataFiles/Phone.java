@@ -1,6 +1,8 @@
 package entity.dataFiles;
 
-public class Phone {
+import java.io.Serializable;
+
+public class Phone implements Serializable {
 
     private final String phone;
 
