@@ -7,10 +7,8 @@ import java.io.Serializable;
 
 public class Organization implements ProfileType, Serializable {
 
-    /** Stores a collection of Persons who are associated to a certain Organization
-     * Can also run basic operations about the Persons associated to an Organization
+    /** Stores the profile information related to this Organization
      *
-     * Additionally, also stores a collection of related companies
      */
 
     private final String orgName;

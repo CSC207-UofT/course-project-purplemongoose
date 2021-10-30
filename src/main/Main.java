@@ -1,3 +1,5 @@
+import entity.accounts.PersonalAccount;
+import entity.profiles.Person;
 import userInterface.CommandLineInterface;
 
 public class Main {
