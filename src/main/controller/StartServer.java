@@ -19,5 +19,5 @@ public class StartServer {
 // Ensure the port is opened up in the firewall to allow external connections
 
 // Example:
-// http://123.4.5.678:8082/start/login&username=bob&password=123
+// http://123.4.5.678:8082/start/login?username=bob&password=123
 
