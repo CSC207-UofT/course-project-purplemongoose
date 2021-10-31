@@ -62,6 +62,5 @@ public class AccountUseCases {
             }
         }
         return sb.toString();
-
     }
 }

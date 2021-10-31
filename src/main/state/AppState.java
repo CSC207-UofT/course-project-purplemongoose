@@ -1,6 +1,5 @@
 package state;
 
-
 // effectively keeps important data as global variables
 public class AppState {
     private static String currentUUID = null;

@@ -3,32 +3,25 @@ package controller;
 import usecase.AccountUseCases;
 import usecase.ProfileUseCases;
 
-import java.util.ArrayList;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
+
+
+@RestController
+@RequestMapping("account-rest")
 public class AccountController {
-    // TBA until merge with new use cases
     AccountUseCases accUC;
     ProfileUseCases proUC;
 
-    public AccountController(){
+    public AccountController() {
         this.accUC = new AccountUseCases();
     }
 
-    // should change return to object type; viewModel object
-    public int submitContactRemoval(String contactUUID) {
-        if (proUC.checkForProfile(contactUUID)) {
-            return -1; // if the profile doesn't exist; missing or wrong uuid
-        }
-        else if (!this.accUC.checkForContact(contactUUID)){
-            return 0; // if the profile is not in your contacts
-        }
-        else {
-            this.accUC.removeContact(contactUUID);
-            return 1;
-        }
-    }
-
-    public int submitContactAddition(String contactUUID) {
+    @GetMapping("/contactadd")
+    public int submitContactAddition(@RequestParam(value = "uuid", defaultValue = "") String contactUUID) {
         if (proUC.checkForProfile(contactUUID)) {
             return -1; // if the profile doesn't exist; missing or wrong uuid
         }
@@ -41,6 +34,22 @@ public class AccountController {
         }
     }
 
+    // return a viewModel object; Spring automatically converts objects into JSON format
+    @GetMapping("/contactremove")
+    public int submitContactRemoval(@RequestParam(value = "uuid", defaultValue = "") String contactUUID) {
+        if (proUC.checkForProfile(contactUUID)) {
+            return -1; // if the profile doesn't exist; missing or wrong uuid
+        }
+        else if (!this.accUC.checkForContact(contactUUID)){
+            return 0; // if the profile is not in your contacts
+        }
+        else {
+            this.accUC.removeContact(contactUUID);
+            return 1;
+        }
+    }
+
+    @GetMapping("/contactdisplay")
     public String submitContactDisplay() {
         return accUC.getContacts();
     }

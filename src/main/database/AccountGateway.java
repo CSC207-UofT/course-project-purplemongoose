@@ -1,7 +1,6 @@
 package database;
 
 import java.io.File;
-import entity.profiles.Person;
 import java.sql.*;
 
 public class AccountGateway extends MainFrameGateway {

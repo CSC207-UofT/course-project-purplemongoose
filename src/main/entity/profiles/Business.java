@@ -5,7 +5,6 @@ import entity.dataFiles.Name;
 import entity.dataFiles.Phone;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Business extends Organization implements Serializable {
 
