@@ -22,6 +22,7 @@ public class ProfileGateway extends MainFrameGateway {
         }
         else { // if such a db doesn't exist, create one and add a table
             try {
+                conn.close();
                 conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", this.mfLocation));
                 createProfileTable(conn);
             }
@@ -59,6 +60,8 @@ public class ProfileGateway extends MainFrameGateway {
                 byte[] objBytes = rs.getBytes(1);
                 return toObject(objBytes);
             }
+            stmt.close();
+            conn.close();
         }
         catch (SQLException e) {
             System.err.println(e.getMessage());
@@ -74,6 +77,8 @@ public class ProfileGateway extends MainFrameGateway {
             stmt.setString(1, uuid);
             stmt.setBytes(2, toBytes(prof));
             stmt.executeUpdate();
+            stmt.close();
+            conn.close();
         }
         catch (SQLException e) {
             System.err.println(e.getMessage());
@@ -90,6 +95,8 @@ public class ProfileGateway extends MainFrameGateway {
             stmt.setBytes(1, toBytes(prof));
             stmt.setString(2, uuid);
             stmt.executeUpdate();
+            stmt.close();
+            conn.close();
         }
         catch (SQLException e) {
             System.err.println(e.getMessage());

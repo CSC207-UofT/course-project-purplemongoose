@@ -23,6 +23,7 @@ public class AccountGateway extends MainFrameGateway {
         }
         else { // if such a db doesn't exist, create one and add a table
             try {
+                conn.close();
                 conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", this.mfLocation));
                 createAccountTable(conn);
             }
@@ -63,6 +64,8 @@ public class AccountGateway extends MainFrameGateway {
                 byte[] objBytes = rs.getBytes(1);
                 return toObject(objBytes);
             }
+            stmt.close();
+            conn.close();
         }
         catch (SQLException e) {
             System.err.println(e.getMessage());
@@ -81,6 +84,8 @@ public class AccountGateway extends MainFrameGateway {
             stmt.setString(3, uuid);
             stmt.setBytes(4, toBytes(acc));
             stmt.executeUpdate();
+            stmt.close();
+            conn.close();
         }
         catch (SQLException e) {
             System.err.println(e.getMessage());
@@ -97,6 +102,8 @@ public class AccountGateway extends MainFrameGateway {
             stmt.setBytes(1, toBytes(acc));
             stmt.setString(2, uuid);
             stmt.executeUpdate();
+            stmt.close();
+            conn.close();
         }
         catch (SQLException e) {
             System.err.println(e.getMessage());
@@ -119,6 +126,8 @@ public class AccountGateway extends MainFrameGateway {
             if (rs.next()) {
                 return rs.getString(1);
             }
+            stmt.close();
+            conn.close();
         }
         catch (SQLException e) {
             System.err.println(e.getMessage());

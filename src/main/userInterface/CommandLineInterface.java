@@ -3,6 +3,7 @@ package userInterface;
 import controller.LoginController;
 import controller.AccountController;
 import controller.ProfileController;
+import state.AppState;
 
 // add ability to edit your profile later
 
@@ -12,10 +13,12 @@ public class CommandLineInterface {
     private final Scanner sc;
     private final AccountController ac;
     private final LoginController lc;
+    private final ProfileController pc;
 
     public CommandLineInterface() {
         this.ac = new AccountController();
         this.lc = new LoginController();
+        this.pc = new ProfileController();
         this.sc = new Scanner(System.in).useDelimiter("\\n");
     }
 
@@ -28,12 +31,13 @@ public class CommandLineInterface {
     }
 
     public void startingScreen() {
+        System.out.println("Type 'login' to login or 'signup' to create an account");
         while (true) {
-            System.out.println("Type 'login' to login or 'signup' to create an account");
             String input = sc.nextLine();
             switch (input) {
                 case "login" -> loginScreen();
                 case "signup" -> signUpScreen();
+                default -> System.out.println("Command not recognized... Try again\n");
             }
         }
     }
@@ -108,9 +112,11 @@ public class CommandLineInterface {
             System.out.print("> ");
             input = sc.next();
             switch (input) {
+                case "create" -> createProfile();
                 case "add" -> addContact();
                 case "remove" -> removeContact();
                 case "display" -> displayContacts();
+                case "log out" -> logOut();
                 case "quit" -> {
                     break eventLoop;
                 }
@@ -118,6 +124,45 @@ public class CommandLineInterface {
             }
         }
         System.out.println("Thank you for using Kard");
+    }
+
+    private void logOut() {
+        System.out.println("Logged out!");
+        AppState.setCurrentUUID(null);
+        startingScreen();
+    }
+
+    private void createProfile() {
+        System.out.println("Enter your information below to create your public profile.");
+        while (true) {
+            System.out.print("First name: ");
+            String first = sc.next();
+
+            System.out.print("Last name: ");
+            String last = sc.next();
+
+            System.out.print("Preferred Pronouns: ");
+            String pronouns = sc.next();
+            System.out.print("Title/Current Position: ");
+            String title = sc.next();
+            System.out.print("Phone number: ");
+            String phone = sc.next();
+            System.out.print("Email: ");
+            String email = sc.next();
+
+            System.out.println("Are you happy with the information entered?\n");
+            System.out.println("Press 'y' to continue or press 'n' to re-enter\n");
+            String input = sc.next();
+            if (input.equals("y")) {
+                pc.submitNewPersonalProfile(first, last, pronouns, title, phone, email);
+                System.out.println("Profile created successfully!\n");
+                instructionScreen();
+                break;
+            }
+            else if (!input.equals("n")) {
+                System.out.println("Command not recognized... Try again\n");
+            }
+        }
     }
 
     /**
@@ -184,9 +229,6 @@ public class CommandLineInterface {
         System.out.println("+-----------------------------------------------------------------+");
     }
 
-    private void addProfile() {
-        // must have the ability to create profile to add other users (otherwise no profiles exist to add)
-    }
 
     /**
      * Display a list of commands.
@@ -195,9 +237,11 @@ public class CommandLineInterface {
         System.out.println("""
         
         +---kard.--------------------------------------------------+
+        | Type 'create' to create your profile for others to see   |
         | Type 'add' to add users to your contacts list            |
         | Type 'remove' to remove users from your contacts list    |
         | Type 'display' to display your contacts list             |
+        | Type 'log out' to log out and return to the main menu    |
         | Type 'quit' to exit the program                          |
         +----------------------------------------------------------+
         

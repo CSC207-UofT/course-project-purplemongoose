@@ -12,6 +12,7 @@ public class AccountController {
 
     public AccountController(){
         this.accUC = new AccountUseCases();
+        this.proUC = new ProfileUseCases();
     }
 
     // should change return to object type; viewModel object
