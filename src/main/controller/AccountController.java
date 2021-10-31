@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("account-rest")
+@RequestMapping("account")
 public class AccountController {
     AccountUseCases accUC;
     ProfileUseCases proUC;

@@ -32,6 +32,3 @@ public class LoginController {
         return this.accUseCase.createNewAccount(username, password);
     }
 }
-
-// HTTP requests should look like this: url/[RequestMapping]/[GetMapping]?[arg1=...]&[arg2=...]&...
-
