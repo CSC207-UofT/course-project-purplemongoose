@@ -1,15 +1,14 @@
 package database;
 
 import java.io.File;
-import entity.profiles.Person;
 import java.sql.*;
 
-public class AccountGateway extends MainFrameGateway {
+public class AccountGateway extends DatabaseGateway {
 
     private final String mfLocation = "data/account.db";
 
     @Override
-    public Connection mfConnect() {
+    public Connection databaseConnect() {
         File file = new File(mfLocation);
         Connection conn = null;
         if (file.exists()) {
@@ -35,7 +34,7 @@ public class AccountGateway extends MainFrameGateway {
 
     // create table with username and password fields
     private void createAccountTable(Connection conn) {
-        try (conn; Statement stmt = conn.createStatement()) {
+        try (Statement stmt = conn.createStatement()) {
             String tableSQL = """
                     CREATE TABLE IF NOT EXISTS "accounts" (
                     	"username"	TEXT NOT NULL UNIQUE,
@@ -52,7 +51,7 @@ public class AccountGateway extends MainFrameGateway {
     public Object getAccountData(String uuid) {
         String sqlQuery = "SELECT account FROM accounts WHERE uuid = ?";
         ResultSet rs = null;
-        try (Connection conn = mfConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)){
+        try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)){
             ps.setString(1, uuid);
             rs = ps.executeQuery();
             if (rs.next()) {
@@ -74,7 +73,7 @@ public class AccountGateway extends MainFrameGateway {
     // should only be used when the user creates an account
     public boolean insertAccountData(String username, String password, String uuid, Object acc) {
         String sqlQuery = "INSERT INTO accounts(username, password, uuid, account) VALUES(?, ?, ?, ?)";
-        try (Connection conn = mfConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)) {
+        try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)) {
             ps.setString(1, username);
             ps.setString(2, password);
             ps.setString(3, uuid);
@@ -89,7 +88,7 @@ public class AccountGateway extends MainFrameGateway {
 
     public boolean updateAccountData(String uuid, Object acc) {
         String sqlQuery = "UPDATE accounts SET account = ? WHERE uuid = ?";
-        try (Connection conn = mfConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)) {
+        try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)) {
             ps.setBytes(1, toBytes(acc));
             ps.setString(2, uuid);
             ps.executeUpdate();
@@ -105,7 +104,7 @@ public class AccountGateway extends MainFrameGateway {
     public String authAccountData(String username, String password) {
         String sqlQuery = "SELECT uuid FROM accounts WHERE username = ? AND password = ?";
         ResultSet rs = null;
-        try (Connection conn = mfConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)) {
+        try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)) {
             ps.setString(1, username);
             ps.setString(2, password);
             rs = ps.executeQuery();
