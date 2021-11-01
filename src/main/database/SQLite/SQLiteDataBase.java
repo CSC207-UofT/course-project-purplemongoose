@@ -10,14 +10,27 @@ public abstract class SQLiteDataBase {
 
     /**
      * Establishes a connection between the local database and the program.
+     *
+     * @throws SQLException if the program fails to open the connection
      */
     public abstract void open() throws SQLException;
 
     /**
-     * Establishes a connection between the local database and the program.
+     * Closes the existing connection, then establishes a new one.
+     *
+     * @throws SQLException if the program fails to close/open the connection
+     */
+    public void reopen() throws SQLException {
+        close(); open();
+    }
+
+    /**
+     * Closes the connection between the local database and the program.
+     *
+     * @throws SQLException if the program fails to close the connection
      */
     public void close() throws SQLException {
-        connection.close();
+        if (connection != null) connection.close();
     }
 
     /**

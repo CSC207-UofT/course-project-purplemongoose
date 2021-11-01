@@ -7,7 +7,7 @@ import java.sql.*;
  * A wrapper class for the handling of an SQLite database connection from a file.
  */
 public class SQLiteDataBaseFile extends SQLiteDataBase {
-    private final String path;
+    private String path;
 
     /**
      * Creates a SQLiteDataBase object, of the database located at path
@@ -17,7 +17,7 @@ public class SQLiteDataBaseFile extends SQLiteDataBase {
      */
     public SQLiteDataBaseFile(String path, boolean createIfNotExists) throws FileNotFoundException, SQLException{
         this.path = path;
-        if(!dbExists() && !createIfNotExists){
+        if(dbNotExists() && !createIfNotExists){
             throw new FileNotFoundException(
                     "Could not open SQLite database, the file located at "
                             + this.path + " does not exist."
@@ -32,14 +32,39 @@ public class SQLiteDataBaseFile extends SQLiteDataBase {
      *
      * @return whether the file located at the path of the database exists.
      */
-    private boolean dbExists() {
+    private boolean dbNotExists() {
         File f = new File(path);
 
-        return f.exists();
+        return !f.exists();
     }
 
     @Override
     public void open() throws SQLException {
         connection = DriverManager.getConnection(String.format("jdbc:sqlite:%s", path));
+    }
+
+    /**
+     * Sets the path for the database.
+     *
+     * @param path The file path to the SQLiteDataBase
+     */
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    /**
+     *
+     * @param path The file path to the SQLiteDataBase
+     */
+    public void reopen(String path, boolean createIfNotExists) throws FileNotFoundException, SQLException {
+        setPath(path);
+        if(dbNotExists() && !createIfNotExists){
+            throw new FileNotFoundException(
+                    "Could not open SQLite database, the file located at "
+                            + this.path + " does not exist."
+            );
+        }
+
+        reopen();
     }
 }
