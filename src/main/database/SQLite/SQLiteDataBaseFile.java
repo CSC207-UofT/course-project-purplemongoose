@@ -6,7 +6,7 @@ import java.sql.*;
 /**
  * A wrapper class for the handling of an SQLite database connection from a file.
  */
-public class SQLiteDataBaseFileConnection extends SQLiteDataBaseConnection{
+public class SQLiteDataBaseFile extends SQLiteDataBase {
     private final String path;
 
     /**
@@ -15,7 +15,7 @@ public class SQLiteDataBaseFileConnection extends SQLiteDataBaseConnection{
      * @param path The file path to the SQLiteDataBase
      * @throws FileNotFoundException if the file specified by the path does not exist.
      */
-    public SQLiteDataBaseFileConnection(String path, boolean createIfNotExists) throws FileNotFoundException {
+    public SQLiteDataBaseFile(String path, boolean createIfNotExists) throws FileNotFoundException {
         this.path = path;
         if(!dbExists() && !createIfNotExists){
             throw new FileNotFoundException(
