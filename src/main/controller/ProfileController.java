@@ -10,8 +10,9 @@ public class ProfileController {
         this.proUC = new ProfileUseCases();
     }
 
-    public void submitNewPersonalProfile(String profileUUID) {
-        //this.proUseCase.
+    public boolean submitNewPersonalProfile(String first, String last, String pronouns,
+                                            String titles, String phone, String email) {
+        return this.proUC.createNewPerson(first, last, pronouns, titles, phone, email);
     }
 
     public void submitNewOrganzationProfile(String profileUUID) {

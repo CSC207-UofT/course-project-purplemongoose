@@ -18,6 +18,7 @@ public class AccountController {
 
     public AccountController() {
         this.accUC = new AccountUseCases();
+        this.proUC = new ProfileUseCases();
     }
 
     @GetMapping("/contactadd")

@@ -3,9 +3,9 @@ package database;
 import java.io.*;
 import java.sql.*;
 
-public abstract class MainFrameGateway {
+public abstract class DatabaseGateway {
 
-    abstract Connection mfConnect();
+    abstract Connection databaseConnect();
 
     public static byte[] toBytes(Object object) {
         try {
