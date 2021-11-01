@@ -30,6 +30,7 @@ public class AccountUseCases {
         ag.updateAccountData(accountUUID, acc);
     }
 
+    // assumes the contact exists in the contact list of the account
     public void removeContact(String contactUUID){
         String accountUUID = AppState.getCurrentUUID();
         Account acc = (Account) ag.getAccountData(accountUUID);
@@ -54,7 +55,7 @@ public class AccountUseCases {
         for (Object pt : (Set)contacts) {
             if (pt instanceof Person) {
                 sb.append(String.format("%s | %s | %s | %s\n", ((Person) pt).getPronouns(), ((Person) pt).getName(),
-                        ((Person) pt).getPhone(), ((Person) pt).getPhone()));
+                        ((Person) pt).getPhone(), ((Person) pt).getEmail()));
             }
             else {
                 sb.append(String.format("%s | %s | %s\n", ((Organization) pt).getName(),
@@ -62,6 +63,5 @@ public class AccountUseCases {
             }
         }
         return sb.toString();
-
     }
 }

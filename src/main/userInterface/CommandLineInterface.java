@@ -84,8 +84,12 @@ public class CommandLineInterface {
             System.out.print("Press 'y' to continue or press 'n' to restart\n");
             String input = sc.nextLine();
             if (input.equals("y")) {
-                lc.submitSignUp(username, password);
-                System.out.println("Account made successfully!\n");
+                if (lc.submitSignUp(username, password)) {
+                    System.out.println("Account made successfully!\n");
+                }
+                else {
+                    System.out.println("signup error!\n");
+                }
                 startingScreen();
                 break;
             }
@@ -154,8 +158,12 @@ public class CommandLineInterface {
             System.out.println("Press 'y' to continue or press 'n' to re-enter\n");
             String input = sc.next();
             if (input.equals("y")) {
-                pc.submitNewPersonalProfile(first, last, pronouns, title, phone, email);
-                System.out.println("Profile created successfully!\n");
+                if (pc.submitNewPersonalProfile(first, last, pronouns, title, phone, email)) {
+                    System.out.println("Profile created successfully!\n");
+                }
+                else {
+                    System.out.println("Profile erorr!!\n");
+                }
                 instructionScreen();
                 break;
             }
@@ -199,7 +207,7 @@ public class CommandLineInterface {
      */
     private void removeContact() {
         String input;
-        System.out.println("Type the name of the person you want to remove; type 'back' to return to the main menu");
+        System.out.println("Type the ID of the person you want to remove; type 'back' to return to the main menu");
         System.out.print("[remove]: ");
         input = sc.next();
         while (!input.equals("back")) {
