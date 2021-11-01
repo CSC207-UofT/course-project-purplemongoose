@@ -1,8 +1,6 @@
 package database.SQLite;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  * A wrapper class for the handling of an SQLite database connection in memory.
@@ -11,16 +9,15 @@ public class SQLiteDataBaseMemory extends SQLiteDataBase {
 
     /**
      * Represents a database in memory.
+     *
+     * @throws SQLException if the database could not be created/accessed
      */
-    public SQLiteDataBaseMemory(){
+    public SQLiteDataBaseMemory() throws SQLException{
     }
 
     @Override
-    public Connection open() throws SQLException {
-        Connection connection = null;
+    public void open() throws SQLException {
         connection = DriverManager.getConnection("jdbc:sqlite::memory:");
-
-        return connection;
     }
 
 

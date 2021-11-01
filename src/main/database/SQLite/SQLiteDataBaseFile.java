@@ -15,7 +15,7 @@ public class SQLiteDataBaseFile extends SQLiteDataBase {
      * @param path The file path to the SQLiteDataBase
      * @throws FileNotFoundException if the file specified by the path does not exist.
      */
-    public SQLiteDataBaseFile(String path, boolean createIfNotExists) throws FileNotFoundException {
+    public SQLiteDataBaseFile(String path, boolean createIfNotExists) throws FileNotFoundException, SQLException{
         this.path = path;
         if(!dbExists() && !createIfNotExists){
             throw new FileNotFoundException(
@@ -23,6 +23,8 @@ public class SQLiteDataBaseFile extends SQLiteDataBase {
                             + this.path + " does not exist."
             );
         }
+
+        open();
     }
 
     /**
@@ -30,17 +32,14 @@ public class SQLiteDataBaseFile extends SQLiteDataBase {
      *
      * @return whether the file located at the path of the database exists.
      */
-    public boolean dbExists() {
+    private boolean dbExists() {
         File f = new File(path);
 
         return f.exists();
     }
 
     @Override
-    public Connection open() throws SQLException {
-        Connection connection = null;
+    public void open() throws SQLException {
         connection = DriverManager.getConnection(String.format("jdbc:sqlite:%s", path));
-
-        return connection;
     }
 }
