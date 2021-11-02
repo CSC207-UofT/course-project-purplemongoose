@@ -11,6 +11,4 @@ public class AppState {
     public static void setCurrentUsername(String uuid) {
         currentUsername = uuid;
     }
-
-
 }

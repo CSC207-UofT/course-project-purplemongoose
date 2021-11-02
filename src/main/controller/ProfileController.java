@@ -27,7 +27,6 @@ public class ProfileController {
     public void submitProfileRemove(String profileUUID) {
         //this.proUseCase.
     }
-
 }
 
 // implement these methods accordingly
