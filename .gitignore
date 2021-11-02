@@ -101,3 +101,6 @@ fabric.properties
 # database files
 .data/account.db
 .data/profile.db
+
+# Maven
+target/
