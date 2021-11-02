@@ -15,8 +15,7 @@ public class AccountGateway extends DatabaseGateway {
             try {
                 conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", this.mfLocation));
                 return conn; // return a connection for other methods to use
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
         }
@@ -24,8 +23,7 @@ public class AccountGateway extends DatabaseGateway {
             try {
                 conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", this.mfLocation));
                 createAccountTable(conn);
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
         }
@@ -39,7 +37,6 @@ public class AccountGateway extends DatabaseGateway {
                     CREATE TABLE IF NOT EXISTS "accounts" (
                     	"username"	TEXT NOT NULL UNIQUE,
                     	"password"	TEXT NOT NULL,
-                    	"uuid"      TEXT NOT NULL UNIQUE,
                     	"account"   BLOB
                     );""";
             stmt.execute(tableSQL);
@@ -48,11 +45,11 @@ public class AccountGateway extends DatabaseGateway {
         }
     }
 
-    public Object getAccountData(String uuid) {
-        String sqlQuery = "SELECT account FROM accounts WHERE uuid = ?";
+    public Object getAccountData(String username) {
+        String sqlQuery = "SELECT account FROM accounts WHERE username = ?";
         ResultSet rs = null;
         try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)){
-            ps.setString(1, uuid);
+            ps.setString(1, username);
             rs = ps.executeQuery();
             if (rs.next()) {
                 byte[] objBytes = rs.getBytes(1);
@@ -71,13 +68,12 @@ public class AccountGateway extends DatabaseGateway {
     }
 
     // should only be used when the user creates an account
-    public boolean insertAccountData(String username, String password, String uuid, Object acc) {
-        String sqlQuery = "INSERT INTO accounts(username, password, uuid, account) VALUES(?, ?, ?, ?)";
+    public boolean insertAccountData(String username, String password, Object acc) {
+        String sqlQuery = "INSERT INTO accounts(username, password, account) VALUES(?, ?, ?)";
         try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)) {
             ps.setString(1, username);
             ps.setString(2, password);
-            ps.setString(3, uuid);
-            ps.setBytes(4, toBytes(acc));
+            ps.setBytes(3, toBytes(acc));
             ps.executeUpdate();
         } catch (SQLException e) {
             System.err.println(e.getMessage());
@@ -86,11 +82,11 @@ public class AccountGateway extends DatabaseGateway {
         return true;
     }
 
-    public boolean updateAccountData(String uuid, Object acc) {
-        String sqlQuery = "UPDATE accounts SET account = ? WHERE uuid = ?";
+    public boolean updateAccountData(String username, Object acc) {
+        String sqlQuery = "UPDATE accounts SET account = ? WHERE username = ?";
         try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)) {
             ps.setBytes(1, toBytes(acc));
-            ps.setString(2, uuid);
+            ps.setString(2, username);
             ps.executeUpdate();
         } catch (SQLException e) {
             System.err.println(e.getMessage());
@@ -102,7 +98,7 @@ public class AccountGateway extends DatabaseGateway {
     // add delete account data
 
     public String authAccountData(String username, String password) {
-        String sqlQuery = "SELECT uuid FROM accounts WHERE username = ? AND password = ?";
+        String sqlQuery = "SELECT username FROM accounts WHERE username = ? AND password = ?";
         ResultSet rs = null;
         try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)) {
             ps.setString(1, username);

@@ -13,7 +13,7 @@ public class ProfileUseCases {
     ProfileGateway pg = new ProfileGateway();
 
     public boolean createNewPerson(String first, String last, String pronouns, String titles, String phone, String email) {
-        String uuid = AppState.getCurrentUUID();
+        String uuid = AppState.getCurrentUsername();
         Name n = new Name(first, last, pronouns, titles);
         Phone p = new Phone(phone);
         Email e = new Email(email);
@@ -22,7 +22,7 @@ public class ProfileUseCases {
     }
 
     public boolean createNewOrganization(String name, String phone, String email) {
-        String uuid = AppState.getCurrentUUID();
+        String uuid = AppState.getCurrentUsername();
         Phone p = new Phone(phone);
         Email e = new Email(email);
         Organization org = new Organization(name, p, e);
@@ -30,7 +30,7 @@ public class ProfileUseCases {
     }
 
     public boolean updatePersonProfile(ProfileType pt) {
-        String uuid = AppState.getCurrentUUID();
+        String uuid = AppState.getCurrentUsername();
         // not too sure how to implement this effectively without having 15 methods for each profile data entry
         return this.pg.updateProfileData(uuid, pt);
     }

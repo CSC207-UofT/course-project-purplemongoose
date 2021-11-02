@@ -17,38 +17,37 @@ public class AccountUseCases {
     public boolean createNewAccount(String email, String password) {
         PersonalAccount pu = new PersonalAccount();
         UUIDGenerator gen = new UUIDGenerator();
-        String uuid = gen.getBase62();
-        return this.ag.insertAccountData(email, password, uuid, pu);
+        return this.ag.insertAccountData(email, password, pu);
     }
 
     // assumes the contact does not already exist in the contact list of the account
-    public void addContact(String contactUUID){
-        String accountUUID = AppState.getCurrentUUID();
-        Account acc = (Account) ag.getAccountData(AppState.getCurrentUUID());
-        Person p = (Person) pg.getProfileData(contactUUID);
+    public void addContact(String contactUsername){
+        String accountUUID = AppState.getCurrentUsername();
+        Account acc = (Account) ag.getAccountData(AppState.getCurrentUsername());
+        Person p = (Person) pg.getProfileData(contactUsername);
         acc.addContact(p);
         ag.updateAccountData(accountUUID, acc);
     }
 
     // assumes the contact exists in the contact list of the account
-    public void removeContact(String contactUUID){
-        String accountUUID = AppState.getCurrentUUID();
+    public void removeContact(String contactUsername){
+        String accountUUID = AppState.getCurrentUsername();
         Account acc = (Account) ag.getAccountData(accountUUID);
-        Person p = (Person) pg.getProfileData(contactUUID);
+        Person p = (Person) pg.getProfileData(contactUsername);
         acc.removeContact(p);
         ag.updateAccountData(accountUUID, acc);
     }
 
-    public boolean checkForContact(String contactUUID) {
-        String accountUUID = AppState.getCurrentUUID();
+    public boolean checkForContact(String contactUsername) {
+        String accountUUID = AppState.getCurrentUsername();
         Account acc = (Account) ag.getAccountData(accountUUID);
-        Person p = (Person) pg.getProfileData(contactUUID);
+        Person p = (Person) pg.getProfileData(contactUsername);
         return acc.checkContacts(p);
     }
 
     public String getContacts() {
-        String accountUUID = AppState.getCurrentUUID();
-        Account acc = (Account) ag.getAccountData(accountUUID);
+        String contactUsername = AppState.getCurrentUsername();
+        Account acc = (Account) ag.getAccountData(contactUsername);
         Object contacts = acc.getContact();
         StringBuilder sb = new StringBuilder();
 

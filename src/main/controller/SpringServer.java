@@ -4,11 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class StartServer {
+public class SpringServer {
 
-    public static void main(String[] args) {
+    public void start(String[] args) {
         // Starts up the backend HTTP server
-        SpringApplication.run(StartServer.class, args);
+        SpringApplication.run(SpringServer.class, args);
     }
 }
 

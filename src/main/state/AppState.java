@@ -1,15 +1,15 @@
 package state;
 
-// effectively keeps important data as global variables
+// saves the username for use in various use cases
 public class AppState {
-    private static String currentUUID = null;
+    private static String currentUsername = null;
 
-    public static String getCurrentUUID() {
-        return currentUUID;
+    public static String getCurrentUsername() {
+        return currentUsername;
     }
 
-    public static void setCurrentUUID(String uuid) {
-        currentUUID = uuid;
+    public static void setCurrentUsername(String uuid) {
+        currentUsername = uuid;
     }
 
 
