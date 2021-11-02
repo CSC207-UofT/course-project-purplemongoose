@@ -1,11 +1,11 @@
 package usecase;
 
-import entity.profiles.Organization;
 import state.AppState;
+import database.AccountGateway;
 import database.ProfileGateway;
+import entity.profiles.Organization;
 import entity.accounts.Account;
 import entity.accounts.PersonalAccount;
-import database.AccountGateway;
 import entity.profiles.Person;
 
 import java.util.Set;
