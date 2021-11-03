@@ -30,7 +30,10 @@ public class AccountGateway extends DatabaseGateway {
         return conn; // return a connection for other methods to use
     }
 
-    // create table with username and password fields
+    /**
+     *
+     * @param conn
+     */
     private void createAccountTable(Connection conn) {
         try (Statement stmt = conn.createStatement()) {
             String tableSQL = """
@@ -45,6 +48,11 @@ public class AccountGateway extends DatabaseGateway {
         }
     }
 
+    /**
+     *
+     * @param username
+     * @return
+     */
     public Object getAccountData(String username) {
         String sqlQuery = "SELECT account FROM accounts WHERE username = ?";
         ResultSet rs = null;
@@ -67,7 +75,13 @@ public class AccountGateway extends DatabaseGateway {
         return null;
     }
 
-    // should only be used when the user creates an account
+    /**
+     *
+     * @param username
+     * @param password
+     * @param acc
+     * @return
+     */
     public boolean insertAccountData(String username, String password, Object acc) {
         String sqlQuery = "INSERT INTO accounts(username, password, account) VALUES(?, ?, ?)";
         try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)) {
@@ -82,6 +96,12 @@ public class AccountGateway extends DatabaseGateway {
         return true;
     }
 
+    /**
+     *
+     * @param username
+     * @param acc
+     * @return
+     */
     public boolean updateAccountData(String username, Object acc) {
         String sqlQuery = "UPDATE accounts SET account = ? WHERE username = ?";
         try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)) {
@@ -95,8 +115,12 @@ public class AccountGateway extends DatabaseGateway {
         return true;
     }
 
-    // add delete account data
-
+    /**
+     *
+     * @param username
+     * @param password
+     * @return
+     */
     public String authAccountData(String username, String password) {
         String sqlQuery = "SELECT username FROM accounts WHERE username = ? AND password = ?";
         ResultSet rs = null;
@@ -118,4 +142,5 @@ public class AccountGateway extends DatabaseGateway {
         }
         return null;
     }
+    // add deleteAccountData
 }

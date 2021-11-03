@@ -3,15 +3,13 @@ package controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import usecase.AccountUseCases;
 import usecase.LoginAuth;
-import viewmodel.SimpleResponse;
-import viewmodel.Container;
+import viewmodel.StartRequest;
+import viewmodel.ResponseContainer;
+import viewmodel.ShortResponse;
 
 @RestController
 @RequestMapping("/start")
@@ -19,32 +17,45 @@ public class LoginController {
     LoginAuth auth = new LoginAuth();
     AccountUseCases accUseCase = new AccountUseCases();
 
-    @GetMapping(path="/login", produces= MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Container> submitLogin(@RequestParam(value = "username", defaultValue = "") String username,
-                                      @RequestParam(value = "password", defaultValue = "") String password) {
-        SimpleResponse response = new SimpleResponse();
-        if (this.auth.requestLogin(username, password)) {
+    /**
+     * Takes in a StartRequest object and authenticates the information provided. If either the username or password is
+     * wrong, then a 'false' response is sent back. Otherwise, a 'true' response is sent back.
+     *
+     * @param request JSON converted into StartRequest which contains the username and password
+     * @return return a ResponseEntity which contains a 'true'/'false' response and an HTTP status code
+     */
+    @PostMapping(path="/login", consumes=MediaType.APPLICATION_JSON_VALUE,
+            produces=MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ResponseContainer> submitLogin(@RequestBody StartRequest request) {
+        ShortResponse response = new ShortResponse();
+        if (this.auth.requestLogin(request.getAccountUsername(), request.getAccountPassword())) {
             response.add(true);
         }
         else {
             response.add(false);
-            response.setError(9); // placeholder for now, list of proper error codes will be made later
+            response.setError(9); // login attempt failed
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @GetMapping(path="/signup", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Container> submitSignUp(@RequestParam(value = "username", defaultValue = "") String username,
-                                @RequestParam(value = "password", defaultValue = "") String password) {
-        SimpleResponse response = new SimpleResponse();
-        if (this.accUseCase.createNewAccount(username, password)) {
+    /**
+     * Takes in a LoginRequest object and authenticates the attempts to make a new account with the given information.
+     * If the username is already taken, then a 'false' response is sent back. Otherwise, a 'true' response is sent.
+     *
+     * @param request JSON converted into StartRequest which contains the username and password
+     * @return return a ResponseEntity which contains a 'true'/'false' response and an HTTP status code
+     */
+    @PostMapping(path="/signup", consumes=MediaType.APPLICATION_JSON_VALUE,
+            produces=MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ResponseContainer> submitSignUp(@RequestBody StartRequest request) {
+        ShortResponse response = new ShortResponse();
+        if (this.accUseCase.createNewAccount(request.getAccountUsername(), request.getAccountPassword())) {
             response.add(true);
         }
         else {
             response.add(false);
-            response.setError(10);
+            response.setError(10); // username has already been taken
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
-        // may use more descriptive response in the future - e.g. report back the specific reason
     }
 }

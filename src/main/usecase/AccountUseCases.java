@@ -1,65 +1,76 @@
 package usecase;
 
-import state.AppState;
 import database.AccountGateway;
 import database.ProfileGateway;
-import entity.profiles.Organization;
 import entity.accounts.Account;
 import entity.accounts.PersonalAccount;
 import entity.profiles.Person;
 
 import java.util.Set;
 
+/**
+ * The class contains use cases which involve accounts
+ */
 public class AccountUseCases {
     AccountGateway ag = new AccountGateway();
     ProfileGateway pg = new ProfileGateway();
 
+    /**
+     * Creates a new personal account and calls the AccountGateway to add it to the database
+     * @param username the account's username
+     * @param password the account's password
+     * @return true or false depending on if the account was successfully created
+     */
     public boolean createNewAccount(String username, String password) {
         PersonalAccount pu = new PersonalAccount();
         return this.ag.insertAccountData(username, password, pu);
     }
 
-    // assumes the contact does not already exist in the contact list of the account
-    public void addContact(String contactUsername){
-        String accountUsername = AppState.getCurrentUsername();
+    /**
+     * Adds a profile to the accounts contact list. The profile object is fetched from the profile database via the
+     * ProfileGateway. Then the account data is updated via the account database.
+     * @param accountUsername the account's username
+     * @param contactUsername the contact's username
+     */
+    public void addContact(String accountUsername, String contactUsername){
         Account acc = (Account) ag.getAccountData(accountUsername);
         Person p = (Person) pg.getProfileData(contactUsername);
         acc.addContact(p);
         ag.updateAccountData(accountUsername, acc);
     }
 
-    // assumes the contact exists in the contact list of the account
-    public void removeContact(String contactUsername){
-        String accountUsername = AppState.getCurrentUsername();
+    /**
+     * Removes a profile from the accounts contact list. The profile object is fetched from the profile database via the
+     * ProfileGateway. Then the account data is updated via the account database.
+     * @param accountUsername the account's username
+     * @param contactUsername the contact's username
+     */
+    public void removeContact(String accountUsername, String contactUsername){
         Account acc = (Account) ag.getAccountData(accountUsername);
         Person p = (Person) pg.getProfileData(contactUsername);
         acc.removeContact(p);
         ag.updateAccountData(accountUsername, acc);
     }
 
-    public boolean checkForContact(String contactUsername) {
-        String accountUsername = AppState.getCurrentUsername();
+    /**
+     * Checks if profile is part of an account's contact list
+     * @param accountUsername the account's username
+     * @param contactUsername the contact's username
+     * @return whether or not the profile is part of the account's contact list
+     */
+    public boolean checkForContact(String accountUsername, String contactUsername) {
         Account acc = (Account) ag.getAccountData(accountUsername);
         Person p = (Person) pg.getProfileData(contactUsername);
         return acc.checkContacts(p);
     }
 
-    public String getContacts() {
-        String accountUsername = AppState.getCurrentUsername();
+    /**
+     * Returns all the contacts of an account
+     * @param accountUsername the account's username
+     * @return set of profiles
+     */
+    public Set getContacts(String accountUsername) {
         Account acc = (Account) ag.getAccountData(accountUsername);
-        Object contacts = acc.getContact();
-        StringBuilder sb = new StringBuilder();
-
-        for (Object pt : (Set)contacts) {
-            if (pt instanceof Person) {
-                sb.append(String.format("%s | %s | %s | %s\n", ((Person) pt).getPronouns(), ((Person) pt).getName(),
-                        ((Person) pt).getPhone(), ((Person) pt).getEmail()));
-            }
-            else {
-                sb.append(String.format("%s | %s | %s\n", ((Organization) pt).getName(),
-                        ((Organization) pt).getPhone(), ((Organization) pt).getPhone()));
-            }
-        }
-        return sb.toString();
+        return (Set) acc.getContact();
     }
 }

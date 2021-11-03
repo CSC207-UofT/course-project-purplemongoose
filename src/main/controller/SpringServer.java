@@ -12,12 +12,12 @@ public class SpringServer {
     }
 }
 
-// To test out the controllers for this server:
-// http://[IPv4 of hosting machine]:[port]/[controller mapping]/[method mapping]?[arg1=...]&[arg2=...]...
+// To connect to the server
+// http://[IPv4 of hosting machine]:[port]/[controller mapping]/.../[method mapping]
 
 // The port can be configured in resources/application.properties
 // Ensure the port is opened up in the firewall to allow external connections
 
 // Example:
-// http://123.4.5.678:8082/start/login?username=bob&password=123
+// http://localhost:8082/start/login
 

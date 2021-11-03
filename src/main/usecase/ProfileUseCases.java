@@ -1,42 +1,69 @@
 package usecase;
 
-import state.AppState;
+
 import database.ProfileGateway;
 import entity.dataFiles.Email;
 import entity.dataFiles.Name;
 import entity.dataFiles.Phone;
 import entity.profiles.Organization;
 import entity.profiles.Person;
-import entity.profiles.ProfileType;
 
-
+/**
+ * This class contains the uses cases which involve profiles
+ */
 public class ProfileUseCases {
     ProfileGateway pg = new ProfileGateway();
 
-    public boolean createNewPerson(String first, String last, String pronouns, String titles, String phone, String email) {
-        String username = AppState.getCurrentUsername();
-        Name n = new Name(first, last, pronouns, titles);
+    /**
+     * Creates a new personal profiles with the given arguments and adds it to the profile database through the
+     * ProfileGateway
+     * @param accountUsername the username of the account who the profile is associated with
+     * @param first the first name
+     * @param last the last name
+     * @param pronoun the preferred pronoun
+     * @param title the prefered title
+     * @param phone the phone number
+     * @param email the email
+     * @return whether the profile was successfully created
+     */
+    public boolean createNewPerson(String accountUsername, String first, String last, String pronoun, String title, String phone, String email) {
+        Name n = new Name(first, last, pronoun, title);
         Phone p = new Phone(phone);
         Email e = new Email(email);
-        Person person = new Person(n, p, e, username);
-        return this.pg.insertProfileData(username, person);
+        Person person = new Person(n, p, e, accountUsername);
+        return this.pg.insertProfileData(accountUsername, person);
     }
 
-    public boolean createNewOrganization(String name, String phone, String email) {
-        String username = AppState.getCurrentUsername();
+    /**
+     * Creates a new organization with the given arguments and adds it to the profile database through the
+     * ProfileGateway
+     * @param accountUsername the username of the account who claims the business
+     * @param name the name of the organization
+     * @param phone the phone number
+     * @param email the email
+     * @return whether the profile was successfully created
+     */
+    public boolean createNewOrganization(String accountUsername, String name, String phone, String email) {
         Phone p = new Phone(phone);
         Email e = new Email(email);
-        Organization org = new Organization(name, p, e, username);
-        return this.pg.insertProfileData(username, org);
+        Organization org = new Organization(name, p, e, accountUsername);
+        return this.pg.insertProfileData(accountUsername, org);
     }
 
+    /*
     public boolean updatePersonProfile(ProfileType pt) {
         String username = AppState.getCurrentUsername();
         // not too sure how to implement this effectively without having 15 methods for each profile data entry
         return this.pg.updateProfileData(username, pt);
     }
+    */
 
-    public boolean checkForProfile(String profileUIUD) {
-        return pg.getProfileData(profileUIUD) == null;
+    /**
+     * Checks if the profile exists in the database
+     * @param profileUsername the username of the profile being checked against
+     * @return if the data for the profile in the database is null
+     */
+    public boolean checkForProfile(String profileUsername) {
+        return pg.getProfileData(profileUsername) == null;
     }
 }
