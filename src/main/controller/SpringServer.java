@@ -4,20 +4,20 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class StartServer {
+public class SpringServer {
 
-    public static void main(String[] args) {
+    public void start(String[] args) {
         // Starts up the backend HTTP server
-        SpringApplication.run(StartServer.class, args);
+        SpringApplication.run(SpringServer.class, args);
     }
 }
 
-// To test out the controllers for this server:
-// http://[IPv4 of hosting machine]:[port]/[controller mapping]/[method mapping]?[arg1=...]&[arg2=...]...
+// To connect to the server
+// http://[IPv4 of hosting machine]:[port]/[controller mapping]/.../[method mapping]
 
 // The port can be configured in resources/application.properties
 // Ensure the port is opened up in the firewall to allow external connections
 
 // Example:
-// http://123.4.5.678:8082/start/login?username=bob&password=123
+// http://localhost:8082/start/login
 

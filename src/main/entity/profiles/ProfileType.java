@@ -9,4 +9,5 @@ public interface ProfileType {
     String getName();
     String getPhone();
     String getEmail();
+    String getUsername();
 }

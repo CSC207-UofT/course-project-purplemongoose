@@ -15,14 +15,14 @@ public class Person implements ProfileType, Serializable {
     private final Name name;
     private final Phone phone;
     private final Email email;
-    private final String uuid;
+    private final String username;
 
 
-    public Person(Name name, Phone phone, Email email, String uuid) {
+    public Person(Name name, Phone phone, Email email, String username) {
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.uuid = uuid;
+        this.username = username;
     }
 
     @Override
@@ -42,6 +42,11 @@ public class Person implements ProfileType, Serializable {
     @Override
     public String getEmail() {
         return email.getEmail();
+    }
+
+    @Override
+    public String getUsername() {
+        return this.username;
     }
 
 }
