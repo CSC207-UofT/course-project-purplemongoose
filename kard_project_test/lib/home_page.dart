@@ -11,9 +11,16 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Material(
-      child: Center(
-        child: Text('Home Page'),
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("data"),
+          leading: IconButton(
+            icon: const Icon(Icons.ac_unit),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ),
       ),
     );
   }

@@ -9,6 +9,10 @@ import usecase.ProfileUseCases;
 import request.PersonalProfileRequest;
 import response.ResponseContainer;
 import response.ShortResponse;
+import usecase.ProfileUseCases;
+import viewmodel.PersonalProfileRequest;
+import viewmodel.ResponseContainer;
+import viewmodel.ShortResponse;
 
 @RestController
 @RequestMapping("profile")

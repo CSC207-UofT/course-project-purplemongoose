@@ -30,6 +30,9 @@
       <excludeFolder url="file://$MODULE_DIR$/kard_project_test/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/kard_project_test/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
+      <excludeFolder url="file://$MODULE_DIR$/kard/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/kard/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/kard/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
