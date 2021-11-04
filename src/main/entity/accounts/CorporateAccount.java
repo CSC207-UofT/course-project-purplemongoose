@@ -80,8 +80,8 @@ public class CorporateAccount extends Account implements Serializable {
      * @return HashMap of all employees
      */
     @Override
-    public Object getContact() {
-        return employees.keySet();
+    public ProfileType getContact() {
+        return (ProfileType) employees.keySet();
     }
 
     @Override

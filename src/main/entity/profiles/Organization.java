@@ -1,7 +1,7 @@
 package entity.profiles;
 
-import entity.dataFiles.Email;
-import entity.dataFiles.Phone;
+import entity.datafile.Email;
+import entity.datafile.Phone;
 
 import java.io.Serializable;
 
@@ -14,16 +14,18 @@ public class Organization implements ProfileType, Serializable {
     private final String orgName;
     private final Phone orgPhone;
     private final Email orgEmail;
+    private final String orgUsername;
 
     // the setters
 
     /**
      * Organization starts off not having any clients
      */
-    public Organization(String orgName, Phone phone, Email email) {
+    public Organization(String orgName, Phone phone, Email email, String orgUsername) {
         this.orgName = orgName;
         this.orgPhone = phone;
         this.orgEmail = email;
+        this.orgUsername = orgUsername;
     }
 
 
@@ -42,6 +44,11 @@ public class Organization implements ProfileType, Serializable {
     @Override
     public String getEmail() {
         return orgEmail.getEmail();
+    }
+
+    @Override
+    public String getUsername() {
+        return orgUsername;
     }
 
 }

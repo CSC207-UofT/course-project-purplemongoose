@@ -1,67 +1,80 @@
 package usecase;
 
-import entity.profiles.Organization;
-import state.AppState;
+import database.AccountGateway;
 import database.ProfileGateway;
 import entity.accounts.Account;
 import entity.accounts.PersonalAccount;
-import database.AccountGateway;
 import entity.profiles.Person;
 
-import java.util.Set;
+import java.util.HashSet;
 
+/**
+ * The class contains use cases which involve accounts
+ */
 public class AccountUseCases {
     AccountGateway ag = new AccountGateway();
     ProfileGateway pg = new ProfileGateway();
 
-    public boolean createNewAccount(String email, String password) {
+    /**
+     * Creates a new personal account and calls the AccountGateway to add it to the database
+     * @param username the account's username
+     * @param password the account's password
+     * @return true or false depending on if the account was successfully created
+     */
+    public boolean createNewAccount(String username, String password) {
+        if (username.isBlank() || password.isBlank()) {
+            return false; // prevent empty fields
+        }
         PersonalAccount pu = new PersonalAccount();
-        UUIDGenerator gen = new UUIDGenerator();
-        String uuid = gen.getBase62();
-        return this.ag.insertAccountData(email, password, uuid, pu);
+        return this.ag.insertAccountData(username, password, pu);
     }
 
-    // assumes the contact does not already exist in the contact list of the account
-    public void addContact(String contactUUID){
-        String accountUUID = AppState.getCurrentUUID();
-        Account acc = (Account) ag.getAccountData(AppState.getCurrentUUID());
-        Person p = (Person) pg.getProfileData(contactUUID);
+    /**
+     * Adds a profile to the accounts contact list. The profile object is fetched from the profile database via the
+     * ProfileGateway. Then the account data is updated via the account database.
+     * @param accountUsername the account's username
+     * @param contactUsername the contact's username
+     */
+    public void addContact(String accountUsername, String contactUsername){
+        Account acc = (Account) ag.getAccountData(accountUsername);
+        Person p = (Person) pg.getProfileData(contactUsername);
         acc.addContact(p);
-        ag.updateAccountData(accountUUID, acc);
+        ag.updateAccountData(accountUsername, acc);
     }
 
-    public void removeContact(String contactUUID){
-        String accountUUID = AppState.getCurrentUUID();
-        Account acc = (Account) ag.getAccountData(accountUUID);
-        Person p = (Person) pg.getProfileData(contactUUID);
+    /**
+     * Removes a profile from the accounts contact list. The profile object is fetched from the profile database via the
+     * ProfileGateway. Then the account data is updated via the account database.
+     * @param accountUsername the account's username
+     * @param contactUsername the contact's username
+     */
+    public void removeContact(String accountUsername, String contactUsername){
+        Account acc = (Account) ag.getAccountData(accountUsername);
+        Person p = (Person) pg.getProfileData(contactUsername);
         acc.removeContact(p);
-        ag.updateAccountData(accountUUID, acc);
+        ag.updateAccountData(accountUsername, acc);
     }
 
-    public boolean checkForContact(String contactUUID) {
-        String accountUUID = AppState.getCurrentUUID();
-        Account acc = (Account) ag.getAccountData(accountUUID);
-        Person p = (Person) pg.getProfileData(contactUUID);
+    /**
+     * Checks if profile is part of an account's contact list
+     * @param accountUsername the account's username
+     * @param contactUsername the contact's username
+     * @return whether or not the profile is part of the account's contact list
+     */
+    public boolean checkForContact(String accountUsername, String contactUsername) {
+        Account acc = (Account) ag.getAccountData(accountUsername);
+        Person p = (Person) pg.getProfileData(contactUsername);
         return acc.checkContacts(p);
     }
 
-    public String getContacts() {
-        String accountUUID = AppState.getCurrentUUID();
-        Account acc = (Account) ag.getAccountData(accountUUID);
-        Object contacts = acc.getContact();
-        StringBuilder sb = new StringBuilder();
-
-        for (Object pt : (Set)contacts) {
-            if (pt instanceof Person) {
-                sb.append(String.format("%s | %s | %s | %s\n", ((Person) pt).getPronouns(), ((Person) pt).getName(),
-                        ((Person) pt).getPhone(), ((Person) pt).getPhone()));
-            }
-            else {
-                sb.append(String.format("%s | %s | %s\n", ((Organization) pt).getName(),
-                        ((Organization) pt).getPhone(), ((Organization) pt).getPhone()));
-            }
-        }
-        return sb.toString();
-
+    /**
+     * Returns all the contacts of an account
+     * @param accountUsername the account's username
+     * @return set of profiles
+     */
+    public Object[] getContacts(String accountUsername) {
+        Account acc = (Account) ag.getAccountData(accountUsername);
+        HashSet contacts = (HashSet) acc.getContact();
+        return contacts.toArray();
     }
 }

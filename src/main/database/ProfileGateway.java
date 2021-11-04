@@ -3,20 +3,19 @@ package database;
 import java.io.File;
 import java.sql.*;
 
-public class ProfileGateway extends MainFrameGateway {
+public class ProfileGateway extends DatabaseGateway {
 
     private final String mfLocation = "data/profile.db";
 
     @Override
-    public Connection mfConnect() {
+    public Connection databaseConnect() {
         File file = new File(mfLocation);
         Connection conn = null;
-
         if (file.exists()) {
             try {
                 conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", this.mfLocation));
-            }
-            catch (Exception e) {
+                return conn; // return a connection for other methods to use
+            } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
         }
@@ -24,8 +23,7 @@ public class ProfileGateway extends MainFrameGateway {
             try {
                 conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", this.mfLocation));
                 createProfileTable(conn);
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
         }
@@ -33,70 +31,64 @@ public class ProfileGateway extends MainFrameGateway {
     }
 
     public void createProfileTable(Connection conn) {
-        try {
-            Statement stmt = conn.createStatement();
+        try (Statement stmt = conn.createStatement()){
             String tableSQL = """
                         CREATE TABLE IF NOT EXISTS "profiles" (
-                        	"uuid"	    TEXT NOT NULL UNIQUE,
+                        	"username"  TEXT NOT NULL UNIQUE,
                         	"profile"   BLOB
                         );""";
             stmt.execute(tableSQL);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.err.println(e.getMessage());
         }
     }
 
-    public Object getProfileData(String uuid) {
-        String getSQL = "SELECT profile FROM profiles WHERE uuid = ?";
-        try {
-            Connection conn = mfConnect();
-            PreparedStatement stmt = conn.prepareStatement(getSQL);
-            stmt.setString(1, uuid);
-            ResultSet rs = stmt.executeQuery();
-
+    public Object getProfileData(String username) {
+        String sqlQuery = "SELECT profile FROM profiles WHERE username = ?";
+        ResultSet rs = null;
+        try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)) {
+            ps.setString(1, username);
+            rs = ps.executeQuery();
             if (rs.next()) {
                 byte[] objBytes = rs.getBytes(1);
                 return toObject(objBytes);
             }
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             System.err.println(e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ignored) {}
+            }
         }
         return null;
     }
 
-    public boolean insertProfileData(String uuid, Object prof) {
-        String insertSQL = "INSERT INTO profiles(uuid, profile) VALUES(?, ?)";
-        try {
-            Connection conn = mfConnect();
-            PreparedStatement stmt = conn.prepareStatement(insertSQL);
-            stmt.setString(1, uuid);
-            stmt.setBytes(2, toBytes(prof));
-            stmt.executeUpdate();
-        }
-        catch (SQLException e) {
+    public boolean insertProfileData(String username, Object prof) {
+        String sqlQuery = "INSERT INTO profiles(username, profile) VALUES(?, ?)";
+        try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)){
+            ps.setString(1, username);
+            ps.setBytes(2, toBytes(prof));
+            ps.executeUpdate();
+        } catch (SQLException e) {
             System.err.println(e.getMessage());
             return false;
         }
         return true;
     }
 
-    public boolean updateProfileData(String uuid, Object prof) {
-        String updateSQL = "UPDATE profiles SET profile = ? WHERE uuid = ?";
-        try {
-            Connection conn = mfConnect();
-            PreparedStatement stmt = conn.prepareStatement(updateSQL);
-            stmt.setBytes(1, toBytes(prof));
-            stmt.setString(2, uuid);
-            stmt.executeUpdate();
-        }
-        catch (SQLException e) {
+    public boolean updateProfileData(String username, Object prof) {
+        String sqlQuery = "UPDATE profiles SET profile = ? WHERE username = ?";
+        try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)){
+            ps.setBytes(1, toBytes(prof));
+            ps.setString(2, username);
+            ps.executeUpdate();
+        } catch (SQLException e) {
             System.err.println(e.getMessage());
             return false;
         }
         return true;
     }
-
     // add delete profile data
 }

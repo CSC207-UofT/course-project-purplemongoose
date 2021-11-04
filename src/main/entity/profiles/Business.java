@@ -1,11 +1,10 @@
 package entity.profiles;
 
-import entity.dataFiles.Email;
-import entity.dataFiles.Name;
-import entity.dataFiles.Phone;
+import entity.datafile.Email;
+import entity.datafile.Name;
+import entity.datafile.Phone;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Business extends Organization implements Serializable {
 
@@ -22,8 +21,8 @@ public class Business extends Organization implements Serializable {
 
     // The setters
 
-    public Business(String companyName, Phone companyPhone, Email companyEmail, Name owner) {
-        super(companyName, companyPhone, companyEmail);
+    public Business(String companyName, Phone companyPhone, Email companyEmail, String companyUsername, Name owner) {
+        super(companyName, companyPhone, companyEmail, companyUsername);
         this.owner = owner;
     }
 
