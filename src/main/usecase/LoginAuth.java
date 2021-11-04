@@ -23,4 +23,5 @@ public class LoginAuth {
             return ag.authAccountData(username, password) != null;
         }
     }
+
 }

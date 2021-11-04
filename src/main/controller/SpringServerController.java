@@ -4,12 +4,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringServer {
+public class SpringServerController {
 
     public void start(String[] args) {
         // Starts up the backend HTTP server
-        SpringApplication.run(SpringServer.class, args);
+        SpringApplication.run(SpringServerController.class, args);
     }
+
 }
 
 // To connect to the server
@@ -20,4 +21,3 @@ public class SpringServer {
 
 // Example:
 // http://localhost:8082/start/login
-

@@ -43,4 +43,5 @@ public abstract class DatabaseGateway {
         }
         return null;
     }
+
 }

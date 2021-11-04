@@ -69,4 +69,5 @@ public class PersonalProfileRequest {
     public String getEmail() {
         return email;
     }
+
 }

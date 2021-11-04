@@ -27,4 +27,5 @@ public class ShortResponse implements ResponseContainer {
     public void setError(int error) {
         this.errorCode = error;
     }
+
 }

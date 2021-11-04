@@ -65,4 +65,5 @@ public class ProfileUseCases {
     public boolean checkForProfile(String profileUsername) {
         return pg.getProfileData(profileUsername) == null;
     }
+
 }

@@ -70,11 +70,12 @@ public class AccountUseCases {
     /**
      * Returns all the contacts of an account
      * @param accountUsername the account's username
-     * @return set of profiles
+     * @return array of profile objects
      */
     public Object[] getContacts(String accountUsername) {
         Account acc = (Account) ag.getAccountData(accountUsername);
         Set contacts = (Set) acc.getContact();
         return contacts.toArray();
     }
+
 }

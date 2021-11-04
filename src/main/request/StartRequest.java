@@ -23,4 +23,5 @@ public class StartRequest {
     public String getAccountPassword() {
         return accountPassword;
     }
+
 }

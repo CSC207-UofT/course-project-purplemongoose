@@ -23,4 +23,5 @@ public class ContactRequest {
     public String getContactUsername() {
         return contactUsername;
     }
+
 }
