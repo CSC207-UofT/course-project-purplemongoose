@@ -3,6 +3,9 @@ package usecase;
 import java.util.Random;
 
 public class UUIDGenerator {
+    /**
+     * Generates a unique UUID given all 26 letters (case sensitive) and numbers
+     */
     private final char[] characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     Random gen = new Random();
     int idLength = 5;
