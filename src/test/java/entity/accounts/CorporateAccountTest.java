@@ -10,6 +10,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -119,7 +121,7 @@ class CorporateAccountTest {
     }
 
     /**
-     * Tests the getContacts function.
+     * Tests the getContacts function
      */
     @Test
     @DisplayName("Get the contacts as a string")
@@ -134,6 +136,100 @@ JohnSmith | joe.mama@joe.io | 6471234567
         assertEquals(expected, before);
     }
 
+    /**
+     * Tests the getContacts function on an empty contact list
+     */
+    @Test
+    @DisplayName("Get the contacts as a string for an empty contact list")
+    void testGetContactsEmpty(){
+        CorporateAccount new_account = new CorporateAccount();
+        String expected = "your employees list is empty!";
+
+        String before = new_account.getContacts();
+        assertEquals(expected, before);
+    }
+
+    /**
+     * Tests the addAffiliation function
+     */
+    @Test
+    @DisplayName("Add an affiliation")
+    void testAddAffiliation(){
+        Organization test_org = new Organization(
+                "StevenInc",
+                new Phone("6663636363"),
+                new Email("not_steven@y8.com"),
+                "JonnyBoi"
+        );
+
+        assertTrue(account.addAffiliation(test_org));
+        assertTrue(((Set)account.getAffiliation()).contains(test_org));
+    }
+
+    /**
+     * Tests the removeAffiliation function
+     */
+    @Test
+    @DisplayName("Remove an affiliation")
+    void testRemoveAffiliation(){
+        Organization test_org = new Organization(
+                "StevenInc",
+                new Phone("6663636363"),
+                new Email("not_steven@y8.com"),
+                "JonnyBoi"
+        );
+
+        account.addAffiliation(test_org);
+
+        assertTrue(account.removeAffiliation(test_org));
+        assertFalse(((Set)account.getAffiliation()).contains(test_org));
+    }
+
+    /**
+     * Tests the removeAffiliation function an org that is not affiliated with the account
+     */
+    @Test
+    @DisplayName("remove an affiliation that does not exist")
+    void testRemoveAffiliationNotExists(){
+        Organization test_org = new Organization(
+                "StevenInc",
+                new Phone("6663636363"),
+                new Email("not_steven@y8.com"),
+                "JonnyBoi"
+        );
+
+        assertFalse(((Set)account.getAffiliation()).contains(test_org));
+        assertFalse(account.removeAffiliation(test_org));
+    }
+
+
+    /**
+     * Tests the getAffiliations function
+     */
+    @Test
+    @DisplayName("Get the affiliations as a string")
+    void testGetAffiliations(){
+        String expected = """
+JhonnyboiCorp | inquiries@joe.io | 6471234567
+                """ ;
+
+        String before = account.getAffiliations();
+        assertEquals(expected, before);
+    }
+
+
+    /**
+     * Tests the getAffiliations function on an empty affiliations list
+     */
+    @Test
+    @DisplayName("Get the affiliations as a string for an empty affiliations list")
+    void testGetAffiliationsEmpty(){
+        CorporateAccount new_account = new CorporateAccount();
+        String expected = "your affiliations list is empty!" ;
+
+        String before = new_account.getAffiliations();
+        assertEquals(expected, before);
+    }
 
 
 }
