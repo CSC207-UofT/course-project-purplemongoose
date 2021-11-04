@@ -35,19 +35,17 @@ public class AccountController {
     @PostMapping(path="/add/contact", consumes=MediaType.APPLICATION_JSON_VALUE,
             produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitContactAddition(@RequestBody ContactRequest request) {
-        String accountUsername = request.getAccountUsername();
-        String contactUsername = request.getContactUsername();
         ShortResponse response = new ShortResponse();
-        if (proUC.checkForProfile(contactUsername)) {
+        if (proUC.checkForProfile(request.getContactUsername())) {
             response.add(false);
             response.setError(15); // if the username does not correspond to a profile
         }
-        else if (this.accUC.checkForContact(accountUsername, contactUsername)){
+        else if (this.accUC.checkForContact(request.getAccountUsername(), request.getContactUsername())){
             response.add(false);
             response.setError(16); // if the profile is already a contact
         }
         else {
-            this.accUC.addContact(accountUsername, contactUsername);
+            this.accUC.addContact(request.getAccountUsername(), request.getContactUsername());
             response.add(true);
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
@@ -58,7 +56,7 @@ public class AccountController {
      * to a profile, then checks if profile is currently a contact. Will return a 'true', 'false' response for the
      * frontend and an error code to specify the error if something goes wrong.
      *
-     * @param request The JSON POST request is converted into the ContactRequest object type
+     * @param request JSON converted to ContactRequest which contains the account username and contact username
      * @return Return a JSON 'true'/'false' response along with an HTTP status code.
      */
     @PostMapping(path="/remove/contact", consumes=MediaType.APPLICATION_JSON_VALUE,
@@ -84,7 +82,7 @@ public class AccountController {
      * Returns all profiles in the contact list of an account. BasicRequest contains the account's username
      * to query the database with.
      *
-     * @param request The JSON POST request is converted into the BasicRequest object type
+     * @param request SON converted to BasicRequest which contains the account username
      * @return Return a JSON object containing all the contacts and an HTTP status code.
      */
     @GetMapping(path="/display/contact", consumes=MediaType.APPLICATION_JSON_VALUE,
@@ -107,4 +105,7 @@ public class AccountController {
         }
     }
 }
+
+// If you are trying to connect with one of these controllers, make sure the HTTP request you send is of the
+// correct type. For example, submitContactDisplay is an GET request while submitContactRemoval is a POST request.
 
