@@ -1,7 +1,5 @@
 package controller;
 
-import entity.profiles.Organization;
-import entity.profiles.Person;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -12,9 +10,6 @@ import usecase.ProfileUseCases;
 import request.ContactRequest;
 import response.ResponseContainer;
 import response.ShortResponse;
-import viewmodel.*;
-
-import java.util.Set;
 
 @RestController
 @RequestMapping("account")
@@ -98,4 +93,3 @@ public class AccountController {
 
 // If you are trying to connect with one of these controllers, make sure the HTTP request you send is of the
 // correct type. For example, submitContactDisplay is an GET request while submitContactRemoval is a POST request.
-

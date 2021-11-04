@@ -1,4 +1,4 @@
-package entity.datafile;
+package entity.datafiles;
 
 import java.io.Serializable;
 

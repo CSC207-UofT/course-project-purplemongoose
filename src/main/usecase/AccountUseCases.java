@@ -6,7 +6,7 @@ import entity.accounts.Account;
 import entity.accounts.PersonalAccount;
 import entity.profiles.Person;
 
-import java.util.HashSet;
+import java.util.Set;
 
 /**
  * The class contains use cases which involve accounts
@@ -74,7 +74,7 @@ public class AccountUseCases {
      */
     public Object[] getContacts(String accountUsername) {
         Account acc = (Account) ag.getAccountData(accountUsername);
-        HashSet contacts = (HashSet) acc.getContact();
+        Set contacts = (Set) acc.getContact();
         return contacts.toArray();
     }
 }

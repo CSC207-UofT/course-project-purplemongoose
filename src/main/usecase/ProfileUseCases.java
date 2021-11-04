@@ -1,10 +1,9 @@
 package usecase;
 
-
 import database.ProfileGateway;
-import entity.datafile.Email;
-import entity.datafile.Name;
-import entity.datafile.Phone;
+import entity.datafiles.Email;
+import entity.datafiles.Name;
+import entity.datafiles.Phone;
 import entity.profiles.Organization;
 import entity.profiles.Person;
 

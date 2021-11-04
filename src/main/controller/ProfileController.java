@@ -9,10 +9,6 @@ import usecase.ProfileUseCases;
 import request.PersonalProfileRequest;
 import response.ResponseContainer;
 import response.ShortResponse;
-import usecase.ProfileUseCases;
-import viewmodel.PersonalProfileRequest;
-import viewmodel.ResponseContainer;
-import viewmodel.ShortResponse;
 
 @RestController
 @RequestMapping("profile")
@@ -46,14 +42,14 @@ public class ProfileController {
     }
 
     public void submitNewOrganzationProfile(String profileUUID) {
-        //this.proUseCase.
+        // for phase 2
     }
 
     public void submitProfileUpdate(String profileUUID) {
-        //this.proUseCase.
+        // for phase 2
     }
 
     public void submitProfileRemove(String profileUUID) {
-        //this.proUseCase.
+        // for phase 2
     }
 }

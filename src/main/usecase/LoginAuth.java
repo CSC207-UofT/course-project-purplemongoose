@@ -2,7 +2,6 @@ package usecase;
 
 import database.AccountGateway;
 
-
 /**
  * This class contains use cases for login authentication
  */

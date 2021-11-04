@@ -1,8 +1,8 @@
 package entity.accounts;
 
-import entity.dataFiles.Email;
-import entity.dataFiles.Name;
-import entity.dataFiles.Phone;
+import entity.datafiles.Email;
+import entity.datafiles.Name;
+import entity.datafiles.Phone;
 import entity.profiles.Organization;
 import entity.profiles.Person;
 import org.junit.jupiter.api.AfterEach;
