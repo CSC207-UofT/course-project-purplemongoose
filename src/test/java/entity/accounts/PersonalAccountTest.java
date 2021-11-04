@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -126,14 +127,17 @@ class PersonalAccountTest {
     @Test
     @DisplayName("Get the contacts as a string")
     void testGetContacts(){
-        String expected = """
+        String[] expected = """
 PeterPeter | john.smith@aol.com | 5555555555555555
 Sarahjohnson | Taskmgr_dot_exe@gmail.com | 4166942069
 JohnSmith | joe.mama@joe.io | 6471234567
-                """ ;
+                """.split("\n");
+        Arrays.sort(expected);
 
-        String before = account.getContacts();
-        assertEquals(expected, before);
+        String[] actual = account.getContacts().split("\n");
+        Arrays.sort(actual);
+
+        assertIterableEquals(Arrays.asList(expected), Arrays.asList(actual));
     }
 
     /**
@@ -209,12 +213,15 @@ JohnSmith | joe.mama@joe.io | 6471234567
     @Test
     @DisplayName("Get the affiliations as a string")
     void testGetAffiliations(){
-        String expected = """
+        String[] expected = """
 JhonnyboiCorp | inquiries@joe.io | 6471234567
-                """ ;
+                """.split("\n") ;
+        Arrays.sort(expected);
 
-        String before = account.getAffiliations();
-        assertEquals(expected, before);
+        String[] actual = account.getAffiliations().split("\n");
+        Arrays.sort(actual);
+
+        assertIterableEquals(Arrays.asList(expected), Arrays.asList(actual));
     }
 
 
