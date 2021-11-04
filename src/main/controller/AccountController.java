@@ -1,7 +1,5 @@
 package controller;
 
-import entity.profiles.Organization;
-import entity.profiles.Person;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -9,9 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import usecase.AccountUseCases;
 import usecase.ProfileUseCases;
-import viewmodel.*;
-
-import java.util.Set;
+import request.ContactRequest;
+import response.ResponseContainer;
+import response.ShortResponse;
 
 @RestController
 @RequestMapping("account")
@@ -79,30 +77,17 @@ public class AccountController {
     }
 
     /**
-     * Returns all profiles in the contact list of an account. BasicRequest contains the account's username
-     * to query the database with.
+     * Returns all profiles in the contact list of an account.
      *
-     * @param request SON converted to BasicRequest which contains the account username
+     * @param accountUsername a string containing the account username to display the contacts for
      * @return Return a JSON object containing all the contacts and an HTTP status code.
      */
-    @GetMapping(path="/display/contact", consumes=MediaType.APPLICATION_JSON_VALUE,
-            produces=MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResponseContainer> submitContactDisplay(@RequestBody BasicRequest request) {
-        LongResponse response = new LongResponse();
-        Object contacts = accUC.getContacts(request.getAccountUsername());
-        extracted(response, (Set) contacts);
+    @GetMapping(path="/display/contact", produces=MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ResponseContainer> submitContactDisplay(@RequestParam(name="username") String accountUsername) {
+        ShortResponse response = new ShortResponse();
+        Object[] contacts = accUC.getContacts(accountUsername);
+        response.add(contacts);
         return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    private void extracted(LongResponse response, Set contacts) {
-        for (Object p: contacts) {
-            if (p instanceof Person) {
-                response.add((Person) p);
-            }
-            else {
-                response.add((Organization) p);
-            }
-        }
     }
 }
 

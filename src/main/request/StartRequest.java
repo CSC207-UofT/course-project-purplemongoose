@@ -1,4 +1,4 @@
-package viewmodel;
+package request;
 
 /**
  * Class which some JSON objects are serialized into from HTTP POST or GET requests. This one in particular contains

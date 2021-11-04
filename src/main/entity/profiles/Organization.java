@@ -1,7 +1,7 @@
 package entity.profiles;
 
-import entity.dataFiles.Email;
-import entity.dataFiles.Phone;
+import entity.datafile.Email;
+import entity.datafile.Phone;
 
 import java.io.Serializable;
 

@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.*;
 
 import usecase.AccountUseCases;
 import usecase.LoginAuth;
-import viewmodel.StartRequest;
-import viewmodel.ResponseContainer;
-import viewmodel.ShortResponse;
+import request.StartRequest;
+import response.ResponseContainer;
+import response.ShortResponse;
 
 @RestController
 @RequestMapping("/start")
-public class LoginController {
+public class StartController {
     LoginAuth auth = new LoginAuth();
     AccountUseCases accUseCase = new AccountUseCases();
 

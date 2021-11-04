@@ -18,11 +18,10 @@ public class LoginAuth {
      */
     public boolean requestLogin(String username, String password) {
         if (username.isBlank() || password.isBlank()) {
-            return false;
+            return false; // prevent empty fields
         }
         else {
-            String currentUsername = ag.authAccountData(username, password);
-            return currentUsername != null;
+            return ag.authAccountData(username, password) != null;
         }
     }
 }

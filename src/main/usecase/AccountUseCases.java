@@ -6,7 +6,7 @@ import entity.accounts.Account;
 import entity.accounts.PersonalAccount;
 import entity.profiles.Person;
 
-import java.util.Set;
+import java.util.HashSet;
 
 /**
  * The class contains use cases which involve accounts
@@ -22,6 +22,9 @@ public class AccountUseCases {
      * @return true or false depending on if the account was successfully created
      */
     public boolean createNewAccount(String username, String password) {
+        if (username.isBlank() || password.isBlank()) {
+            return false; // prevent empty fields
+        }
         PersonalAccount pu = new PersonalAccount();
         return this.ag.insertAccountData(username, password, pu);
     }
@@ -69,8 +72,9 @@ public class AccountUseCases {
      * @param accountUsername the account's username
      * @return set of profiles
      */
-    public Set getContacts(String accountUsername) {
+    public Object[] getContacts(String accountUsername) {
         Account acc = (Account) ag.getAccountData(accountUsername);
-        return (Set) acc.getContact();
+        HashSet contacts = (HashSet) acc.getContact();
+        return contacts.toArray();
     }
 }

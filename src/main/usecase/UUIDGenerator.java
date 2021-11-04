@@ -2,6 +2,8 @@ package usecase;
 
 import java.util.Random;
 
+// Unused at the moment, may come in handy for phase2
+
 /**
  * Class used to generate human-readable UUIDs
  */
