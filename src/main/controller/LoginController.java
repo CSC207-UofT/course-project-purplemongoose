@@ -29,6 +29,7 @@ public class LoginController {
     @GetMapping("/signup")
     public boolean submitSignUp(@RequestParam(value = "username", defaultValue = "") String username,
                                 @RequestParam(value = "password", defaultValue = "") String password) {
+        System.out.println(username + " p:" + password);
         return this.accUseCase.createNewAccount(username, password);
     }
 }
