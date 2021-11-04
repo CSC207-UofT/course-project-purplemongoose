@@ -1,5 +1,3 @@
-package CLI;
-
 import java.util.Scanner;
 import java.io.IOException;
 import java.net.URI;
@@ -11,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 public class CommandLineInterface {
     private final Scanner sc;
     private String current_username;
+
 
     /**
      * Constructor for the CLI, instance variables: sc is used to read user input,
@@ -69,7 +68,7 @@ public class CommandLineInterface {
 
             int res = submitLogin(username, password);
 
-            if (res == 0) {
+            if (res == 200) {
                 this.current_username = username;
                 System.out.println("Logged in!\n");
                 instructionScreen();
@@ -93,7 +92,7 @@ public class CommandLineInterface {
      * @return code of response that indicates if the login was successful, returns the status code of the response
      */
     private int submitLogin(String username, String password){
-        String endpoint = "http://locahost:8082/start/login/";
+        String endpoint = "http://localhost:8082/start/login/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," +
                         "\"accountPassword\":\"%s\"}",
                 username, password);
@@ -110,9 +109,7 @@ public class CommandLineInterface {
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
-
         return 404;
-
     }
 
     /**
@@ -132,7 +129,7 @@ public class CommandLineInterface {
             System.out.print("Press 'y' to continue or press 'n' to restart\n");
             String input = sc.nextLine();
             if (input.equals("y")) {
-                int res = 0;
+                int res;
                 res = submitSignUp(username, password);
 
                 if (res == 0){
@@ -161,7 +158,7 @@ public class CommandLineInterface {
      * @return code of response that indicates if the sign up was successful, returns the status code of the response
      */
     private int submitSignUp(String username, String password){
-        String endpoint = "http://locahost:8082/start/signup/";
+        String endpoint = "http://localhost:8082/start/signup/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," +
                         "\"accountPassword\":\"%s\"}",
                 username, password);
@@ -232,7 +229,7 @@ public class CommandLineInterface {
             if (res == 25){
                 // if a personal profile was already exists
                 System.out.print("a personal profile already exists!");
-            }else if(res == 0){
+            }else if(res == 200){
                 System.out.print("profile successfully created!");
             }else{
                 System.out.print("could not create profile!");
@@ -245,7 +242,7 @@ public class CommandLineInterface {
     }
 
     private int submitProfileCreation(String first, String last, String pronoun, String title, String phone, String email) {
-        String endpoint = "http://locahost:8082/profile/new/";
+        String endpoint = "http://localhost:8082/profile/new/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," + "\"firstName\":\"%s\","
                         + "\"lastName\":\"%s\","+ "\"title\":\"%s\","+ "\"pronoun\":\"%s\","
                         + "\"phone\":\"%s\"," + "\"email\":\"%s\"}",
@@ -315,7 +312,7 @@ public class CommandLineInterface {
      * @return status code of response that indicates if the contact addition was successful
      */
     private int submitContactAddition(String input){
-        String endpoint = "http://locahost:8082/account/add/contact/";
+        String endpoint = "http://localhost:8082/account/add/contact/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," +
                         "\"contactUsername\":\"%s\"}",
                 this.current_username, input);
@@ -375,7 +372,7 @@ public class CommandLineInterface {
      * @return status code of response that indicates if the contact removal was successful
      */
     private int submitContactRemoval(String input) {
-        String endpoint = "http://locahost:8082/account/remove/contact/";
+        String endpoint = "http://localhost:8082/account/remove/contact/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," +
                         "\"contactUsername\":\"%s\"}",
                 this.current_username, input);
@@ -405,11 +402,11 @@ public class CommandLineInterface {
 
     /**
      * Method used to compile the current username into a HTTP GET request to retrieve a formatted
-     * list of contacts which are stored in the server. 
+     * list of contacts which are stored in the server.
      * @return a string of the current users contacts, compiled already and ready for display
      */
     private String submitContactDisplay() {
-        String endpoint = String.format("http://locahost:8082/account/display/contact/?username=%s",
+        String endpoint = String.format("http://localhost:8082/account/display/contact/?username=%s",
                 this.current_username);
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(endpoint))
