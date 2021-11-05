@@ -43,5 +43,35 @@ public class ProfilesTest {
         org = new Organization("Adidas", phone3, email3, "adidas");
 
     }
+    @AfterEach
+    void tearDown() {
+    }
+
+    /**
+     * Tests for the name getters of profiles as well as the pronoun getter for Person
+     * and owner name getter for Business
+     */
+
+    @Test
+    @DisplayName("Get names of Profiles")
+    void testGetName(){
+
+        String profileName = profile.getName();
+        assertEquals("George Michael (she/her)", profileName);
+
+        String profilePronouns = profile.getPronouns();
+        assertEquals("she/her", profilePronouns);
+
+        String bizName = biz.getName();
+        assertEquals("Mc Donald's", bizName);
+
+        String bizOwnerName = biz.getOwnerName();
+        assertEquals("George Michael (she/her)", bizOwnerName);
+
+        String orgName = org.getName();
+        assertEquals("Adidas", orgName);
+    }
+
+
 
 }
