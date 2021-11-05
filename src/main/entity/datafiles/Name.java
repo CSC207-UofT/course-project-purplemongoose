@@ -43,7 +43,7 @@ public class Name implements Serializable {
      *
      */
     public String getFullName() {
-        return first + last;
+        return first + " " + last;
     }
 
     /** Returns a string for all the formal details to address a Person,
@@ -51,9 +51,9 @@ public class Name implements Serializable {
      */
     public String getAllDetails() {
         if (titles == null) {
-            return first + last + " (" + pronouns + ")";
+            return first + " " + last + " (" + pronouns + ")";
         } else {
-            return titles + first + last + " (" + pronouns + ")";
+            return titles + " " + first + " " + last + " (" + pronouns + ")";
         }
     }
 
