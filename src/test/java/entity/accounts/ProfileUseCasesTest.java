@@ -3,9 +3,7 @@ package entity.accounts;
 import database.ProfileGateway;
 import entity.datafiles.Email;
 import entity.datafiles.Phone;
-import entity.profiles.Business;
 import entity.profiles.Organization;
-import entity.profiles.Person;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -91,4 +89,5 @@ public class ProfileUseCasesTest {
         assertTrue(puc.checkForProfile("uoft"));
 
     }
+
 }
