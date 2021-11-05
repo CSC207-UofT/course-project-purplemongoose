@@ -5,23 +5,21 @@ import java.sql.*;
 
 public class ProfileGateway extends DatabaseGateway {
 
-    private final String mfLocation = "data/profile.db";
-
     @Override
     public Connection databaseConnect() {
+        String mfLocation = "data/profile.db";
         File file = new File(mfLocation);
         Connection conn = null;
         if (file.exists()) {
             try {
-                conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", this.mfLocation));
-                return conn; // return a connection for other methods to use
+                conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", mfLocation));
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
         }
         else { // if such a db doesn't exist, create one and add a table
             try {
-                conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", this.mfLocation));
+                conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", mfLocation));
                 createProfileTable(conn);
             } catch (Exception e) {
                 System.err.println(e.getMessage());

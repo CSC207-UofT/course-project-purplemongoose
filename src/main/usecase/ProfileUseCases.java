@@ -31,7 +31,7 @@ public class ProfileUseCases {
      * @param first the first name
      * @param last the last name
      * @param pronoun the preferred pronoun
-     * @param title the prefered title
+     * @param title the preferred title
      * @param phone the phone number
      * @param email the email
      * @return whether the profile was successfully created
@@ -75,10 +75,10 @@ public class ProfileUseCases {
      * Checks if the profile exists in the database
      *
      * @param profileUsername the username of the profile being checked against
-     * @return if the data for the profile in the database is null
+     * @return if the data for the profile in the database is not null
      */
     public boolean checkForProfile(String profileUsername) {
-        return pg.getProfileData(profileUsername) == null;
+        return pg.getProfileData(profileUsername) != null;
     }
 
 }
