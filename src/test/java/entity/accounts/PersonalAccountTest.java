@@ -3,6 +3,12 @@ package entity.accounts;
 import entity.datafiles.Email;
 import entity.datafiles.Name;
 import entity.datafiles.Phone;
+
+/* TODO: These seem to be outdated. Please check. I believe that that it should be entity.datafiles.*
+import entity.datafile.Email;
+import entity.datafile.Name;
+import entity.datafile.Phone;
+*/
 import entity.profiles.Organization;
 import entity.profiles.Person;
 import org.junit.jupiter.api.AfterEach;

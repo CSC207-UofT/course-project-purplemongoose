@@ -145,6 +145,8 @@ public class PersonalAccount extends Account implements Serializable {
         return conn.getConnections(affiliations);
     }
 
+    // TODO Why is this method commented out? Can we remove it?
+
 //    /**
 //     * Get a String representation of all people in this instance of PersonalUser's contact list.
 //     *

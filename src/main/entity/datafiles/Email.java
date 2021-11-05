@@ -2,11 +2,10 @@ package entity.datafiles;
 
 import java.io.Serializable;
 
+/**
+ * Class that stores information about the Person's email address
+ */
 public class Email implements Serializable {
-
-    /** Class that stores information about the Person's email address
-     *
-     */
 
     private final String email;
 

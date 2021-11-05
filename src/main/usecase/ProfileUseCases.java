@@ -6,22 +6,32 @@ import entity.datafiles.Name;
 import entity.datafiles.Phone;
 import entity.profiles.Organization;
 import entity.profiles.Person;
+import entity.profiles.ProfileType;
 
 /**
  * This class contains the uses cases which involve profiles
  */
 public class ProfileUseCases {
+    /**
+     * Initializes a new profile based on the data that the user passes in when
+     * setting up their account
+     */
     ProfileGateway pg = new ProfileGateway();
 
     /**
+
+    todo fix formatting
+    
      * Creates a new personal profiles with the given arguments and adds it to the profile database through the
      * ProfileGateway
-     *
+
+    This method assumes that the person whose profile is being initiated has not yet been created
+
      * @param accountUsername the username of the account who the profile is associated with
      * @param first the first name
      * @param last the last name
      * @param pronoun the preferred pronoun
-     * @param title the prefered title
+     * @param title the preferred title
      * @param phone the phone number
      * @param email the email
      * @return whether the profile was successfully created
@@ -63,11 +73,12 @@ public class ProfileUseCases {
 
     /**
      * Checks if the profile exists in the database
+     *
      * @param profileUsername the username of the profile being checked against
-     * @return if the data for the profile in the database is null
+     * @return if the data for the profile in the database is not null
      */
     public boolean checkForProfile(String profileUsername) {
-        return pg.getProfileData(profileUsername) == null;
+        return pg.getProfileData(profileUsername) != null;
     }
 
 }

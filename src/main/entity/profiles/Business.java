@@ -6,13 +6,13 @@ import entity.datafiles.Phone;
 
 import java.io.Serializable;
 
+/** Represents a Business, which is a special type of Organization.
+ *
+ * Businesses have a singular Owner.
+ * TODO: Suggestion: Should we make the owner a type user?
+ *
+ */
 public class Business extends Organization implements Serializable {
-
-    /** Represents a Business, which is a special type of Organization.
-     *
-     * Businesses have a singular Owner.
-     *
-     */
 
     private String companyName;
     private Phone companyPhone;

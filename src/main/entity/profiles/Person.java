@@ -4,6 +4,7 @@ import entity.datafiles.Email;
 import entity.datafiles.Name;
 import entity.datafiles.Phone;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Person implements ProfileType, Serializable {
@@ -16,7 +17,8 @@ public class Person implements ProfileType, Serializable {
     private final Phone phone;
     private final Email email;
     private final String username;
-
+    @Serial
+    private static final long serialVersionUID = 6529685098267757690L;
 
     public Person(Name name, Phone phone, Email email, String username) {
         this.name = name;

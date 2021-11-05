@@ -4,14 +4,17 @@ import entity.profiles.ProfileType;
 
 import java.util.HashMap;
 
+/**
+ * Class whose only purpose is to provide the basic methods
+ * that are implemented by other classes?
+ *
+ * TODO document this file
+ *
+ * TODO make methods in this class static so that it doesn't need to be instantiated every time one of the methods needs
+ *  to be used.
+ */
 public class Connections {
-    /**
-     * Class whose only purpose is to provide the basic methods
-     * that are implemented by other classes?
-     */
 
-    // method overloading: different methods for when an association
-    // is passed in versus not passed in.
     public boolean addConnection(HashMap<ProfileType, String> localStore,
                                  ProfileType p) {
         // Given the passed in localStore, add p to the localStore

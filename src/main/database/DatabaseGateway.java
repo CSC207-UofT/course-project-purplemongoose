@@ -3,6 +3,7 @@ package database;
 import java.io.*;
 import java.sql.*;
 
+
 public abstract class DatabaseGateway {
 
     /**

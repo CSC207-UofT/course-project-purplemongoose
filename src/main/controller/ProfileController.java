@@ -20,7 +20,6 @@ public class ProfileController {
         this.proUC = new ProfileUseCases();
     }
 
-
     /**
      * Takes in the arguments needed to construct a new personal profile. If a profile already exists, return 'false',
      * otherwise return 'true'
@@ -41,7 +40,13 @@ public class ProfileController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    public void submitNewOrganzationProfile(String profileUUID) {
+    /*
+     * Any methods below this comment are unimplemented, however their headers have been included
+     * to serve as a reference point for future functionality of kard
+     *
+     * TODO: **Phase 2** complete the methods
+     */
+    public void submitNewOrganizationProfile(String profileUUID) {
         // for phase 2
     }
 

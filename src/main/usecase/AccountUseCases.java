@@ -12,6 +12,9 @@ import java.util.Set;
  * The class contains use cases which involve accounts
  */
 public class AccountUseCases {
+    /**
+     * Receives input from user interface to initialize parts of the user's account
+     */
     AccountGateway ag = new AccountGateway();
     ProfileGateway pg = new ProfileGateway();
 
