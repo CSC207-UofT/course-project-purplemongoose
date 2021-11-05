@@ -20,7 +20,6 @@ public class ProfileController {
         this.proUC = new ProfileUseCases();
     }
 
-
     /**
      * Takes in the arguments needed to construct a new personal profile. If a profile already exists, return 'false',
      * otherwise return 'true'

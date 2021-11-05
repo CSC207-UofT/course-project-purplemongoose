@@ -34,7 +34,7 @@ public class AccountController {
             produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitContactAddition(@RequestBody ContactRequest request) {
         ShortResponse response = new ShortResponse();
-        if (proUC.checkForProfile(request.getContactUsername())) {
+        if (!proUC.checkForProfile(request.getContactUsername())) {
             response.add(false);
             response.setError(15); // if the username does not correspond to a profile
         }
@@ -61,7 +61,7 @@ public class AccountController {
             produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitContactRemoval(@RequestBody ContactRequest request) {
         ShortResponse response = new ShortResponse();
-        if (proUC.checkForProfile(request.getContactUsername())) {
+        if (!proUC.checkForProfile(request.getContactUsername())) {
             response.add(false);
             response.setError(15); // if the username does not correspond to a profile
         }
