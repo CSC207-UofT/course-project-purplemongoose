@@ -4,7 +4,7 @@ Running the project presents the user the ability to enter their personal inform
 
 **When using the program, the user has the ability to:**
 
-- Sign up and log in to their profile
+- Sign up and Log in to their own individual kard profile
 - View and change their own digital business card
 - Share their business card with others
 - Navigate through their saved business cards
@@ -37,4 +37,7 @@ The application will be accessible through the follow methods:
 - Java CLI Application
 - Web Application
 - Android Application
+- iOS/iPadOS Application
+
+The local applications will run solely to present the data in a user-viewable mannder. They do not contain any functionalty to do computation on the data.
 
