@@ -106,6 +106,24 @@ public class ProfilesTest {
         assertEquals("adidas@mail.com", orgEmail);
     }
 
+    /**
+     * Tests for the username getters of profiles
+     */
+    @Test
+    @DisplayName("Get usernames of Profiles")
+    void testGetUsername(){
+
+        String profileUsername = profile.getUsername();
+        assertEquals("george2", profileUsername);
+
+        String bizUsername = biz.getUsername();
+        assertEquals("mcdonalds", bizUsername);
+
+        String orgUsername = org.getUsername();
+        assertEquals("adidas", orgUsername);
+    }
+
+
 
 
 
