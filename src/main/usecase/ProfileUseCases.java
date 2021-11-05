@@ -16,6 +16,7 @@ public class ProfileUseCases {
     /**
      * Creates a new personal profiles with the given arguments and adds it to the profile database through the
      * ProfileGateway
+     *
      * @param accountUsername the username of the account who the profile is associated with
      * @param first the first name
      * @param last the last name
@@ -36,6 +37,7 @@ public class ProfileUseCases {
     /**
      * Creates a new organization with the given arguments and adds it to the profile database through the
      * ProfileGateway
+     *
      * @param accountUsername the username of the account who claims the business
      * @param name the name of the organization
      * @param phone the phone number
@@ -50,6 +52,8 @@ public class ProfileUseCases {
     }
 
     /*
+    TODO: **Phase 2** Implement
+
     public boolean updatePersonProfile(ProfileType pt) {
         String username = AppState.getCurrentUsername();
         // not too sure how to implement this effectively without having 15 methods for each profile data entry
