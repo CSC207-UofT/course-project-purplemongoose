@@ -5,59 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../kard-CLI/src/CommandLineInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CLI/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CLI/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../course-project-purplemongoose.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data/account.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data/profile.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/CLI/CommandLineInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/controller/AccountController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/controller/ProfileController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/controller/SpringServerController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/controller/StartController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/database/AccountGateway.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/database/DatabaseGateway.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/database/ProfileGateway.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/entity/accounts/Account.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/entity/accounts/Connections.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/entity/accounts/CorporateAccount.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/entity/accounts/PersonalAccount.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/entity/datafiles/Email.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/entity/datafiles/Name.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/entity/datafiles/Phone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/entity/profiles/Business.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/entity/profiles/Organization.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/entity/profiles/Person.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/entity/profiles/ProfileType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/request/ContactRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/request/PersonalProfileRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/request/StartRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/response/ResponseContainer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/response/ShortResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/usecase/AccountUseCases.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/usecase/LoginAuth.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/usecase/ProfileUseCases.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/usecase/UUIDGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/test/java/entity/accounts/ConnectionsTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/test/java/entity/accounts/CorporateAccountTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/test/java/entity/accounts/PersonalAccountTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/test/java/entity/accounts/ProfileUseCasesTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/test/java/entity/accounts/ProfilesTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/test/java/entity/datafile/EmailTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/test/java/entity/datafile/PhoneTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +107,7 @@
       <workItem from="1636132555795" duration="883000" />
       <workItem from="1636133894223" duration="129000" />
       <workItem from="1636134027093" duration="1597000" />
-      <workItem from="1636135805561" duration="1689000" />
+      <workItem from="1636135805561" duration="1765000" />
     </task>
     <servers />
   </component>
