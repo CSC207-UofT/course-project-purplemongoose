@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../kard-CLI/src/CommandLineInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CLI/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CLI/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../course-project-purplemongoose.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/account.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/profile.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/CLI/CommandLineInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/controller/AccountController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/controller/ProfileController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/controller/SpringServerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/controller/StartController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/database/AccountGateway.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/database/DatabaseGateway.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/database/ProfileGateway.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/entity/accounts/Account.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/entity/accounts/Connections.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/entity/accounts/CorporateAccount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/entity/accounts/PersonalAccount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/entity/datafiles/Email.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/entity/datafiles/Name.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/entity/datafiles/Phone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/entity/profiles/Business.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/entity/profiles/Organization.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/entity/profiles/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/entity/profiles/ProfileType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/request/ContactRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/request/PersonalProfileRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/request/StartRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/response/ResponseContainer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/response/ShortResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/usecase/AccountUseCases.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/usecase/LoginAuth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/usecase/ProfileUseCases.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/usecase/UUIDGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/test/java/entity/accounts/ConnectionsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/test/java/entity/accounts/CorporateAccountTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/test/java/entity/accounts/PersonalAccountTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/test/java/entity/accounts/ProfileUseCasesTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/test/java/entity/accounts/ProfilesTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/test/java/entity/datafile/EmailTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/test/java/entity/datafile/PhoneTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="20NHUKezy27g1r9RLHqgJiHLBNO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../temp_holder" />
+      <recent name="$PROJECT_DIR$/kard-server" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="course-project-purplemongoose" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="entity in course-project-purplemongoose" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="course-project-purplemongoose" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="entity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="entity" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StartServer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="course-project-purplemongoose" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="controller.StartServer" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.entity in course-project-purplemongoose" />
+        <item itemvalue="Spring Boot.StartServer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="" />
+      <created>1635878143234</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1635878143234</updated>
+      <workItem from="1635878149430" duration="83000" />
+      <workItem from="1635878254363" duration="180000" />
+      <workItem from="1635878455308" duration="94000" />
+      <workItem from="1636075196862" duration="5185000" />
+      <workItem from="1636085574574" duration="1374000" />
+      <workItem from="1636132555795" duration="883000" />
+      <workItem from="1636133894223" duration="129000" />
+      <workItem from="1636134027093" duration="1597000" />
+      <workItem from="1636135805561" duration="1689000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
