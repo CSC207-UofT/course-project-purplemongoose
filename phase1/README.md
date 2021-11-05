@@ -22,17 +22,33 @@ In this way, the project largely follows guidelines set out in Clean Architectur
 
 The current package structure is set up for initial development to ensure that the program adheres to clean architecture with the packages being the individual layers. Doing so made it very easy to spo violations of clean architecture since the import statements clearly showed a different layer.
 
+<insert some examples of good design here>
+
 We should note that due to the large amount of effort initially to design our CRC cards to follow Clean Architecture closely and during the re-write, the code has been very straightforward to expand on and edit features. With the layers of clean architecture followed closely, a re-write of the controllers to allow for HTTP functionalty required no editing to the entities and use cases since they did not rely on each other. 
 
 ## Clean Architecture Layers
 
 ### Entities
 
-The entities in kard largely consist of methods of storing and interpreting the information in the datases. The SQLite stores a 
+The entities in kard largely consist of methods of storing and interpreting the information in the datases. The SQLite stores a serialized version of the entitie `user`
+
+### Use Cases
+
+Use cases have been built for directly interacting with entities -- for example, setting a persons name, adding a contact to a person, <add more>
 
 ## Descriptions of the GUI
 
+The Flutter GUI has been designed with Material Design and Material You principas in mind with the intention to make it as scalable and unerversial as possible. 
 
+## Other Notes
+
+### Refactoring
+
+Significant changes to the codebase have been made on multiple occations. Over these changes, ...
+
+### Use of Github and Git
+
+Git has been used extensively to manage and facilitate the development of kard. We constantly use branches whenever new features are being added to stage them and test before merging to main. Minimal commiting to main have been made as we kept main as a fully working and tested version of the code. 
 
 ## Some questions
 
