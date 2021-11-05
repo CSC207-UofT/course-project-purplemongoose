@@ -13,5 +13,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * A class for testing the Person, Organization and Business classes
+ *
+ * @see Person
+ * @see Organization
+ * @see Business
+ */
+
 public class ProfilesTest {
 }
