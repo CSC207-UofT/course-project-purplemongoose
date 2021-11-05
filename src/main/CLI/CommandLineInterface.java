@@ -41,6 +41,7 @@ public class CommandLineInterface {
             switch (input) {
                 case "login" -> loginScreen();
                 case "signup" -> signUpScreen();
+                default -> System.out.println("Command not recognized... Try again\n");
             }
         }
     }
@@ -132,7 +133,7 @@ public class CommandLineInterface {
                 int res;
                 res = submitSignUp(username, password);
 
-                if (res == 0){
+                if (res == 200){
                     System.out.println("Account made successfully!\n");
                     startingScreen();
                     break;
@@ -406,7 +407,7 @@ public class CommandLineInterface {
      * @return a string of the current users contacts, compiled already and ready for display
      */
     private String submitContactDisplay() {
-        String endpoint = String.format("http://localhost:8082/account/display/contact/?username=%s",
+        String endpoint = String.format("http://localhost:8082/account/display/contact?username=%s",
                 this.current_username);
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(endpoint))
