@@ -121,12 +121,4 @@ public class ProfilesTest {
         String orgUsername = org.getUsername();
         assertEquals("adidas", orgUsername);
     }
-
-
-
-
-
-
-
-
 }
