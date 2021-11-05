@@ -20,8 +20,6 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 public class ProfileUseCasesTest {
-    Person profile;
-    Business biz;
     Organization org;
     ProfileUseCases puc;
     ProfileGateway pg = new ProfileGateway();
@@ -33,5 +31,49 @@ public class ProfileUseCasesTest {
         Email email = new Email("adidas@mail.com");
         org = new Organization("Adidas", phone, email, "adidas");
         this.pg.insertProfileData("adidas", org);
+    }
+
+    @AfterEach
+    void tearDown() {
+    }
+
+    /**
+     * Tests the checkForProfile method for a profile that DOES exists in the database
+     */
+    @Test
+    @DisplayName("Check for a profile that exists in the database")
+    void testCheckForProfileExists(){
+
+        // assuming checkForProfile returns true if the profile DOES exist
+        assertTrue(puc.checkForProfile("adidas"));
+
+    }
+
+    /**
+     * Tests the checkForProfile method for a profile that DOES NOT exist in the database
+     */
+    @Test
+    @DisplayName("Check for a profile that does not exist in the database")
+    void testCheckForProfileNotExists(){
+
+        // assuming checkForProfile returns true if the profile DOES exist
+        assertFalse(puc.checkForProfile("abcd"));
+
+    }
+
+    /**
+     * Tests the createNewPerson method
+     */
+    @Test
+    @DisplayName("Create a new Person")
+    void testCreateNewPerson(){
+
+        puc.createNewPerson("tyler",
+                "Tyler", "Baudelaire", "he/him",
+                "Mr.", "39478859987", "tyler@gmail.com");
+
+        // assuming checkForProfile returns true if the profile DOES exist
+        assertTrue(puc.checkForProfile("tyler"));
+
     }
 }
