@@ -22,4 +22,26 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 public class ProfilesTest {
+    Person profile;
+    Business biz;
+    Organization org;
+
+    @BeforeEach
+    void setUp() {
+
+        Phone phone = new Phone("6475552401");
+        Email email = new Email("jon666@gmail.com");
+        Name name = new Name("George", "Michael", "she/her");
+        profile = new Person(name, phone, email, "george2");
+
+        Phone phone2 = new Phone("4527386487");
+        Email email2 = new Email("mcdonalds@yahoo.com");
+        biz = new Business("Mc Donald's", phone2, email2, "mcdonalds", name);
+
+        Phone phone3 = new Phone("8347586347");
+        Email email3 = new Email("adidas@mail.com");
+        org = new Organization("Adidas", phone3, email3, "adidas");
+
+    }
+
 }
