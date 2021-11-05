@@ -5,7 +5,8 @@ import entity.profiles.Person;
 
 public abstract class Account {
 
-    /** A User is any account on kard.
+    /**
+     * A User is any account on kard.
      *
      * All subclasses of User manage the relationships between the
      * individual users between the contacts
@@ -21,7 +22,6 @@ public abstract class Account {
      * A CorporateUser is any corporation, organization that is on the app
      *
      */
-
     public abstract boolean addContact(Person p); // return true if added successfully
     public abstract boolean removeContact(Person p); // return true if removed successfully
     public abstract boolean checkContacts(Person p); // check if the contact already exists

@@ -18,16 +18,22 @@ import response.ShortResponse;
  * A connection point between the external user interfaces and the back end of kard
  *
  * New user interfaces should use HTTP to access the Spring server here
+ *
+ * When connecting with one of the controllers in this class, ensure that the
+ * appropriate kind of HTTP request is being used. These will be specified in the
+ * javadoc comments fo the individual controller.
+ *
+ * TODO @Ling can you go through this file and ensure that the above is true^^^
  */
 public class AccountController {
     // TBA until merge with new use cases
 
+    // TODO Remove these two lines once TODO from above is completed
     // If you are trying to connect with one of these controllers, make sure the HTTP request you send is of the
     // correct type. For example, submitContactDisplay is an GET request while submitContactRemoval is a POST request.
 
     /*
-     * Defines methods for interactions between a user's profile and the other users
-     * in their contacts
+     * Defines methods for interactions between a user's profile and the other users in their contacts
      */
     AccountUseCases accUC;
     ProfileUseCases proUC;

@@ -12,7 +12,7 @@ public class LoginAuth {
     AccountGateway ag = new AccountGateway();
 
     /**
-     * TODO Fix this.
+     * TODO Fix this javadoc.
      *
      * Takes a username and password and queries it against the account database. If either of the fields are blank
      * or do not exist in the database, then the login request is denied.

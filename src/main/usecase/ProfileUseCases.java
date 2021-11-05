@@ -6,6 +6,7 @@ import entity.datafiles.Name;
 import entity.datafiles.Phone;
 import entity.profiles.Organization;
 import entity.profiles.Person;
+import entity.profiles.ProfileType;
 
 /**
  * This class contains the uses cases which involve profiles
@@ -59,20 +60,20 @@ This method assumes that the person whose profile is being initiated has not yet
         return this.pg.insertProfileData(accountUsername, org);
     }
 
-    /**
-     * TODO: Implement fully
-     *
-     * Makes changes to the given profile
-     *
-     * @param pt profile of the user that requires some modification
-     * @return true if modification is successful
-     */
-    public boolean updatePersonProfile(ProfileType pt) {
-        String username = AppState.getCurrentUsername();
-        // not too sure how to implement this effectively without having 15 methods for each profile data entry
-        return this.pg.updateProfileData(username, pt);
-    }
-    */
+//    /**
+//     * TODO: Implement fully - is this method broken???
+//     *
+//     * Makes changes to the given profile
+//     *
+//     * @param pt profile of the user that requires some modification
+//     * @return true if modification is successful
+//     */
+//    public boolean updatePersonProfile(ProfileType pt) {
+//        String username = AppState.getCurrentUsername();
+//        // not too sure how to implement this effectively without having 15 methods for each profile data entry
+//        return this.pg.updateProfileData(username, pt);
+//    }
+//    */
 
     /**
      * Checks if the profile exists in the database
