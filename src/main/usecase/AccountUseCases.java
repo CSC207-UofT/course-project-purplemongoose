@@ -22,6 +22,9 @@ public class AccountUseCases {
      * @return true or false depending on if the account was successfully created
      */
     public boolean createNewAccount(String username, String password) {
+        if (username.isBlank() || password.isBlank()) {
+            return false; // prevent empty fields
+        }
         PersonalAccount pu = new PersonalAccount();
         return this.ag.insertAccountData(username, password, pu);
     }
@@ -67,10 +70,12 @@ public class AccountUseCases {
     /**
      * Returns all the contacts of an account
      * @param accountUsername the account's username
-     * @return set of profiles
+     * @return array of profile objects
      */
-    public Set getContacts(String accountUsername) {
+    public Object[] getContacts(String accountUsername) {
         Account acc = (Account) ag.getAccountData(accountUsername);
-        return (Set) acc.getContact();
+        Set contacts = (Set) acc.getContact();
+        return contacts.toArray();
     }
+
 }

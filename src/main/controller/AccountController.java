@@ -1,7 +1,5 @@
 package controller;
 
-import entity.profiles.Organization;
-import entity.profiles.Person;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -9,9 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import usecase.AccountUseCases;
 import usecase.ProfileUseCases;
-import viewmodel.*;
-
-import java.util.Set;
+import request.ContactRequest;
+import response.ResponseContainer;
+import response.ShortResponse;
 
 @RestController
 @RequestMapping("account")
@@ -35,19 +33,17 @@ public class AccountController {
     @PostMapping(path="/add/contact", consumes=MediaType.APPLICATION_JSON_VALUE,
             produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitContactAddition(@RequestBody ContactRequest request) {
-        String accountUsername = request.getAccountUsername();
-        String contactUsername = request.getContactUsername();
         ShortResponse response = new ShortResponse();
-        if (proUC.checkForProfile(contactUsername)) {
+        if (proUC.checkForProfile(request.getContactUsername())) {
             response.add(false);
             response.setError(15); // if the username does not correspond to a profile
         }
-        else if (this.accUC.checkForContact(accountUsername, contactUsername)){
+        else if (this.accUC.checkForContact(request.getAccountUsername(), request.getContactUsername())){
             response.add(false);
             response.setError(16); // if the profile is already a contact
         }
         else {
-            this.accUC.addContact(accountUsername, contactUsername);
+            this.accUC.addContact(request.getAccountUsername(), request.getContactUsername());
             response.add(true);
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
@@ -58,7 +54,7 @@ public class AccountController {
      * to a profile, then checks if profile is currently a contact. Will return a 'true', 'false' response for the
      * frontend and an error code to specify the error if something goes wrong.
      *
-     * @param request The JSON POST request is converted into the ContactRequest object type
+     * @param request JSON converted to ContactRequest which contains the account username and contact username
      * @return Return a JSON 'true'/'false' response along with an HTTP status code.
      */
     @PostMapping(path="/remove/contact", consumes=MediaType.APPLICATION_JSON_VALUE,
@@ -81,30 +77,20 @@ public class AccountController {
     }
 
     /**
-     * Returns all profiles in the contact list of an account. BasicRequest contains the account's username
-     * to query the database with.
+     * Returns all profiles in the contact list of an account.
      *
-     * @param request The JSON POST request is converted into the BasicRequest object type
+     * @param accountUsername a string containing the account username to display the contacts for
      * @return Return a JSON object containing all the contacts and an HTTP status code.
      */
-    @GetMapping(path="/display/contact", consumes=MediaType.APPLICATION_JSON_VALUE,
-            produces=MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResponseContainer> submitContactDisplay(@RequestBody BasicRequest request) {
-        LongResponse response = new LongResponse();
-        Object contacts = accUC.getContacts(request.getAccountUsername());
-        extracted(response, (Set) contacts);
+    @GetMapping(path="/display/contact", produces=MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ResponseContainer> submitContactDisplay(@RequestParam(name="username") String accountUsername) {
+        ShortResponse response = new ShortResponse();
+        Object[] contacts = accUC.getContacts(accountUsername);
+        response.add(contacts);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    private void extracted(LongResponse response, Set contacts) {
-        for (Object p: contacts) {
-            if (p instanceof Person) {
-                response.add((Person) p);
-            }
-            else {
-                response.add((Organization) p);
-            }
-        }
-    }
 }
 
+// If you are trying to connect with one of these controllers, make sure the HTTP request you send is of the
+// correct type. For example, submitContactDisplay is an GET request while submitContactRemoval is a POST request.

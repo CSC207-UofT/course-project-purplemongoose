@@ -33,7 +33,7 @@ Project [Phase 1] Link coming soon...
 - [Arthur Gao](https://github.com/Affixrevy)
 - [Stewart Chandler](https://github.com/StewartChandler)
 - [Kevin Deng](https://github.com/tiantian205)
-- [Sila](https://github.com/mericsila)
+- [Sila Taskin](https://github.com/mericsila)
 - [Ling Ai](https://github.com/warzone2243)
 - [Victoria Zheng](https://github.com/vzhang1112)
 

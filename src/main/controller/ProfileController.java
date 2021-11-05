@@ -4,10 +4,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import usecase.ProfileUseCases;
-import viewmodel.PersonalProfileRequest;
-import viewmodel.ResponseContainer;
-import viewmodel.ShortResponse;
+import request.PersonalProfileRequest;
+import response.ResponseContainer;
+import response.ShortResponse;
 
 @RestController
 @RequestMapping("profile")
@@ -41,17 +42,15 @@ public class ProfileController {
     }
 
     public void submitNewOrganzationProfile(String profileUUID) {
-        //this.proUseCase.
+        // for phase 2
     }
 
     public void submitProfileUpdate(String profileUUID) {
-        //this.proUseCase.
+        // for phase 2
     }
 
-    // should only be called when deleting the account associated with this profile
     public void submitProfileRemove(String profileUUID) {
-        //this.proUseCase.
+        // for phase 2
     }
-}
 
-// implement these methods accordingly
+}

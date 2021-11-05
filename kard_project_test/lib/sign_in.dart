@@ -152,7 +152,9 @@ class _LoginPageState extends State<LoginPage> {
                   right: 50,
                   bottom: 10),
 
+
               child: Row(children: [
+                /* Remove Sign Up button from "login" screen
                 Expanded(
                     flex: 5,
                     child: OutlinedButton(
@@ -166,7 +168,8 @@ class _LoginPageState extends State<LoginPage> {
                 Expanded(
                   child: Container(),
                   flex: 1,
-                ),
+                ), */
+
                 Expanded(
                   flex: 10,
                   child: ElevatedButton(
@@ -196,15 +199,18 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  void authenticate(String username, String password) {
+  void authenticate(String username, String password) async {
 
     //TODO implement initstate
 
-    loginUser(_username, _password).then((User user){
-      if (user.loginSuccess) {
+    bool loginSuccess = await connectUser(_username, _password);
+
+      if (loginSuccess) {
+
+        /* Uncomment for testing
 
         print(_username);
-        print(_password);
+        print(_password);*/
 
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => const HomePage()));
@@ -213,8 +219,8 @@ class _LoginPageState extends State<LoginPage> {
           _error = -1;
         });
       }
-    });
-  }
+    }
+
 
 
   //TODO: modify this to show *different* alerts

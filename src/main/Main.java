@@ -1,11 +1,11 @@
-import controller.SpringServer;
+import controller.SpringServerController;
 
 public class Main {
 
+    // Starts a new server instance on this machine
     public static void main(String[] args) {
-        SpringServer server = new SpringServer();
+        SpringServerController server = new SpringServerController();
         server.start(args);
     }
+
 }
-
-
