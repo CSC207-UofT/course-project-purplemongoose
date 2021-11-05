@@ -72,6 +72,44 @@ public class ProfilesTest {
         assertEquals("Adidas", orgName);
     }
 
+    /**
+     * Tests for the phone getters of profiles
+     */
+    @Test
+    @DisplayName("Get phones of Profiles")
+    void testGetPhone(){
+
+        String profilePhone = profile.getPhone();
+        assertEquals("6475552401", profilePhone);
+
+        String bizPhone = biz.getPhone();
+        assertEquals("4527386487", bizPhone);
+
+        String orgPhone = org.getPhone();
+        assertEquals("8347586347", orgPhone);
+    }
+
+    /**
+     * Tests for the email getters of profiles
+     */
+    @Test
+    @DisplayName("Get emails of Profiles")
+    void testGetEmail(){
+
+        String profileEmail = profile.getEmail();
+        assertEquals("jon666@gmail.com", profileEmail);
+
+        String bizEmail = biz.getEmail();
+        assertEquals("mcdonalds@yahoo.com", bizEmail);
+
+        String orgEmail = org.getEmail();
+        assertEquals("adidas@mail.com", orgEmail);
+    }
+
+
+
+
+
 
 
 }
