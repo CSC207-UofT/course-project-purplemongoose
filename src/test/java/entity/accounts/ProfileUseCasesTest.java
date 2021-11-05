@@ -76,4 +76,19 @@ public class ProfileUseCasesTest {
         assertTrue(puc.checkForProfile("tyler"));
 
     }
+
+    /**
+     * Tests the createNewOrganization method
+     */
+    @Test
+    @DisplayName("Create a new Organization")
+    void testCreateNewOrganization(){
+
+        puc.createNewOrganization("uoft", "University of Toronto",
+                "8939547", "uoft@mail.utoronto.ca");
+
+        // assuming checkForProfile returns true if the profile DOES exist
+        assertTrue(puc.checkForProfile("uoft"));
+
+    }
 }
