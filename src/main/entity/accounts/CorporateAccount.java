@@ -21,13 +21,15 @@ import java.util.HashMap;
  * Provides methods to add, remove, display, and modify nature of association
  * with connections.
  *
+ * TODO Suggestion: refactor Corporate user as "OrganizationUser"
+ * TODO Suggestion: edit Connection.java so that it is static and does not need to be instantiated for every
+ *      method call to it.
  */
 
 public class CorporateAccount extends Account implements Serializable {
 
-    /** Represents the User account created by an Organization
-     *
-     * Suggestion: refactor Corporate user as "OrganizationUser"
+    /**
+     * Represents the User account created by an Organization
      *
      * Stores information about the User's contacts and provides
      * associated methods
@@ -35,7 +37,6 @@ public class CorporateAccount extends Account implements Serializable {
      * Currently also implements Iterator to prepare for any iterative
      * mechanism to fetch information about contacts
      */
-
     private final HashMap<ProfileType, String> employees;
     private final HashMap<ProfileType, String> affiliations;
 
@@ -77,6 +78,7 @@ public class CorporateAccount extends Account implements Serializable {
 
     /**
      * Return some sort of container that contains all employees of this User
+     *
      * @return HashMap of all employees
      */
     @Override
