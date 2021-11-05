@@ -11,11 +11,21 @@ import entity.profiles.Person;
  * This class contains the uses cases which involve profiles
  */
 public class ProfileUseCases {
+    /**
+     * Initializes a new profile based on the data that the user passes in when
+     * setting up their account
+     */
     ProfileGateway pg = new ProfileGateway();
 
     /**
+
+    todo fix formatting
+    
      * Creates a new personal profiles with the given arguments and adds it to the profile database through the
      * ProfileGateway
+
+This method assumes that the person whose profile is being initiated has not yet been created
+
      * @param accountUsername the username of the account who the profile is associated with
      * @param first the first name
      * @param last the last name
@@ -49,7 +59,14 @@ public class ProfileUseCases {
         return this.pg.insertProfileData(accountUsername, org);
     }
 
-    /*
+    /**
+     * TODO: Implement fully
+     *
+     * Makes changes to the given profile
+     *
+     * @param pt profile of the user that requires some modification
+     * @return true if modification is successful
+     */
     public boolean updatePersonProfile(ProfileType pt) {
         String username = AppState.getCurrentUsername();
         // not too sure how to implement this effectively without having 15 methods for each profile data entry

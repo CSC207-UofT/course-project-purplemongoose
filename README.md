@@ -41,7 +41,7 @@ Project [Phase 1] Link coming soon...
 - [Kevin Deng](https://github.com/tiantian205)
 - [Sila Taskin](https://github.com/mericsila)
 - [Ling Ai](https://github.com/warzone2243)
-- [Victoria Zheng](https://github.com/vzhang1112)
+- [Victoria Zhang](https://github.com/vzhang1112)
 
 
 
