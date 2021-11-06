@@ -5,6 +5,7 @@ import database.ProfileGateway;
 import entity.accounts.Account;
 import entity.accounts.PersonalAccount;
 import entity.profiles.Person;
+import entity.profiles.ProfileType;
 
 import java.util.Set;
 
@@ -75,10 +76,10 @@ public class AccountUseCases {
      * @param accountUsername the account's username
      * @return array of profile objects
      */
-    public Object[] getContacts(String accountUsername) {
+    public ProfileType[] getContacts(String accountUsername) {
         Account acc = (Account) ag.getAccountData(accountUsername);
-        Set contacts = (Set) acc.getContact();
-        return contacts.toArray();
+        Set<ProfileType> contacts = acc.getContacts();
+        return contacts.toArray(new ProfileType[0]);
     }
 
 }

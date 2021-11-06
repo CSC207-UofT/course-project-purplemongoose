@@ -3,14 +3,17 @@ package entity.profiles;
 import entity.datafiles.Email;
 import entity.datafiles.Phone;
 
+import java.io.Serial;
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Organization implements ProfileType, Serializable {
 
     /**
      * Stores the profile information related to this Organization
      */
-
+    @Serial
+    private static final long serialVersionUID = 8267757690652968509L;
     private final String orgName;
     private final Phone orgPhone;
     private final Email orgEmail;
@@ -67,4 +70,16 @@ public class Organization implements ProfileType, Serializable {
         return orgUsername;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Organization that = (Organization) o;
+        return Objects.equals(orgName, that.orgName) && Objects.equals(orgPhone, that.orgPhone) && Objects.equals(orgEmail, that.orgEmail) && Objects.equals(orgUsername, that.orgUsername);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(orgName, orgPhone, orgEmail, orgUsername);
+    }
 }

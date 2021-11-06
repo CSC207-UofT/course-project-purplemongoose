@@ -35,7 +35,7 @@ public class ProfilesTest {
 
         Phone phone2 = new Phone("4527386487");
         Email email2 = new Email("mcdonalds@yahoo.com");
-        biz = new Business("Mc Donald's", phone2, email2, "mcdonalds", name);
+        biz = new Business("Mc Donald's", phone2, email2, "mcdonalds", profile);
 
         Phone phone3 = new Phone("8347586347");
         Email email3 = new Email("adidas@mail.com");

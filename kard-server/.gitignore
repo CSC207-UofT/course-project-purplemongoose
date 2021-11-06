@@ -108,8 +108,11 @@ fabric.properties
 .idea/misc.xml
 
 # database files
-.data/account.db
-.data/profile.db
+data/account.db
+data/profile.db
+src/test/data/account.db
+src/test/data/profile.db
+
 
 # Maven
 target/

@@ -4,8 +4,10 @@ import entity.profiles.Organization;
 import entity.profiles.Person;
 import entity.profiles.ProfileType;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  * The account of an Organization on kard
@@ -27,7 +29,8 @@ import java.util.HashMap;
  */
 
 public class CorporateAccount extends Account implements Serializable {
-
+    @Serial
+    private static final long serialVersionUID = 9026775769082677576L;
     /**
      * Represents the User account created by an Organization
      *
@@ -80,8 +83,8 @@ public class CorporateAccount extends Account implements Serializable {
      * @return set of all the employees connected to this CorporateAccount
      */
     @Override
-    public ProfileType getContact() {
-        return (ProfileType) employees.keySet();
+    public Set<ProfileType> getContacts() {
+        return employees.keySet();
     }
 
     /**
@@ -92,7 +95,7 @@ public class CorporateAccount extends Account implements Serializable {
      */
     @Override
     public boolean checkContacts(Person p) {
-        return employees.keySet().contains(p);
+        return employees.containsKey(p);
     }
 
     /**
@@ -137,7 +140,7 @@ public class CorporateAccount extends Account implements Serializable {
      * @return set of all the affiliated Organizations
      */
     @Override
-    public ProfileType getAffiliation() {
-        return (ProfileType) affiliations.keySet();
+    public Set<ProfileType> getAffiliations() {
+        return affiliations.keySet();
     }
 }

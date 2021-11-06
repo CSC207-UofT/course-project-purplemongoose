@@ -12,7 +12,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -41,7 +40,8 @@ class ConnectionsTest {
                 new Phone("5551234567"),
                 new Email("name.name@comp.com"),
                 "CompInc",
-                new Person("Joe", "Smith")
+                new Person(new Name("bob", "smith", null, null), new Phone("123-456-7777"),
+                        new Email("bob@bobmail.com"), "the_bobinator")
         ), null);
         localStore.put(new Organization(
                 "orgName1",
@@ -76,7 +76,7 @@ class ConnectionsTest {
                 "JenSmith87"
         );
 
-        assertTrue(new Connections().addConnection(localStore, test_person));
+        assertTrue(Connections.addConnection(localStore, test_person));
         assertTrue(localStore.containsKey(test_person));
         assertNull(localStore.get(test_person));
     }
@@ -88,7 +88,7 @@ class ConnectionsTest {
     @DisplayName("Try to add an existing connection")
     void addConnectionInMap() {
         assertTrue(localStore.containsKey(test_person_1));
-        assertFalse(new Connections().addConnection(localStore, test_person_1));
+        assertFalse(Connections.addConnection(localStore, test_person_1));
         assertTrue(localStore.containsKey(test_person_1));
     }
 
@@ -99,7 +99,7 @@ class ConnectionsTest {
     @DisplayName("Remove an existing connection")
     void removeConnectionInMap() {
         assertTrue(localStore.containsKey(test_person_1));
-        assertFalse(new Connections().removeConnection(localStore, test_person_1));
+        assertFalse(Connections.removeConnection(localStore, test_person_1));
         assertFalse(localStore.containsKey(test_person_1));
     }
 
@@ -117,38 +117,7 @@ class ConnectionsTest {
         );
 
         assertFalse(localStore.containsKey(test_person));
-        assertFalse(new Connections().removeConnection(localStore, test_person));
+        assertFalse(Connections.removeConnection(localStore, test_person));
     }
 
-    /**
-     * Tests the getConnections method
-     */
-    @Test
-    @DisplayName("Get the connections as a string")
-    void getConnectionsTest() {
-        String[] expected = """
-orgName1 | name.name@org.com | 6661234567
-Smith Johnson | smith.joe@gmail.com | 8881234567
-compName1 | name.name@comp.com | 5551234567
-Joe Smith | joe.smith@gmail.com | 7771234567
-                """.split("\n");
-        Arrays.sort(expected);
-
-        String[] actual = new Connections().getConnections(localStore).split("\n");
-        Arrays.sort(actual);
-
-        assertIterableEquals(Arrays.asList(expected), Arrays.asList(actual));
-    }
-
-    /**
-     * Tests the getConnections method on an empty Map
-     */
-    @Test
-    @DisplayName("Get no connections as a string")
-    void getConnectionsEmpty() {
-        String expected = "";
-        String actual = new Connections().getConnections(new HashMap<>());
-
-        assertEquals(expected, actual);
-    }
 }

@@ -5,6 +5,7 @@ import entity.datafiles.Email;
 import entity.datafiles.Name;
 import entity.datafiles.Phone;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /** Represents a Business, which is a special type of Organization.
@@ -14,7 +15,8 @@ import java.io.Serializable;
  *
  */
 public class Business extends Organization implements Serializable {
-
+    @Serial
+    private static final long serialVersionUID = 6906529685826775709L;
     private String companyName;
     private Phone companyPhone;
     private Email companyEmail;
