@@ -15,8 +15,8 @@ public class AccountUseCases {
     /**
      * Receives input from user interface to initialize parts of the user's account
      */
-    AccountGateway ag = new AccountGateway();
-    ProfileGateway pg = new ProfileGateway();
+    public AccountGateway ag = new AccountGateway();
+    public ProfileGateway pg = new ProfileGateway();
 
     /**
      * Creates a new personal account and calls the AccountGateway to add it to the database

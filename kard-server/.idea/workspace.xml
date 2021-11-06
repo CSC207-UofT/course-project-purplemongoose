@@ -83,10 +83,20 @@
       <recent name="usecase" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProfileUseCasesTest">
+  <component name="RunManager" selected="JUnit.All in course-project-purplemongoose">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="course-project-purplemongoose" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountUseCasesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="course-project-purplemongoose" />
+      <option name="PACKAGE_NAME" value="entity.usecase" />
+      <option name="MAIN_CLASS_NAME" value="entity.usecase.AccountUseCasesTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -105,7 +115,7 @@
       <module name="course-project-purplemongoose" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="usecase.*" />
+          <option name="PATTERN" value="entity.usecase.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,29 +126,54 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="entity in course-project-purplemongoose" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfileUseCasesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="course-project-purplemongoose" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="entity.*" />
+          <option name="PATTERN" value="CLI.*" />
           <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="data.*" />
+          <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="request.*" />
+          <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="response.*" />
+          <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="entity" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="PACKAGE_NAME" value="entity.usecase" />
+      <option name="MAIN_CLASS_NAME" value="entity.usecase.ProfileUseCasesTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StartServer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="UUIDGeneratorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="course-project-purplemongoose" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controller.*" />
+          <option name="PATTERN" value="usecase.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="controller.StartServer" />
+      <option name="PACKAGE_NAME" value="usecase" />
+      <option name="MAIN_CLASS_NAME" value="usecase.UUIDGeneratorTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -146,17 +181,17 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.All in course-project-purplemongoose" />
-      <item itemvalue="JUnit.entity in course-project-purplemongoose" />
       <item itemvalue="JUnit.ProfileUseCasesTest" />
-      <item itemvalue="Spring Boot.StartServer" />
+      <item itemvalue="JUnit.AccountUseCasesTest" />
+      <item itemvalue="JUnit.UUIDGeneratorTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ProfileUseCasesTest" />
         <item itemvalue="JUnit.All in course-project-purplemongoose" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.entity in course-project-purplemongoose" />
-        <item itemvalue="Spring Boot.StartServer" />
+        <item itemvalue="JUnit.UUIDGeneratorTest" />
+        <item itemvalue="JUnit.ProfileUseCasesTest" />
+        <item itemvalue="JUnit.AccountUseCasesTest" />
+        <item itemvalue="JUnit.ProfileUseCasesTest" />
       </list>
     </recent_temporary>
   </component>
@@ -178,7 +213,7 @@
       <workItem from="1636134027093" duration="1597000" />
       <workItem from="1636135805561" duration="1887000" />
       <workItem from="1636157343275" duration="934000" />
-      <workItem from="1636158295449" duration="4253000" />
+      <workItem from="1636158295449" duration="11168000" />
     </task>
     <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
       <created>1636166152716</created>
@@ -224,11 +259,41 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="6a9807bd-c070-4969-91f8-618b28b00715">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:D:/uoft/CSC207/Project/course-project-purplemongoose/kard-server/src/test/entity/usecase" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
           </value>
         </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="6a9807bd-c070-4969-91f8-618b28b00715" value="TOOL_WINDOW" />
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
@@ -241,6 +306,16 @@
     <option name="LAST_COMMIT_MESSAGE" value="added docs to NameTest" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/kard_server$All_in_course_project_purplemongoose.ic" NAME="All in course-project-purplemongoose Coverage Results" MODIFIED="1636160356577" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/kard_server$All_in_course_project_purplemongoose.ic" NAME="All in course-project-purplemongoose Coverage Results" MODIFIED="1636169898069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <EXCLUDED_FILTER>CLI.*</EXCLUDED_FILTER>
+      <EXCLUDED_FILTER>controller.*</EXCLUDED_FILTER>
+      <EXCLUDED_FILTER>data.*</EXCLUDED_FILTER>
+      <EXCLUDED_FILTER>request.*</EXCLUDED_FILTER>
+      <EXCLUDED_FILTER>response.*</EXCLUDED_FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/kard_server$AccountUseCasesTest.ic" NAME="AccountUseCasesTest Coverage Results" MODIFIED="1636169488595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/kard_server$ProfileUseCasesTest__1_.ic" NAME="ProfileUseCasesTest (1) Coverage Results" MODIFIED="1636169802008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>entity.usecase.*</FILTER>
+    </SUITE>
   </component>
 </project>
