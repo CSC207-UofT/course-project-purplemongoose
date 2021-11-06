@@ -1,4 +1,4 @@
-package entity.usecase;
+package usecase;
 
 import database.ProfileGateway;
 import entity.datafiles.Email;
@@ -25,8 +25,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ProfileUseCasesTest {
     Organization org;
     ProfileUseCases puc;
-    ProfileGateway pg = new ProfileGateway();
-
 
     /**
      * Necessary to Query test dbs

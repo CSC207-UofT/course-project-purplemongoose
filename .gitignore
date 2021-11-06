@@ -39,6 +39,15 @@ gradle-app.setting
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
 
+# Sensitive or high-churn files
+kard-server/.idea/**/dataSources/
+kard-server/.idea/**/dataSources.ids
+kard-server/.idea/**/dataSources.local.xml
+kard-server/.idea/**/sqlDataSources.xml
+kard-server/.idea/**/dynamic.xml
+kard-server/.idea/**/uiDesigner.xml
+kard-server/.idea/**/dbnavigator.xml
+
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries

@@ -89,8 +89,7 @@ public class Name implements Serializable {
             return first + " " + last + " (" + pronouns + ")";
         } else if (titles == null){
             return first + " " + last;
-        }
-        else {
+        } else {
             return titles + " " + first + " " + last + " (" + pronouns + ")";
         }
     }
