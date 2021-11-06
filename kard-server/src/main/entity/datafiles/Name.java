@@ -85,9 +85,12 @@ public class Name implements Serializable {
      * @return String representation of all formal details for the individual
      */
     public String getAllDetails() {
-        if (titles == null) {
+        if (titles == null & pronouns != null) {
             return first + " " + last + " (" + pronouns + ")";
-        } else {
+        } else if (titles == null){
+            return first + " " + last;
+        }
+        else {
             return titles + " " + first + " " + last + " (" + pronouns + ")";
         }
     }

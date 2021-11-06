@@ -1,4 +1,4 @@
-package entity.profiles;
+package entity.accounts;
 
 import entity.datafiles.Email;
 import entity.datafiles.Name;
