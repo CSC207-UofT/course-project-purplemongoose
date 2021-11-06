@@ -12,8 +12,8 @@ N/A
 	- Takes in a PersonalProfileRequest object and returns a JSimpleResponse detailing whether the new profile was successfully created
 
 ## Collaborators:
-- ProfileUseCases
-- PersonalProfileRequest
-- ResponseContainer
-- ShortResponse
+- [[ProfileUseCases]]
+- [[PersonalProfileRequest]]
+- [[ResponseContainer]]
+- [[ShortResponse]]
 

@@ -2,7 +2,7 @@
 Dataclass which defines the JSON format of HTTP responses for all controllers
 
 ## Parent Class:
-- ResponseContainer
+- [[ResponseContainer]]
 
 ## Subclasses:
 N/A

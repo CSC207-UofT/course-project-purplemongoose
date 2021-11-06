@@ -2,7 +2,7 @@
 Dataclass which handles emails of profiles
 
 ## Parent Class:
-- ProfileType
+- [[ProfileType]]
 
 ## Subclasses:
 N/A
@@ -18,6 +18,6 @@ N/A
 	- Returns the username of the organization
 
 ## Collaborators:
-- Email
-- Name
-- Phone
+- [[Email]]
+- [[Name]]
+- [[Phone]]

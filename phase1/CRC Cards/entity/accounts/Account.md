@@ -5,8 +5,8 @@ Abstract class representing an account
 N/A
 
 ## Subclasses:
-- CorporateAccount
-- PersonalAccount
+- [[CorporateAccount]]
+- [[PersonalAccount]]
 
 ## Responsibilities:
 - addContact();
@@ -25,6 +25,6 @@ N/A
 	- Get all the organization that are affiliations
 
 ## Collaborators:
-- Organization
-- Person
-- ProfileType
+- [[Organization]]
+- [[Person]]
+- [[ProfileType]]

@@ -5,8 +5,8 @@ Abstract  class for AccountGateway and ProfileGateway
 N/A
 
 ## Subclasses:
-- AccountGateway
-- ProfileGateway
+- [[AccountGateway]]
+- [[ProfileGateway]]
 
 ## Responsibilities:
 - databaseConnect();

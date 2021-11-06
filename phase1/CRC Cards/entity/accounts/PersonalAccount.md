@@ -2,7 +2,7 @@
 Class which represents an account made by a person
 
 ## Parent Class:
-- Account 
+- [[Account]]
 
 ## Subclasses:
 
@@ -23,6 +23,6 @@ Class which represents an account made by a person
 	- Get all the organization that are affiliations
 
 ## Collaborators:
-- Organization
-- Person
-- ProfileType
+- [[Organization]]
+- [[Person]]
+- [[ProfileType]]
