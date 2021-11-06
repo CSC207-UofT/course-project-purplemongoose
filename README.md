@@ -30,9 +30,9 @@
 
  ## Authors
 
+- [Ling Ai](https://github.com/warzone2243)
 - [Arthur Gao](https://github.com/Affixrevy)
 - [Stewart Chandler](https://github.com/StewartChandler)
 - [Kevin Deng](https://github.com/tiantian205)
 - [Sila Taskin](https://github.com/mericsila)
-- [Ling Ai](https://github.com/warzone2243)
 - [Victoria Zhang](https://github.com/vzhang1112)
