@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="fixed error in Name and started NameTest">
+    <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="continued NameTest">
       <change beforePath="$PROJECT_DIR$/src/test/entity/datafile/NameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/datafile/NameTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -186,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636166152716</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="continued NameTest">
+      <created>1636166475866</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1636166475866</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,7 +213,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed error in Name and started NameTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed error in Name and started NameTest" />
+    <MESSAGE value="continued NameTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="continued NameTest" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/kard_server$All_in_course_project_purplemongoose.ic" NAME="All in course-project-purplemongoose Coverage Results" MODIFIED="1636160356577" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

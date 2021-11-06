@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class NameTest {
 
@@ -48,9 +49,23 @@ class NameTest {
 
     @Test
     void getTitles() {
+        String title = name.getTitles();
+        String title2 = name2.getTitles();
+        String title3 = name3.getTitles();
+
+        assertEquals(title, "Dr.");
+        assertNull(title2);
+        assertNull(title3);
     }
 
     @Test
     void getPronouns() {
+        String pronouns = name.getPronouns();
+        String pronouns2 = name2.getPronouns();
+        String pronouns3 = name3.getPronouns();
+
+        assertEquals(pronouns, "he/him");
+        assertEquals(pronouns2, "he/him");
+        assertNull(pronouns3);
     }
 }
