@@ -22,7 +22,7 @@ public class ShortResponse implements ResponseContainer {
 
     /**
      * Setter for the error code
-     * @param error the error code associated with a specific error
+     * @param error integer error code associated with a specific error
      */
     public void setError(int error) {
         this.errorCode = error;
