@@ -1,4 +1,4 @@
-package entity.accounts;
+package usecase;
 
 import database.ProfileGateway;
 import entity.datafiles.Email;
@@ -9,6 +9,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import usecase.ProfileUseCases;
+
+import java.io.File;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,7 +25,38 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ProfileUseCasesTest {
     Organization org;
     ProfileUseCases puc;
-    ProfileGateway pg = new ProfileGateway();
+
+    /**
+     * Necessary to Query test dbs
+     */
+    private class pucTest extends ProfileUseCases {
+        public pucTest() {
+            this.pg = new ProfileGateway() {
+                @Override
+                public Connection databaseConnect() {
+                    String mfLocation = "src/test/data/profile.db";
+                    File file = new File(mfLocation);
+                    Connection conn = null;
+                    if (file.exists()) {
+                        try {
+                            conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", mfLocation));
+                        } catch (Exception e) {
+                            System.err.println(e.getMessage());
+                        }
+                    }
+                    else { // if such a db doesn't exist, create one and add a table
+                        try {
+                            conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", mfLocation));
+                            createProfileTable(conn);
+                        } catch (Exception e) {
+                            System.err.println(e.getMessage());
+                        }
+                    }
+                    return conn; // return a connection for other methods to use
+                }
+            };
+        }
+    }
 
     @BeforeEach
     void setUp() {
@@ -29,11 +64,20 @@ public class ProfileUseCasesTest {
         Phone phone = new Phone("8347586347");
         Email email = new Email("adidas@mail.com");
         org = new Organization("Adidas", phone, email, "adidas");
-        this.pg.insertProfileData("adidas", org);
+        puc = new pucTest();
+        puc.pg.insertProfileData("adidas", org);
     }
 
     @AfterEach
     void tearDown() {
+        // reset the database.
+        Connection con = puc.pg.databaseConnect();
+        try {
+            con.prepareStatement("DROP TABLE \"profiles\"").executeUpdate();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        puc.pg.createProfileTable(con);
     }
 
     /**
