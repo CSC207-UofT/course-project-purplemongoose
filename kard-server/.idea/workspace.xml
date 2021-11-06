@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../kard_project_test/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +39,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -117,7 +117,7 @@
       <workItem from="1636133894223" duration="129000" />
       <workItem from="1636134027093" duration="1597000" />
       <workItem from="1636135805561" duration="1887000" />
-      <workItem from="1636153700262" duration="5549000" />
+      <workItem from="1636153700262" duration="7065000" />
     </task>
     <servers />
   </component>
