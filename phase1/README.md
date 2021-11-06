@@ -1,11 +1,33 @@
 # kard Phase 1 design document
 
-- [ ] Update readmes for kard-server, kard-cli, kard_project_test
-- [ ] Make links for this file for each part
-- [ ] Copy Navigating the Github Repository 
+- [x] Update readmes for kard-server, kard-cli, kard_project_test
+- [x] Make links for this file for each part
+- [x] Copy Navigating the Github Repository 
 - [ ] Email Paul about project marking
 - [ ] Address issues in IntellJ
 - [x] Find one or two more examples of refactoring in the merges
+- [ ] Write testing section of this doc
+- [ ] Write Flutter setup instructions
+
+## Contents
+- [Summary](#description-of-work-done)
+- [Navigating Github](#navigating-the-github-repository)
+- [Project Structure](#description-of-project-structure)
+    - [Packaging](#packaging)
+- [Design and Architecture](#design-and-architecture)
+    - [SOLID](#solid)
+        - [SRP](#srp)
+    - [Clean Archiecture](#clean-architecture)
+    - [Design Problems](#design-problems)
+    - [Design Patterns](#design-patterns)
+- [Description of the UI](#descriptions-of-the-ui)
+    - [Flutter App](#flutter-app)
+    - [CLI](#command-line-application)
+- [Other Notes](#other-notes)
+    - [Refactoring](#refactoring)
+    - [Use of Github](#use-of-github-and-git)
+    - [Questions](#some-questions)
+- [Contributions](#major-contributions-to-kard)
 
 ## Description of Work Done
 
@@ -46,12 +68,22 @@ We are currenting considering different packaging structures for phase 2, howeve
 
 ### SOLID
 
+#### S:
+Some of our code follow the single responsibility principle. For example `LoginAuth` only deals with authenticating the login information and returning back whether the attempt was successful for not. However, some classes might be too large and encompassing. Take `AccountUseCases` as an example; it contains methods that create Account instances while also having methods that modify the contacts in accounts. We instead should separate `AccountUseCases` into two separate classes - one that deals with the creation and deletion of Account objects (maybe called `ManageAccount`) and the other which deals with the contacts of account (`ManageContacts`). This problem was more due to issue with selecting viable names for certain classes at the beginning, so we just decided to clump everything do with accounts under one umbrella class.
+
+#### O:
+
+#### L:
+
+#### I:
+
+#### D:
+
+
+
 ### Clean Architecture
 
 We should note that due to the large amount of effort initially to design our CRC cards to follow Clean Architecture closely and during the re-write, the code has been very straightforward to expand on and edit features. With the Dependency Rule being followed for every layer, a re-write of the controllers to allow for HTTP functionality required no editing to the entities and use cases since they did not rely on each other. 
-
-
-### Design Patterns
 
 #### Entities
 
@@ -67,17 +99,24 @@ Some of the design decisions have made testing for the program quite difficult. 
     
 To remedy this, we plan only having one gateway for the database as opposed to two since you can just have two tables in a single database (realized too late). Additionally, we plan on rewriting the gateway to have another layer of abstraction (something like an SQLHelper class) on top to allow the usecases to be tested on some dummy object rather than an actual SQLite database. We also will add a boundary layer for classes that interact too closely with other classes to make testing of individual components easier.
 
+### Design Patterns
+
 Unfortunately due to time constraints, we were not able to effectively implement effective design patterns. For example, the Command design pattern could make our database much more flexible with search requests as we can combine a set of simple commands into a more complex one. The Builder and Factory design patterns would have also allowed us to more effectively create some of our more complicated entities and Momentos would allow us to implement editing which is in our roadmap.
 
+## Descriptions of the UI
 
-
-## Descriptions of the GUI
+### Flutter App
 
 The Flutter GUI has been designed with Material Design and Material You principles in mind with the intention to make it as scalable and universal as possible. 
 
 Note that the current GUI only has the functionality for a user to sign up and log in to the kard program. Further work has been completed, ho
 
+### Command Line Application
+
+For phase 1, we have changed our controllers to respond to HTTP requests, namely GET and POST. This is an attempt to implement some form of REST API into our backend as to allow the frontend to be completely disonnected from the backend. For example, if you want to login, the application you are using would need to send a POST request to `http://host-IPv4:port/start/login/` containing the JSON `{accountUsername: username, accountPassword: password}`. This is currently how the server backend communitcates with the Flutter GUI and Java CLI.
+
 ## Other Notes
+
 
 ### Refactoring
 
@@ -98,10 +137,19 @@ Git has been used extensively to manage and facilitate the development of kard. 
 
 There has been limited usage of github issues and actions - for issues in the code, we have used our Discord Server to communicate. As for actions, we plan on implementing some for phase 2 to ensure that there is some automatic checking of files that we push.
     
-## Some questions
+### Some questions
 
 For documentation, do getters and setters require javadocs?
 
 
 
 ## Major Contributions to kard
+
+| Name     | Responsibilities                                             |
+| -------- | ------------------------------------------------------------ |
+| Arthur   | Develop Flutter GUI<br />Maintain Git and manage merge requests<br />Coordinate group meetings and roadmap<br />Design Documentation |
+| Ling     | Wrote controllers and added HTTP request/response <br /> Wrote use cases <br /> Designed and wrote database and gateways <br /> Design document and Javadocs |
+| Victoria | Develop entities for the program<br />Write tests and documentation for entities |
+| Stewart  | Develop an updated backend database infastructure (not implemented in phase 1)<br />Write tests for kard server |
+| Kevin    | Develop and maintain CLI through different iterations of the backend<br />Write tests for kard server |
+| Sila     | Write tests for kard server                                  |
