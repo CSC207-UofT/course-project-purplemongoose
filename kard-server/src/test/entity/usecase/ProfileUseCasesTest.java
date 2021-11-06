@@ -1,4 +1,4 @@
-package entity.accounts;
+package entity.usecase;
 
 import database.ProfileGateway;
 import entity.datafiles.Email;

@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/usecase/AccountUseCasesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/AccountGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/AccountGateway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/usecase/AccountUseCases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/usecase/AccountUseCases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/entity/accounts/AccountUseCasesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/usecase/AccountUseCasesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/entity/accounts/ProfileUseCasesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/usecase/ProfileUseCasesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/entity/accounts/ProfilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/profiles/ProfilesTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,12 +92,12 @@
       <module name="course-project-purplemongoose" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="usecase.*" />
+          <option name="PATTERN" value="entity.usecase.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="usecase" />
-      <option name="MAIN_CLASS_NAME" value="usecase.AccountUseCasesTest" />
+      <option name="PACKAGE_NAME" value="entity.usecase" />
+      <option name="MAIN_CLASS_NAME" value="entity.usecase.AccountUseCasesTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -116,7 +117,7 @@
       <module name="course-project-purplemongoose" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="usecase.*" />
+          <option name="PATTERN" value="entity.usecase.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -176,7 +177,7 @@
       <workItem from="1636134027093" duration="1597000" />
       <workItem from="1636135805561" duration="1887000" />
       <workItem from="1636157343275" duration="934000" />
-      <workItem from="1636158295449" duration="8583000" />
+      <workItem from="1636158295449" duration="9010000" />
     </task>
     <servers />
   </component>
@@ -197,5 +198,8 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/kard_server$All_in_course_project_purplemongoose.ic" NAME="All in course-project-purplemongoose Coverage Results" MODIFIED="1636160356577" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/kard_server$AccountUseCasesTest.ic" NAME="AccountUseCasesTest Coverage Results" MODIFIED="1636167365037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>usecase.*</FILTER>
+    </SUITE>
   </component>
 </project>
