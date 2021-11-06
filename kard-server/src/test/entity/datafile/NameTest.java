@@ -11,6 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 /**
  * A class for testing the Name class
+ *
+ * @see Name
  */
 
 class NameTest {
