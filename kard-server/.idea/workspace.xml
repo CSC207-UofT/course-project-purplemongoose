@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/usecase/UUIDGeneratorTest.java" afterDir="false" />
+    <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
+      <change afterPath="$PROJECT_DIR$/src/test/usecase/LoginAuthTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +24,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -210,6 +215,42 @@
       <workItem from="1636157343275" duration="934000" />
       <workItem from="1636158295449" duration="11168000" />
     </task>
+    <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
+      <created>1636166152716</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1636166152716</updated>
+    </task>
+    <task id="LOCAL-00002" summary="continued NameTest">
+      <created>1636166475866</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1636166475866</updated>
+    </task>
+    <task id="LOCAL-00003" summary="finished NameTest">
+      <created>1636166709009</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1636166709009</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added docs to NameTest">
+      <created>1636167173324</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1636167173324</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added docs to NameTest">
+      <created>1636167205812</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1636167205812</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,6 +297,13 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fixed error in Name and started NameTest" />
+    <MESSAGE value="continued NameTest" />
+    <MESSAGE value="finished NameTest" />
+    <MESSAGE value="added docs to NameTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="added docs to NameTest" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/kard_server$All_in_course_project_purplemongoose.ic" NAME="All in course-project-purplemongoose Coverage Results" MODIFIED="1636169898069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
