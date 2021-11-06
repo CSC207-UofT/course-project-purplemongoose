@@ -1,4 +1,4 @@
-package entity.accounts;
+package usecase;
 
 import database.ProfileGateway;
 import entity.datafiles.Email;
@@ -30,6 +30,7 @@ public class ProfileUseCasesTest {
         Email email = new Email("adidas@mail.com");
         org = new Organization("Adidas", phone, email, "adidas");
         this.pg.insertProfileData("adidas", org);
+        puc = new ProfileUseCases();
     }
 
     @AfterEach
