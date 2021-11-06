@@ -7,7 +7,7 @@
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/src/test/usecase/AccountUseCasesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/usecase/ProfileUseCasesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/usecase/ProfileUseCasesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/AccountGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/AccountGateway.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,10 +79,25 @@
       <recent name="usecase" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProfileUseCasesTest">
+  <component name="RunManager" selected="JUnit.AccountUseCasesTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="course-project-purplemongoose" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountUseCasesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="course-project-purplemongoose" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="usecase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="usecase" />
+      <option name="MAIN_CLASS_NAME" value="usecase.AccountUseCasesTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -126,33 +141,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StartServer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="course-project-purplemongoose" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="controller.StartServer" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.All in course-project-purplemongoose" />
       <item itemvalue="JUnit.entity in course-project-purplemongoose" />
       <item itemvalue="JUnit.ProfileUseCasesTest" />
-      <item itemvalue="Spring Boot.StartServer" />
+      <item itemvalue="JUnit.AccountUseCasesTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AccountUseCasesTest" />
         <item itemvalue="JUnit.ProfileUseCasesTest" />
         <item itemvalue="JUnit.All in course-project-purplemongoose" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.entity in course-project-purplemongoose" />
-        <item itemvalue="Spring Boot.StartServer" />
       </list>
     </recent_temporary>
   </component>
@@ -174,7 +176,7 @@
       <workItem from="1636134027093" duration="1597000" />
       <workItem from="1636135805561" duration="1887000" />
       <workItem from="1636157343275" duration="934000" />
-      <workItem from="1636158295449" duration="4253000" />
+      <workItem from="1636158295449" duration="8583000" />
     </task>
     <servers />
   </component>

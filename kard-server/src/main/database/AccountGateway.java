@@ -32,7 +32,7 @@ public class AccountGateway extends DatabaseGateway {
      *
      * @param conn
      */
-    private void createAccountTable(Connection conn) {
+    public void createAccountTable(Connection conn) {
         try (Statement stmt = conn.createStatement()) {
             String tableSQL = """
                     CREATE TABLE IF NOT EXISTS "accounts" (
