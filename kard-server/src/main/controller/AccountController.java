@@ -14,7 +14,7 @@ import response.ShortResponse;
 @RestController
 @RequestMapping("account")
 
-/*
+/**
  * A connection point between the external user interfaces and the back end of kard
  *
  * New user interfaces should use HTTP to access the Spring server here
@@ -32,7 +32,7 @@ public class AccountController {
     // If you are trying to connect with one of these controllers, make sure the HTTP request you send is of the
     // correct type. For example, submitContactDisplay is an GET request while submitContactRemoval is a POST request.
 
-    /*
+    /**
      * Defines methods for interactions between a user's profile and the other users in their contacts
      */
     AccountUseCases accUC;

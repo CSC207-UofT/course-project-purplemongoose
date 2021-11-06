@@ -88,7 +88,8 @@ class PersonalAccountTest {
         );
 
         account.addContact(test_person);
-        assertTrue(account.checkContacts(different));
+        assertFalse(account.checkContacts(different));
+        assertTrue(account.checkContacts(test_person));
     }
 
     /**
@@ -104,8 +105,8 @@ class PersonalAccountTest {
                 "TheRealJohnSmith"
         );
 
-        assertTrue(account.removeContact(test_person));
-        assertTrue(account.checkContacts(test_person));
+        assertFalse(account.removeContact(test_person));
+        assertFalse(account.checkContacts(test_person));
     }
 
     /**
@@ -134,9 +135,9 @@ class PersonalAccountTest {
     @DisplayName("Get the contacts as a string")
     void testGetContacts(){
         String[] expected = """
-PeterPeter | john.smith@aol.com | 5555555555555555
-Sarahjohnson | Taskmgr_dot_exe@gmail.com | 4166942069
-JohnSmith | joe.mama@joe.io | 6471234567
+Peter Peter | john.smith@aol.com | 5555555555555555
+Sarah johnson | Taskmgr_dot_exe@gmail.com | 4166942069
+John Smith | joe.mama@joe.io | 6471234567
                 """.split("\n");
         Arrays.sort(expected);
 
@@ -191,7 +192,7 @@ JohnSmith | joe.mama@joe.io | 6471234567
 
         account.addAffiliation(test_org);
 
-        assertTrue(account.removeAffiliation(test_org));
+        assertFalse(account.removeAffiliation(test_org));
         assertFalse(((Set)account.getAffiliation()).contains(test_org));
     }
 
