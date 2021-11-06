@@ -82,7 +82,7 @@
       <recent name="usecase" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in course-project-purplemongoose">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="course-project-purplemongoose" />
@@ -186,8 +186,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in course-project-purplemongoose" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.UUIDGeneratorTest" />
         <item itemvalue="JUnit.ProfileUseCasesTest" />
         <item itemvalue="JUnit.AccountUseCasesTest" />
@@ -313,9 +313,9 @@
       <EXCLUDED_FILTER>request.*</EXCLUDED_FILTER>
       <EXCLUDED_FILTER>response.*</EXCLUDED_FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$AccountUseCasesTest.ic" NAME="AccountUseCasesTest Coverage Results" MODIFIED="1636169488595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/kard_server$ProfileUseCasesTest__1_.ic" NAME="ProfileUseCasesTest (1) Coverage Results" MODIFIED="1636169802008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>entity.usecase.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/kard_server$AccountUseCasesTest.ic" NAME="AccountUseCasesTest Coverage Results" MODIFIED="1636169488595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
