@@ -37,7 +37,13 @@ class NameTest {
 
     @Test
     void getAllDetails() {
+        String allDetails = name.getAllDetails();
+        String allDetails2 = name2.getAllDetails();
+        String allDetails3 = name3.getAllDetails();
 
+        assertEquals(allDetails, "Dr. Heinz Doofenshmirtz (he/him)");
+        assertEquals(allDetails2, "Patrick Star (he/him)");
+        assertEquals(allDetails3, "SpongeBob Squarepants");
     }
 
     @Test

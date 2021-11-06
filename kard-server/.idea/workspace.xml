@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/usecase/AccountUseCasesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/usecase/ProfileUseCasesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/usecase/ProfileUseCasesTest.java" afterDir="false" />
+    <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="fixed error in Name and started NameTest">
+      <change beforePath="$PROJECT_DIR$/src/test/entity/datafile/NameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/datafile/NameTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +23,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -176,6 +179,14 @@
       <workItem from="1636157343275" duration="934000" />
       <workItem from="1636158295449" duration="4253000" />
     </task>
+    <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
+      <created>1636166152716</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1636166152716</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,6 +203,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fixed error in Name and started NameTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed error in Name and started NameTest" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/kard_server$All_in_course_project_purplemongoose.ic" NAME="All in course-project-purplemongoose Coverage Results" MODIFIED="1636160356577" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
