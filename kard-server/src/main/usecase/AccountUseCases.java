@@ -12,17 +12,14 @@ import java.util.Set;
  * The class contains use cases which involve accounts
  */
 public class AccountUseCases {
-    /**
-     * Receives input from user interface to initialize parts of the user's account
-     */
     AccountGateway ag = new AccountGateway();
     ProfileGateway pg = new ProfileGateway();
 
     /**
      * Creates a new personal account and calls the AccountGateway to add it to the database
-     * @param username the account's username
-     * @param password the account's password
-     * @return true or false depending on if the account was successfully created
+     * @param username string for account username
+     * @param password string for account password
+     * @return if the account was successfully created
      */
     public boolean createNewAccount(String username, String password) {
         if (username.isBlank() || password.isBlank()) {
@@ -35,8 +32,8 @@ public class AccountUseCases {
     /**
      * Adds a profile to the accounts contact list. The profile object is fetched from the profile database via the
      * ProfileGateway. Then the account data is updated via the account database.
-     * @param accountUsername the account's username
-     * @param contactUsername the contact's username
+     * @param accountUsername string for the account's username
+     * @param contactUsername string for the contact's username
      */
     public void addContact(String accountUsername, String contactUsername){
         Account acc = (Account) ag.getAccountData(accountUsername);
@@ -48,8 +45,8 @@ public class AccountUseCases {
     /**
      * Removes a profile from the accounts contact list. The profile object is fetched from the profile database via the
      * ProfileGateway. Then the account data is updated via the account database.
-     * @param accountUsername the account's username
-     * @param contactUsername the contact's username
+     * @param accountUsername string for the account's username
+     * @param contactUsername string for the contact's username
      */
     public void removeContact(String accountUsername, String contactUsername){
         Account acc = (Account) ag.getAccountData(accountUsername);
