@@ -51,7 +51,7 @@ Future<bool> connectUser(String username, String password) async {
   String body = json.encode(data);
 
   http.Response response = await http.post(
-    Uri.parse('http://10.0.1.137:8082/start/login'),
+    Uri.parse('http://localhost:8082/start/login'),
     headers: {"Content-Type": "application/json"},
     body: body,
   );

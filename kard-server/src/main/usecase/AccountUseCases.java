@@ -62,7 +62,7 @@ public class AccountUseCases {
      * Checks if profile is part of an account's contact list
      * @param accountUsername the account's username
      * @param contactUsername the contact's username
-     * @return whether or not the profile is part of the account's contact list
+     * @return whether the profile is part of the account's contact list
      */
     public boolean checkForContact(String accountUsername, String contactUsername) {
         Account acc = (Account) ag.getAccountData(accountUsername);

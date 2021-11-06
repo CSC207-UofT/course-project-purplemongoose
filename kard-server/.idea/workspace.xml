@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="" />
+    <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/account.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/account.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/usecase/AccountUseCases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/usecase/AccountUseCases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/sign_up_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/sign_up_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/user.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,10 +52,18 @@
       <recent name="$PROJECT_DIR$/kard-server" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in course-project-purplemongoose">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="course-project-purplemongoose" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in course-project-purplemongoose" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="course-project-purplemongoose" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -83,6 +97,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in course-project-purplemongoose" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.entity in course-project-purplemongoose" />
         <item itemvalue="Spring Boot.StartServer" />
@@ -106,6 +121,7 @@
       <workItem from="1636133894223" duration="129000" />
       <workItem from="1636134027093" duration="1597000" />
       <workItem from="1636135805561" duration="1887000" />
+      <workItem from="1636153700262" duration="5549000" />
     </task>
     <servers />
   </component>
