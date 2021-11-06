@@ -25,6 +25,7 @@ class LoginAuthTest {
         AccountGateway ag = new AccountGateway();
         PersonalAccount account = new PersonalAccount();
         ag.insertAccountData("spongebob", "patrick123", account);
+        this.loginAuth = new LoginAuth();
     }
 
     @AfterEach

@@ -24,10 +24,18 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class ConnectionsTest {
     private HashMap<ProfileType, String> localStore;
+    private Person test_person_1;
 
     @BeforeEach
     void setUp() {
         localStore = new HashMap<>();
+        test_person_1 = new Person(
+                new Name("Smith", "Johnson"),
+                new Phone("8881234567"),
+                new Email("smith.joe@gmail.com"),
+                "SmithJoe87"
+        );
+
         localStore.put(new Business(
                 "compName1",
                 new Phone("5551234567"),
@@ -47,12 +55,8 @@ class ConnectionsTest {
                 new Email("joe.smith@gmail.com"),
                 "JoeSmith78"
         ), null);
-        localStore.put(new Person(
-                new Name("Smith", "Johnson"),
-                new Phone("8881234567"),
-                new Email("smith.joe@gmail.com"),
-                "SmithJoe87"
-        ), null);
+        localStore.put(test_person_1, null);
+
     }
 
     @AfterEach
@@ -83,16 +87,9 @@ class ConnectionsTest {
     @Test
     @DisplayName("Try to add an existing connection")
     void addConnectionInMap() {
-        Person test_person = new Person(
-                new Name("Smith", "Johnson"),
-                new Phone("8881234567"),
-                new Email("smith.joe@gmail.com"),
-                "SmithJoe87"
-        );
-
-        assertTrue(localStore.containsKey(test_person));
-        assertFalse(new Connections().addConnection(localStore, test_person));
-        assertTrue(localStore.containsKey(test_person));
+        assertTrue(localStore.containsKey(test_person_1));
+        assertFalse(new Connections().addConnection(localStore, test_person_1));
+        assertTrue(localStore.containsKey(test_person_1));
     }
 
     /**
@@ -101,16 +98,9 @@ class ConnectionsTest {
     @Test
     @DisplayName("Remove an existing connection")
     void removeConnectionInMap() {
-        Person test_person = new Person(
-                new Name("Smith", "Johnson"),
-                new Phone("8881234567"),
-                new Email("smith.joe@gmail.com"),
-                "SmithJoe87"
-        );
-
-        assertTrue(localStore.containsKey(test_person));
-        assertTrue(new Connections().removeConnection(localStore, test_person));
-        assertFalse(localStore.containsKey(test_person));
+        assertTrue(localStore.containsKey(test_person_1));
+        assertFalse(new Connections().removeConnection(localStore, test_person_1));
+        assertFalse(localStore.containsKey(test_person_1));
     }
 
     /**
@@ -138,9 +128,9 @@ class ConnectionsTest {
     void getConnectionsTest() {
         String[] expected = """
 orgName1 | name.name@org.com | 6661234567
-SmithJohnson | smith.joe@gmail.com | 8881234567
+Smith Johnson | smith.joe@gmail.com | 8881234567
 compName1 | name.name@comp.com | 5551234567
-JoeSmith | joe.smith@gmail.com | 7771234567
+Joe Smith | joe.smith@gmail.com | 7771234567
                 """.split("\n");
         Arrays.sort(expected);
 

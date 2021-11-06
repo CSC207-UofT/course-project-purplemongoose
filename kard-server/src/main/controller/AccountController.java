@@ -11,6 +11,9 @@ import request.ContactRequest;
 import response.ResponseContainer;
 import response.ShortResponse;
 
+@RestController
+@RequestMapping("account")
+
 /**
  * A connection point between the external user interfaces and the back end of kard
  *
@@ -23,8 +26,22 @@ import response.ShortResponse;
 @RestController
 @RequestMapping("account")
 public class AccountController {
-    AccountUseCases accUC = new AccountUseCases();
-    ProfileUseCases proUC = new ProfileUseCases();
+    // TBA until merge with new use cases
+
+    // TODO Remove these two lines once TODO from above is completed
+    // If you are trying to connect with one of these controllers, make sure the HTTP request you send is of the
+    // correct type. For example, submitContactDisplay is an GET request while submitContactRemoval is a POST request.
+
+    /**
+     * Defines methods for interactions between a user's profile and the other users in their contacts
+     */
+    AccountUseCases accUC;
+    ProfileUseCases proUC;
+
+    public AccountController() {
+        this.accUC = new AccountUseCases();
+        this.proUC = new ProfileUseCases();
+    }
 
     /**
      * Handles requests to add a profile to an account's contact list. Checks if the username corresponds

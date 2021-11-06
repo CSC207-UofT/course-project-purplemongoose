@@ -56,7 +56,7 @@ public class ProfilesTest {
     void testGetName(){
 
         String profileName = profile.getName();
-        assertEquals("George Michael (she/her)", profileName);
+        assertEquals("George Michael", profileName);
 
         String profilePronouns = profile.getPronouns();
         assertEquals("she/her", profilePronouns);
@@ -65,7 +65,7 @@ public class ProfilesTest {
         assertEquals("Mc Donald's", bizName);
 
         String bizOwnerName = biz.getOwnerName();
-        assertEquals("George Michael (she/her)", bizOwnerName);
+        assertEquals("George Michael", bizOwnerName);
 
         String orgName = org.getName();
         assertEquals("Adidas", orgName);
