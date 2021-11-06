@@ -15,7 +15,7 @@ public class ProfileUseCases {
      * Initializes a new profile based on the data that the user passes in when
      * setting up their account
      */
-    ProfileGateway pg = new ProfileGateway();
+    public ProfileGateway pg = new ProfileGateway();
 
     /**
 
