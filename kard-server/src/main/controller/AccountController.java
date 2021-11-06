@@ -12,7 +12,7 @@ import response.ResponseContainer;
 import response.ShortResponse;
 
 @RestController
-@RequestMapping("account")
+@RequestMapping({"account", "account"})
 
 /**
  * A connection point between the external user interfaces and the back end of kard
@@ -23,8 +23,6 @@ import response.ShortResponse;
  * appropriate kind of HTTP request (GET or POST) is being used. These will be specified in the
  * javadoc comments fo the individual controller.
  */
-@RestController
-@RequestMapping("account")
 public class AccountController {
     // TBA until merge with new use cases
 

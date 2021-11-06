@@ -41,7 +41,7 @@ class ConnectionsTest {
                 new Phone("5551234567"),
                 new Email("name.name@comp.com"),
                 "CompInc",
-                new Name("Joe", "Smith")
+                new Person("Joe", "Smith")
         ), null);
         localStore.put(new Organization(
                 "orgName1",
