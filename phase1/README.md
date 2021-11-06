@@ -1,14 +1,5 @@
 # kard Phase 1 design document
 
-- [x] Update readmes for kard-server, kard-cli, kard_project_test
-- [x] Make links for this file for each part
-- [x] Copy Navigating the Github Repository 
-- [ ] Email Paul about project marking
-- [ ] Address issues in IntellJ
-- [x] Find one or two more examples of refactoring in the merges
-- [ ] Write testing section of this doc
-- [ ] Write Flutter setup instructions
-
 ## Contents
 - [Summary](#description-of-work-done)
 - [Navigating Github](#navigating-the-github-repository)
@@ -48,7 +39,7 @@ At the root dirctory of the Github repository there are three separate IntelliJ 
   - [kard-cli](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/kard-CLI) - A separate project for the command line. This project needs `kard-server` to be running as it uses it as a back end and communicates with it using HTTP requests
   - [kard_project_test](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/kard_project_test) - A mobile app for kard written in Flutter and Dart. This project also needs `kard-server` to be running since it relies on it as a backend and also uses HTTP to send requests.
 
-> Note that there is a directory called 'kard' which currently houses a work in progress re-tool or 'kard_project_test'. Please ignore it for phase 1 as it is very preliminarty. We ment to keep it on a branch, however due to a mistake in a push, it got merged to main.
+> Note that there is a directory called 'kard' which currently houses a work in progress re-tool or 'kard_project_test'. Please ignore it for phase 1 as it is very preliminarty. We meant to keep it on a branch, however due to a mistake in a push, it got merged to main.
 
 ## Description of Project Structure
 
@@ -56,7 +47,7 @@ Currently the project works in a server client manner. The servers responsibilit
 
 The clients responsibility consists solely of getting the data and displaying it in a user friendly manner.
 
-In this way, the project largely follows guidelines set out in Clean Architecture. The controllers 
+In this way, the project largely follows guidelines set out in Clean Architecture.
 
 ### Packaging
 
@@ -68,30 +59,21 @@ We are currenting considering different packaging structures for phase 2, howeve
 
 ### SOLID
 
-#### S:
-Some of our code follow the single responsibility principle. For example `LoginAuth` only deals with authenticating the login information and returning back whether the attempt was successful for not. However, some classes might be too large and encompassing. Take `AccountUseCases` as an example; it contains methods that create Account instances while also having methods that modify the contacts in accounts. We instead should separate `AccountUseCases` into two separate classes - one that deals with the creation and deletion of Account objects (maybe called `ManageAccount`) and the other which deals with the contacts of account (`ManageContacts`). This problem was more due to issue with selecting viable names for certain classes at the beginning, so we just decided to clump everything do with accounts under one umbrella class.
+Some of our code follow the single responsibility principle. For example `LoginAuth` only deals with authenticating the login information and returning back whether the attempt was successful for not. However, some classes might be too large and encompassing. Take `AccountUseCases` as an example; it contains methods that create Account instances while also having methods that modify the contacts in accounts. We instead should separate `AccountUseCases` into two separate classes - one that deals with the creation and deletion of Account objects (maybe called `ManageAccount`) and the other which deals with the contacts of account (`ManageContacts`). This problem was more due to issues with selecting viable names for certain classes at the beginning, so we just decided to clump everything to do with accounts under one umbrella class.
 
-#### O:
-
-#### L:
-
-#### I:
-
-#### D:
-
-
+As for the other principles (OLID), our code current does not have the depth to showcase the them well. This is because the major improvements on our program for phase 1 were mostly on the frontend side of things (Flutter GUI, CLI, REST API). As a result, the backend functionality only consists of creating an account and profile, logging in, and adding a profile to the accounts contacts list. For phase 2, we plan on adding the algorithmic brunt of our program which will be creating and editing various cards which will definitely showcase the SOLID principle much better. We also plan on adding layers of separation between the various layers to make testing easier which will also apply SOLID principles.
 
 ### Clean Architecture
 
 We should note that due to the large amount of effort initially to design our CRC cards to follow Clean Architecture closely and during the re-write, the code has been very straightforward to expand on and edit features. With the Dependency Rule being followed for every layer, a re-write of the controllers to allow for HTTP functionality required no editing to the entities and use cases since they did not rely on each other. 
 
-#### Entities
+![Screen_Shot_2021-11-06_at_4.11.53_AM](README.assets/Screen_Shot_2021-11-06_at_4.11.53_AM.png)
 
-The entities in kard largely consist of methods of storing and interpreting the information in the database. The SQLite stores a serialized version of the entities `user`
+- Scenario Walkthrough
+Suppose the GUI sends a request for a new account to be made. `submitSignUp` from `StartController` would then receive that request and call `createNewAccount` from `AccountUseCases` to create an account. `createAccount` then instantiates a new `PersonalAccount` object and calls the insertAccountData from `AccountGateway` to add it to the database along with the username and password sent over with the request.
 
-#### Use Cases
+The Dependency Rule states that source code dependencies should only point outwards. An example of this would be the `ProfileUseCases` class. It imports `ProfileGateway` and various entity classes but does not import from the controllers thus keeping in line with the Dependency Rule.
 
-Use cases have been built for directly interacting with entities -- for example, setting a persons name, adding a contact to a person, 
 
 ### Design Problems
 
@@ -135,7 +117,7 @@ Some specific examples where refactors have happened:
 
 Git has been used extensively to manage and facilitate the development of kard. We constantly use branches whenever new features are being added to stage them and test before merging to main. Minimal committing to main have been made as we kept main as a fully working and tested version of the code. 
 
-There has been limited usage of github issues and actions - for issues in the code, we have used our Discord Server to communicate. As for actions, we plan on implementing some for phase 2 to ensure that there is some automatic checking of files that we push.
+There has been limited usage of Github issues and actions - for issues in the code, we have used our Discord Server to communicate. As for actions, we plan on implementing some for phase 2 to ensure that there is some automatic checking of files that we push.
     
 ### Some questions
 
@@ -153,3 +135,4 @@ For documentation, do getters and setters require javadocs?
 | Stewart  | Develop an updated backend database infastructure (not implemented in phase 1)<br />Write tests for kard server |
 | Kevin    | Develop and maintain CLI through different iterations of the backend<br />Write tests for kard server |
 | Sila     | Write tests for kard server                                  |
+
