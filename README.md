@@ -17,7 +17,7 @@
  ## Roadmap
 
  Last updated October 21, 2021
- @@ -26,13 +36,13 @@ This project is written primarily in Java and developed in the IDE: [IntelliJ](h
+ This project is written primarily in Java and developed in the IDE: [IntelliJ](h
 
  Unit tests are written with [Junit5.7](https://junit.org/junit5/) 
 
