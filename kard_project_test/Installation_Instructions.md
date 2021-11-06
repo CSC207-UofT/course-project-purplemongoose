@@ -20,7 +20,7 @@ These can be found by clicking on "Marketplace" and searching for "Dart" and "Fl
 
 ![installation_19](Installation_Instructions.assets/installation_19.png)
 
-![installation_18](Installation_Instructions.assets/installation_18.png)
+![installation_21](Installation_Instructions.assets/installation_21.png)
 
 With the above plugins installed, you should be able to open the `kard_project_test` project in IntelliJ, however to test the code you must install an emulation environment or allow USB Debugging on your Android Phone. You may have to set the path for your flutter install for IntelliJ. You should be prompted to do this by IntelliJ if needed.
 
