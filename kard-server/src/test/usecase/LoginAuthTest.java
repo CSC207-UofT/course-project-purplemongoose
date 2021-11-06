@@ -1,6 +1,7 @@
 package usecase;
 
 import database.AccountGateway;
+import entity.accounts.CorporateAccount;
 import entity.accounts.PersonalAccount;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,6 +9,12 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+/**
+ * A class for testing the LoginAuth class
+ *
+ * @see LoginAuth
+ */
 
 class LoginAuthTest {
 
@@ -52,5 +59,25 @@ class LoginAuthTest {
     void requestLoginUsernameNotExist() {
         boolean nonExistentUsername = loginAuth.requestLogin("sponge", "patrick123");
         assertFalse(nonExistentUsername);
+    }
+
+    /**
+     * Tests requesting a login with an incorrect password
+     */
+    @Test
+    @DisplayName("Request login with an incorrect password")
+    void requestLoginWrongPassword() {
+        boolean wrongPassword = loginAuth.requestLogin("spongebob", "patrick");
+        assertFalse(wrongPassword);
+    }
+
+    /**
+     * Tests requesting a login with correct login information
+     */
+    @Test
+    @DisplayName("Request login with correct login information")
+    void requestLoginSuccessful() {
+        boolean successfulLogin = loginAuth.requestLogin("spongebob", "patrick123");
+        assertTrue(successfulLogin);
     }
 }
