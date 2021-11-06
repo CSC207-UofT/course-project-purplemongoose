@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="course-project-purplemongoose" />
+        <module name="kard-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="course-project-purplemongoose" target="16" />
+      <module name="kard-server" target="16" />
     </bytecodeTargetLevel>
   </component>
 </project>

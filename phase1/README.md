@@ -7,7 +7,6 @@
     - [Packaging](#packaging)
 - [Design and Architecture](#design-and-architecture)
     - [SOLID](#solid)
-        - [SRP](#srp)
     - [Clean Archiecture](#clean-architecture)
     - [Design Problems](#design-problems)
     - [Design Patterns](#design-patterns)

@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="">
+    <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
+      <change afterPath="$PROJECT_DIR$/.idea/kard-server.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/entity/accounts/ConnectionsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/accounts/ConnectionsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +57,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
@@ -82,10 +89,10 @@
       <recent name="usecase" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in course-project-purplemongoose">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="course-project-purplemongoose" />
+      <module name="kard-server" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -186,8 +193,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in course-project-purplemongoose" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.All in course-project-purplemongoose" />
         <item itemvalue="JUnit.UUIDGeneratorTest" />
         <item itemvalue="JUnit.ProfileUseCasesTest" />
         <item itemvalue="JUnit.AccountUseCasesTest" />
@@ -214,6 +221,8 @@
       <workItem from="1636157343275" duration="934000" />
       <workItem from="1636158295449" duration="11168000" />
       <workItem from="1636172532436" duration="206000" />
+      <workItem from="1636220235864" duration="46000" />
+      <workItem from="1636220300691" duration="354000" />
     </task>
     <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
       <created>1636166152716</created>
