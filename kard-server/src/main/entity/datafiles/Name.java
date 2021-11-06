@@ -22,10 +22,7 @@ public class Name implements Serializable {
     private final String pronouns;
     private final String titles;
 
-    // The setters
-    // Overload: pronouns and titles are optional
-    // TODO we should find a way of building this so that there can be a constructor for when the
-    //  person does not enter their title
+    // The setters are overloaded so that the pronouns and titles are optional to initiate a person's Name
 
     /**
      * Store the attributes of preferred pronouns, title, first, and last name of a user.
@@ -62,8 +59,6 @@ public class Name implements Serializable {
     public Name(String first, String last) {
         this(first, last, null, null);
     }
-
-
 
     // The getters
 
