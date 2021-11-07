@@ -1,6 +1,8 @@
 package entity.datafiles;
 
+import java.io.Serial;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * A class to store all the detail of a person's name
@@ -16,7 +18,8 @@ import java.io.Serializable;
  * on which attributes the end user chooses to use.
  */
 public class Name implements Serializable {
-
+    @Serial
+    private static final long serialVersionUID = 194821814127968409L;
     private final String first;
     private final String last;
     private final String pronouns;
@@ -95,5 +98,18 @@ public class Name implements Serializable {
 
     public String getPronouns() {
         return pronouns;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Name name = (Name) o;
+        return Objects.equals(first, name.first) && Objects.equals(last, name.last) && Objects.equals(pronouns, name.pronouns) && Objects.equals(titles, name.titles);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(first, last, pronouns, titles);
     }
 }

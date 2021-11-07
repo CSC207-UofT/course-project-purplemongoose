@@ -18,21 +18,16 @@ public class ProfileUseCases {
     public ProfileGateway pg = new ProfileGateway();
 
     /**
-
-    todo fix formatting
-    
      * Creates a new personal profiles with the given arguments and adds it to the profile database through the
-     * ProfileGateway
-
-    This method assumes that the person whose profile is being initiated has not yet been created
-
+     * ProfileGateway. This method assumes that the person whose profile is being initiated has not yet been created
+     *
      * @param accountUsername the username of the account who the profile is associated with
-     * @param first the first name
-     * @param last the last name
-     * @param pronoun the preferred pronoun
-     * @param title the preferred title
-     * @param phone the phone number
-     * @param email the email
+     * @param first string for the first name
+     * @param last string for the last name
+     * @param pronoun string for the preferred pronoun
+     * @param title string for the preferred title
+     * @param phone string for the phone number
+     * @param email string for the email
      * @return whether the profile was successfully created
      */
     public boolean createNewPerson(String accountUsername, String first, String last, String pronoun, String title, String phone, String email) {
@@ -48,9 +43,9 @@ public class ProfileUseCases {
      * ProfileGateway
      *
      * @param accountUsername the username of the account who claims the business
-     * @param name the name of the organization
-     * @param phone the phone number
-     * @param email the email
+     * @param name string for name of the organization
+     * @param phone string for the phone number
+     * @param email string for the email
      * @return whether the profile was successfully created
      */
     public boolean createNewOrganization(String accountUsername, String name, String phone, String email) {
@@ -73,7 +68,7 @@ public class ProfileUseCases {
     /**
      * Checks if the profile exists in the database
      *
-     * @param profileUsername the username of the profile being checked against
+     * @param profileUsername string for the profile's username
      * @return if the data for the profile in the database is not null
      */
     public boolean checkForProfile(String profileUsername) {

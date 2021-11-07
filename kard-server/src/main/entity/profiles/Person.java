@@ -6,6 +6,7 @@ import entity.datafiles.Phone;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Person implements ProfileType, Serializable {
 
@@ -51,4 +52,16 @@ public class Person implements ProfileType, Serializable {
         return this.username;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(name, person.name) && Objects.equals(phone, person.phone) && Objects.equals(email, person.email) && Objects.equals(username, person.username);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, phone, email, username);
+    }
 }

@@ -1,5 +1,3 @@
-// TODO for some reason spring server controller won't import nicely
-// import controller.SpringServerController;
 import controller.SpringServerController;
 
 public class Main {

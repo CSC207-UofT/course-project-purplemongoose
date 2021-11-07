@@ -5,6 +5,7 @@ import database.ProfileGateway;
 import entity.accounts.Account;
 import entity.accounts.PersonalAccount;
 import entity.profiles.Person;
+import entity.profiles.ProfileType;
 
 import java.util.Set;
 
@@ -20,9 +21,9 @@ public class AccountUseCases {
 
     /**
      * Creates a new personal account and calls the AccountGateway to add it to the database
-     * @param username the account's username
-     * @param password the account's password
-     * @return true or false depending on if the account was successfully created
+     * @param username string for account username
+     * @param password string for account password
+     * @return if the account was successfully created
      */
     public boolean createNewAccount(String username, String password) {
         if (username.isBlank() || password.isBlank()) {
@@ -35,8 +36,8 @@ public class AccountUseCases {
     /**
      * Adds a profile to the accounts contact list. The profile object is fetched from the profile database via the
      * ProfileGateway. Then the account data is updated via the account database.
-     * @param accountUsername the account's username
-     * @param contactUsername the contact's username
+     * @param accountUsername string for the account's username
+     * @param contactUsername string for the contact's username
      */
     public void addContact(String accountUsername, String contactUsername){
         Account acc = (Account) ag.getAccountData(accountUsername);
@@ -48,8 +49,8 @@ public class AccountUseCases {
     /**
      * Removes a profile from the accounts contact list. The profile object is fetched from the profile database via the
      * ProfileGateway. Then the account data is updated via the account database.
-     * @param accountUsername the account's username
-     * @param contactUsername the contact's username
+     * @param accountUsername string for the account's username
+     * @param contactUsername string for the contact's username
      */
     public void removeContact(String accountUsername, String contactUsername){
         Account acc = (Account) ag.getAccountData(accountUsername);
@@ -62,7 +63,7 @@ public class AccountUseCases {
      * Checks if profile is part of an account's contact list
      * @param accountUsername the account's username
      * @param contactUsername the contact's username
-     * @return whether or not the profile is part of the account's contact list
+     * @return whether the profile is part of the account's contact list
      */
     public boolean checkForContact(String accountUsername, String contactUsername) {
         Account acc = (Account) ag.getAccountData(accountUsername);
@@ -75,10 +76,10 @@ public class AccountUseCases {
      * @param accountUsername the account's username
      * @return array of profile objects
      */
-    public Object[] getContacts(String accountUsername) {
+    public ProfileType[] getContacts(String accountUsername) {
         Account acc = (Account) ag.getAccountData(accountUsername);
-        Set contacts = (Set) acc.getContact();
-        return contacts.toArray();
+        Set<ProfileType> contacts = acc.getContacts();
+        return contacts.toArray(new ProfileType[0]);
     }
 
 }

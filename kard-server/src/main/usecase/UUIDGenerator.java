@@ -8,9 +8,6 @@ import java.util.Random;
  * Class used to generate human-readable UUIDs
  */
 public class UUIDGenerator {
-    /**
-     * Generates a unique UUID given all 26 letters (case sensitive) and numbers
-     */
     private final char[] characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     Random gen = new Random();
     int idLength = 5; // length of the UUID

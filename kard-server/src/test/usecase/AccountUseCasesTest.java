@@ -1,4 +1,4 @@
-package entity.usecase;
+package usecase;
 
 import database.AccountGateway;
 import database.ProfileGateway;
@@ -8,20 +8,19 @@ import entity.accounts.PersonalAccount;
 import entity.datafiles.Email;
 import entity.datafiles.Name;
 import entity.datafiles.Phone;
-import entity.profiles.Organization;
 import entity.profiles.Person;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import usecase.AccountUseCases;
 
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class AccountUseCasesTest {
     private AccountUseCases auc;
@@ -29,7 +28,7 @@ class AccountUseCasesTest {
     /**
      * Necessary to Query test dbs
      */
-    private class aucTest extends AccountUseCases {
+    private static class aucTest extends AccountUseCases {
         public aucTest() {
             this.ag = new AccountGateway() {
 

@@ -202,7 +202,7 @@ class _SignUpState extends State<SignUp> {
     String body = json.encode(data);
 
     http.Response response = await http.post(
-        Uri.parse('http://10.0.1.137:8082/start/signup'),
+        Uri.parse('http://localhost:8082/start/signup'),
         headers: {"Content-Type": "application/json"},
         body: body,
     );
