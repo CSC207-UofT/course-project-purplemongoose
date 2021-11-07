@@ -67,20 +67,20 @@ public class CommandLineInterface {
                 break;
             }
 
-            int res = submitLogin(username, password);
+            String res = submitLogin(username, password);
 
-            if (res == 200) {
+            if (res.equals("5}")) {
+                System.out.println("Wrong username or password, please try again!\n");
+            }
+            else if (res.equals("404")){
+                System.out.println("Log in attempt failed, please try again!\n");
+            }
+            else{
                 this.current_username = username;
                 System.out.println("Logged in!\n");
                 instructionScreen();
                 events();
                 break;
-            }
-            else if (res == 9){
-                System.out.println("Wrong username or password, please try again!\n");
-            }
-            else{
-                System.out.println("Log in attempt failed, please try again!\n");
             }
         }
     }
@@ -92,7 +92,7 @@ public class CommandLineInterface {
      * @param password the password of the account
      * @return code of response that indicates if the login was successful, returns the status code of the response
      */
-    private int submitLogin(String username, String password){
+    private String submitLogin(String username, String password){
         String endpoint = "http://localhost:8082/start/login/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," +
                         "\"accountPassword\":\"%s\"}",
@@ -106,11 +106,12 @@ public class CommandLineInterface {
 
         try {
             var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            return response.statusCode();
+            String res = response.body().split(",\"errorCode\":")[1];
+            return res;
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
-        return 404;
+        return "404";
     }
 
     /**
@@ -130,19 +131,19 @@ public class CommandLineInterface {
             System.out.print("Press 'y' to continue or press 'n' to restart\n");
             String input = sc.nextLine();
             if (input.equals("y")) {
-                int res;
-                res = submitSignUp(username, password);
 
-                if (res == 200){
+                String res = submitSignUp(username, password);
+
+                if (res.equals("6}")){
+                    System.out.println("Username already taken, try again\n");
+                }
+                else if (res.equals("404")){
+                    System.out.println("Sign up failed, try again\n");
+                }
+                else{
                     System.out.println("Account made successfully!\n");
                     startingScreen();
                     break;
-                }
-                else if (res == 10){
-                    System.out.println("Username already taken, try again\n");
-                }
-                else{
-                    System.out.println("Sign up failed, try again\n");
                 }
             }
             else if (!input.equals("n")) {
@@ -158,7 +159,7 @@ public class CommandLineInterface {
      * @param password the password of the account
      * @return code of response that indicates if the sign up was successful, returns the status code of the response
      */
-    private int submitSignUp(String username, String password){
+    private String submitSignUp(String username, String password){
         String endpoint = "http://localhost:8082/start/signup/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," +
                         "\"accountPassword\":\"%s\"}",
@@ -171,11 +172,12 @@ public class CommandLineInterface {
         HttpClient client = HttpClient.newHttpClient();
         try {
             var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            return response.statusCode();
+            String res = response.body().split(",\"errorCode\":")[1];
+            return res;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return 404;
+        return "404";
 
     }
 
@@ -226,14 +228,14 @@ public class CommandLineInterface {
         String email = sc.next();
         System.out.println("Press y to submit: ");
         if (sc.next().equals("y")){
-            int res = submitProfileCreation(first, last, pronoun, title, phone, email);
-            if (res == 25){
+            String res = submitProfileCreation(first, last, pronoun, title, phone, email);
+            if (res.equals("25}")){
                 // if a personal profile was already exists
                 System.out.print("a personal profile already exists!");
-            }else if(res == 200){
-                System.out.print("profile successfully created!");
-            }else{
+            }else if(res.equals("404")){
                 System.out.print("could not create profile!");
+            }else{
+                System.out.print("profile successfully created!");
             }
         }else{
             System.out.println("unknown command... returning to main screen");
@@ -242,7 +244,7 @@ public class CommandLineInterface {
         events();
     }
 
-    private int submitProfileCreation(String first, String last, String title, String pronoun, String phone, String email) {
+    private String submitProfileCreation(String first, String last, String title, String pronoun, String phone, String email) {
         String endpoint = "http://localhost:8082/profile/new/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," + "\"firstName\":\"%s\","
                         + "\"lastName\":\"%s\","+ "\"title\":\"%s\","+ "\"pronoun\":\"%s\","
@@ -256,11 +258,12 @@ public class CommandLineInterface {
         HttpClient client = HttpClient.newHttpClient();
         try {
             var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            return response.statusCode();
+            String res = response.body().split(",\"errorCode\":")[1];
+            return res;
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
-        return 404;
+        return "404";
     }
 
     /**
