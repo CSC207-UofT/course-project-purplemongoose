@@ -14,4 +14,9 @@ N/A
 	- Check if there is already a profile associated with the given account username in the database
 
 ## Collaborators:
-N/A
+- [[ProfileGateway]]
+- [[Email]]
+- [[Name]]
+- [[Phone]]
+- [[Organization]]
+- [[Person]]

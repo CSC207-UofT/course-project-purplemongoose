@@ -2,7 +2,7 @@
 Class which represents a business
 
 ## Parent Class:
-- Organization
+- [[Organization]]
 
 ## Subclasses:
 N/A
@@ -13,6 +13,6 @@ N/A
 - And super class methods...
 
 ## Collaborators:
-- Email
-- Name
-- Phone
+- [[Email]]
+- [[Name]]
+- [[Phone]]
