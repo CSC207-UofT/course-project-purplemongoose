@@ -242,7 +242,7 @@ public class CommandLineInterface {
         events();
     }
 
-    private int submitProfileCreation(String first, String last, String pronoun, String title, String phone, String email) {
+    private int submitProfileCreation(String first, String last, String title, String pronoun, String phone, String email) {
         String endpoint = "http://localhost:8082/profile/new/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," + "\"firstName\":\"%s\","
                         + "\"lastName\":\"%s\","+ "\"title\":\"%s\","+ "\"pronoun\":\"%s\","
@@ -280,20 +280,20 @@ public class CommandLineInterface {
         System.out.print("[add]: ");
         input = sc.next();
         while (!input.equals("back")) {
-            int res = submitContactAddition(input);
-            if (res == 15) {
+            String res = submitContactAddition(input);
+            if (res.equals("15}")) {
                 // if the username does not correspond to a profile
                 //display message that this user does not exist in the db
                 // using display classes (in the future)
                 System.out.printf("The username [%s] could not be found!\n", input);
                 return;
             }
-            else if (res == 16) {
+            else if (res.equals("16}")) {
                 // if the profile is already a contact
                 System.out.printf("The user corresponding to ID [%s] is already a contact!\n", input);
                 return;
             }
-            else if (res == 404){
+            else if (res.equals("404")){
                 // connection failed
                 System.out.println("Contact could not be added, please try again!");
                 return;
@@ -312,7 +312,7 @@ public class CommandLineInterface {
      * @param input the username of the contact which the user wants to add
      * @return status code of response that indicates if the contact addition was successful
      */
-    private int submitContactAddition(String input){
+    private String submitContactAddition(String input){
         String endpoint = "http://localhost:8082/account/add/contact/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," +
                         "\"contactUsername\":\"%s\"}",
@@ -325,11 +325,12 @@ public class CommandLineInterface {
         HttpClient client = HttpClient.newHttpClient();
         try {
             var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            return response.statusCode();
+            String res = response.body().split(",\"errorCode\":")[1];
+            return res;
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
-        return 404;
+        return "404";
 
     }
 
@@ -342,18 +343,18 @@ public class CommandLineInterface {
         System.out.print("[remove]: ");
         input = sc.next();
         while (!input.equals("back")) {
-            int res = submitContactRemoval(input);
-            if (res == 15) {
+            String res = submitContactRemoval(input);
+            if (res.equals("15}")) {
                 // if the username does not correspond to a profile
                 System.out.printf("The ID [%s] could not be found!\n", input);
                 return;
             }
-            else if (res == 17) {
+            else if (res.equals("17}")) {
                 // if the profile is not a contact
                 System.out.printf("The user corresponding to ID [%s] is not a contact!\n", input);
                 return;
             }
-            else if (res == 404){
+            else if (res.equals("404")){
                 // connection failed
                 System.out.println("Could not remove contact, please try again!");
                 return;
@@ -372,7 +373,7 @@ public class CommandLineInterface {
      * @param input the username of the contact which the user wants to remove
      * @return status code of response that indicates if the contact removal was successful
      */
-    private int submitContactRemoval(String input) {
+    private String submitContactRemoval(String input) {
         String endpoint = "http://localhost:8082/account/remove/contact/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," +
                         "\"contactUsername\":\"%s\"}",
@@ -385,11 +386,12 @@ public class CommandLineInterface {
         HttpClient client = HttpClient.newHttpClient();
         try {
             var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            return response.statusCode();
+            String res = response.body().split(",\"errorCode\":")[1];
+            return res;
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
-        return 404;
+        return "404";
     }
 
     /**
@@ -416,7 +418,10 @@ public class CommandLineInterface {
         HttpClient client = HttpClient.newHttpClient();
         try {
             var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            return response.body();
+            String[] r = response.body().split("\":\"");
+            return String.format(" %s | %s | %s | %s | username: %s", (r[1]).split("\"")[0],
+                    (r[5]).split("\"")[0], (r[3]).split("\"")[0],
+                    (r[2]).split("\"")[0], (r[4]).split("\"")[0]);
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
