@@ -7,7 +7,7 @@
     - [Packaging](#packaging)
 - [Design and Architecture](#design-and-architecture)
     - [SOLID](#solid)
-    - [Clean Archiecture](#clean-architecture)
+    - [Clean Architecture](#clean-architecture)
     - [Design Problems](#design-problems)
     - [Design Patterns](#design-patterns)
 - [Description of the UI](#descriptions-of-the-ui)
@@ -68,6 +68,9 @@ We should note that due to the large amount of effort initially to design our CR
 
 ![Screen_Shot_2021-11-06_at_4.11.53_AM](README.assets/Screen_Shot_2021-11-06_at_4.11.53_AM.png)
 
+To see how we have applied clean architecture visually, we have included an annotated UML diagram where the layers are marked out. As seen, there are clear separation between the 4 layers, and the dependency goes in one direction for most of the layers. However, we realize that our gateway layer is actually used by our usecases, when according to clean architecture, it should be the usecases that are used by gateways, so restructuring this part of the code will be a priority in Phase 2. Also, notice there are classes that are not included in any of the layers. These classes serve more of a helper functionality to the controllers as all they are designed to do is interpret JSON files and store HTTP responses, which are all handled with the controllers. 
+
+![Kard phase 1 UML](README.assets/Kard%20phase%201%20UML.png)
 - Scenario Walkthrough
 Suppose the GUI sends a request for a new account to be made. `submitSignUp` from `StartController` would then receive that request and call `createNewAccount` from `AccountUseCases` to create an account. `createAccount` then instantiates a new `PersonalAccount` object and calls the insertAccountData from `AccountGateway` to add it to the database along with the username and password sent over with the request.
 
