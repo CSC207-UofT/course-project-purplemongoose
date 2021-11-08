@@ -4,6 +4,7 @@ Running the project presents the user the ability to enter their personal inform
 
 **When using the program, the user has the ability to:**
 
+- Sign up and log in to their profile
 - View and change their own digital business card
 - Share their business card with others
 - Navigate through their saved business cards
@@ -34,9 +35,6 @@ Running the project presents the user the ability to enter their personal inform
 The application will be accessible through the follow methods:
 
 - Java CLI Application
-- Desktop Application
 - Web Application
 - Android Application
-
-The local applications as mentioned above will be querying data stored on a remote 'sever' program referred to as the 'Main Frame'
 

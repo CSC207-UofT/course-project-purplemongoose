@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/usecase/ProfileUseCases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/usecase/ProfileUseCases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/entity/usecase/ProfileUseCasesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/usecase/ProfileUseCasesTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="1" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="20NHUKezy27g1r9RLHqgJiHLBNO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2995338" />
+    <property name="settings.editor.selected.configurable" value="coverage" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../temp_holder" />
+      <recent name="$PROJECT_DIR$/kard-server" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="entity.profiles" />
+      <recent name="usecase" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="usecase" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.All in course-project-purplemongoose">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="course-project-purplemongoose" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountUseCasesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="course-project-purplemongoose" />
+      <option name="PACKAGE_NAME" value="entity.usecase" />
+      <option name="MAIN_CLASS_NAME" value="entity.usecase.AccountUseCasesTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in course-project-purplemongoose" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="course-project-purplemongoose" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProfileUseCasesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="course-project-purplemongoose" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="entity.usecase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="usecase" />
+      <option name="MAIN_CLASS_NAME" value="usecase.ProfileUseCasesTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProfileUseCasesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="course-project-purplemongoose" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="CLI.*" />
+          <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="data.*" />
+          <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="request.*" />
+          <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="response.*" />
+          <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="entity.usecase" />
+      <option name="MAIN_CLASS_NAME" value="entity.usecase.ProfileUseCasesTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.All in course-project-purplemongoose" />
+      <item itemvalue="JUnit.ProfileUseCasesTest" />
+      <item itemvalue="JUnit.AccountUseCasesTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in course-project-purplemongoose" />
+        <item itemvalue="JUnit.ProfileUseCasesTest" />
+        <item itemvalue="JUnit.AccountUseCasesTest" />
+        <item itemvalue="JUnit.ProfileUseCasesTest" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="" />
+      <created>1635878143234</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1635878143234</updated>
+      <workItem from="1635878149430" duration="83000" />
+      <workItem from="1635878254363" duration="180000" />
+      <workItem from="1635878455308" duration="94000" />
+      <workItem from="1636075196862" duration="5185000" />
+      <workItem from="1636085574574" duration="1374000" />
+      <workItem from="1636132555795" duration="883000" />
+      <workItem from="1636133894223" duration="129000" />
+      <workItem from="1636134027093" duration="1597000" />
+      <workItem from="1636135805561" duration="1887000" />
+      <workItem from="1636157343275" duration="934000" />
+      <workItem from="1636158295449" duration="10573000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="6a9807bd-c070-4969-91f8-618b28b00715">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:D:/uoft/CSC207/Project/course-project-purplemongoose/kard-server/src/test/entity/usecase" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="6a9807bd-c070-4969-91f8-618b28b00715" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/kard_server$All_in_course_project_purplemongoose.ic" NAME="All in course-project-purplemongoose Coverage Results" MODIFIED="1636169898069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <EXCLUDED_FILTER>CLI.*</EXCLUDED_FILTER>
+      <EXCLUDED_FILTER>controller.*</EXCLUDED_FILTER>
+      <EXCLUDED_FILTER>data.*</EXCLUDED_FILTER>
+      <EXCLUDED_FILTER>request.*</EXCLUDED_FILTER>
+      <EXCLUDED_FILTER>response.*</EXCLUDED_FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/kard_server$AccountUseCasesTest.ic" NAME="AccountUseCasesTest Coverage Results" MODIFIED="1636169488595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/kard_server$ProfileUseCasesTest__1_.ic" NAME="ProfileUseCasesTest (1) Coverage Results" MODIFIED="1636169802008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>entity.usecase.*</FILTER>
+    </SUITE>
+  </component>
+</project>

@@ -2,7 +2,7 @@
 
 # Gradle .gitignore (https://github.com/github/gitignore/blob/master/Gradle.gitignore)
 .gradle
-**/build/
+kard_project_test/build/
 !src/**/build/
 
 # Ignore Gradle GUI config
@@ -97,3 +97,10 @@ fabric.properties
 
 # idea settings folder
 .idea/misc.xml
+
+# database files
+.data/account.db
+.data/profile.db
+
+# Maven
+target/
