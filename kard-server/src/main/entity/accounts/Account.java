@@ -2,6 +2,9 @@ package entity.accounts;
 
 import entity.profiles.Organization;
 import entity.profiles.Person;
+import entity.profiles.ProfileType;
+
+import java.util.Set;
 
 public abstract class Account {
 
@@ -20,15 +23,14 @@ public abstract class Account {
      *
      * A PersonalUser is each individual human being that is on the app
      * A CorporateUser is any corporation, organization that is on the app
-     *
      */
     public abstract boolean addContact(Person p); // return true if added successfully
     public abstract boolean removeContact(Person p); // return true if removed successfully
     public abstract boolean checkContacts(Person p); // check if the contact already exists
-    public abstract Object getContact(); // return some sort of container for contacts
+    public abstract Set<ProfileType> getContacts(); // return some sort of container for contacts
 
     public abstract boolean addAffiliation(Organization o); // return true if added successfully
     public abstract boolean removeAffiliation(Organization o); // return true if removed successfully
-    public abstract Object getAffiliation(); // return some sort of container for affiliations
+    public abstract Set<ProfileType> getAffiliations(); // return some sort of container for affiliations
 
 }

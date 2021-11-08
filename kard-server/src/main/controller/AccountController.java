@@ -12,18 +12,16 @@ import response.ResponseContainer;
 import response.ShortResponse;
 
 @RestController
-@RequestMapping("account")
+@RequestMapping({"account", "account"})
 
-/*
+/**
  * A connection point between the external user interfaces and the back end of kard
  *
  * New user interfaces should use HTTP to access the Spring server here
  *
  * When connecting with one of the controllers in this class, ensure that the
- * appropriate kind of HTTP request is being used. These will be specified in the
+ * appropriate kind of HTTP request (GET or POST) is being used. These will be specified in the
  * javadoc comments fo the individual controller.
- *
- * TODO @Ling can you go through this file and ensure that the above is true^^^
  */
 public class AccountController {
     // TBA until merge with new use cases
@@ -32,7 +30,7 @@ public class AccountController {
     // If you are trying to connect with one of these controllers, make sure the HTTP request you send is of the
     // correct type. For example, submitContactDisplay is an GET request while submitContactRemoval is a POST request.
 
-    /*
+    /**
      * Defines methods for interactions between a user's profile and the other users in their contacts
      */
     AccountUseCases accUC;
@@ -46,9 +44,11 @@ public class AccountController {
     /**
      * Handles requests to add a profile to an account's contact list. Checks if the username corresponds
      * to a profile, then checks if the profile is not currently a contact. Will return a 'true', 'false' response
-     * for the frontend and an error code to specify the error if something goes wrong or 0 if the response is ok.
+     * for the frontend and an error code to specify the error if something goes wrong.
      *
-     * TODO fill in potential ERROR codes and their meaning
+     * Error code: 0 - by default is ok
+     * Error code: 15 - username does not correspond with a corresponding profile
+     * Error code: 16 - the profile is already a contact
      *
      * @param request JSON converted to ContactRequest which contains the account username and contact username
      * @return Return a JSON 'true'/'false' response along with an HTTP status code.
@@ -61,12 +61,12 @@ public class AccountController {
             response.add(false);
             response.setError(15); // if the username does not correspond to a profile
         }
-        else if (this.accUC.checkForContact(request.getAccountUsername(), request.getContactUsername())){
+        else if (accUC.checkForContact(request.getAccountUsername(), request.getContactUsername())){
             response.add(false);
             response.setError(16); // if the profile is already a contact
         }
         else {
-            this.accUC.addContact(request.getAccountUsername(), request.getContactUsername());
+            accUC.addContact(request.getAccountUsername(), request.getContactUsername());
             response.add(true);
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
@@ -76,6 +76,10 @@ public class AccountController {
      * Handles requests to remove a profile from an account's contact list. Checks if the username corresponds
      * to a profile, then checks if profile is currently a contact. Will return a 'true', 'false' response for the
      * frontend and an error code to specify the error if something goes wrong.
+     *
+     *  Error code: 0 - by default is ok
+     *  Error code: 15 - username does not correspond with a corresponding profile
+     *  Error code: 16 - the profile is not a contact
      *
      * @param request JSON converted to ContactRequest which contains the account username and contact username
      * @return Return a JSON 'true'/'false' response along with an HTTP status code.
@@ -88,12 +92,12 @@ public class AccountController {
             response.add(false);
             response.setError(15); // if the username does not correspond to a profile
         }
-        else if (!this.accUC.checkForContact(request.getAccountUsername(), request.getContactUsername())){
+        else if (!accUC.checkForContact(request.getAccountUsername(), request.getContactUsername())){
             response.add(false);
             response.setError(17); // if the profile is not a contact
         }
         else {
-            this.accUC.removeContact(request.getAccountUsername(), request.getContactUsername());
+            accUC.removeContact(request.getAccountUsername(), request.getContactUsername());
             response.add(true);
         }
         return new ResponseEntity<>(response, HttpStatus.OK);

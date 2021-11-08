@@ -5,19 +5,31 @@ import entity.profiles.ProfileType;
 import java.util.HashMap;
 
 /**
- * Class whose only purpose is to provide the basic methods
- * that are implemented by other classes?
+ * This class implements the redundant, basic methods that are implemented by the other classes, CorporateAccount
+ * and PersonalAccount
  *
- * TODO document this file
- *
- * TODO make methods in this class static so that it doesn't need to be instantiated every time one of the methods needs
- *  to be used.
+ * This is designed so that the same, redundant code does not have be repeated multiple times on both classes,
+ * and can just call upon this helper class to implement the methods in other classes.
+ * ----------------------------------------------
+ * Key definitions:
+ * - Connection: anything that connects one account to another, 2 types of connections
+ *      - Contact: connections to another PersonalAccount
+ *      - Affiliation: contacts to another CorporateAccount
+ * - localStore: the HashMap passed in by the Account classes containing all the other Accounts that this Account
+ *   connected to
  */
-public class Connections {
+public final class Connections {
 
-    public boolean addConnection(HashMap<ProfileType, String> localStore,
+    /**
+     * Adds a Profile to the passed in HashMap
+     * Can be a contact or affiliation
+     *
+     * @param localStore passed in HashMap containing the ProfileType and connection of the Account owner
+     * @param p the target of the new connection
+     * @return true if the connection was successfully added to the HashMap
+     */
+    public static boolean addConnection(HashMap<ProfileType, String> localStore,
                                  ProfileType p) {
-        // Given the passed in localStore, add p to the localStore
         if (!localStore.containsKey(p)) {
             localStore.put(p, null);
             return true;
@@ -26,10 +38,19 @@ public class Connections {
         }
     }
 
-    public boolean addConnection(HashMap<ProfileType, String> localStore,
+    /**
+     * Overloaded method: for when an additional association is passed in to annotate the nature of the connection
+     *
+     * Adds a Profile and the association annotation to the passed in HashMap
+     * Can be a contact or affiliation
+     *
+     * @param localStore passed in HashMap containing the ProfileType and connection of the Account owner
+     * @param p the target of the new connection
+     * @param association the passed in annotation of the connection described by the Account owner
+     * @return true if the connection was successfully added to the HashMap
+     */
+    public static boolean addConnection(HashMap<ProfileType, String> localStore,
                                  ProfileType p, String association) {
-        // Given the passed in localStore, add p and association to
-        // the localStore
         if (!localStore.containsKey(p)) {
             localStore.put(p, association);
             return true;
@@ -38,30 +59,15 @@ public class Connections {
         }
     }
 
-    public boolean removeConnection(HashMap<ProfileType, String> localStore,
+    /**
+     * Removes a Profile from the passed in HashMap
+     * @param localStore passed in HashMap containing the ProfileType and connection of the account owner
+     * @param p the target of the new connection
+     * @return true if the connection was successfully removed from the HashMap
+     */
+    public static boolean removeConnection(HashMap<ProfileType, String> localStore,
                                     ProfileType p) {
-        // Given the passed in localStore, remove p from localStore
         localStore.remove(p);
         return false;
-    }
-
-    public String getConnections(HashMap<ProfileType, String> otherUsers) {
-        // otherUsers identifies all the other profiles this User is
-        // connected to.
-
-        String allUsers = "";
-
-        for (ProfileType p : otherUsers.keySet()) {
-            if (otherUsers.get(p) != null) {
-                allUsers = allUsers.concat(p.getName() + " | "
-                        + p.getEmail() + " | " + p.getPhone()
-                        + " | Association: "
-                        + otherUsers.get(p) + "\n");
-            } else {
-                allUsers = allUsers.concat(p.getName() + " | "
-                        + p.getEmail() + " | " + p.getPhone() + "\n");
-            }
-        }
-        return allUsers;
     }
 }

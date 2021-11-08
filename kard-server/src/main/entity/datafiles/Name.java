@@ -1,6 +1,8 @@
 package entity.datafiles;
 
+import java.io.Serial;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * A class to store all the detail of a person's name
@@ -16,16 +18,14 @@ import java.io.Serializable;
  * on which attributes the end user chooses to use.
  */
 public class Name implements Serializable {
-
+    @Serial
+    private static final long serialVersionUID = 194821814127968409L;
     private final String first;
     private final String last;
     private final String pronouns;
     private final String titles;
 
-    // The setters
-    // Overload: pronouns and titles are optional
-    // TODO we should find a way of building this so that there can be a constructor for when the
-    //  person does not enter their title
+    // The setters are overloaded so that the pronouns and titles are optional to initiate a person's Name
 
     /**
      * Store the attributes of preferred pronouns, title, first, and last name of a user.
@@ -63,8 +63,6 @@ public class Name implements Serializable {
         this(first, last, null, null);
     }
 
-
-
     // The getters
 
     /**
@@ -89,8 +87,7 @@ public class Name implements Serializable {
             return first + " " + last + " (" + pronouns + ")";
         } else if (titles == null){
             return first + " " + last;
-        }
-        else {
+        } else {
             return titles + " " + first + " " + last + " (" + pronouns + ")";
         }
     }
@@ -101,5 +98,18 @@ public class Name implements Serializable {
 
     public String getPronouns() {
         return pronouns;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Name name = (Name) o;
+        return Objects.equals(first, name.first) && Objects.equals(last, name.last) && Objects.equals(pronouns, name.pronouns) && Objects.equals(titles, name.titles);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(first, last, pronouns, titles);
     }
 }

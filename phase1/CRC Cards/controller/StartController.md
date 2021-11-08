@@ -14,9 +14,9 @@ N/A
 	- Takes in a StartRequest object and returns a SimpleResponse detailing if the sign up attempt was successful
 
 ## Collaborators:
-- AccountUseCases
-- LoginAuth
-- StartRequest
-- ReponseContainer
-- ShortResponse
+- [[AccountUseCases]]
+- [[LoginAuth]]
+- [[StartRequest]]
+- [[ReponseContainer]]
+- [[ShortResponse]]
 

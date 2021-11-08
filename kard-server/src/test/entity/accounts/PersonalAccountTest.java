@@ -4,19 +4,15 @@ import entity.datafiles.Email;
 import entity.datafiles.Name;
 import entity.datafiles.Phone;
 
-/* TODO: These seem to be outdated. Please check. I believe that that it should be entity.datafiles.*
-import entity.datafile.Email;
-import entity.datafile.Name;
-import entity.datafile.Phone;
-*/
 import entity.profiles.Organization;
 import entity.profiles.Person;
+import entity.profiles.ProfileType;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -88,7 +84,8 @@ class PersonalAccountTest {
         );
 
         account.addContact(test_person);
-        assertTrue(account.checkContacts(different));
+        assertFalse(account.checkContacts(different));
+        assertTrue(account.checkContacts(test_person));
     }
 
     /**
@@ -104,8 +101,8 @@ class PersonalAccountTest {
                 "TheRealJohnSmith"
         );
 
-        assertTrue(account.removeContact(test_person));
-        assertTrue(account.checkContacts(test_person));
+        assertFalse(account.removeContact(test_person));
+        assertFalse(account.checkContacts(test_person));
     }
 
     /**
@@ -121,29 +118,10 @@ class PersonalAccountTest {
                 "TheFakeJohnSmith"
         );
 
-        String before = account.getContacts();
+        Set<ProfileType> before = account.getContacts();
         assertFalse(account.removeContact(test_person));
-        String after = account.getContacts();
+        Set<ProfileType> after = account.getContacts();
         assertEquals(before, after);
-    }
-
-    /**
-     * Tests the getContacts function
-     */
-    @Test
-    @DisplayName("Get the contacts as a string")
-    void testGetContacts(){
-        String[] expected = """
-PeterPeter | john.smith@aol.com | 5555555555555555
-Sarahjohnson | Taskmgr_dot_exe@gmail.com | 4166942069
-JohnSmith | joe.mama@joe.io | 6471234567
-                """.split("\n");
-        Arrays.sort(expected);
-
-        String[] actual = account.getContacts().split("\n");
-        Arrays.sort(actual);
-
-        assertIterableEquals(Arrays.asList(expected), Arrays.asList(actual));
     }
 
     /**
@@ -153,9 +131,9 @@ JohnSmith | joe.mama@joe.io | 6471234567
     @DisplayName("Get the contacts as a string for an empty contact list")
     void testGetContactsEmpty(){
         PersonalAccount new_account = new PersonalAccount();
-        String expected = "your contacts list is empty!";
+        Set<ProfileType> expected = Collections.emptySet();
 
-        String before = new_account.getContacts();
+        Set<ProfileType> before = new_account.getContacts();
         assertEquals(expected, before);
     }
 
@@ -173,7 +151,7 @@ JohnSmith | joe.mama@joe.io | 6471234567
         );
 
         assertTrue(account.addAffiliation(test_org));
-        assertTrue(((Set)account.getAffiliation()).contains(test_org));
+        assertTrue(account.getAffiliations().contains(test_org));
     }
 
     /**
@@ -191,8 +169,8 @@ JohnSmith | joe.mama@joe.io | 6471234567
 
         account.addAffiliation(test_org);
 
-        assertTrue(account.removeAffiliation(test_org));
-        assertFalse(((Set)account.getAffiliation()).contains(test_org));
+        assertFalse(account.removeAffiliation(test_org));
+        assertFalse(account.getAffiliations().contains(test_org));
     }
 
     /**
@@ -208,28 +186,9 @@ JohnSmith | joe.mama@joe.io | 6471234567
                 "JonnyBoi"
         );
 
-        assertFalse(((Set)account.getAffiliation()).contains(test_org));
+        assertFalse(account.getAffiliations().contains(test_org));
         assertFalse(account.removeAffiliation(test_org));
     }
-
-
-    /**
-     * Tests the getAffiliations function
-     */
-    @Test
-    @DisplayName("Get the affiliations as a string")
-    void testGetAffiliations(){
-        String[] expected = """
-JhonnyboiCorp | inquiries@joe.io | 6471234567
-                """.split("\n") ;
-        Arrays.sort(expected);
-
-        String[] actual = account.getAffiliations().split("\n");
-        Arrays.sort(actual);
-
-        assertIterableEquals(Arrays.asList(expected), Arrays.asList(actual));
-    }
-
 
     /**
      * Tests the getAffiliations function on an empty affiliations list
@@ -238,9 +197,9 @@ JhonnyboiCorp | inquiries@joe.io | 6471234567
     @DisplayName("Get the affiliations as a string for an empty affiliations list")
     void testGetAffiliationsEmpty(){
         PersonalAccount new_account = new PersonalAccount();
-        String expected = "your affiliations list is empty!" ;
+        Set<ProfileType> expected = Collections.emptySet();
 
-        String before = new_account.getAffiliations();
+        Set<ProfileType> before = new_account.getAffiliations();
         assertEquals(expected, before);
     }
 

@@ -21,8 +21,8 @@ N/A
 
 
 ## Collaborators:
-- AccountGateway
-- ProfileGateway
-- Account
-- PersonalAccount
-- Person
+- [[AccountGateway]]
+- [[ProfileGateway]]
+- [[Account]]
+- [[PersonalAccount]]
+- [[Person]]

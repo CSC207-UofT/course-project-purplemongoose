@@ -35,7 +35,7 @@ public class ProfilesTest {
 
         Phone phone2 = new Phone("4527386487");
         Email email2 = new Email("mcdonalds@yahoo.com");
-        biz = new Business("Mc Donald's", phone2, email2, "mcdonalds", name);
+        biz = new Business("Mc Donald's", phone2, email2, "mcdonalds", profile);
 
         Phone phone3 = new Phone("8347586347");
         Email email3 = new Email("adidas@mail.com");
@@ -56,7 +56,7 @@ public class ProfilesTest {
     void testGetName(){
 
         String profileName = profile.getName();
-        assertEquals("George Michael (she/her)", profileName);
+        assertEquals("George Michael", profileName);
 
         String profilePronouns = profile.getPronouns();
         assertEquals("she/her", profilePronouns);
@@ -65,7 +65,7 @@ public class ProfilesTest {
         assertEquals("Mc Donald's", bizName);
 
         String bizOwnerName = biz.getOwnerName();
-        assertEquals("George Michael (she/her)", bizOwnerName);
+        assertEquals("George Michael", bizOwnerName);
 
         String orgName = org.getName();
         assertEquals("Adidas", orgName);

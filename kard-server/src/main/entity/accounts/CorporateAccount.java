@@ -4,8 +4,10 @@ import entity.profiles.Organization;
 import entity.profiles.Person;
 import entity.profiles.ProfileType;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  * The account of an Organization on kard
@@ -27,7 +29,8 @@ import java.util.HashMap;
  */
 
 public class CorporateAccount extends Account implements Serializable {
-
+    @Serial
+    private static final long serialVersionUID = 9026775769082677576L;
     /**
      * Represents the User account created by an Organization
      *
@@ -61,8 +64,7 @@ public class CorporateAccount extends Account implements Serializable {
      */
     @Override
     public boolean addContact(Person p) {
-        Connections conn = new Connections();
-        return conn.addConnection(employees, p);
+        return Connections.addConnection(employees, p);
     }
 
     /** Remove a contact from the User's contact list.
@@ -72,69 +74,73 @@ public class CorporateAccount extends Account implements Serializable {
      */
     @Override
     public boolean removeContact(Person p) {
-        Connections conn = new Connections();
-        return conn.removeConnection(employees, p);
+        return Connections.removeConnection(employees, p);
     }
 
     /**
-     * Return some sort of container that contains all employees of this User
+     * Gets a  set that contains all employees of this Account
      *
-     * @return HashMap of all employees
+     * @return set of all the employees connected to this CorporateAccount
      */
     @Override
-    public ProfileType getContact() {
-        return (ProfileType) employees.keySet();
+    public Set<ProfileType> getContacts() {
+        return employees.keySet();
     }
 
+    /**
+     * Checks if a certain person is stored as an employee of an Organization
+     *
+     * @param p Person being queried
+     * @return true if the Person being queried is in this Organization's employees list
+     */
     @Override
     public boolean checkContacts(Person p) {
         return employees.containsKey(p);
     }
 
-    public String getContacts() {
-        if (employees.isEmpty()) {
-            return "your employees list is empty!";
-        }
-        Connections conn = new Connections();
-        return conn.getConnections(employees);
-    }
-
+    /**
+     * Overloaded method
+     *
+     * Adds a new Organization to this CorporateAccount's affiliations
+     *
+     * @param o another Organization to be added
+     * @return true if the new Organization is added
+     */
     @Override
     public boolean addAffiliation(Organization o) {
-        Connections conn = new Connections();
-        return conn.addConnection(affiliations, o);
-    }
-
-    public boolean addAffiliation(Organization o, String association) {
-        Connections conn = new Connections();
-        return conn.addConnection(affiliations, o, association);
-    }
-
-    public boolean removeAffiliation(Organization o) {
-        Connections conn = new Connections();
-        return conn.removeConnection(affiliations, o);
-    }
-
-    @Override
-    public Object getAffiliation() {
-        return affiliations.keySet();
+        return Connections.addConnection(affiliations, o);
     }
 
     /**
-     * Get a String representation of all other Organizations in this instance of
-     * PersonalUser's contact list.
+     * Overloaded method
      *
-     * Strings are formatted in the following way:
-     *      "[name of user] | [phone number of user] | [email of user]"
-     *      with one user per line.
+     * Adds a new Organization to this CorporateAccount's affiliations with an annotation of the affiliation
      *
-     * @return String representation of contacts list
+     * @param o another Organization to be added
+     * @param association string annotating the nature of the affiliation
+     * @return true if the new Organization is added
      */
-    public String getAffiliations() {
-        if (affiliations.isEmpty()) {
-            return "your affiliations list is empty!";
-        }
-        Connections conn = new Connections();
-        return conn.getConnections(affiliations);
+    public boolean addAffiliation(Organization o, String association) {
+        return Connections.addConnection(affiliations, o, association);
+    }
+
+    /**
+     * Removes a given Organization from this CorporateAccount's connections
+     *
+     * @param o Organization to be removed
+     * @return true if the Organization is successfully removed
+     */
+    public boolean removeAffiliation(Organization o) {
+        return Connections.removeConnection(affiliations, o);
+    }
+
+    /**
+     * Gets a set of all the other organizations that this CorporateAccount is affiliated to
+     *
+     * @return set of all the affiliated Organizations
+     */
+    @Override
+    public Set<ProfileType> getAffiliations() {
+        return affiliations.keySet();
     }
 }

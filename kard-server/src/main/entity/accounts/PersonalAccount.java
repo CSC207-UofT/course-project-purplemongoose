@@ -4,8 +4,10 @@ import entity.profiles.Organization;
 import entity.profiles.Person;
 import entity.profiles.ProfileType;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  * The account of a Person of kard
@@ -53,18 +55,29 @@ public class PersonalAccount extends Account implements Serializable {
      * with the value determined in association.
      *
      * @param p Person to be connected to
-     * @return success of adding a new person to the HashMap of connections
+     * @return true if the new person is added to the HashMap of contacts
      */
 
     @Override
     public boolean addContact(Person p) {
-        Connections conn = new Connections();
-        return conn.addConnection(contacts, p);
+        return Connections.addConnection(contacts, p);
     }
-
+    @Serial
+    private static final long serialVersionUID = 8267757690267757690L;
+    /**
+     * Overloaded method
+     *
+     * String association annotates the type of connection between the person that this account
+     * belongs to and the Person being added
+     *
+     * Examples of associations include "rival", "partner", "client", "colleague", etc.
+     *
+     * @param p Person to be connected to
+     * @param association string to annotate the type of assocation between this user and the queried
+     * @return true if the new person is added to the HashMap of contacts
+     */
     public boolean addContact(Person p, String association) {
-        Connections conn = new Connections();
-        return conn.addConnection(contacts, p, association);
+        return Connections.addConnection(contacts, p, association);
     }
 
     /**
@@ -75,96 +88,56 @@ public class PersonalAccount extends Account implements Serializable {
      */
     @Override
     public boolean removeContact(Person p) {
-        Connections conn = new Connections();
-        return conn.removeConnection(contacts, p);
+        return Connections.removeConnection(contacts, p);
     }
 
     /**
-     * @return a set of all the Persons that this User is connected to
+     * @return a set of all the Persons that this Account is connected to
      */
     @Override
-    public Object getContact() {
+    public Set<ProfileType> getContacts() {
         return contacts.keySet();
     }
 
+    /**
+     *  Checks if the Person being queried has already been added to the contacts of the person that this
+     *  Account belongs to
+     *
+     * @param p the Person being queried
+     * @return true if this Person is already a contact of the person this Account belongs to
+     */
     @Override
     public boolean checkContacts(Person p) {
         return contacts.containsKey(p);
     }
 
     /**
-     * Get a String representation of all other Persons in this instance of
-     * PersonalUser's contact list.
+     * Adds a new organization as an affiliation of the person who this Account belongs to
      *
-     * Strings are formatted in the following way:
-     *      "[name of user] | [phone number of user] | [email of user]"
-     *      with one user per line.
-     *
-     * @return String representation of contacts list
+     * @param o Organization being queried
+     * @return true if the Organization is added as a new connection, or affiliation
      */
-    public String getContacts() {
-        if (contacts.isEmpty()) {
-            return "your contacts list is empty!";
-        }
-        Connections conn = new Connections();
-        return conn.getConnections(contacts);
-    }
-
     @Override
     public boolean addAffiliation(Organization o) {
-        Connections conn = new Connections();
-        return conn.addConnection(affiliations, o);
-    }
-
-    @Override
-    public boolean removeAffiliation(Organization o) {
-        Connections conn = new Connections();
-        return conn.removeConnection(affiliations, o);
-    }
-
-    @Override
-    public Object getAffiliation() {
-        return affiliations.keySet();
+        return Connections.addConnection(affiliations, o);
     }
 
     /**
-     * Get a String representation of all other Organizations in this instance of
-     * PersonalUser's contact list.
-     *
-     * Strings are formatted in the following way:
-     *      "[name of user] | [phone number of user] | [email of user]"
-     *      with one user per line.
-     *
-     * @return String representation of contacts list
+     * Removes an organization as an affiliation of the person who this Account belongs to
+     * @param o Organization being queried
+     * @return true if the Organization has been removed as an affiliation
      */
-    public String getAffiliations() {
-        if (affiliations.isEmpty()) {
-            return "your affiliations list is empty!";
-        }
-        Connections conn = new Connections();
-        return conn.getConnections(affiliations);
+    @Override
+    public boolean removeAffiliation(Organization o) {
+        return Connections.removeConnection(affiliations, o);
     }
 
-    // TODO Why is this method commented out? Can we remove it?
-
-//    /**
-//     * Get a String representation of all people in this instance of PersonalUser's contact list.
-//     *
-//     * Strings are formatted in the following way:
-//     *      "[name of user] | [phone number of user] | [email of user]"
-//     *      with one user per line.
-//     *
-//     * @return String representation of contacts list
-//     */
-//    @Override
-//    public Object getContact() {
-//        // The type of object this method returns will depend on how we choose to display the contacts
-//        StringBuilder ret = new StringBuilder();
-//        if(this.contacts.isEmpty()) return "your contacts list is empty!";
-//
-//        for (Client p: this.contacts)
-//            ret.append(String.format("%s | %s | %s\n", p.getName(), p.getPhone(), p.getEmail()));
-//
-//        return ret.toString();
-//    }
+    /**
+     *
+     * @return a set of all the Organizations that this Account is connected to
+     */
+    @Override
+    public Set<ProfileType> getAffiliations()  {
+        return affiliations.keySet();
+    }
 }

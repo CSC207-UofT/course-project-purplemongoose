@@ -2,7 +2,7 @@
 Class which represents an account made by an organization
 
 ## Parent Class:
-- Account 
+- [[Account]]
 
 ## Subclasses:
 N/A
@@ -24,6 +24,6 @@ N/A
 	- Get all the organization that are affiliations
 
 ## Collaborators:
-- Organization
-- Person
-- ProfileType
+- [[Organization]]
+- [[Person]]
+- [[ProfileType]]

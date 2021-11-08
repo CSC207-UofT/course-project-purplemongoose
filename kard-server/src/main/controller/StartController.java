@@ -33,7 +33,7 @@ public class StartController {
         }
         else {
             response.add(false);
-            response.setError(9); // login attempt failed
+            response.setError(5); // login attempt failed
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
@@ -54,7 +54,7 @@ public class StartController {
         }
         else {
             response.add(false);
-            response.setError(10); // username has already been taken
+            response.setError(6); // username has already been taken
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

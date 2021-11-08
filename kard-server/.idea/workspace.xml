@@ -4,10 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="">
+    <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
+      <change afterPath="$PROJECT_DIR$/../kard-CLI/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/usecase/ProfileUseCases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/usecase/ProfileUseCases.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/entity/usecase/ProfileUseCasesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/usecase/ProfileUseCasesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/account.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/profile.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/entity/accounts/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entity/accounts/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/entity/accounts/CorporateAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entity/accounts/CorporateAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/entity/accounts/PersonalAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entity/accounts/PersonalAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/entity/datafiles/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entity/datafiles/Email.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/entity/datafiles/Name.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entity/datafiles/Name.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/entity/datafiles/Phone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entity/datafiles/Phone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/entity/profiles/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entity/profiles/Business.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/entity/profiles/Organization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entity/profiles/Organization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/entity/profiles/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entity/profiles/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/usecase/AccountUseCases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/usecase/AccountUseCases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/entity/accounts/ConnectionsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/accounts/ConnectionsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/entity/accounts/CorporateAccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/accounts/CorporateAccountTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/entity/accounts/PersonalAccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/accounts/PersonalAccountTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/entity/profiles/ProfilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/profiles/ProfilesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/usecase/AccountUseCasesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/usecase/AccountUseCasesTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +47,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -48,6 +75,8 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
@@ -79,20 +108,10 @@
       <recent name="usecase" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in course-project-purplemongoose">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="course-project-purplemongoose" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AccountUseCasesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="course-project-purplemongoose" />
-      <option name="PACKAGE_NAME" value="entity.usecase" />
-      <option name="MAIN_CLASS_NAME" value="entity.usecase.AccountUseCasesTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
+      <module name="kard-server" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -102,6 +121,14 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in kard-server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kard-server" />
+      <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -159,19 +186,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UUIDGeneratorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="course-project-purplemongoose" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="usecase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="usecase" />
+      <option name="MAIN_CLASS_NAME" value="usecase.UUIDGeneratorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.All in course-project-purplemongoose" />
       <item itemvalue="JUnit.ProfileUseCasesTest" />
-      <item itemvalue="JUnit.AccountUseCasesTest" />
+      <item itemvalue="JUnit.UUIDGeneratorTest" />
+      <item itemvalue="JUnit.All in kard-server" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in course-project-purplemongoose" />
-        <item itemvalue="JUnit.ProfileUseCasesTest" />
-        <item itemvalue="JUnit.AccountUseCasesTest" />
-        <item itemvalue="JUnit.ProfileUseCasesTest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.All in kard-server" />
+        <item itemvalue="JUnit.All in course-project-purplemongoose" />
+        <item itemvalue="JUnit.UUIDGeneratorTest" />
+        <item itemvalue="JUnit.ProfileUseCasesTest" />
       </list>
     </recent_temporary>
   </component>
@@ -193,8 +236,51 @@
       <workItem from="1636134027093" duration="1597000" />
       <workItem from="1636135805561" duration="1887000" />
       <workItem from="1636157343275" duration="934000" />
-      <workItem from="1636158295449" duration="10573000" />
+      <workItem from="1636158295449" duration="11168000" />
+      <workItem from="1636172532436" duration="206000" />
+      <workItem from="1636220235864" duration="46000" />
+      <workItem from="1636220300691" duration="354000" />
+      <workItem from="1636220841614" duration="961000" />
+      <workItem from="1636221810946" duration="1720000" />
+      <workItem from="1636223598889" duration="1541000" />
+      <workItem from="1636225180168" duration="246000" />
     </task>
+    <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
+      <created>1636166152716</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1636166152716</updated>
+    </task>
+    <task id="LOCAL-00002" summary="continued NameTest">
+      <created>1636166475866</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1636166475866</updated>
+    </task>
+    <task id="LOCAL-00003" summary="finished NameTest">
+      <created>1636166709009</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1636166709009</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added docs to NameTest">
+      <created>1636167173324</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1636167173324</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added docs to NameTest">
+      <created>1636167205812</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1636167205812</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +328,18 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fixed error in Name and started NameTest" />
+    <MESSAGE value="continued NameTest" />
+    <MESSAGE value="finished NameTest" />
+    <MESSAGE value="added docs to NameTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="added docs to NameTest" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/kard_server$All_in_kard_server.ic" NAME="All in kard-server Coverage Results" MODIFIED="1636223352732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/kard_server$ProfileUseCasesTest__1_.ic" NAME="ProfileUseCasesTest (1) Coverage Results" MODIFIED="1636169802008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>entity.usecase.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/kard_server$All_in_course_project_purplemongoose.ic" NAME="All in course-project-purplemongoose Coverage Results" MODIFIED="1636169898069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <EXCLUDED_FILTER>CLI.*</EXCLUDED_FILTER>
       <EXCLUDED_FILTER>controller.*</EXCLUDED_FILTER>
@@ -251,8 +348,5 @@
       <EXCLUDED_FILTER>response.*</EXCLUDED_FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/kard_server$AccountUseCasesTest.ic" NAME="AccountUseCasesTest Coverage Results" MODIFIED="1636169488595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/kard_server$ProfileUseCasesTest__1_.ic" NAME="ProfileUseCasesTest (1) Coverage Results" MODIFIED="1636169802008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>entity.usecase.*</FILTER>
-    </SUITE>
   </component>
 </project>

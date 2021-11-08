@@ -2,7 +2,7 @@
 This class will interact with the SQLite API to intsert, fetch, update and remove profile details from the database.
 
 ## Parent Class:
-- DatabaseGateway
+- [[DatabaseGateway]]
 
 ## Subclasses:
 N/A

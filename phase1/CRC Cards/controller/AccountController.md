@@ -16,9 +16,9 @@ N/A
 	- Takes in a BasicRequest object and returns a SimpleResponse containing the list of contacts for an account
 
 ## Collaborators:
-- AccountUseCases
-- ProfileUseCases
-- ContactRequest
-- BasicRequest
-- ResponseContainer
-- ShortResponse
+- [[AccountUseCases]]
+- [[ProfileUseCases]]
+- [[ContactRequest]]
+- [BasicRequest]]
+- [[ResponseContainer]]
+- [[ShortResponse]]

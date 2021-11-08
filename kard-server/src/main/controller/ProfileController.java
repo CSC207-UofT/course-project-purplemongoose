@@ -13,16 +13,12 @@ import response.ShortResponse;
 @RestController
 @RequestMapping("profile")
 public class ProfileController {
-
-    ProfileUseCases proUC;
-
-    public ProfileController(){
-        this.proUC = new ProfileUseCases();
-    }
+    ProfileUseCases proUC = new ProfileUseCases();
 
     /**
      * Takes in the arguments needed to construct a new personal profile. If a profile already exists, return 'false',
      * otherwise return 'true'
+     *
      * @param request JSON converted into PersonalProfileRequest which contains all the fields needed for create
      *                a new personal profile
      * @return return a ResponseEntity which contains a 'true'/'false' response and an HTTP status code
