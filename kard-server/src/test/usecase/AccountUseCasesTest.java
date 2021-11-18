@@ -1,7 +1,7 @@
 package usecase;
 
-import database.AccountGateway;
-import database.ProfileGateway;
+import database.gateway.AccountGateway;
+import database.gateway.ProfileGateway;
 import entity.accounts.Account;
 import entity.accounts.CorporateAccount;
 import entity.accounts.PersonalAccount;

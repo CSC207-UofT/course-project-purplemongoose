@@ -1,4 +1,4 @@
-package database;
+package database.gateway;
 
 import java.io.File;
 import java.sql.*;

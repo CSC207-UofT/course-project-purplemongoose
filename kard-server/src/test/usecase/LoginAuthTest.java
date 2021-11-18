@@ -1,7 +1,6 @@
 package usecase;
 
-import database.AccountGateway;
-import entity.accounts.CorporateAccount;
+import database.gateway.AccountGateway;
 import entity.accounts.PersonalAccount;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

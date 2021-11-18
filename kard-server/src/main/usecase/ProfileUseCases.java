@@ -1,6 +1,6 @@
 package usecase;
 
-import database.ProfileGateway;
+import database.gateway.ProfileGateway;
 import entity.datafiles.Email;
 import entity.datafiles.Name;
 import entity.datafiles.Phone;

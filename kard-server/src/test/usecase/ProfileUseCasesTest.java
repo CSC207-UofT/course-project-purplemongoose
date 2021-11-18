@@ -1,6 +1,6 @@
 package usecase;
 
-import database.ProfileGateway;
+import database.gateway.ProfileGateway;
 import entity.datafiles.Email;
 import entity.datafiles.Phone;
 import entity.profiles.Organization;
@@ -8,7 +8,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import usecase.ProfileUseCases;
 
 import java.io.File;
 import java.sql.Connection;

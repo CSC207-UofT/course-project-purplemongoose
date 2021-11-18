@@ -1,6 +1,6 @@
 package usecase;
 
-import database.AccountGateway;
+import database.gateway.AccountGateway;
 
 /**
  * This class contains use cases for login authentication
