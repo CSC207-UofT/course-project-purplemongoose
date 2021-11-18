@@ -9,7 +9,7 @@ import java.sql.SQLException;
  */
 public abstract class SQLiteStatement {
     protected String statement;
-    private final Object[] args;
+    protected final Object[] args;
 
     /**
      * Creates an SQLStatement, with arguments args

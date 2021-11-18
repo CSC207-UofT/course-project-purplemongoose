@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteCreateProfilesTableStatement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/database/SQLite/helpers/SQLiteDataBaseHelperMainFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBaseMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBaseMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/helpers/SQLiteDataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/helpers/SQLiteDataBaseHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteStatement.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +224,8 @@
       <workItem from="1636221810946" duration="1720000" />
       <workItem from="1636223598889" duration="1541000" />
       <workItem from="1636225180168" duration="246000" />
-      <workItem from="1637187553807" duration="6052000" />
+      <workItem from="1637187553807" duration="6053000" />
+      <workItem from="1637249897153" duration="4321000" />
     </task>
     <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
       <created>1636166152716</created>
