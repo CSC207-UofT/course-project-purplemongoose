@@ -3,6 +3,7 @@ package database.SQLite.helpers;
 import database.SQLite.SQLiteDataBase;
 import database.SQLite.SQLiteDataBaseFile;
 import database.SQLite.SQLiteDataBaseMemory;
+import database.SQLite.commands.SQLiteStatement;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -11,7 +12,7 @@ import java.sql.SQLException;
  * An abstract class for interfacing with the SQLite database, through the SQLiteDataBase class.
  */
 public abstract class SQLiteDataBaseHelper {
-    private SQLiteDataBase dataBase;
+    protected SQLiteDataBase dataBase;
 
     /**
      * Create an in-memory database for the helper
@@ -38,5 +39,36 @@ public abstract class SQLiteDataBaseHelper {
         }
     }
 
-    
+    /**
+     * Executes a statement on the SQLite database that the helper is responsible for
+     *
+     * @param statement the statement to execute
+     * @return whether the statement could be executed properly
+     */
+    public boolean executeStatement(SQLiteStatement statement) {
+        try {
+            statement.execute(dataBase);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Execute all the statements in statements sequentially.
+     * Note: the function does not early return idf a statement fails.
+     *
+     * @param statements the statements to execute.
+     * @return whether the statements could be executed.
+     */
+    public boolean executeStatements(SQLiteStatement... statements) {
+        boolean success = true;
+
+        for (SQLiteStatement statement : statements)
+            success = success && executeStatement(statement);
+
+        return success;
+    }
 }
