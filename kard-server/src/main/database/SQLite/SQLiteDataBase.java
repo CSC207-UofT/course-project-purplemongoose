@@ -1,5 +1,6 @@
 package database.SQLite;
 
+import java.io.IOException;
 import java.sql.*;
 
 /**
@@ -61,15 +62,6 @@ public abstract class SQLiteDataBase {
             statement.setObject(i, args[i]);
 
         return statement.executeQuery();
-    }
-
-
-    public static void main(String[] args) {
-        try {
-            SQLiteDataBase db = new SQLiteDataBaseMemory();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
     }
 
 }

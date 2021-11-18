@@ -4,6 +4,8 @@ import java.sql.*;
 
 /**
  * A wrapper class for the handling of an SQLite database connection in memory.
+ *
+ * @see SQLiteDataBase
  */
 public class SQLiteDataBaseMemory extends SQLiteDataBase {
 
