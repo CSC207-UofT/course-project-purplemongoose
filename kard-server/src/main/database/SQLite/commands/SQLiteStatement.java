@@ -7,8 +7,8 @@ import java.sql.SQLException;
 /**
  * A class describing an SQL statement to call and update to the database.
  */
-public class SQLiteStatement {
-    protected String statement = "";
+public abstract class SQLiteStatement {
+    protected String statement;
     private final Object[] args;
 
     /**
