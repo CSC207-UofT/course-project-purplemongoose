@@ -6,7 +6,7 @@ import java.sql.SQLException;
 /**
  * A class for representing an SQL argument to be passed to a prepared statement.
  */
-public class SQLiteArg<T> {
+public abstract class SQLiteArg<T> {
     protected T arg;
 
     /**
