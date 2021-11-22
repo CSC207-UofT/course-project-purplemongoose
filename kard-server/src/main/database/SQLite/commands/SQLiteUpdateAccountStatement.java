@@ -4,6 +4,9 @@ import database.SQLite.arguments.SQLiteSerializableArg;
 import database.SQLite.arguments.SQLiteStringArg;
 import entity.accounts.Account;
 
+/**
+ * A statement for updating the account of a user.
+ */
 public class SQLiteUpdateAccountStatement extends SQLiteStatement{
 
     /**

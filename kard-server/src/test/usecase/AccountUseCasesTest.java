@@ -101,7 +101,7 @@ class AccountUseCasesTest {
 
         auc.createNewAccount("JohnSmith", "password");
         auc.ag.insertAccountData("JohnSmith", "password", new PersonalAccount());
-        auc.pg.insertProfileData("JohnSmith", new Person(
+        auc.pg.addProfileData("JohnSmith", new Person(
                 new Name("John", "Smith", "He/Him", "Chancellor"),
                 new Phone("6471234567"),
                 new Email("john.smith@email.com"),
@@ -109,7 +109,7 @@ class AccountUseCasesTest {
         ));
         auc.createNewAccount("adidas", "password");
         auc.ag.insertAccountData("adidas", "password", new CorporateAccount());
-        auc.pg.insertProfileData("JohnSmith", adidas);
+        auc.pg.addProfileData("JohnSmith", adidas);
     }
 
     @AfterEach

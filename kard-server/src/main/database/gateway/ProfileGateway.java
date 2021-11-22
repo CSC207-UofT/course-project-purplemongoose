@@ -1,92 +1,80 @@
 package database.gateway;
 
+import database.SQLite.commands.*;
+import database.SQLite.helpers.SQLiteDataBaseHelperMainFrame;
+import entity.profiles.ProfileType;
+
 import java.io.File;
+import java.io.IOException;
 import java.sql.*;
 
-public class ProfileGateway extends DatabaseGateway {
-
-    @Override
-    public Connection databaseConnect() {
-        String mfLocation = "data/profile.db";
-        File file = new File(mfLocation);
-        Connection conn = null;
-        if (file.exists()) {
-            try {
-                conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", mfLocation));
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
-            }
-        }
-        else { // if such a db doesn't exist, create one and add a table
-            try {
-                conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", mfLocation));
-                createProfileTable(conn);
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
-            }
-        }
-        return conn; // return a connection for other methods to use
+public class ProfileGateway extends DatabaseGateway<SQLiteDataBaseHelperMainFrame> {
+    /**
+     * Creates a profile gateway for the main frame located at path.
+     *
+     * @param path the path to the mainframe database.
+     * @throws IOException if the path doesn't exist.
+     */
+    public ProfileGateway(String path) throws IOException {
+        super(new SQLiteDataBaseHelperMainFrame(path));
     }
 
-    public void createProfileTable(Connection conn) {
-        try (Statement stmt = conn.createStatement()){
-            String tableSQL = """
-                        CREATE TABLE IF NOT EXISTS "profiles" (
-                        	"username"  TEXT NOT NULL UNIQUE,
-                        	"profile"   BLOB
-                        );""";
-            stmt.execute(tableSQL);
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
+    /**
+     * Creates a profile gateway for a mainframe exising inn-memory.
+     */
+    public ProfileGateway() {
+        super(new SQLiteDataBaseHelperMainFrame());
     }
 
-    public Object getProfileData(String username) {
-        String sqlQuery = "SELECT profile FROM profiles WHERE username = ?";
-        ResultSet rs = null;
-        try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)) {
-            ps.setString(1, username);
-            rs = ps.executeQuery();
-            if (rs.next()) {
-                byte[] objBytes = rs.getBytes(1);
-                return toObject(objBytes);
-            }
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException ignored) {}
-            }
-        }
-        return null;
+    /**
+     * Fetch the profile data corresponding to the username.
+     *
+     * @param username the username of the user to fetch data from.
+     * @return The profile data for the user.
+     */
+    public ProfileType getProfileData(String username) {
+        SQLiteProfileDataQuery profileQuery = new SQLiteProfileDataQuery(username);
+        this.dbHelper.executeStatement(profileQuery);
+
+        return profileQuery.getProfile();
     }
 
-    public boolean insertProfileData(String username, Object prof) {
-        String sqlQuery = "INSERT INTO profiles(username, profile) VALUES(?, ?)";
-        try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)){
-            ps.setString(1, username);
-            ps.setBytes(2, toBytes(prof));
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-            return false;
-        }
-        return true;
+    /**
+     * Add a profile to the mainframe database.
+     *
+     * @param username the username for the profile.
+     * @param profile the profile object.
+     * @return whether the profile could be successfully added.
+     */
+    public boolean addProfileData(String username, ProfileType profile) {
+        return this.dbHelper.executeStatement(
+                new SQLiteAddProfileStatement(username, profile)
+        );
     }
 
-    public boolean updateProfileData(String username, Object prof) {
-        String sqlQuery = "UPDATE profiles SET profile = ? WHERE username = ?";
-        try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)){
-            ps.setBytes(1, toBytes(prof));
-            ps.setString(2, username);
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-            return false;
-        }
-        return true;
+    /**
+     * Update the profile of a user to be profile.
+     *
+     * @param username the username of the user.
+     * @param profile the profile to update to.
+     * @return whether the profile could be successfully updated.
+     */
+    public boolean updateProfileData(String username, ProfileType profile) {
+        return this.dbHelper.executeStatement(new SQLiteUpdateProfileStatement(
+                username,
+                profile
+        ));
     }
-    // add delete profile data
+
+    /**
+     * Removes a users profile data from the database.
+     *
+     * @param username the name of the user to remove.
+     * @return whether the user could successfully be removed from the database.
+     */
+    public boolean deleteProfileData(String username) {
+        return this.dbHelper.executeStatement(new SQLiteRemoveProfileStatement(
+                username
+        ));
+    }
 }

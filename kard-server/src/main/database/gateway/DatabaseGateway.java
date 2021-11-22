@@ -21,4 +21,7 @@ import java.io.*;
 public abstract class DatabaseGateway<T extends SQLiteDataBaseHelper> {
     protected T dbHelper;
 
+    public DatabaseGateway(T helper) {
+        this.dbHelper = helper;
+    }
 }

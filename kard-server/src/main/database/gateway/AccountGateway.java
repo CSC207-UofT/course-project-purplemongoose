@@ -8,9 +8,26 @@ import database.SQLite.commands.SQLiteUpdateAccountStatement;
 import database.SQLite.helpers.SQLiteDataBaseHelperMainFrame;
 import entity.accounts.Account;
 
+import java.io.IOException;
 import java.sql.*;
 
 public class AccountGateway extends DatabaseGateway<SQLiteDataBaseHelperMainFrame> {
+    /**
+     * Creates an account gateway for the main frame located at path.
+     *
+     * @param path the path to the mainframe database.
+     * @throws IOException if the path doesn't exist.
+     */
+    public AccountGateway(String path) throws IOException {
+        super(new SQLiteDataBaseHelperMainFrame(path));
+    }
+
+    /**
+     * Creates an account gateway for a mainframe exising inn-memory.
+     */
+    public AccountGateway() {
+        super(new SQLiteDataBaseHelperMainFrame());
+    }
 
     /**
      * Fetch an account object from the database given the username of the account.

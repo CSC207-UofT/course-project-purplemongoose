@@ -35,7 +35,7 @@ public class ProfileUseCases {
         Phone p = new Phone(phone);
         Email e = new Email(email);
         Person person = new Person(n, p, e, accountUsername);
-        return this.pg.insertProfileData(accountUsername, person);
+        return this.pg.addProfileData(accountUsername, person);
     }
 
     /**
@@ -52,7 +52,7 @@ public class ProfileUseCases {
         Phone p = new Phone(phone);
         Email e = new Email(email);
         Organization org = new Organization(name, p, e, accountUsername);
-        return this.pg.insertProfileData(accountUsername, org);
+        return this.pg.addProfileData(accountUsername, org);
     }
 
     /*

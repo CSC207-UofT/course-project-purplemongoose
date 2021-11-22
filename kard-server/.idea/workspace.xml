@@ -5,11 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteAddProfileStatement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteProfileDataQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteRemoveProfileStatement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteUpdateProfileStatement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteAddAccountStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteAddAccountStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLitePasswordQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLitePasswordQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteRemoveAccountStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteRemoveAccountStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteUpdateAccountStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteUpdateAccountStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/gateway/AccountGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/gateway/AccountGateway.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/database/gateway/AuthenticationGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/gateway/AuthenticationGateway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/gateway/DatabaseGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/gateway/DatabaseGateway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/gateway/ProfileGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/gateway/ProfileGateway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/entity/profiles/ProfileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entity/profiles/ProfileType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/usecase/ProfileUseCases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/usecase/ProfileUseCases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/usecase/AccountUseCasesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/usecase/AccountUseCasesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/usecase/ProfileUseCasesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/usecase/ProfileUseCasesTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +84,9 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="database.SQLite.commands" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/../temp_holder" />
       <recent name="$PROJECT_DIR$/kard-server" />
@@ -232,7 +245,7 @@
       <workItem from="1637590874286" duration="4515000" />
       <workItem from="1637599393753" duration="1206000" />
       <workItem from="1637605217154" duration="2432000" />
-      <workItem from="1637611084977" duration="3608000" />
+      <workItem from="1637611084977" duration="5812000" />
     </task>
     <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
       <created>1636166152716</created>

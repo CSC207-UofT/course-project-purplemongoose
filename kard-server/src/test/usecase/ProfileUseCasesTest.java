@@ -64,7 +64,7 @@ public class ProfileUseCasesTest {
         Email email = new Email("adidas@mail.com");
         org = new Organization("Adidas", phone, email, "adidas");
         puc = new pucTest();
-        puc.pg.insertProfileData("adidas", org);
+        puc.pg.addProfileData("adidas", org);
     }
 
     @AfterEach
