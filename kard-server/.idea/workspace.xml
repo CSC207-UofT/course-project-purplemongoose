@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/helpers/SQLiteDataBaseHelperMainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/helpers/SQLiteDataBaseHelperMainFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/usecase/BytesSerializerDeserializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/gateway/DatabaseGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/gateway/DatabaseGateway.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,10 +89,23 @@
       <recent name="usecase" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.SQLiteDataBaseHelperMainFrame">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="kard-server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SQLiteDataBaseHelperMainFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="database.SQLite.helpers.SQLiteDataBaseHelperMainFrame" />
+      <module name="kard-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="database.SQLite.helpers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -107,21 +124,6 @@
       <module name="kard-server" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProfileUseCasesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="course-project-purplemongoose" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="entity.usecase.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="usecase" />
-      <option name="MAIN_CLASS_NAME" value="usecase.ProfileUseCasesTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -181,17 +183,17 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.All in course-project-purplemongoose" />
-      <item itemvalue="JUnit.ProfileUseCasesTest" />
       <item itemvalue="JUnit.UUIDGeneratorTest" />
       <item itemvalue="JUnit.All in kard-server" />
+      <item itemvalue="Application.SQLiteDataBaseHelperMainFrame" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SQLiteDataBaseHelperMainFrame" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in kard-server" />
         <item itemvalue="JUnit.All in course-project-purplemongoose" />
         <item itemvalue="JUnit.UUIDGeneratorTest" />
-        <item itemvalue="JUnit.ProfileUseCasesTest" />
       </list>
     </recent_temporary>
   </component>
@@ -224,7 +226,7 @@
       <workItem from="1637187553807" duration="6053000" />
       <workItem from="1637249897153" duration="4766000" />
       <workItem from="1637353948697" duration="88000" />
-      <workItem from="1637551596415" duration="1207000" />
+      <workItem from="1637551596415" duration="7069000" />
     </task>
     <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
       <created>1636166152716</created>

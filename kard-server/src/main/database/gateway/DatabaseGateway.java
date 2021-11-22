@@ -1,48 +1,24 @@
 package database.gateway;
 
+import database.SQLite.helpers.SQLiteDataBaseHelper;
+
 import java.io.*;
-import java.sql.*;
 
-
-public abstract class DatabaseGateway {
-
-    /**
-     * Abstract method for connecting to a database
-     * @return returns a connection object for the database
-     */
-    abstract Connection databaseConnect();
-
-    /**
-     * Serializes an object into a byte array which can the best stored inside a database
-     * @param object the object to be serialized
-     * @return the serialized byte array of the object
-     */
-    public static byte[] toBytes(Object object) {
-        try {
-            ByteArrayOutputStream byteOut = new ByteArrayOutputStream();
-            ObjectOutputStream objOut = new ObjectOutputStream(byteOut);
-            objOut.writeObject(object);
-            return byteOut.toByteArray();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    /**
-     * Deserializes byte arrays into the original object
-     * @param data the byte array containing object info
-     * @return the deserialized object
-     */
-    public static Object toObject(byte[] data) {
-        try {
-            ByteArrayInputStream byteIn = new ByteArrayInputStream(data);
-            ObjectInputStream objIn = new ObjectInputStream(byteIn);
-            return objIn.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+/**
+ * A class for the application for interacting with the databases for the rest of the application.
+ * No SQL beyond this point.
+ *
+ * All functionality for the rest of the program with respect to the databases should be provided
+ * through this class and the method specific to doing so should be a part of the gateway.
+ * However, any processing on the results of those methods should be delegated to the usecases.
+ *
+ * Ex: If you had a database for usernames/passwords, a method that checks a provided password for a given username
+ * would be acceptable but a hashing algo for the password should be the responsibility of another class.
+ *
+ * @param <T> A SQLiteDataBaseHelper class for the managing of the database for which this gateway class corresponds to.
+ * @see SQLiteDataBaseHelper
+ */
+public abstract class DatabaseGateway<T extends SQLiteDataBaseHelper> {
+    protected T dbHelper;
 
 }
