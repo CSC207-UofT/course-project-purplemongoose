@@ -10,6 +10,11 @@ import java.sql.SQLException;
 
 /**
  * An abstract class for interfacing with the SQLite database, through the SQLiteDataBase class.
+ * Responsibilities are creation of the database object, and providing misc functionality to the database,
+ * specific to the database in question.
+ *
+ * Note: Application specific uses of the database are supposed to interact with the gateway for the corresponding
+ * database.
  */
 public abstract class SQLiteDataBaseHelper {
     protected SQLiteDataBase dataBase;
