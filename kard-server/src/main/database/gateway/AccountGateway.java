@@ -3,6 +3,8 @@ package database.gateway;
 import database.SQLite.SQLiteDataBase;
 import database.SQLite.commands.SQLiteAccountDataQuery;
 import database.SQLite.commands.SQLiteAddAccountStatement;
+import database.SQLite.commands.SQLiteRemoveAccountStatement;
+import database.SQLite.commands.SQLiteUpdateAccountStatement;
 import database.SQLite.helpers.SQLiteDataBaseHelperMainFrame;
 import entity.accounts.Account;
 
@@ -40,50 +42,28 @@ public class AccountGateway extends DatabaseGateway<SQLiteDataBaseHelperMainFram
     }
 
     /**
+     * Updates a user's account data in the database.
      *
-     * @param username
-     * @param acc
-     * @return
+     * @param username the username of the user.
+     * @param account the account object to update to.
+     * @return whether the account could be updated.
      */
-    public boolean updateAccountData(String username, Object acc) {
-        String sqlQuery = "UPDATE accounts SET account = ? WHERE username = ?";
-        try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)) {
-            ps.setBytes(1, toBytes(acc));
-            ps.setString(2, username);
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-            return false;
-        }
-        return true;
+    public boolean updateAccountData(String username, Account account) {
+        return this.dbHelper.executeStatement(new SQLiteUpdateAccountStatement(
+                username,
+                account
+        ));
     }
 
     /**
+     * Removes a users account data from the database.
      *
-     * @param username
-     * @param password
-     * @return
+     * @param username the name of the user to remove.
+     * @return whether the user could successfully be removed from the database.
      */
-    public String authAccountData(String username, String password) {
-        String sqlQuery = "SELECT username FROM accounts WHERE username = ? AND password = ?";
-        ResultSet rs = null;
-        try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)) {
-            ps.setString(1, username);
-            ps.setString(2, password);
-            rs = ps.executeQuery();
-            if (rs.next()) {
-                return rs.getString(1);
-            }
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException ignored) {}
-            }
-        }
-        return null;
+    public boolean deleteAccountData(String username) {
+        return this.dbHelper.executeStatement(new SQLiteRemoveAccountStatement(
+                username
+        ));
     }
-    // add deleteAccountData
 }
