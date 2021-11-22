@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/helpers/SQLiteDataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/helpers/SQLiteDataBaseHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/database/SQLite/arguments/SQLiteArg.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/database/SQLite/arguments/SQLiteSerializableArg.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/database/SQLite/arguments/SQLiteStringArg.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteAccountDataQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteAddAccountStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteCreateAccountsTableStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteCreateAccountsTableStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteCreateProfilesTableStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteCreateProfilesTableStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/gateway/AccountGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/gateway/AccountGateway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/entity/accounts/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entity/accounts/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/usecase/BytesSerializerDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/util/BytesSerializerDeserializer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +91,7 @@
       <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
       <recent name="entity.profiles" />
       <recent name="usecase" />
     </key>
@@ -165,7 +179,7 @@
       <module name="course-project-purplemongoose" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="usecase.*" />
+          <option name="PATTERN" value="util.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -178,10 +192,11 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.SQLiteDataBaseHelperMainFrame" />
+      <item itemvalue="JUnit.ProfileUseCasesTest" />
       <item itemvalue="JUnit.All in course-project-purplemongoose" />
       <item itemvalue="JUnit.UUIDGeneratorTest" />
       <item itemvalue="JUnit.All in kard-server" />
-      <item itemvalue="Application.SQLiteDataBaseHelperMainFrame" />
     </list>
     <recent_temporary>
       <list>
@@ -222,7 +237,8 @@
       <workItem from="1637187553807" duration="6053000" />
       <workItem from="1637249897153" duration="4766000" />
       <workItem from="1637353948697" duration="88000" />
-      <workItem from="1637551596415" duration="7380000" />
+      <workItem from="1637551596415" duration="9141000" />
+      <workItem from="1637590874286" duration="4515000" />
     </task>
     <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
       <created>1636166152716</created>

@@ -1,5 +1,7 @@
 package database.SQLite;
 
+import database.SQLite.arguments.SQLiteArg;
+
 import java.io.IOException;
 import java.sql.*;
 
@@ -41,10 +43,10 @@ public abstract class SQLiteDataBase {
      * @param args the arguments to pass into the prepared statement
      * @throws SQLException if the statement could not be processed
      */
-    public void executeStatement(String sqlStatement, Object... args) throws SQLException{
+    public void executeStatement(String sqlStatement, SQLiteArg... args) throws SQLException{
         PreparedStatement statement = connection.prepareStatement(sqlStatement);
         for (int i = 0; i < args.length; i++)
-            statement.setObject(i, args[i]);
+            args[i].setArg(i, statement);
 
         statement.executeUpdate();
     }
@@ -56,10 +58,10 @@ public abstract class SQLiteDataBase {
      * @param args the arguments to pass into the prepared statement
      * @throws SQLException if the query could not be processed
      */
-    public ResultSet executeQuery(String sqlQuery, Object... args) throws SQLException{
+    public ResultSet executeQuery(String sqlQuery, SQLiteArg... args) throws SQLException{
         PreparedStatement statement = connection.prepareStatement(sqlQuery);
         for (int i = 0; i < args.length; i++)
-            statement.setObject(i, args[i]);
+            args[i].setArg(i, statement);
 
         return statement.executeQuery();
     }

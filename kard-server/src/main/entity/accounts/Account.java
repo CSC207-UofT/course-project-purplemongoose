@@ -4,9 +4,10 @@ import entity.profiles.Organization;
 import entity.profiles.Person;
 import entity.profiles.ProfileType;
 
+import java.io.Serializable;
 import java.util.Set;
 
-public abstract class Account {
+public abstract class Account implements Serializable {
 
     /**
      * A User is any account on kard.

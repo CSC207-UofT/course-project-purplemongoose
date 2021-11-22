@@ -1,6 +1,7 @@
 package database.SQLite.commands;
 
 import database.SQLite.SQLiteDataBase;
+import database.SQLite.arguments.SQLiteArg;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +13,16 @@ public abstract class SQLiteQuery extends SQLiteStatement{
     private ResultSet results;
 
     /**
+     * Creates an SQLQuery, with arguments args.
+     *
+     * @param statement the sqlite statement.
+     * @param args      the args to pass in to the statement
+     */
+    public SQLiteQuery(String statement, SQLiteArg... args) {
+        super(statement, args);
+    }
+
+    /**
      * Execute a query and store the results.
      *
      * @param dataBase the database to execute the statement on.
@@ -19,7 +30,7 @@ public abstract class SQLiteQuery extends SQLiteStatement{
      */
     @Override
     public void execute(SQLiteDataBase dataBase) throws SQLException {
-        dataBase.executeQuery(statement, args);
+        this.results = dataBase.executeQuery(statement, args);
     }
 
     /**
@@ -27,7 +38,7 @@ public abstract class SQLiteQuery extends SQLiteStatement{
      *
      * @return the results of the query
      */
-    public ResultSet getResults() {
+    protected ResultSet getResults() {
         return results;
     }
 }

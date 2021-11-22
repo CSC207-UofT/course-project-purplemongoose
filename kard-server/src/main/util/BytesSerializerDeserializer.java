@@ -1,4 +1,4 @@
-package usecase;
+package util;
 
 import java.io.*;
 

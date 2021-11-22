@@ -1,6 +1,7 @@
 package database.SQLite.commands;
 
 import database.SQLite.SQLiteDataBase;
+import database.SQLite.arguments.SQLiteArg;
 
 import java.sql.SQLException;
 
@@ -8,15 +9,17 @@ import java.sql.SQLException;
  * A class describing an SQL statement to call and update to the database.
  */
 public abstract class SQLiteStatement {
-    protected String statement;
-    protected final Object[] args;
+    protected final String statement;
+    protected final SQLiteArg[] args;
 
     /**
      * Creates an SQLStatement, with arguments args
      *
+     * @param statement the sqlite statement.
      * @param args the args to pass in to the statement
      */
-    public SQLiteStatement(Object... args){
+    public SQLiteStatement(String statement, SQLiteArg... args){
+        this.statement = statement;
         this.args = args;
     }
 

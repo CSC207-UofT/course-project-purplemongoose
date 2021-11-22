@@ -1,97 +1,42 @@
 package database.gateway;
 
-import java.io.File;
+import database.SQLite.SQLiteDataBase;
+import database.SQLite.commands.SQLiteAccountDataQuery;
+import database.SQLite.commands.SQLiteAddAccountStatement;
+import database.SQLite.helpers.SQLiteDataBaseHelperMainFrame;
+import entity.accounts.Account;
+
 import java.sql.*;
 
-public class AccountGateway extends DatabaseGateway {
+public class AccountGateway extends DatabaseGateway<SQLiteDataBaseHelperMainFrame> {
 
-    @Override
-    public Connection databaseConnect() {
-        String mfLocation = "data/account.db";
-        File file = new File(mfLocation);
-        Connection conn = null;
-        if (file.exists()) {
-            try {
-                conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", mfLocation));
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
-            }
-        }
-        else { // if such a db doesn't exist, create one and add a table
-            try {
-                conn = DriverManager.getConnection(String.format("jdbc:sqlite:%s", mfLocation));
-                createAccountTable(conn);
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
-            }
-        }
-        return conn; // return a connection for other methods to use
+    /**
+     * Fetch an account object from the database given the username of the account.
+     *
+     * @param username the username of the user.
+     * @return the account of the user.
+     */
+    public Account getAccountData(String username) {
+        SQLiteAccountDataQuery query = new SQLiteAccountDataQuery(username);
+        this.dbHelper.executeStatement(query);
+
+        return query.getAccount();
     }
 
     /**
+     * Add an account to the database.
      *
-     * @param conn
+     * @param username the username of the account to add.
+     * @param password the password of the account to add.
+     * @param account the account object of the user to add.
+     * @return whether the account could be added to the database.
      */
-    public void createAccountTable(Connection conn) {
-        try (Statement stmt = conn.createStatement()) {
-            String tableSQL = """
-                    CREATE TABLE IF NOT EXISTS "accounts" (
-                    	"username"	TEXT NOT NULL UNIQUE,
-                    	"password"	TEXT NOT NULL,
-                    	"account"   BLOB
-                    );""";
-            stmt.execute(tableSQL);
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
-    }
-
-    /**
-     *
-     * @param username
-     * @return
-     */
-    public Object getAccountData(String username) {
-        String sqlQuery = "SELECT account FROM accounts WHERE username = ?";
-        ResultSet rs = null;
-        try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)){
-            ps.setString(1, username);
-            rs = ps.executeQuery();
-            if (rs.next()) {
-                byte[] objBytes = rs.getBytes(1);
-                return toObject(objBytes);
-            }
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException ignored) {}
-            }
-        }
-        return null;
-    }
-
-    /**
-     *
-     * @param username
-     * @param password
-     * @param acc
-     * @return
-     */
-    public boolean insertAccountData(String username, String password, Object acc) {
-        String sqlQuery = "INSERT INTO accounts(username, password, account) VALUES(?, ?, ?)";
-        try (Connection conn = databaseConnect(); PreparedStatement ps = conn.prepareStatement(sqlQuery)) {
-            ps.setString(1, username);
-            ps.setString(2, password);
-            ps.setBytes(3, toBytes(acc));
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-            return false;
-        }
-        return true;
+    public boolean insertAccountData(String username, String password, Account account) {
+        return this.dbHelper.executeStatement(new SQLiteAddAccountStatement(
+                username,
+                password,
+                account
+        ));
     }
 
     /**
