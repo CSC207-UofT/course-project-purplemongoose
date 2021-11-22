@@ -76,4 +76,14 @@ public abstract class SQLiteDataBaseHelper {
 
         return success;
     }
+
+    /**
+     * Fetches the database object of the helper.
+     *
+     * @return The databse object.
+     */
+    public SQLiteDataBase getDataBase() {
+        return dataBase;
+    }
+
 }
