@@ -58,6 +58,8 @@ public class SQLiteDataBaseFile extends SQLiteDataBase {
      * @throws IOException if the directory for the file does not exist and could not be created
      */
     public void setPath(String path, boolean createIfNotExists) throws IOException {
+        this.path = path;
+
         if(dbNotExists() && !createIfNotExists){
             throw new FileNotFoundException(
                     "Could not open SQLite database, the file located at "

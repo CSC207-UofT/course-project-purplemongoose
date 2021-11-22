@@ -41,4 +41,13 @@ public class SQLiteDataBaseHelperMainFrame extends SQLiteDataBaseHelper{
         setup();
     }
 
+    public static void main(String[] args) {
+        try {
+            SQLiteDataBaseHelperMainFrame mf = new SQLiteDataBaseHelperMainFrame("./data/mainframe.db");
+            SQLiteDataBaseHelperMainFrame mf2 = new SQLiteDataBaseHelperMainFrame("./data/mainframe.db");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
