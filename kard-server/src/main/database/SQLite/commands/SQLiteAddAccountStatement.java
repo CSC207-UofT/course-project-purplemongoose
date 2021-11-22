@@ -3,6 +3,7 @@ package database.SQLite.commands;
 import database.SQLite.arguments.SQLiteSerializableArg;
 import database.SQLite.arguments.SQLiteStringArg;
 import entity.accounts.Account;
+import util.crypto.SHA256Hash;
 
 /**
  * A statement for adding an account to the MainFrame database.
@@ -19,7 +20,7 @@ public class SQLiteAddAccountStatement extends SQLiteStatement{
     public SQLiteAddAccountStatement(String username, String password, Account account) {
         super("INSERT INTO accounts(username, password, account) VALUES(?, ?, ?)",
                 new SQLiteStringArg(username),
-                new SQLiteStringArg(password),
+                new SQLiteStringArg(new SHA256Hash().hash(password, username)),
                 new SQLiteSerializableArg<Account>(account)
         );
     }
