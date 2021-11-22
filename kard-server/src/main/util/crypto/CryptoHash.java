@@ -1,5 +1,6 @@
 package util.crypto;
 
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
 /**
@@ -14,7 +15,15 @@ public abstract class CryptoHash {
      * @return the hashed input.
      */
     public String hash(String input, String salt) {
-        SecureRandom rng = new SecureRandom(salt.getBytes());
+        SecureRandom rng = null;
+        try {
+            rng = SecureRandom.getInstance("SHA1PRNG"); // makes SecureRandom Deterministic.
+            // Thanks to: https://stackoverflow.com/questions/27341294/get-deterministic-values-from-securerandom
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        rng.setSeed(salt.getBytes());
+
         byte[] new_salt = new byte[16];
         rng.nextBytes(new_salt);
 

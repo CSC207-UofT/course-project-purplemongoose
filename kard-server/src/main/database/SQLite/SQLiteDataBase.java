@@ -46,7 +46,7 @@ public abstract class SQLiteDataBase {
     public void executeStatement(String sqlStatement, SQLiteArg... args) throws SQLException{
         PreparedStatement statement = connection.prepareStatement(sqlStatement);
         for (int i = 0; i < args.length; i++)
-            args[i].setArg(i, statement);
+            args[i].setArg(i + 1, statement);
 
         statement.executeUpdate();
     }
@@ -61,7 +61,7 @@ public abstract class SQLiteDataBase {
     public ResultSet executeQuery(String sqlQuery, SQLiteArg... args) throws SQLException{
         PreparedStatement statement = connection.prepareStatement(sqlQuery);
         for (int i = 0; i < args.length; i++)
-            args[i].setArg(i, statement);
+            args[i].setArg(i + 1, statement);
 
         return statement.executeQuery();
     }
