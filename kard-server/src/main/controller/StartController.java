@@ -14,8 +14,8 @@ import response.ShortResponse;
 @RestController
 @RequestMapping("/start")
 public class StartController {
-    LoginAuth auth = new LoginAuth();
-    AccountUseCases accUseCase = new AccountUseCases();
+    LoginAuth auth = new LoginAuth(false);
+    AccountUseCases accUseCase = new AccountUseCases(false);
 
     /**
      * Takes in a StartRequest object and authenticates the information provided. If either the username or password is

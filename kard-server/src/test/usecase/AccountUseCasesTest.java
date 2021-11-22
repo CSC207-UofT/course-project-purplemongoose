@@ -30,7 +30,7 @@ class AccountUseCasesTest {
      */
     private static class aucTest extends AccountUseCases {
         public aucTest() {
-            this.ag = new AccountGateway() {
+            this.accountGateway = new AccountGateway() {
 
                 @Override
                 public Connection databaseConnect() {
@@ -56,7 +56,7 @@ class AccountUseCasesTest {
                 }
             };
 
-            this.pg = new ProfileGateway() {
+            this.profileGateway = new ProfileGateway() {
                 @Override
                 public Connection databaseConnect() {
                     String mfLocation = "src/test/data/profile.db";
@@ -100,36 +100,36 @@ class AccountUseCasesTest {
         );
 
         auc.createNewAccount("JohnSmith", "password");
-        auc.ag.insertAccountData("JohnSmith", "password", new PersonalAccount());
-        auc.pg.addProfileData("JohnSmith", new Person(
+        auc.accountGateway.insertAccountData("JohnSmith", "password", new PersonalAccount());
+        auc.profileGateway.addProfileData("JohnSmith", new Person(
                 new Name("John", "Smith", "He/Him", "Chancellor"),
                 new Phone("6471234567"),
                 new Email("john.smith@email.com"),
                 "JohnSmith"
         ));
         auc.createNewAccount("adidas", "password");
-        auc.ag.insertAccountData("adidas", "password", new CorporateAccount());
-        auc.pg.addProfileData("JohnSmith", adidas);
+        auc.accountGateway.insertAccountData("adidas", "password", new CorporateAccount());
+        auc.profileGateway.addProfileData("JohnSmith", adidas);
     }
 
     @AfterEach
     void tearDown() {
         // reset the database.
-        Connection con = auc.pg.databaseConnect();
+        Connection con = auc.profileGateway.databaseConnect();
         try {
             con.prepareStatement("DROP TABLE \"profiles\"").executeUpdate();
         } catch(Exception e) {
             e.printStackTrace();
         }
-        auc.pg.createProfileTable(con);
+        auc.profileGateway.createProfileTable(con);
         // reset the database.
-        con = auc.ag.databaseConnect();
+        con = auc.accountGateway.databaseConnect();
         try {
             con.prepareStatement("DROP TABLE \"accounts\"").executeUpdate();
         } catch(Exception e) {
             e.printStackTrace();
         }
-        auc.ag.createAccountTable(con);
+        auc.accountGateway.createAccountTable(con);
     }
 
     @Test
@@ -143,7 +143,7 @@ class AccountUseCasesTest {
     void addContact() {
         auc.addContact("JohnSmith", "adidas");
 
-        assertTrue(((Account)auc.ag.getAccountData("JohnSmith")).checkContacts(adidas));
+        assertTrue(((Account)auc.accountGateway.getAccountData("JohnSmith")).checkContacts(adidas));
     }
 
     @Test
@@ -152,7 +152,7 @@ class AccountUseCasesTest {
         auc.addContact("JohnSmith", "adidas");
         auc.removeContact("JohnSmith", "adidas");
 
-        assertFalse(((Account)auc.ag.getAccountData("JohnSmith")).checkContacts(adidas));
+        assertFalse(((Account)auc.accountGateway.getAccountData("JohnSmith")).checkContacts(adidas));
     }
 
     @Test

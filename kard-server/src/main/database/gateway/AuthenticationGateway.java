@@ -4,10 +4,6 @@ import database.SQLite.commands.SQLitePasswordQuery;
 import database.SQLite.helpers.SQLiteDataBaseHelperMainFrame;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class AuthenticationGateway extends DatabaseGateway<SQLiteDataBaseHelperMainFrame>{
     /**
