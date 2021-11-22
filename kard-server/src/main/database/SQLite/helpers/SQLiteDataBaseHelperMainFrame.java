@@ -1,13 +1,14 @@
 package database.SQLite.helpers;
 
-import database.SQLite.SQLiteDataBaseFile;
-import database.SQLite.SQLiteDataBaseMemory;
 import database.SQLite.commands.SQLiteCreateAccountsTableStatement;
 import database.SQLite.commands.SQLiteCreateProfilesTableStatement;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
+
+/**
+ * A class for the handling of the mainframe database.
+ */
 public class SQLiteDataBaseHelperMainFrame extends SQLiteDataBaseHelper{
 
     /**

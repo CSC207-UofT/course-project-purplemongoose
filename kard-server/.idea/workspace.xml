@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/helpers/SQLiteDataBaseHelperMainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/helpers/SQLiteDataBaseHelperMainFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -225,7 +224,7 @@
       <workItem from="1637187553807" duration="6053000" />
       <workItem from="1637249897153" duration="4766000" />
       <workItem from="1637353948697" duration="88000" />
-      <workItem from="1637551596415" duration="1005000" />
+      <workItem from="1637551596415" duration="1207000" />
     </task>
     <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
       <created>1636166152716</created>
