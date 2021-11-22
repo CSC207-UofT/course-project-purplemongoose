@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
-      <change afterPath="$PROJECT_DIR$/src/test/util/crypto/SHA256HashTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBaseManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/util/crypto/CryptoHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/util/crypto/CryptoHash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/usecase/AccountUseCasesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/usecase/AccountUseCasesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/usecase/ProfileUseCasesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/usecase/ProfileUseCasesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBaseMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBaseMemory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/helpers/SQLiteDataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/helpers/SQLiteDataBaseHelper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -201,6 +200,7 @@
       <workItem from="1637599393753" duration="1206000" />
       <workItem from="1637605217154" duration="2432000" />
       <workItem from="1637611084977" duration="9899000" />
+      <workItem from="1637621059599" duration="2703000" />
     </task>
     <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
       <created>1636166152716</created>

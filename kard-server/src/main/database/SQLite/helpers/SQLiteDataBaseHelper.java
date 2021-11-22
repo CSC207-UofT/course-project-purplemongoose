@@ -2,6 +2,7 @@ package database.SQLite.helpers;
 
 import database.SQLite.SQLiteDataBase;
 import database.SQLite.SQLiteDataBaseFile;
+import database.SQLite.SQLiteDataBaseManager;
 import database.SQLite.SQLiteDataBaseMemory;
 import database.SQLite.commands.SQLiteStatement;
 
@@ -38,7 +39,7 @@ public abstract class SQLiteDataBaseHelper {
      */
     public SQLiteDataBaseHelper(String path, boolean createIfNotExists) throws IOException {
         try {
-            dataBase = new SQLiteDataBaseFile(path, createIfNotExists);
+            dataBase = SQLiteDataBaseManager.getDatabase(path, createIfNotExists);
         } catch (SQLException e) {
             e.printStackTrace();
         }

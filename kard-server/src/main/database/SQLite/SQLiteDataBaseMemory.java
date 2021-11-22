@@ -15,6 +15,7 @@ public class SQLiteDataBaseMemory extends SQLiteDataBase {
      * @throws SQLException if the database could not be created/accessed
      */
     public SQLiteDataBaseMemory() throws SQLException{
+        open();
     }
 
     @Override
