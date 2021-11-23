@@ -6,7 +6,10 @@ import entity.accounts.Account;
 import entity.accounts.PersonalAccount;
 import entity.profiles.Person;
 import entity.profiles.ProfileType;
+import org.springframework.context.annotation.Profile;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -77,9 +80,17 @@ public class AccountUseCases {
      * @return array of profile objects
      */
     public ProfileType[] getContacts(String accountUsername) {
+//        Account acc = (Account) ag.getAccountData(accountUsername);
+//        Set<ProfileType> contacts = acc.getContacts();
+//        return contacts.toArray(new ProfileType[0]);
         Account acc = (Account) ag.getAccountData(accountUsername);
-        Set<ProfileType> contacts = acc.getContacts();
-        return contacts.toArray(new ProfileType[0]);
+        HashSet<String> contacts = acc.getContacts();
+        ArrayList<ProfileType> profiles = new ArrayList();
+        for (String username : contacts) {
+            ProfileType profile = (ProfileType) pg.getProfileData(username);
+            profiles.add(profile);
+        }
+        return profiles.toArray(new ProfileType[0]);
     }
 
 }

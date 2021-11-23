@@ -4,7 +4,6 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.concurrent.TimeUnit;
 
 public class CommandLineInterface {
     private final Scanner sc;
@@ -26,8 +25,6 @@ public class CommandLineInterface {
     public void run() {
         logoScreen();
         startingScreen();
-//        instructionScreen();
-//        events();
     }
 
     /**
@@ -200,6 +197,7 @@ public class CommandLineInterface {
             switch (input) {
                 case "create" -> createProfile();
                 case "add" -> addContact();
+                case "edit" -> editProfile();
                 case "remove" -> removeContact();
                 case "display" -> displayContacts();
                 case "logout" -> logout();
@@ -210,6 +208,60 @@ public class CommandLineInterface {
             }
         }
         System.out.println("Thank you for using Kard");
+    }
+
+    private void editProfile() {
+        System.out.println("Edit your profile by filling out your information below");
+        System.out.print("first name: ");
+        String first = sc.next();
+        System.out.print("last name: ");
+        String last = sc.next();
+        System.out.print("preferred pronoun: ");
+        String pronoun = sc.next();
+        System.out.print("title: ");
+        String title = sc.next();
+        System.out.print("phone number: ");
+        String phone = sc.next();
+        System.out.print("email: ");
+        String email = sc.next();
+        System.out.println("Press y to submit: ");
+        if (sc.next().equals("y")){
+            String res = submitProfileUpdate(first, last, pronoun, title, phone, email);
+            if (res.equals("30}")){
+                // if a personal profile was already exists
+                System.out.print("your don't have a personal profile yet!");
+            }else if(res.equals("404")){
+                System.out.print("could not create profile!");
+            }else{
+                System.out.print("profile successfully updated!");
+            }
+        }else{
+            System.out.println("unknown command... returning to main screen");
+        }
+        instructionScreen();
+        events();
+    }
+
+    private String submitProfileUpdate(String first, String last, String pronoun, String title, String phone, String email) {
+        String endpoint = "http://localhost:8082/profile/edit/";
+        String inputJson = String.format("{\"accountUsername\":\"%s\"," + "\"firstName\":\"%s\","
+                        + "\"lastName\":\"%s\","+ "\"title\":\"%s\","+ "\"pronoun\":\"%s\","
+                        + "\"phone\":\"%s\"," + "\"email\":\"%s\"}",
+                this.current_username, first, last, pronoun, title, phone, email);
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(endpoint))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(inputJson))
+                .build();
+        HttpClient client = HttpClient.newHttpClient();
+        try {
+            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            String res = response.body().split(",\"errorCode\":")[1];
+            return res;
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "404";
     }
 
     private void createProfile() {
@@ -439,6 +491,7 @@ public class CommandLineInterface {
         
         +---kard.-------------------------------------------------------------------+
         | Type 'create' to create a public profile for others to add your as contact|
+        | Type 'edit' to modify your public profile                                 |
         | Type 'add' to add users to your contacts list                             |
         | Type 'remove' to remove users from your contacts list                     |
         | Type 'display' to display your contacts list                              |

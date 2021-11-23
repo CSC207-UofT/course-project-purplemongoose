@@ -88,54 +88,54 @@ class PersonalAccountTest {
         assertTrue(account.checkContacts(test_person));
     }
 
-    /**
-     * Tests removing a contact of the Account
-     */
-    @Test
-    @DisplayName("Remove a person")
-    void testRemoveContact(){
-        Person test_person = new Person(
-                new Name("Peter", "Peter", "They/Them"),
-                new Phone("5555555555555555"),
-                new Email("john.smith@aol.com"),
-                "TheRealJohnSmith"
-        );
+//    /**
+//     * Tests removing a contact of the Account
+//     */
+//    @Test
+//    @DisplayName("Remove a person")
+//    void testRemoveContact(){
+//        Person test_person = new Person(
+//                new Name("Peter", "Peter", "They/Them"),
+//                new Phone("5555555555555555"),
+//                new Email("john.smith@aol.com"),
+//                "TheRealJohnSmith"
+//        );
+//
+//        assertFalse(account.removeContact(test_person));
+//        assertFalse(account.checkContacts(test_person));
+//    }
 
-        assertFalse(account.removeContact(test_person));
-        assertFalse(account.checkContacts(test_person));
-    }
+//    /**
+//     * Tests removing a person that is not a contact of the Account
+//     */
+//    @Test
+//    @DisplayName("Remove a person that doesn't exist")
+//    void testRemoveContactNotExists(){
+//        Person test_person = new Person(
+//                new Name("Steven", "Test"),
+//                new Phone("6663636363"),
+//                new Email("not_steven@y8.com"),
+//                "TheFakeJohnSmith"
+//        );
+//
+//        Set<ProfileType> before = account.getContacts();
+//        assertFalse(account.removeContact(test_person));
+//        Set<ProfileType> after = account.getContacts();
+//        assertEquals(before, after);
+//    }
 
-    /**
-     * Tests removing a person that is not a contact of the Account
-     */
-    @Test
-    @DisplayName("Remove a person that doesn't exist")
-    void testRemoveContactNotExists(){
-        Person test_person = new Person(
-                new Name("Steven", "Test"),
-                new Phone("6663636363"),
-                new Email("not_steven@y8.com"),
-                "TheFakeJohnSmith"
-        );
-
-        Set<ProfileType> before = account.getContacts();
-        assertFalse(account.removeContact(test_person));
-        Set<ProfileType> after = account.getContacts();
-        assertEquals(before, after);
-    }
-
-    /**
-     * Tests the getContacts function on an empty contact list
-     */
-    @Test
-    @DisplayName("Get the contacts as a string for an empty contact list")
-    void testGetContactsEmpty(){
-        PersonalAccount new_account = new PersonalAccount();
-        Set<ProfileType> expected = Collections.emptySet();
-
-        Set<ProfileType> before = new_account.getContacts();
-        assertEquals(expected, before);
-    }
+//    /**
+//     * Tests the getContacts function on an empty contact list
+//     */
+//    @Test
+//    @DisplayName("Get the contacts as a string for an empty contact list")
+//    void testGetContactsEmpty(){
+//        PersonalAccount new_account = new PersonalAccount();
+//        Set<ProfileType> expected = Collections.emptySet();
+//
+//        Set<ProfileType> before = new_account.getContacts();
+//        assertEquals(expected, before);
+//    }
 
     /**
      * Tests the addAffiliation function

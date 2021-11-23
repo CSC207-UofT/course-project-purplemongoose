@@ -7,7 +7,9 @@ import entity.profiles.ProfileType;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
+import java.util.ArrayList;
 
 /**
  * The account of a Person of kard
@@ -34,14 +36,16 @@ public class PersonalAccount extends Account implements Serializable {
     // Two types of connections: contacts and affiliations
     // Same data structure, different data.
     // A local copy of the User's contacts:
-    private final HashMap<ProfileType, String> contacts;
-    // A local copy of the User's affiliations:
+//    private final HashMap<ProfileType, String> contacts;
+    private final HashSet<String> contacts;
+     // A local copy of the User's affiliations:
     private final HashMap<ProfileType, String> affiliations;
 
 
     // Initialize two empty HashMaps for each connection
     public PersonalAccount() {
-        this.contacts = new HashMap<>();
+//        this.contacts = new HashMap<>();
+        this.contacts = new HashSet<>();
         this.affiliations = new HashMap<>();
     }
 
@@ -59,8 +63,9 @@ public class PersonalAccount extends Account implements Serializable {
      */
 
     @Override
-    public boolean addContact(Person p) {
-        return Connections.addConnection(contacts, p);
+    public void addContact(Person p) {
+//        return Connections.addConnection(contacts, p);
+        this.contacts.add(p.getUsername());
     }
     @Serial
     private static final long serialVersionUID = 8267757690267757690L;
@@ -76,9 +81,9 @@ public class PersonalAccount extends Account implements Serializable {
      * @param association string to annotate the type of assocation between this user and the queried
      * @return true if the new person is added to the HashMap of contacts
      */
-    public boolean addContact(Person p, String association) {
-        return Connections.addConnection(contacts, p, association);
-    }
+//    public boolean addContact(Person p, String association) {
+//        return Connections.addConnection(contacts, p, association);
+//    }
 
     /**
      * Remove a person to the User's contact list.
@@ -87,16 +92,16 @@ public class PersonalAccount extends Account implements Serializable {
      * @return Success of removing from contacts list
      */
     @Override
-    public boolean removeContact(Person p) {
-        return Connections.removeConnection(contacts, p);
+    public void removeContact(Person p) {
+        this.contacts.remove(p.getUsername());
     }
 
     /**
      * @return a set of all the Persons that this Account is connected to
      */
     @Override
-    public Set<ProfileType> getContacts() {
-        return contacts.keySet();
+    public HashSet<String> getContacts() {
+        return contacts;
     }
 
     /**
@@ -108,7 +113,7 @@ public class PersonalAccount extends Account implements Serializable {
      */
     @Override
     public boolean checkContacts(Person p) {
-        return contacts.containsKey(p);
+        return contacts.contains(p.getUsername());
     }
 
     /**

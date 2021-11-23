@@ -55,21 +55,38 @@ public class ProfileUseCases {
         return this.pg.insertProfileData(accountUsername, org);
     }
 
-    /*
-    TODO: **Phase 2** Implement
-
-    public boolean updatePersonProfile(ProfileType pt) {
-        String username = AppState.getCurrentUsername();
-        // not too sure how to implement this effectively without having 15 methods for each profile data entry
-        return this.pg.updateProfileData(username, pt);
+    /**
+     * update the personal profiles with the given arguments,
+     * and adds it back to the profile database through the ProfileGateway.
+     * This method assumes that the person whose profile is being edited has been created already
+     *
+     * @param accountUsername the username of the account who the profile is associated with
+     * @param first string for the first name
+     * @param last string for the last name
+     * @param pronoun string for the preferred pronoun
+     * @param title string for the preferred title
+     * @param phone string for the phone number
+     * @param email string for the email
+     * @return whether the profile was successfully created
+     */
+    public boolean updatePersonProfile(String accountUsername, String first, String last, String pronoun, String title, String phone, String email) {
+        if(this.checkForProfile(accountUsername)){
+            Name n = new Name(first, last, pronoun, title);
+            Phone p = new Phone(phone);
+            Email e = new Email(email);
+            Person person = new Person(n, p, e, accountUsername);
+            return this.pg.updateProfileData(accountUsername, person);
+        }else{
+            return false;
+        }
     }
-    */
+
 
     /**
      * Checks if the profile exists in the database
      *
      * @param profileUsername string for the profile's username
-     * @return if the data for the profile in the database is not null
+     * @return true if the data for the profile in the database is not null
      */
     public boolean checkForProfile(String profileUsername) {
         return pg.getProfileData(profileUsername) != null;
