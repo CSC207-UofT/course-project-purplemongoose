@@ -474,9 +474,13 @@ public class CommandLineInterface {
         try {
             var response = client.send(request, HttpResponse.BodyHandlers.ofString());
             String[] r = response.body().split("\":\"");
-            return String.format(" %s | %s | %s | %s | username: %s", (r[1]).split("\"")[0],
-                    (r[5]).split("\"")[0], (r[3]).split("\"")[0],
-                    (r[2]).split("\"")[0], (r[4]).split("\"")[0]);
+            if(r[0].contains("[]")){
+                return "Your contact list is empty!";
+            }else {
+                return String.format(" %s | %s | %s | %s | username: %s", (r[1]).split("\"")[0],
+                        (r[5]).split("\"")[0], (r[3]).split("\"")[0],
+                        (r[2]).split("\"")[0], (r[4]).split("\"")[0]);
+            }
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }

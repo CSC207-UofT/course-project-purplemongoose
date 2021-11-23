@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
-      <change beforePath="$PROJECT_DIR$/../kard-CLI/src/CommandLineInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kard-CLI/src/CommandLineInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controller/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entity/accounts/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entity/accounts/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entity/accounts/CorporateAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entity/accounts/CorporateAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entity/accounts/PersonalAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entity/accounts/PersonalAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/usecase/AccountUseCases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/usecase/AccountUseCases.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/usecase/ProfileUseCases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/usecase/ProfileUseCases.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/entity/accounts/CorporateAccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/accounts/CorporateAccountTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/entity/accounts/PersonalAccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/accounts/PersonalAccountTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="Added edit profile feature to server. Also implemented the functionality in CLI. Some tests are commented out and need to be redone. Some Javadoc needs to be redone. No memento yet, will push it ASAP" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -234,7 +222,7 @@
       <workItem from="1636267435125" duration="3418000" />
       <workItem from="1636273416110" duration="334000" />
       <workItem from="1637522475175" duration="76000" />
-      <workItem from="1637522583158" duration="9492000" />
+      <workItem from="1637522583158" duration="9775000" />
     </task>
     <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
       <created>1636166152716</created>
@@ -271,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636167205812</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added edit profile feature to server. Also implemented the functionality in CLI. Some tests are commented out and need to be redone. Some Javadoc needs to be redone. No memento yet, will push it ASAP">
+      <created>1637690908350</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1637690908350</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,7 +319,9 @@
     <MESSAGE value="continued NameTest" />
     <MESSAGE value="finished NameTest" />
     <MESSAGE value="added docs to NameTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="added docs to NameTest" />
+    <MESSAGE value="Added edit profile feature to server. Also implemented the functionality in CLI. Some tests are commented out and need to be redone. No memento yet, will push it ASAP" />
+    <MESSAGE value="Added edit profile feature to server. Also implemented the functionality in CLI. Some tests are commented out and need to be redone. Some Javadoc needs to be redone. No memento yet, will push it ASAP" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added edit profile feature to server. Also implemented the functionality in CLI. Some tests are commented out and need to be redone. Some Javadoc needs to be redone. No memento yet, will push it ASAP" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/kard_server$ProfileUseCasesTest__1_.ic" NAME="ProfileUseCasesTest (1) Coverage Results" MODIFIED="1636169802008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
