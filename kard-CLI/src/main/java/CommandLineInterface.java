@@ -1,9 +1,12 @@
-import java.util.Scanner;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Scanner;
 
 public class CommandLineInterface {
     private final Scanner sc;
@@ -66,7 +69,7 @@ public class CommandLineInterface {
 
             String res = submitLogin(username, password);
 
-            if (res.equals("5}")) {
+            if (res.equals("5")) {
                 System.out.println("Wrong username or password, please try again!\n");
             }
             else if (res.equals("404")){
@@ -103,8 +106,8 @@ public class CommandLineInterface {
 
         try {
             var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            String res = response.body().split(",\"errorCode\":")[1];
-            return res;
+            JSONObject res = new JSONObject(response.body());
+            return res.getString("errorCode");
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -128,10 +131,8 @@ public class CommandLineInterface {
             System.out.print("Press 'y' to continue or press 'n' to restart\n");
             String input = sc.nextLine();
             if (input.equals("y")) {
-
                 String res = submitSignUp(username, password);
-
-                if (res.equals("6}")){
+                if (res.equals("6")){
                     System.out.println("Username already taken, try again\n");
                 }
                 else if (res.equals("404")){
@@ -169,8 +170,8 @@ public class CommandLineInterface {
         HttpClient client = HttpClient.newHttpClient();
         try {
             var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            String res = response.body().split(",\"errorCode\":")[1];
-            return res;
+            JSONObject res = new JSONObject(response.body());
+            return res.getString("errorCode");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -191,7 +192,7 @@ public class CommandLineInterface {
         String input;
         eventLoop:
         while (true) {
-//            instructionScreen();
+//          instructionScreen();
             System.out.print("> ");
             input = sc.next();
             switch (input) {
@@ -227,10 +228,10 @@ public class CommandLineInterface {
         System.out.println("Press y to submit: ");
         if (sc.next().equals("y")){
             String res = submitProfileUpdate(first, last, pronoun, title, phone, email);
-            if (res.equals("30}")){
+            if (res.equals("30")){
                 // if a personal profile was already exists
                 System.out.print("your don't have a personal profile yet!");
-            }else if(res.equals("404")){
+            }else if (res.equals("404")){
                 System.out.print("could not create profile!");
             }else{
                 System.out.print("profile successfully updated!");
@@ -256,8 +257,8 @@ public class CommandLineInterface {
         HttpClient client = HttpClient.newHttpClient();
         try {
             var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            String res = response.body().split(",\"errorCode\":")[1];
-            return res;
+            JSONObject res = new JSONObject(response.body());
+            return res.getString("errorCode");
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -310,8 +311,8 @@ public class CommandLineInterface {
         HttpClient client = HttpClient.newHttpClient();
         try {
             var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            String res = response.body().split(",\"errorCode\":")[1];
-            return res;
+            JSONObject res = new JSONObject(response.body());
+            return res.getString("errorCode");
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -336,25 +337,25 @@ public class CommandLineInterface {
         input = sc.next();
         while (!input.equals("back")) {
             String res = submitContactAddition(input);
-            if (res.equals("15}")) {
-                // if the username does not correspond to a profile
-                //display message that this user does not exist in the db
-                // using display classes (in the future)
-                System.out.printf("The username [%s] could not be found!\n", input);
-                return;
-            }
-            else if (res.equals("16}")) {
-                // if the profile is already a contact
-                System.out.printf("The user corresponding to ID [%s] is already a contact!\n", input);
-                return;
-            }
-            else if (res.equals("404")){
-                // connection failed
-                System.out.println("Contact could not be added, please try again!");
-                return;
-            }
-            else {
-                System.out.printf("The user corresponding to ID [%s] has been successfully added!\n", input);
+            switch (res) {
+                case "15" -> {
+                    // if the username does not correspond to a profile
+                    //display message that this user does not exist in the db
+                    // using display classes (in the future)
+                    System.out.printf("The username [%s] could not be found!\n", input);
+                    return;
+                }
+                case "16" -> {
+                    // if the profile is already a contact
+                    System.out.printf("%s is already a contact!\n", input);
+                    return;
+                }
+                case "404" -> {
+                    // connection failed
+                    System.out.println("Contact could not be added, please try again!");
+                    return;
+                }
+                default -> System.out.printf("%s has been successfully added!\n", input);
             }
             System.out.print("[add]: ");
             input = sc.next();
@@ -380,8 +381,8 @@ public class CommandLineInterface {
         HttpClient client = HttpClient.newHttpClient();
         try {
             var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            String res = response.body().split(",\"errorCode\":")[1];
-            return res;
+            JSONObject res = new JSONObject(response.body());
+            return res.getString("errorCode");
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -399,23 +400,23 @@ public class CommandLineInterface {
         input = sc.next();
         while (!input.equals("back")) {
             String res = submitContactRemoval(input);
-            if (res.equals("15}")) {
-                // if the username does not correspond to a profile
-                System.out.printf("The ID [%s] could not be found!\n", input);
-                return;
-            }
-            else if (res.equals("17}")) {
-                // if the profile is not a contact
-                System.out.printf("The user corresponding to ID [%s] is not a contact!\n", input);
-                return;
-            }
-            else if (res.equals("404")){
-                // connection failed
-                System.out.println("Could not remove contact, please try again!");
-                return;
-            }
-            else {
-                System.out.printf("The user corresponding to ID [%s] has been successfully removed!\n", input);
+            switch (res) {
+                case "15" -> {
+                    // if the username does not correspond to a profile
+                    System.out.printf("%s could not be found!\n", input);
+                    return;
+                }
+                case "17" -> {
+                    // if the profile is not a contact
+                    System.out.printf("%s is not a contact!\n", input);
+                    return;
+                }
+                case "404" -> {
+                    // connection failed
+                    System.out.println("Could not remove contact, please try again!");
+                    return;
+                }
+                default -> System.out.printf("%s has been successfully removed!\n", input);
             }
             System.out.print("[remove]: ");
             input = sc.next();
@@ -441,8 +442,8 @@ public class CommandLineInterface {
         HttpClient client = HttpClient.newHttpClient();
         try {
             var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            String res = response.body().split(",\"errorCode\":")[1];
-            return res;
+            JSONObject res = new JSONObject(response.body());
+            return res.getString("errorCode");
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -473,13 +474,19 @@ public class CommandLineInterface {
         HttpClient client = HttpClient.newHttpClient();
         try {
             var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            String[] r = response.body().split("\":\"");
-            if(r[0].contains("[]")){
+            JSONObject res = new JSONObject(response.body());
+            JSONArray arr = res.getJSONArray("response");
+            if (arr.length() == 0) {
                 return "Your contact list is empty!";
-            }else {
-                return String.format(" %s | %s | %s | %s | username: %s", (r[1]).split("\"")[0],
-                        (r[5]).split("\"")[0], (r[3]).split("\"")[0],
-                        (r[2]).split("\"")[0], (r[4]).split("\"")[0]);
+            } else {
+                StringBuilder contacts = new StringBuilder();
+                for (int i = 0; i < arr.length(); i++) {
+                    JSONObject profile = arr.getJSONObject(i);
+                    contacts.append(String.format(" %s | %s | %s | %s | username: %s\n",
+                            profile.get("name"), profile.get("pronouns"), profile.get("phone"),
+                            profile.get("email"), profile.get("username")));
+                }
+                return contacts.toString();
             }
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();

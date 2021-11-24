@@ -5,11 +5,11 @@ package response;
  */
 public class ShortResponse implements ResponseContainer {
     public Object response;
-    public int errorCode;
+    public String errorCode;
 
     public ShortResponse() {
         this.response = null;
-        this.errorCode = 0;
+        this.errorCode = "0";
     }
 
     /**
@@ -24,7 +24,7 @@ public class ShortResponse implements ResponseContainer {
      * Setter for the error code
      * @param error integer error code associated with a specific error
      */
-    public void setError(int error) {
+    public void setError(String error) {
         this.errorCode = error;
     }
 

@@ -1,5 +1,6 @@
 package controller;
 
+import entity.profiles.ProfileType;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -59,11 +60,11 @@ public class AccountController {
         ShortResponse response = new ShortResponse();
         if (!proUC.checkForProfile(request.getContactUsername())) {
             response.add(false);
-            response.setError(15); // if the username does not correspond to a profile
+            response.setError("15"); // if the username does not correspond to a profile
         }
         else if (accUC.checkForContact(request.getAccountUsername(), request.getContactUsername())){
             response.add(false);
-            response.setError(16); // if the profile is already a contact
+            response.setError("16"); // if the profile is already a contact
         }
         else {
             accUC.addContact(request.getAccountUsername(), request.getContactUsername());
@@ -90,11 +91,11 @@ public class AccountController {
         ShortResponse response = new ShortResponse();
         if (!proUC.checkForProfile(request.getContactUsername())) {
             response.add(false);
-            response.setError(15); // if the username does not correspond to a profile
+            response.setError("15"); // if the username does not correspond to a profile
         }
         else if (!accUC.checkForContact(request.getAccountUsername(), request.getContactUsername())){
             response.add(false);
-            response.setError(17); // if the profile is not a contact
+            response.setError("17"); // if the profile is not a contact
         }
         else {
             accUC.removeContact(request.getAccountUsername(), request.getContactUsername());
@@ -112,7 +113,7 @@ public class AccountController {
     @GetMapping(path="/display/contact", produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitContactDisplay(@RequestParam(name="username") String accountUsername) {
         ShortResponse response = new ShortResponse();
-        Object[] contacts = accUC.getContacts(accountUsername);
+        ProfileType[] contacts = accUC.getContacts(accountUsername);
         response.add(contacts);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

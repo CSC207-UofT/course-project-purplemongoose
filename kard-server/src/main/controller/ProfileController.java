@@ -26,12 +26,12 @@ public class ProfileController {
     @PostMapping(path="/new", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitNewPersonalProfile(@RequestBody PersonalProfileRequest request) {
         ShortResponse response = new ShortResponse();
-        if (this.proUC.createNewPerson(request.getAccountUsername(), request.getFirstName(), request.getLastName(),
+        if (proUC.createNewPerson(request.getAccountUsername(), request.getFirstName(), request.getLastName(),
                 request.getPronoun(), request.getTitle(), request.getPhone(), request.getEmail())) {
             response.add(true);
         } else {
             response.add(false);
-            response.setError(25); // if a personal profile was already exists
+            response.setError("25"); // if a personal profile was already exists
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
@@ -57,12 +57,12 @@ public class ProfileController {
     @PostMapping(path="/edit", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitProfileUpdate(@RequestBody PersonalProfileRequest request) {
         ShortResponse response = new ShortResponse();
-        if (this.proUC.updatePersonProfile(request.getAccountUsername(), request.getFirstName(), request.getLastName(),
+        if (proUC.updatePersonProfile(request.getAccountUsername(), request.getFirstName(), request.getLastName(),
                 request.getPronoun(), request.getTitle(), request.getPhone(), request.getEmail())) {
             response.add(true);
         } else {
             response.add(false);
-            response.setError(30); // if a personal profile doesn't exist
+            response.setError("30"); // if a personal profile doesn't exist
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

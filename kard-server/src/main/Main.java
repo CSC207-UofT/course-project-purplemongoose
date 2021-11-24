@@ -1,15 +1,11 @@
-import controller.SpringServerController;
-import database.SQLite.SQLiteDataBaseManager;
+import controller.SpringServerInit;
 
 public class Main {
 
     // Starts a new server instance on this machine
     public static void main(String[] args) {
-        SpringServerController server = new SpringServerController();
+        SpringServerInit server = new SpringServerInit();
         server.start(args);
-
-        // Important to  close all the open databases.
-        SQLiteDataBaseManager.close();
     }
 
 }

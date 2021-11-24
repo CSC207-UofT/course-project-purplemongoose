@@ -5,11 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
-      <change afterPath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard-CLI/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kard-CLI/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard-CLI/kard-CLI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../kard-CLI/kard-CLI.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard-CLI/src/CommandLineInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard-CLI/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBaseMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBaseMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/helpers/SQLiteDataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/helpers/SQLiteDataBaseHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controller/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/controller/SpringServerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/controller/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controller/StartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/response/ShortResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/response/ShortResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/usecase/AccountUseCases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/usecase/AccountUseCases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/usecase/ProfileUseCases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/usecase/ProfileUseCases.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,6 +211,9 @@
       <workItem from="1637605217154" duration="2432000" />
       <workItem from="1637611084977" duration="9899000" />
       <workItem from="1637621059599" duration="2703000" />
+      <workItem from="1637728426305" duration="2670000" />
+      <workItem from="1637734037485" duration="3149000" />
+      <workItem from="1637739969936" duration="18000" />
     </task>
     <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
       <created>1636166152716</created>
@@ -302,6 +315,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added edit profile feature to server. Also implemented the functionality in CLI. Some tests are commented out and need to be redone. Some Javadoc needs to be redone. No memento yet, will push it ASAP" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/kard_server$ProfileUseCasesTest__1_.ic" NAME="ProfileUseCasesTest (1) Coverage Results" MODIFIED="1636169802008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>entity.usecase.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/kard_server$All_in_kard_server.ic" NAME="All in kard-server Coverage Results" MODIFIED="1636223352732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/kard_server$All_in_course_project_purplemongoose.ic" NAME="All in course-project-purplemongoose Coverage Results" MODIFIED="1636169898069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <EXCLUDED_FILTER>CLI.*</EXCLUDED_FILTER>
@@ -310,10 +326,6 @@
       <EXCLUDED_FILTER>request.*</EXCLUDED_FILTER>
       <EXCLUDED_FILTER>response.*</EXCLUDED_FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$All_in_kard_server.ic" NAME="All in kard-server Coverage Results" MODIFIED="1636223352732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/kard_server$AccountUseCasesTest.ic" NAME="AccountUseCasesTest Coverage Results" MODIFIED="1636169488595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/kard_server$ProfileUseCasesTest__1_.ic" NAME="ProfileUseCasesTest (1) Coverage Results" MODIFIED="1636169802008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>entity.usecase.*</FILTER>
-    </SUITE>
   </component>
 </project>

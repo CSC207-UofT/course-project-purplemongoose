@@ -59,7 +59,7 @@ public class AccountUseCases {
      * @param contactUsername string for the contact's username
      */
     public void addContact(String accountUsername, String contactUsername){
-        Account acc = (Account) accountGateway.getAccountData(accountUsername);
+        Account acc = accountGateway.getAccountData(accountUsername);
         Person p = (Person) profileGateway.getProfileData(contactUsername);
         acc.addContact(p);
         accountGateway.updateAccountData(accountUsername, acc);
@@ -72,7 +72,7 @@ public class AccountUseCases {
      * @param contactUsername string for the contact's username
      */
     public void removeContact(String accountUsername, String contactUsername){
-        Account acc = (Account) accountGateway.getAccountData(accountUsername);
+        Account acc = accountGateway.getAccountData(accountUsername);
         Person p = (Person) profileGateway.getProfileData(contactUsername);
         acc.removeContact(p);
         accountGateway.updateAccountData(accountUsername, acc);
@@ -85,7 +85,7 @@ public class AccountUseCases {
      * @return whether the profile is part of the account's contact list
      */
     public boolean checkForContact(String accountUsername, String contactUsername) {
-        Account acc = (Account) accountGateway.getAccountData(accountUsername);
+        Account acc = accountGateway.getAccountData(accountUsername);
         Person p = (Person) profileGateway.getProfileData(contactUsername);
         return acc.checkContacts(p);
     }
@@ -96,14 +96,11 @@ public class AccountUseCases {
      * @return array of profile objects
      */
     public ProfileType[] getContacts(String accountUsername) {
-//        Account acc = (Account) ag.getAccountData(accountUsername);
-//        Set<ProfileType> contacts = acc.getContacts();
-//        return contacts.toArray(new ProfileType[0]);
-        Account acc = (Account) ag.getAccountData(accountUsername);
+        Account acc = accountGateway.getAccountData(accountUsername);
         HashSet<String> contacts = acc.getContacts();
-        ArrayList<ProfileType> profiles = new ArrayList();
+        ArrayList<ProfileType> profiles = new ArrayList<>();
         for (String username : contacts) {
-            ProfileType profile = (ProfileType) pg.getProfileData(username);
+            ProfileType profile = profileGateway.getProfileData(username);
             profiles.add(profile);
         }
         return profiles.toArray(new ProfileType[0]);

@@ -28,12 +28,12 @@ public class StartController {
             produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitLogin(@RequestBody StartRequest request) {
         ShortResponse response = new ShortResponse();
-        if (this.auth.requestLogin(request.getAccountUsername(), request.getAccountPassword())) {
+        if (auth.requestLogin(request.getAccountUsername(), request.getAccountPassword())) {
             response.add(true);
         }
         else {
             response.add(false);
-            response.setError(5); // login attempt failed
+            response.setError("5"); // login attempt failed
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
@@ -49,12 +49,12 @@ public class StartController {
             produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitSignUp(@RequestBody StartRequest request) {
         ShortResponse response = new ShortResponse();
-        if (this.accUseCase.createNewAccount(request.getAccountUsername(), request.getAccountPassword())) {
+        if (accUseCase.createNewAccount(request.getAccountUsername(), request.getAccountPassword())) {
             response.add(true);
         }
         else {
             response.add(false);
-            response.setError(6); // username has already been taken
+            response.setError("6"); // username has already been taken
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
