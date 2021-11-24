@@ -7,6 +7,7 @@ import entity.profiles.ProfileType;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -40,12 +41,14 @@ public class CorporateAccount extends Account implements Serializable {
      * Currently also implements Iterator to prepare for any iterative
      * mechanism to fetch information about contacts
      */
-    private final HashMap<ProfileType, String> employees;
+//    private final HashMap<ProfileType, String> employees;
+    private final HashSet<String> employees;
     private final HashMap<ProfileType, String> affiliations;
 
     // Initialize two empty HashMaps for each connection
     public CorporateAccount() {
-        this.employees = new HashMap<>();
+//        this.employees = new HashMap<>();
+        this.employees = new HashSet<>();
         this.affiliations = new HashMap<>();
     }
 
@@ -63,8 +66,11 @@ public class CorporateAccount extends Account implements Serializable {
      * @return success of adding a new employee to the HashMap
      */
     @Override
-    public boolean addContact(Person p) {
-        return Connections.addConnection(employees, p);
+//    public boolean addContact(Person p) {
+//        return Connections.addConnection(employees, p);
+//    }
+    public void addContact(Person p){
+        this.employees.add(p.getUsername());
     }
 
     /** Remove a contact from the User's contact list.
@@ -73,8 +79,11 @@ public class CorporateAccount extends Account implements Serializable {
      * @return true if client is removed from contacts successfully
      */
     @Override
-    public boolean removeContact(Person p) {
-        return Connections.removeConnection(employees, p);
+//    public boolean removeContact(Person p) {
+//        return Connections.removeConnection(employees, p);
+//    }
+    public void removeContact(Person p){
+        this.employees.remove(p.getUsername());
     }
 
     /**
@@ -83,8 +92,11 @@ public class CorporateAccount extends Account implements Serializable {
      * @return set of all the employees connected to this CorporateAccount
      */
     @Override
-    public Set<ProfileType> getContacts() {
-        return employees.keySet();
+//    public Set<ProfileType> getContacts() {
+//        return employees.keySet();
+//    }
+    public HashSet<String> getContacts(){
+        return this.employees;
     }
 
     /**
@@ -95,7 +107,8 @@ public class CorporateAccount extends Account implements Serializable {
      */
     @Override
     public boolean checkContacts(Person p) {
-        return employees.containsKey(p);
+//        return employees.containsKey(p);
+        return employees.contains(p.getUsername());
     }
 
     /**

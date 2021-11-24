@@ -46,8 +46,25 @@ public class ProfileController {
         // for phase 2
     }
 
-    public void submitProfileUpdate(String profileUUID) {
-        // for phase 2
+    /**
+     * Takes in the arguments needed to modify a person's personal profile. If a profile doesn't exist, return 'false',
+     * otherwise return 'true' when the changes have been applied
+     *
+     * @param request JSON converted into PersonalProfileRequest which contains all the fields needed for editing
+     *                a personal profile
+     * @return return a ResponseEntity which contains a 'true'/'false' response and an HTTP status code
+     */
+    @PostMapping(path="/edit", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ResponseContainer> submitProfileUpdate(@RequestBody PersonalProfileRequest request) {
+        ShortResponse response = new ShortResponse();
+        if (this.proUC.updatePersonProfile(request.getAccountUsername(), request.getFirstName(), request.getLastName(),
+                request.getPronoun(), request.getTitle(), request.getPhone(), request.getEmail())) {
+            response.add(true);
+        } else {
+            response.add(false);
+            response.setError(30); // if a personal profile doesn't exist
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     public void submitProfileRemove(String profileUUID) {
