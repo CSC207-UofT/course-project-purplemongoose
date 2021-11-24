@@ -105,5 +105,4 @@ public class AccountUseCases {
         }
         return profiles.toArray(new ProfileType[0]);
     }
-
 }

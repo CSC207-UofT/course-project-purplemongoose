@@ -35,5 +35,4 @@ public class Business extends Organization implements Serializable {
     public String getOwnerName() {
         return owner.getName();
     }
-
 }

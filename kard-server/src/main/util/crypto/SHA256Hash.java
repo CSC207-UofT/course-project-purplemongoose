@@ -34,7 +34,5 @@ public class SHA256Hash extends CryptoHash{
             e.printStackTrace();
             return null;
         }
-
-
     }
 }

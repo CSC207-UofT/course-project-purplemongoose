@@ -6,16 +6,16 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import post.ResponseContainer;
 import usecase.AccountUseCases;
 import usecase.ProfileUseCases;
-import request.ContactRequest;
-import response.ResponseContainer;
-import response.ShortResponse;
+import post.ContactRequest;
+
 
 @RestController
 @RequestMapping({"account", "account"})
 
-/**
+/*
  * A connection point between the external user interfaces and the back end of kard
  *
  * New user interfaces should use HTTP to access the Spring server here
@@ -25,12 +25,6 @@ import response.ShortResponse;
  * javadoc comments fo the individual controller.
  */
 public class AccountController {
-    // TBA until merge with new use cases
-
-    // TODO Remove these two lines once TODO from above is completed
-    // If you are trying to connect with one of these controllers, make sure the HTTP request you send is of the
-    // correct type. For example, submitContactDisplay is an GET request while submitContactRemoval is a POST request.
-
     /**
      * Defines methods for interactions between a user's profile and the other users in their contacts
      */
@@ -57,16 +51,14 @@ public class AccountController {
     @PostMapping(path="/add/contact", consumes=MediaType.APPLICATION_JSON_VALUE,
             produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitContactAddition(@RequestBody ContactRequest request) {
-        ShortResponse response = new ShortResponse();
+        ResponseContainer response = new ResponseContainer();
         if (!proUC.checkForProfile(request.getContactUsername())) {
             response.add(false);
             response.setError("15"); // if the username does not correspond to a profile
-        }
-        else if (accUC.checkForContact(request.getAccountUsername(), request.getContactUsername())){
+        } else if (accUC.checkForContact(request.getAccountUsername(), request.getContactUsername())){
             response.add(false);
             response.setError("16"); // if the profile is already a contact
-        }
-        else {
+        } else {
             accUC.addContact(request.getAccountUsername(), request.getContactUsername());
             response.add(true);
         }
@@ -88,16 +80,14 @@ public class AccountController {
     @PostMapping(path="/remove/contact", consumes=MediaType.APPLICATION_JSON_VALUE,
             produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitContactRemoval(@RequestBody ContactRequest request) {
-        ShortResponse response = new ShortResponse();
+        ResponseContainer response = new ResponseContainer();
         if (!proUC.checkForProfile(request.getContactUsername())) {
             response.add(false);
             response.setError("15"); // if the username does not correspond to a profile
-        }
-        else if (!accUC.checkForContact(request.getAccountUsername(), request.getContactUsername())){
+        } else if (!accUC.checkForContact(request.getAccountUsername(), request.getContactUsername())){
             response.add(false);
             response.setError("17"); // if the profile is not a contact
-        }
-        else {
+        } else {
             accUC.removeContact(request.getAccountUsername(), request.getContactUsername());
             response.add(true);
         }
@@ -112,7 +102,7 @@ public class AccountController {
      */
     @GetMapping(path="/display/contact", produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitContactDisplay(@RequestParam(name="username") String accountUsername) {
-        ShortResponse response = new ShortResponse();
+        ResponseContainer response = new ResponseContainer();
         ProfileType[] contacts = accUC.getContacts(accountUsername);
         response.add(contacts);
         return new ResponseEntity<>(response, HttpStatus.OK);

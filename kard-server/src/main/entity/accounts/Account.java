@@ -37,5 +37,4 @@ public abstract class Account implements Serializable {
     public abstract boolean addAffiliation(Organization o); // return true if added successfully
     public abstract boolean removeAffiliation(Organization o); // return true if removed successfully
     public abstract Set<ProfileType> getAffiliations(); // return some sort of container for affiliations
-
 }

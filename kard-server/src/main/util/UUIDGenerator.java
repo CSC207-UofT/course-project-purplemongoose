@@ -1,4 +1,4 @@
-package usecase;
+package util;
 
 import java.util.Random;
 
@@ -35,5 +35,4 @@ public class UUIDGenerator {
         }
         return sb.toString();
     }
-
 }

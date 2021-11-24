@@ -33,5 +33,4 @@ public class Phone implements Serializable {
     public int hashCode() {
         return Objects.hash(phone);
     }
-
 }

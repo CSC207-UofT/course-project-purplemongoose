@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import usecase.AccountUseCases;
 import usecase.LoginAuth;
-import request.StartRequest;
-import response.ResponseContainer;
-import response.ShortResponse;
+import post.StartRequest;
+import post.ResponseContainer;
 
 @RestController
 @RequestMapping("/start")
@@ -27,11 +26,10 @@ public class StartController {
     @PostMapping(path="/login", consumes=MediaType.APPLICATION_JSON_VALUE,
             produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitLogin(@RequestBody StartRequest request) {
-        ShortResponse response = new ShortResponse();
+        ResponseContainer response = new ResponseContainer();
         if (auth.requestLogin(request.getAccountUsername(), request.getAccountPassword())) {
             response.add(true);
-        }
-        else {
+        } else {
             response.add(false);
             response.setError("5"); // login attempt failed
         }
@@ -48,11 +46,10 @@ public class StartController {
     @PostMapping(path="/signup", consumes=MediaType.APPLICATION_JSON_VALUE,
             produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitSignUp(@RequestBody StartRequest request) {
-        ShortResponse response = new ShortResponse();
+        ResponseContainer response = new ResponseContainer();
         if (accUseCase.createNewAccount(request.getAccountUsername(), request.getAccountPassword())) {
             response.add(true);
-        }
-        else {
+        } else {
             response.add(false);
             response.setError("6"); // username has already been taken
         }

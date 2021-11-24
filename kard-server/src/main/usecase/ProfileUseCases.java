@@ -50,15 +50,8 @@ public class ProfileUseCases {
      * @param email string for the email
      * @return whether the profile was successfully created
      */
-    public boolean createNewPerson(
-            String accountUsername,
-            String first,
-            String last,
-            String pronoun,
-            String title,
-            String phone,
-            String email
-    ) {
+    public boolean createNewPerson(String accountUsername, String first, String last,
+                                   String pronoun, String title, String phone, String email) {
         Name n = new Name(first, last, pronoun, title);
         Phone p = new Phone(phone);
         Email e = new Email(email);
@@ -97,14 +90,15 @@ public class ProfileUseCases {
      * @param email string for the email
      * @return whether the profile was successfully created
      */
-    public boolean updatePersonProfile(String accountUsername, String first, String last, String pronoun, String title, String phone, String email) {
-        if(this.checkForProfile(accountUsername)){
+    public boolean updatePersonProfile(String accountUsername, String first, String last,
+                                       String pronoun, String title, String phone, String email) {
+        if (this.checkForProfile(accountUsername)){
             Name n = new Name(first, last, pronoun, title);
             Phone p = new Phone(phone);
             Email e = new Email(email);
             Person person = new Person(n, p, e, accountUsername);
             return profileGateway.updateProfileData(accountUsername, person);
-        }else{
+        } else{
             return false;
         }
     }
@@ -119,5 +113,4 @@ public class ProfileUseCases {
     public boolean checkForProfile(String profileUsername) {
         return profileGateway.getProfileData(profileUsername) != null;
     }
-
 }

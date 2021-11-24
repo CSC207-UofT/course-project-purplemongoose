@@ -22,6 +22,7 @@ public abstract class CryptoHash {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
+        assert rng != null;
         rng.setSeed(salt.getBytes());
 
         byte[] new_salt = new byte[16];

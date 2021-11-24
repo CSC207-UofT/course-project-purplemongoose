@@ -1,13 +1,13 @@
-package response;
+package post;
 
 /**
  * Class that is serialized into a JSON response for the endpoint - only contains one response
  */
-public class ShortResponse implements ResponseContainer {
+public class ResponseContainer {
     public Object response;
     public String errorCode;
 
-    public ShortResponse() {
+    public ResponseContainer() {
         this.response = null;
         this.errorCode = "0";
     }
@@ -27,5 +27,4 @@ public class ShortResponse implements ResponseContainer {
     public void setError(String error) {
         this.errorCode = error;
     }
-
 }

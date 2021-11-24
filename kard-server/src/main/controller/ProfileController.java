@@ -6,9 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import usecase.ProfileUseCases;
-import request.PersonalProfileRequest;
-import response.ResponseContainer;
-import response.ShortResponse;
+import post.PersonalProfileRequest;
+import post.ResponseContainer;
 
 @RestController
 @RequestMapping("profile")
@@ -25,7 +24,7 @@ public class ProfileController {
      */
     @PostMapping(path="/new", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitNewPersonalProfile(@RequestBody PersonalProfileRequest request) {
-        ShortResponse response = new ShortResponse();
+        ResponseContainer response = new ResponseContainer();
         if (proUC.createNewPerson(request.getAccountUsername(), request.getFirstName(), request.getLastName(),
                 request.getPronoun(), request.getTitle(), request.getPhone(), request.getEmail())) {
             response.add(true);
@@ -56,7 +55,7 @@ public class ProfileController {
      */
     @PostMapping(path="/edit", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitProfileUpdate(@RequestBody PersonalProfileRequest request) {
-        ShortResponse response = new ShortResponse();
+        ResponseContainer response = new ResponseContainer();
         if (proUC.updatePersonProfile(request.getAccountUsername(), request.getFirstName(), request.getLastName(),
                 request.getPronoun(), request.getTitle(), request.getPhone(), request.getEmail())) {
             response.add(true);

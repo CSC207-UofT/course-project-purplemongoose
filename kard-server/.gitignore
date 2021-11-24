@@ -106,6 +106,7 @@ fabric.properties
 
 # idea settings folder
 .idea/misc.xml
+.idea/workspace.xml
 
 # database files
 data/

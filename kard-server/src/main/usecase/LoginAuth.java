@@ -33,10 +33,8 @@ public class LoginAuth {
     public boolean requestLogin(String username, String password) {
         if (username.isBlank() || password.isBlank()) {
             return false; // prevent empty fields
-        }
-        else {
+        } else {
             return authGateway.authAccountData(username, password);
         }
     }
-
 }

@@ -1,4 +1,4 @@
-package request;
+package post;
 
 
 /**
@@ -69,5 +69,4 @@ public class PersonalProfileRequest {
     public String getEmail() {
         return email;
     }
-
 }
