@@ -36,3 +36,9 @@
 - [Kevin Deng](https://github.com/tiantian205)
 - [Sila Taskin](https://github.com/mericsila)
 - [Victoria Zhang](https://github.com/vzhang1112)
+
+## Libaries
+
+This project uses two libraries:
+- [sqlite-jdbc](https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc)
+- [org.json](https://mvnrepository.com/artifact/org.json/json)
