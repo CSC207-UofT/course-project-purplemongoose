@@ -1,7 +1,6 @@
 package usecase;
 
-import database.AccountGateway;
-import entity.accounts.CorporateAccount;
+import database.gateway.AccountGateway;
 import entity.accounts.PersonalAccount;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,7 +24,7 @@ class LoginAuthTest {
         AccountGateway ag = new AccountGateway();
         PersonalAccount account = new PersonalAccount();
         ag.insertAccountData("spongebob", "patrick123", account);
-        this.loginAuth = new LoginAuth();
+        this.loginAuth = new LoginAuth(false);
     }
 
     @AfterEach

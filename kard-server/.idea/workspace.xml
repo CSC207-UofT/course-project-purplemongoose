@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="Added edit profile feature to server. Also implemented the functionality in CLI. Some tests are commented out and need to be redone. Some Javadoc needs to be redone. No memento yet, will push it ASAP" />
+    <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
+      <change afterPath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBaseMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBaseMemory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/helpers/SQLiteDataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/SQLite/helpers/SQLiteDataBaseHelper.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -55,7 +62,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kard-CLI" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -67,6 +74,9 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="database.SQLite.commands" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/../temp_holder" />
       <recent name="$PROJECT_DIR$/kard-server" />
@@ -75,10 +85,12 @@
       <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
       <recent name="entity.profiles" />
       <recent name="usecase" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="util.crypto" />
       <recent name="usecase" />
     </key>
   </component>
@@ -86,6 +98,19 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="kard-server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SQLiteDataBaseHelperMainFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="database.SQLite.helpers.SQLiteDataBaseHelperMainFrame" />
+      <module name="kard-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="database.SQLite.helpers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -108,87 +133,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProfileUseCasesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="course-project-purplemongoose" />
+    <configuration name="SHA256HashTest.testSame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kard-server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="entity.usecase.*" />
+          <option name="PATTERN" value="util.crypto.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="usecase" />
-      <option name="MAIN_CLASS_NAME" value="usecase.ProfileUseCasesTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProfileUseCasesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="course-project-purplemongoose" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="CLI.*" />
-          <option name="ENABLED" value="true" />
-          <option name="INCLUDE" value="false" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="controller.*" />
-          <option name="ENABLED" value="true" />
-          <option name="INCLUDE" value="false" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="data.*" />
-          <option name="ENABLED" value="true" />
-          <option name="INCLUDE" value="false" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="request.*" />
-          <option name="ENABLED" value="true" />
-          <option name="INCLUDE" value="false" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="response.*" />
-          <option name="ENABLED" value="true" />
-          <option name="INCLUDE" value="false" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="entity.usecase" />
-      <option name="MAIN_CLASS_NAME" value="entity.usecase.ProfileUseCasesTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UUIDGeneratorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="course-project-purplemongoose" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="usecase.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="usecase" />
-      <option name="MAIN_CLASS_NAME" value="usecase.UUIDGeneratorTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="util.crypto" />
+      <option name="MAIN_CLASS_NAME" value="util.crypto.SHA256HashTest" />
+      <option name="METHOD_NAME" value="testSame" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.SQLiteDataBaseHelperMainFrame" />
       <item itemvalue="JUnit.All in course-project-purplemongoose" />
-      <item itemvalue="JUnit.ProfileUseCasesTest" />
-      <item itemvalue="JUnit.UUIDGeneratorTest" />
       <item itemvalue="JUnit.All in kard-server" />
+      <item itemvalue="JUnit.SHA256HashTest.testSame" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.SHA256HashTest.testSame" />
+        <item itemvalue="Application.SQLiteDataBaseHelperMainFrame" />
         <item itemvalue="JUnit.All in kard-server" />
         <item itemvalue="JUnit.All in course-project-purplemongoose" />
-        <item itemvalue="JUnit.UUIDGeneratorTest" />
-        <item itemvalue="JUnit.ProfileUseCasesTest" />
       </list>
     </recent_temporary>
   </component>
@@ -218,11 +192,15 @@
       <workItem from="1636221810946" duration="1720000" />
       <workItem from="1636223598889" duration="1541000" />
       <workItem from="1636225180168" duration="246000" />
-      <workItem from="1636267014044" duration="362000" />
-      <workItem from="1636267435125" duration="3418000" />
-      <workItem from="1636273416110" duration="334000" />
-      <workItem from="1637522475175" duration="76000" />
-      <workItem from="1637522583158" duration="9775000" />
+      <workItem from="1637187553807" duration="6053000" />
+      <workItem from="1637249897153" duration="4766000" />
+      <workItem from="1637353948697" duration="88000" />
+      <workItem from="1637551596415" duration="9141000" />
+      <workItem from="1637590874286" duration="4515000" />
+      <workItem from="1637599393753" duration="1206000" />
+      <workItem from="1637605217154" duration="2432000" />
+      <workItem from="1637611084977" duration="9899000" />
+      <workItem from="1637621059599" duration="2703000" />
     </task>
     <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
       <created>1636166152716</created>
@@ -324,9 +302,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added edit profile feature to server. Also implemented the functionality in CLI. Some tests are commented out and need to be redone. Some Javadoc needs to be redone. No memento yet, will push it ASAP" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/kard_server$ProfileUseCasesTest__1_.ic" NAME="ProfileUseCasesTest (1) Coverage Results" MODIFIED="1636169802008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>entity.usecase.*</FILTER>
-    </SUITE>
+    <SUITE FILE_PATH="coverage/kard_server$All_in_kard_server.ic" NAME="All in kard-server Coverage Results" MODIFIED="1636223352732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/kard_server$All_in_course_project_purplemongoose.ic" NAME="All in course-project-purplemongoose Coverage Results" MODIFIED="1636169898069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <EXCLUDED_FILTER>CLI.*</EXCLUDED_FILTER>
       <EXCLUDED_FILTER>controller.*</EXCLUDED_FILTER>
@@ -336,5 +312,8 @@
     </SUITE>
     <SUITE FILE_PATH="coverage/kard_server$All_in_kard_server.ic" NAME="All in kard-server Coverage Results" MODIFIED="1636223352732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/kard_server$AccountUseCasesTest.ic" NAME="AccountUseCasesTest Coverage Results" MODIFIED="1636169488595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/kard_server$ProfileUseCasesTest__1_.ic" NAME="ProfileUseCasesTest (1) Coverage Results" MODIFIED="1636169802008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>entity.usecase.*</FILTER>
+    </SUITE>
   </component>
 </project>

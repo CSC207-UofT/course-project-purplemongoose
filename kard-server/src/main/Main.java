@@ -1,4 +1,5 @@
 import controller.SpringServerController;
+import database.SQLite.SQLiteDataBaseManager;
 
 public class Main {
 
@@ -6,6 +7,9 @@ public class Main {
     public static void main(String[] args) {
         SpringServerController server = new SpringServerController();
         server.start(args);
+
+        // Important to  close all the open databases.
+        SQLiteDataBaseManager.close();
     }
 
 }

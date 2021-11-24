@@ -1,15 +1,17 @@
 package usecase;
 
-import database.AccountGateway;
-import database.ProfileGateway;
+import database.gateway.AccountGateway;
+import database.gateway.ProfileGateway;
 import entity.accounts.Account;
 import entity.accounts.PersonalAccount;
 import entity.profiles.Person;
 import entity.profiles.ProfileType;
 import org.springframework.context.annotation.Profile;
 
+
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.io.IOException;
 import java.util.Set;
 
 /**
@@ -19,8 +21,22 @@ public class AccountUseCases {
     /**
      * Receives input from user interface to initialize parts of the user's account
      */
-    public AccountGateway ag = new AccountGateway();
-    public ProfileGateway pg = new ProfileGateway();
+    private AccountGateway accountGateway;
+    private ProfileGateway profileGateway;
+
+    public AccountUseCases(boolean inMemory) {
+        if (inMemory) {
+            accountGateway = new AccountGateway();
+            profileGateway = new ProfileGateway();
+        } else {
+            try {
+                accountGateway = new AccountGateway("./data/mainframe.db");
+                profileGateway = new ProfileGateway("./data/mainframe.db");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     /**
      * Creates a new personal account and calls the AccountGateway to add it to the database
@@ -33,7 +49,7 @@ public class AccountUseCases {
             return false; // prevent empty fields
         }
         PersonalAccount pu = new PersonalAccount();
-        return this.ag.insertAccountData(username, password, pu);
+        return this.accountGateway.insertAccountData(username, password, pu);
     }
 
     /**
@@ -43,10 +59,10 @@ public class AccountUseCases {
      * @param contactUsername string for the contact's username
      */
     public void addContact(String accountUsername, String contactUsername){
-        Account acc = (Account) ag.getAccountData(accountUsername);
-        Person p = (Person) pg.getProfileData(contactUsername);
+        Account acc = (Account) accountGateway.getAccountData(accountUsername);
+        Person p = (Person) profileGateway.getProfileData(contactUsername);
         acc.addContact(p);
-        ag.updateAccountData(accountUsername, acc);
+        accountGateway.updateAccountData(accountUsername, acc);
     }
 
     /**
@@ -56,10 +72,10 @@ public class AccountUseCases {
      * @param contactUsername string for the contact's username
      */
     public void removeContact(String accountUsername, String contactUsername){
-        Account acc = (Account) ag.getAccountData(accountUsername);
-        Person p = (Person) pg.getProfileData(contactUsername);
+        Account acc = (Account) accountGateway.getAccountData(accountUsername);
+        Person p = (Person) profileGateway.getProfileData(contactUsername);
         acc.removeContact(p);
-        ag.updateAccountData(accountUsername, acc);
+        accountGateway.updateAccountData(accountUsername, acc);
     }
 
     /**
@@ -69,8 +85,8 @@ public class AccountUseCases {
      * @return whether the profile is part of the account's contact list
      */
     public boolean checkForContact(String accountUsername, String contactUsername) {
-        Account acc = (Account) ag.getAccountData(accountUsername);
-        Person p = (Person) pg.getProfileData(contactUsername);
+        Account acc = (Account) accountGateway.getAccountData(accountUsername);
+        Person p = (Person) profileGateway.getProfileData(contactUsername);
         return acc.checkContacts(p);
     }
 

@@ -13,7 +13,7 @@ import response.ShortResponse;
 @RestController
 @RequestMapping("profile")
 public class ProfileController {
-    ProfileUseCases proUC = new ProfileUseCases();
+    ProfileUseCases proUC = new ProfileUseCases(false);
 
     /**
      * Takes in the arguments needed to construct a new personal profile. If a profile already exists, return 'false',
