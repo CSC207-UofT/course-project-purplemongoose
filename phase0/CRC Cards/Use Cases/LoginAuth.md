@@ -7,7 +7,7 @@ N/A
 N/A
 
 ## Responsibilities:
-Compare what the user entered in the login field with the information in the database
+Compare what the user entered in the login field with the information in the gateway
 ## Collaborators:
 - [[Profile(A)]]
 - [[Gateway(I)]]

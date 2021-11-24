@@ -37,8 +37,8 @@ public class AccountController {
     ProfileUseCases proUC;
 
     public AccountController() {
-        this.accUC = new AccountUseCases();
-        this.proUC = new ProfileUseCases();
+        this.accUC = new AccountUseCases(false);
+        this.proUC = new ProfileUseCases(false);
     }
 
     /**
