@@ -5,29 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
-      <change beforePath="$PROJECT_DIR$/../data/data.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard-CLI/src/main/java/CommandLineInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kard-CLI/src/main/java/CommandLineInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controller/AccountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controller/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/controller/SpringServerInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controller/SpringServerInit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/controller/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controller/StartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entity/accounts/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entity/accounts/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entity/datafiles/Phone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entity/datafiles/Phone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entity/profiles/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entity/profiles/Business.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entity/profiles/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entity/profiles/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/request/ContactRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/request/PersonalProfileRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/request/StartRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/response/ResponseContainer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/response/ShortResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/usecase/AccountUseCases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/usecase/AccountUseCases.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/usecase/LoginAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/usecase/LoginAuth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/usecase/ProfileUseCases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/usecase/ProfileUseCases.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/usecase/UUIDGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/util/crypto/CryptoHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/util/crypto/CryptoHash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/util/crypto/SHA256Hash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/util/crypto/SHA256Hash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/usecase/UUIDGeneratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/usecase/UUIDGeneratorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/post/ContactRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dto/ContactRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/post/PersonalProfileRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dto/PersonalProfileRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/post/ResponseContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dto/ResponseContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/post/StartRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dto/StartRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/usecase/AccountUseCases.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/usecase/LoginAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/usecase/start/AuthLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/usecase/ProfileUseCases.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/usecase/LoginAuthTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/usecase/LoginAuthTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +32,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -70,7 +62,6 @@
     <setting file="file://$PROJECT_DIR$/src/main/database/gateway/AccountGateway.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/entity/accounts/CorporateAccount.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/database/gateway/ProfileGateway.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/usecase/AccountUseCases.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/Main.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="20NHUKezy27g1r9RLHqgJiHLBNO" />
@@ -236,6 +227,7 @@
       <workItem from="1637734037485" duration="3149000" />
       <workItem from="1637739969936" duration="18000" />
       <workItem from="1637798085477" duration="46000" />
+      <workItem from="1637798635057" duration="17562000" />
     </task>
     <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
       <created>1636166152716</created>

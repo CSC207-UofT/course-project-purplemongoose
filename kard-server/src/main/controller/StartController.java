@@ -5,16 +5,16 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import usecase.AccountUseCases;
-import usecase.LoginAuth;
-import post.StartRequest;
-import post.ResponseContainer;
+import usecase.account.CreateAccount;
+import usecase.start.AuthLogin;
+import dto.StartRequest;
+import dto.ResponseContainer;
 
 @RestController
 @RequestMapping("/start")
 public class StartController {
-    LoginAuth auth = new LoginAuth(false);
-    AccountUseCases accUseCase = new AccountUseCases(false);
+    AuthLogin auth = new AuthLogin(false);
+    CreateAccount createAccount = new CreateAccount(false);
 
     /**
      * Takes in a StartRequest object and authenticates the information provided. If either the username or password is
@@ -47,7 +47,7 @@ public class StartController {
             produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitSignUp(@RequestBody StartRequest request) {
         ResponseContainer response = new ResponseContainer();
-        if (accUseCase.createNewAccount(request.getAccountUsername(), request.getAccountPassword())) {
+        if (createAccount.newPersonalAccount(request.getAccountUsername(), request.getAccountPassword())) {
             response.add(true);
         } else {
             response.add(false);
@@ -55,5 +55,4 @@ public class StartController {
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-
 }

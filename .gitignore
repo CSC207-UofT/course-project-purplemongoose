@@ -106,10 +106,7 @@ fabric.properties
 
 # idea settings folder
 .idea/misc.xml
-
-# database files
-.data/account.db
-.data/profile.db
+.idea/workspace.xml
 
 # Maven
 target/

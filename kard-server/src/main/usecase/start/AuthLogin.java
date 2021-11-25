@@ -1,4 +1,4 @@
-package usecase;
+package usecase.start;
 
 import database.gateway.AuthenticationGateway;
 
@@ -7,10 +7,10 @@ import java.io.IOException;
 /**
  * This class contains use cases for login authentication
  */
-public class LoginAuth {
+public class AuthLogin {
     private AuthenticationGateway authGateway;
 
-    public LoginAuth(boolean inMemory) {
+    public AuthLogin(boolean inMemory) {
         if (inMemory) {
             authGateway = new AuthenticationGateway();
         } else {
@@ -31,10 +31,6 @@ public class LoginAuth {
      * @return if the password for the username matches the stored password.
      */
     public boolean requestLogin(String username, String password) {
-        if (username.isBlank() || password.isBlank()) {
-            return false; // prevent empty fields
-        } else {
-            return authGateway.authAccountData(username, password);
-        }
+        return authGateway.authAccountData(username, password);
     }
 }

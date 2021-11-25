@@ -454,8 +454,14 @@ public class CommandLineInterface {
      * Print a list of all contacts obtained through user.getContact() with some styling;
      */
     private void displayContacts() {
+        System.out.println("Enter the parameter to sort by [none, name]:");
+        System.out.print("sort by: ");
+        String param = sc.next();
+        System.out.println("Enter the order of the results:");
+        System.out.print("order [ascend, descend]: ");
+        String order = sc.next();
         System.out.println("+-------------------------CONTACTS LIST---------------------------+");
-        System.out.println(submitContactDisplay());
+        System.out.println(submitContactDisplay(param, order));
         System.out.println("+-----------------------------------------------------------------+");
     }
 
@@ -464,9 +470,9 @@ public class CommandLineInterface {
      * list of contacts which are stored in the server.
      * @return a string of the current users contacts, compiled already and ready for display
      */
-    private String submitContactDisplay() {
-        String endpoint = String.format("http://localhost:8082/account/display/contact?username=%s",
-                this.current_username);
+    private String submitContactDisplay(String type, String order) {
+        String endpoint = String.format("http://localhost:8082/account/display/contact?username=%s&type=%s&order=%s",
+                this.current_username, type, order);
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(endpoint))
                 .GET()

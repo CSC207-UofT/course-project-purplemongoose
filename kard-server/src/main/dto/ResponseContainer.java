@@ -1,4 +1,4 @@
-package post;
+package dto;
 
 /**
  * Class that is serialized into a JSON response for the endpoint - only contains one response

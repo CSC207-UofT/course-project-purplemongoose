@@ -6,10 +6,13 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import post.ResponseContainer;
-import usecase.AccountUseCases;
-import usecase.ProfileUseCases;
-import post.ContactRequest;
+import dto.ResponseContainer;
+import dto.ContactRequest;
+import usecase.account.AuthContact;
+import usecase.account.ListContact;
+import usecase.account.ModifyContact;
+import usecase.account.SortByName;
+import usecase.profile.AuthProfile;
 
 
 @RestController
@@ -28,12 +31,16 @@ public class AccountController {
     /**
      * Defines methods for interactions between a user's profile and the other users in their contacts
      */
-    AccountUseCases accUC;
-    ProfileUseCases proUC;
+    AuthContact authContact;
+    AuthProfile authProfile;
+    ModifyContact modifyContact;
+    ListContact listContact;
 
     public AccountController() {
-        this.accUC = new AccountUseCases(false);
-        this.proUC = new ProfileUseCases(false);
+        this.authContact = new AuthContact(false);
+        this.authProfile = new AuthProfile(false);
+        this.modifyContact = new ModifyContact(false);
+        this.listContact = new ListContact(false);
     }
 
     /**
@@ -52,14 +59,14 @@ public class AccountController {
             produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitContactAddition(@RequestBody ContactRequest request) {
         ResponseContainer response = new ResponseContainer();
-        if (!proUC.checkForProfile(request.getContactUsername())) {
+        if (!authProfile.checkForProfile(request.getContactUsername())) {
             response.add(false);
             response.setError("15"); // if the username does not correspond to a profile
-        } else if (accUC.checkForContact(request.getAccountUsername(), request.getContactUsername())){
+        } else if (authContact.checkForContact(request.getAccountUsername(), request.getContactUsername())){
             response.add(false);
             response.setError("16"); // if the profile is already a contact
         } else {
-            accUC.addContact(request.getAccountUsername(), request.getContactUsername());
+            modifyContact.addContact(request.getAccountUsername(), request.getContactUsername());
             response.add(true);
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
@@ -81,31 +88,41 @@ public class AccountController {
             produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitContactRemoval(@RequestBody ContactRequest request) {
         ResponseContainer response = new ResponseContainer();
-        if (!proUC.checkForProfile(request.getContactUsername())) {
+        if (!authProfile.checkForProfile(request.getContactUsername())) {
             response.add(false);
             response.setError("15"); // if the username does not correspond to a profile
-        } else if (!accUC.checkForContact(request.getAccountUsername(), request.getContactUsername())){
+        } else if (!authContact.checkForContact(request.getAccountUsername(), request.getContactUsername())){
             response.add(false);
             response.setError("17"); // if the profile is not a contact
         } else {
-            accUC.removeContact(request.getAccountUsername(), request.getContactUsername());
+            modifyContact.removeContact(request.getAccountUsername(), request.getContactUsername());
             response.add(true);
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     /**
-     * Returns all profiles in the contact list of an account.
+     * Returns all profiles in the contact list of an account in either ascending or descending order
      *
      * @param accountUsername a string containing the account username to display the contacts for
+     * @param param the parameter to sort by
+     * @param order a string containing the order of the sort (ascending or descending)
      * @return Return a JSON object containing all the contacts and an HTTP status code.
      */
     @GetMapping(path="/display/contact", produces=MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResponseContainer> submitContactDisplay(@RequestParam(name="username") String accountUsername) {
+    public ResponseEntity<ResponseContainer> submitContactDisplay(
+            @RequestParam(name="username") String accountUsername, @RequestParam(name="type") String param,
+            @RequestParam(name="order") String order) {
         ResponseContainer response = new ResponseContainer();
-        ProfileType[] contacts = accUC.getContacts(accountUsername);
+        ProfileType[] contacts = new ProfileType[0];
+        if (param.equals("none")) {
+            contacts = listContact.getContacts(accountUsername);
+        }
+        else if (param.equals("name")) {
+            listContact.setSorter(new SortByName());
+            contacts = listContact.getSortedContacts(accountUsername, order);
+        }
         response.add(contacts);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-
 }

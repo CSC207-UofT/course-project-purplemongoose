@@ -5,14 +5,16 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import usecase.ProfileUseCases;
-import post.PersonalProfileRequest;
-import post.ResponseContainer;
+import dto.PersonalProfileRequest;
+import dto.ResponseContainer;
+import usecase.profile.CreateProfile;
+import usecase.profile.UpdateProfile;
 
 @RestController
 @RequestMapping("profile")
 public class ProfileController {
-    ProfileUseCases proUC = new ProfileUseCases(false);
+    CreateProfile createProfile = new CreateProfile(false);
+    UpdateProfile updateProfile = new UpdateProfile(false);
 
     /**
      * Takes in the arguments needed to construct a new personal profile. If a profile already exists, return 'false',
@@ -25,7 +27,7 @@ public class ProfileController {
     @PostMapping(path="/new", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitNewPersonalProfile(@RequestBody PersonalProfileRequest request) {
         ResponseContainer response = new ResponseContainer();
-        if (proUC.createNewPerson(request.getAccountUsername(), request.getFirstName(), request.getLastName(),
+        if (createProfile.newPerson(request.getAccountUsername(), request.getFirstName(), request.getLastName(),
                 request.getPronoun(), request.getTitle(), request.getPhone(), request.getEmail())) {
             response.add(true);
         } else {
@@ -54,9 +56,9 @@ public class ProfileController {
      * @return return a ResponseEntity which contains a 'true'/'false' response and an HTTP status code
      */
     @PostMapping(path="/edit", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResponseContainer> submitProfileUpdate(@RequestBody PersonalProfileRequest request) {
+    public ResponseEntity<ResponseContainer> submitPersonProfileUpdate(@RequestBody PersonalProfileRequest request) {
         ResponseContainer response = new ResponseContainer();
-        if (proUC.updatePersonProfile(request.getAccountUsername(), request.getFirstName(), request.getLastName(),
+        if (updateProfile.updatePersonProfile(request.getAccountUsername(), request.getFirstName(), request.getLastName(),
                 request.getPronoun(), request.getTitle(), request.getPhone(), request.getEmail())) {
             response.add(true);
         } else {

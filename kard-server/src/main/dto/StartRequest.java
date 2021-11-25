@@ -1,12 +1,12 @@
-package post;
+package dto;
 
 /**
  * Class which some JSON objects are serialized into from HTTP POST or GET requests. This one in particular contains
- * the account's username and the contact's username.
+ * the account's username and password for login or signup.
  */
-public class ContactRequest {
+public class StartRequest {
     public String accountUsername;
-    public String contactUsername;
+    public String accountPassword; // should be hashed already
 
     /**
      * Getter for the account username
@@ -17,10 +17,10 @@ public class ContactRequest {
     }
 
     /**
-     * Getter for the contact username
-     * @return the contact username
+     * Getter for the account password
+     * @return the account password
      */
-    public String getContactUsername() {
-        return contactUsername;
+    public String getAccountPassword() {
+        return accountPassword;
     }
 }

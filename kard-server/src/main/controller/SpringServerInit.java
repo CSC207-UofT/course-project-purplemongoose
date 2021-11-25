@@ -15,6 +15,5 @@ public class SpringServerInit {
     public void start(String[] args) {
         SpringApplication.run(SpringServerInit.class, args);
     }
-
 }
 
