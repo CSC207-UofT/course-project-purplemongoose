@@ -65,6 +65,14 @@ public class Name implements Serializable {
 
     // The getters
 
+    public String getFirst(){
+        return first;
+    }
+
+    public String getLast(){
+        return last;
+    }
+
     /**
      * Get the users full name
      *

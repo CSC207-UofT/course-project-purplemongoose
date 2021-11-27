@@ -14,7 +14,8 @@ public class SQLiteCreateProfilesTableStatement extends SQLiteStatement {
         super("""
                         CREATE TABLE IF NOT EXISTS "profiles" (
                         	"username"  TEXT NOT NULL UNIQUE,
-                        	"profile"   BLOB
+                        	"profile"   BLOB,
+                        	"memento"   BLOB
                         );""");
     }
 }

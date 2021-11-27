@@ -15,10 +15,10 @@ public class Person implements ProfileType, Serializable {
      */
     @Serial
     private static final long serialVersionUID = 6529685098267757690L;
-    private final Name name;
-    private final Phone phone;
-    private final Email email;
-    private final String username;
+    private Name name;
+    private Phone phone;
+    private Email email;
+    private String username;
 
 
     public Person(Name name, Phone phone, Email email, String username) {
@@ -63,5 +63,18 @@ public class Person implements ProfileType, Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(name, phone, email, username);
+    }
+
+    public PersonMemento createMemento(){
+        return new PersonMemento(this.name, this.phone, this.email, this.username);
+    }
+
+    public void restore(PersonMemento memento){
+        if (memento != null){
+            this.name = memento.getOriginalName();
+            this.phone = new Phone(memento.getPhone());
+            this.email = new Email(memento.getEmail());
+            this.username = memento.getUsername();
+        }
     }
 }

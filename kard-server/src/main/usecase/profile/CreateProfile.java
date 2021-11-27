@@ -4,6 +4,7 @@ import database.gateway.ProfileGateway;
 import entity.datafiles.Email;
 import entity.datafiles.Name;
 import entity.datafiles.Phone;
+import entity.profiles.MementoManager;
 import entity.profiles.Organization;
 import entity.profiles.Person;
 
@@ -43,7 +44,9 @@ public class CreateProfile {
         Phone p = new Phone(phone);
         Email e = new Email(email);
         Person person = new Person(n, p, e, accountUsername);
-        return profileGateway.addProfileData(accountUsername, person);
+        MementoManager caretaker = new MementoManager();
+        caretaker.addPersonalMemento(n, p, e, accountUsername);
+        return profileGateway.addProfileData(accountUsername, person, caretaker);
     }
 
     /**
@@ -60,6 +63,8 @@ public class CreateProfile {
         Phone p = new Phone(phone);
         Email e = new Email(email);
         Organization org = new Organization(name, p, e, accountUsername);
-        return profileGateway.addProfileData(accountUsername, org);
+        MementoManager caretaker = new MementoManager();
+        caretaker.addOrganizationMemento(name, p, e, accountUsername);
+        return profileGateway.addProfileData(accountUsername, org, caretaker);
     }
 }
