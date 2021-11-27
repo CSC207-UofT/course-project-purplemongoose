@@ -1,3 +1,5 @@
+# kard
+
 ## Contents
 
  - [Git Setup](#git-setup)
@@ -14,9 +16,8 @@
 
  > Note that there is a directory called 'kard' which currently houses a work in progress re-tool or 'kard_project_test'. Please ignore it for phase 1 as it is very preliminary. We meant to keep it on a branch, however due to a mistake in a push, it got merged to main.
 
- ## Roadmap
-
- Last updated October 21, 2021
+ ## Framework and Technologies
+ 
  This project is written primarily in Java and developed in the IDE: [IntelliJ](https://www.jetbrains.com/idea/)
 
  Unit tests are written with [Junit5.7](https://junit.org/junit5/) 
@@ -26,6 +27,7 @@
  ## Project Phases
 
  Project [Phase 0](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/phase0)
+ 
  Project [Phase 1](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/phase1)
 
  ## Authors
