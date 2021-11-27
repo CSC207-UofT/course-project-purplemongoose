@@ -1,4 +1,4 @@
-package controller;
+package spring.controller;
 
 import entity.profiles.ProfileType;
 import org.springframework.http.HttpStatus;

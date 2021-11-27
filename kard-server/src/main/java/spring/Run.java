@@ -1,10 +1,10 @@
-package controller;
+package spring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringServerInit {
+public class Run {
 
     /**
      * Start the HTTP server for handling communication between the back end of the
@@ -12,8 +12,8 @@ public class SpringServerInit {
      *
      * @param args array of string arguments
      */
-    public void start(String[] args) {
-        SpringApplication.run(SpringServerInit.class, args);
+    public static void main(String[] args) {
+        SpringApplication.run(Run.class, args);
     }
 }
 

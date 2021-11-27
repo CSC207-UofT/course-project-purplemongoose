@@ -105,8 +105,7 @@ fabric.properties
 .obsidian
 
 # idea settings folder
-.idea/misc.xml
-.idea/workspace.xml
+.idea
 
 # Maven
-target/
+target
