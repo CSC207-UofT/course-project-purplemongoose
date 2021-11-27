@@ -93,7 +93,7 @@ public class CommandLineInterface {
      * @return code of response that indicates if the login was successful, returns the status code of the response
      */
     private String submitLogin(String username, String password){
-        String endpoint = "http://localhost:8082/start/login/";
+        String endpoint = "http://cloud.arthurgao.ca:9082/start/login/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," +
                         "\"accountPassword\":\"%s\"}",
                 username, password);
@@ -158,7 +158,7 @@ public class CommandLineInterface {
      * @return code of response that indicates if the sign up was successful, returns the status code of the response
      */
     private String submitSignUp(String username, String password){
-        String endpoint = "http://localhost:8082/start/signup/";
+        String endpoint = "http://cloud.arthurgao.ca:9082/start/signup/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," +
                         "\"accountPassword\":\"%s\"}",
                 username, password);
@@ -244,7 +244,7 @@ public class CommandLineInterface {
     }
 
     private String submitProfileUpdate(String first, String last, String pronoun, String title, String phone, String email) {
-        String endpoint = "http://localhost:8082/profile/edit/";
+        String endpoint = "http://cloud.arthurgao.ca:9082/profile/edit/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," + "\"firstName\":\"%s\","
                         + "\"lastName\":\"%s\","+ "\"title\":\"%s\","+ "\"pronoun\":\"%s\","
                         + "\"phone\":\"%s\"," + "\"email\":\"%s\"}",
@@ -298,7 +298,7 @@ public class CommandLineInterface {
     }
 
     private String submitProfileCreation(String first, String last, String title, String pronoun, String phone, String email) {
-        String endpoint = "http://localhost:8082/profile/new/";
+        String endpoint = "http://cloud.arthurgao.ca:9082/profile/new/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," + "\"firstName\":\"%s\","
                         + "\"lastName\":\"%s\","+ "\"title\":\"%s\","+ "\"pronoun\":\"%s\","
                         + "\"phone\":\"%s\"," + "\"email\":\"%s\"}",
@@ -369,7 +369,7 @@ public class CommandLineInterface {
      * @return status code of response that indicates if the contact addition was successful
      */
     private String submitContactAddition(String input){
-        String endpoint = "http://localhost:8082/account/add/contact/";
+        String endpoint = "http://cloud.arthurgao.ca:9082/account/add/contact/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," +
                         "\"contactUsername\":\"%s\"}",
                 this.current_username, input);
@@ -430,7 +430,7 @@ public class CommandLineInterface {
      * @return status code of response that indicates if the contact removal was successful
      */
     private String submitContactRemoval(String input) {
-        String endpoint = "http://localhost:8082/account/remove/contact/";
+        String endpoint = "http://cloud.arthurgao.ca:9082/account/remove/contact/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," +
                         "\"contactUsername\":\"%s\"}",
                 this.current_username, input);
@@ -471,7 +471,7 @@ public class CommandLineInterface {
      * @return a string of the current users contacts, compiled already and ready for display
      */
     private String submitContactDisplay(String type, String order) {
-        String endpoint = String.format("http://localhost:8082/account/display/contact?username=%s&type=%s&order=%s",
+        String endpoint = String.format("http://cloud.arthurgao.ca:9082/account/display/contact?username=%s&type=%s&order=%s",
                 this.current_username, type, order);
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(endpoint))
