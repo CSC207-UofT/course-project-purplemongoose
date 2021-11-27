@@ -5,72 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/kard-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kard-server.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/controller/SpringServerInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/Run.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/controller/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/StartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/SQLiteDataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBaseFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/SQLiteDataBaseFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/SQLiteDataBaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/SQLiteDataBaseMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/SQLiteDataBaseMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/arguments/SQLiteArg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/arguments/SQLiteArg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/arguments/SQLiteSerializableArg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/arguments/SQLiteSerializableArg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/arguments/SQLiteStringArg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/arguments/SQLiteStringArg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteAccountDataQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteAccountDataQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteAddAccountStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteAddAccountStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteAddProfileStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteAddProfileStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteCreateAccountsTableStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteCreateAccountsTableStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteCreateProfilesTableStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteCreateProfilesTableStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLitePasswordQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLitePasswordQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteProfileDataQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteProfileDataQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteRemoveAccountStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteRemoveAccountStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteRemoveProfileStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteRemoveProfileStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteUpdateAccountStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteUpdateAccountStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/commands/SQLiteUpdateProfileStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteUpdateProfileStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/helpers/SQLiteDataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/helpers/SQLiteDataBaseHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/SQLite/helpers/SQLiteDataBaseHelperMainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/helpers/SQLiteDataBaseHelperMainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/gateway/AccountGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/gateway/AccountGateway.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/gateway/AuthenticationGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/gateway/AuthenticationGateway.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/gateway/DatabaseGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/gateway/DatabaseGateway.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/gateway/ProfileGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/gateway/ProfileGateway.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dto/ContactRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/ContactRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dto/PersonalProfileRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/PersonalProfileRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dto/ResponseContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/ResponseContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dto/StartRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/StartRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entity/accounts/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/accounts/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entity/accounts/Connections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/accounts/Connections.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entity/accounts/CorporateAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/accounts/CorporateAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entity/accounts/PersonalAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/accounts/PersonalAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entity/datafiles/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/datafiles/Email.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entity/datafiles/Name.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/datafiles/Name.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entity/datafiles/Phone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/datafiles/Phone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entity/profiles/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/Business.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entity/profiles/Organization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/Organization.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entity/profiles/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entity/profiles/ProfileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/ProfileType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/usecase/account/AuthContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/account/AuthContact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/usecase/account/CreateAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/account/CreateAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/usecase/account/DeleteAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/account/DeleteAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/usecase/account/ListContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/account/ListContact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/usecase/account/ModifyContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/account/ModifyContact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/usecase/account/SortBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/account/SortBehavior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/usecase/account/SortByName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/account/SortByName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/usecase/profile/AuthProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/AuthProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/usecase/profile/CreateProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/CreateProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/usecase/profile/DeleteProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/DeleteProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/usecase/profile/UpdateProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/UpdateProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/usecase/start/AuthLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/start/AuthLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/util/BytesSerializerDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/BytesSerializerDeserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/util/UUIDGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/UUIDGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/util/crypto/CryptoHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/crypto/CryptoHash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/util/crypto/SHA256Hash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/crypto/SHA256Hash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +26,7 @@
         <option value="JUnit5 Test Class" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -122,6 +63,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -150,6 +92,7 @@
       <recent name="database.SQLite.commands" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main" />
       <recent name="$PROJECT_DIR$/src/main/java" />
       <recent name="$PROJECT_DIR$/../temp_holder" />
       <recent name="$PROJECT_DIR$/kard-server" />
@@ -168,23 +111,10 @@
       <recent name="usecase" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.Run">
+  <component name="RunManager" selected="JAR Application.course-project-purplemongoose-1.0-SNAPSHOT.jar">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="kard-server" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SQLiteDataBaseHelperMainFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="database.SQLite.helpers.SQLiteDataBaseHelperMainFrame" />
-      <module name="kard-server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="database.SQLite.helpers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -204,6 +134,10 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="course-project-purplemongoose-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/course-project-purplemongoose-1.0-SNAPSHOT.jar" />
+      <method v="2" />
     </configuration>
     <configuration name="KardServer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="kard-server" />
@@ -233,18 +167,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.SQLiteDataBaseHelperMainFrame" />
       <item itemvalue="JUnit.SHA256HashTest.testSame" />
       <item itemvalue="Spring Boot.KardServer" />
       <item itemvalue="Spring Boot.Run" />
+      <item itemvalue="JAR Application.course-project-purplemongoose-1.0-SNAPSHOT.jar" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.course-project-purplemongoose-1.0-SNAPSHOT.jar" />
         <item itemvalue="Spring Boot.Run" />
         <item itemvalue="Spring Boot.KardServer" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.SHA256HashTest.testSame" />
-        <item itemvalue="Application.SQLiteDataBaseHelperMainFrame" />
       </list>
     </recent_temporary>
   </component>
@@ -288,6 +222,7 @@
       <workItem from="1637739969936" duration="18000" />
       <workItem from="1637798085477" duration="46000" />
       <workItem from="1637798635057" duration="17562000" />
+      <workItem from="1638036963510" duration="2575000" />
     </task>
     <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
       <created>1636166152716</created>
