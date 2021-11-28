@@ -6,25 +6,26 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import usecase.start.AuthLogin;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * A class for testing the LoginAuth class
  *
- * @see LoginAuth
+ * @see AuthLogin
  */
 
 class LoginAuthTest {
 
-    LoginAuth loginAuth;
+    AuthLogin loginAuth;
 
     @BeforeEach
     void setUp() {
         AccountGateway ag = new AccountGateway();
         PersonalAccount account = new PersonalAccount();
         ag.insertAccountData("spongebob", "patrick123", account);
-        this.loginAuth = new LoginAuth(false);
+        this.loginAuth = new AuthLogin(false);
     }
 
     @AfterEach

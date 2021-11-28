@@ -2,9 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kard_project_test/sign_up_page.dart';
 import 'package:kard_project_test/user.dart';
-import 'package:http/http.dart' as http;
 
 import 'home_page.dart';
 

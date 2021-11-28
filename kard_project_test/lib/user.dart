@@ -3,6 +3,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:http/http.dart' as http;
+import 'package:kard_project_test/user_builder.dart';
 
 /* Deprecated given new implementation of backend server
    Code is being saved for future reference
@@ -51,7 +52,7 @@ Future<bool> connectUser(String username, String password) async {
   String body = json.encode(data);
 
   http.Response response = await http.post(
-    Uri.parse('http://localhost:8082/start/login'),
+    Uri.parse('http://' + Constants.address + '/start/login'),
     headers: {"Content-Type": "application/json"},
     body: body,
   );
@@ -81,6 +82,5 @@ class User {
 
   User.fromJson(Map<String, dynamic> json):
         loginSuccess = json['login'];
-
 
 }

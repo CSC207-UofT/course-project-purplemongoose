@@ -105,11 +105,7 @@ fabric.properties
 .obsidian
 
 # idea settings folder
-.idea/misc.xml
-
-# database files
-.data/account.db
-.data/profile.db
+.idea
 
 # Maven
-target/
+target
