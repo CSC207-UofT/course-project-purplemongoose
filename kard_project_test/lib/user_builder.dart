@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 class Constants {
 
-  static const String address = "localhost:8082";
+  static const String address = "10.0.1.137:8082";
 
   static String _currentUser = "";
 
@@ -52,7 +52,7 @@ class UserBuilder {
     email = value;
   }
 
-  void initializeProfile() async {
+  static void initializeProfile() async {
 
     Map data = {
       'accountUsername' : Constants.getCurrentUser(),

@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
-      <change afterPath="$PROJECT_DIR$/../kard_project_test/lib/profile_setup_one.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kard_project_test/lib/user_builder.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kard_project_test/lib/profile_setup_three.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kard_project_test/lib/profile_setup_two.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/sign_in.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/sign_in.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/sign_up_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/sign_up_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/profile_setup_one.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/profile_setup_one.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/user_builder.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/user_builder.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,16 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kard_project_test/profile_setup_two.dart';
+import 'package:kard_project_test/profile_setup_three.dart';
+import 'package:kard_project_test/sign_in.dart';
+import 'package:kard_project_test/sign_up_page.dart';
 import 'package:kard_project_test/user_builder.dart';
 
-class ProfileSetupOne extends StatefulWidget {
-  const ProfileSetupOne({Key? key}) : super(key: key);
+class ProfileSetupTwo extends StatefulWidget {
+  const ProfileSetupTwo({Key? key}) : super(key: key);
 
   @override
-  _ProfileSetupOne createState() => _ProfileSetupOne();
+  _ProfileSetupTwo createState() => _ProfileSetupTwo();
 }
 
-class _ProfileSetupOne extends State<ProfileSetupOne> {
+class _ProfileSetupTwo extends State<ProfileSetupTwo> {
 
   final _formKey = GlobalKey<FormState>();
 
@@ -41,15 +43,15 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          _firstNameField(),
-          _lastNameField(),
-          _next()
+          _titleField(),
+          _pronounField(),
+          _buttons()
         ],
       ),
     );
   }
 
-  Widget _firstNameField () {
+  Widget _titleField () {
     return Padding(
       padding: const EdgeInsets.only(
           left: 50,
@@ -58,13 +60,9 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
           top: 10)
       ,
       child: TextFormField(
-        validator: (value) {
-          return value == null||value.isEmpty?
-          "First name cannot be empty" : null;
-        },
 
         //TODO fix this fucking thing. It's fucking disgusting
-        onSaved: (value) => UserBuilder.firstName = value ?? '',
+        onSaved: (value) => UserBuilder.title = value ?? '',
 
         style: const TextStyle(
           color: Colors.black,
@@ -74,7 +72,7 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
         cursorColor: Colors.black,
 
         decoration: const InputDecoration(
-            hintText: 'First Name',
+            hintText: 'Title',
             hintStyle: TextStyle(color: Colors.black26),
             border: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.black)
@@ -87,7 +85,7 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
     );
   }
 
-  Widget _lastNameField () {
+  Widget _pronounField () {
     return Padding(
       padding: const EdgeInsets.only(
           left: 50,
@@ -98,7 +96,7 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
       child: TextFormField(
 
         //TODO fix this fucking thing. It's fucking disgusting
-        onSaved: (value) => UserBuilder.lastName = value ?? '',
+        onSaved: (value) => UserBuilder.pronoun = value ?? '',
 
         style: const TextStyle(
           color: Colors.black,
@@ -108,7 +106,7 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
         cursorColor: Colors.black,
 
         decoration: const InputDecoration(
-            hintText: 'Last Name',
+            hintText: 'Pronoun',
             hintStyle: TextStyle(color: Colors.black26),
             border: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.black)
@@ -121,31 +119,49 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
     );
   }
 
-  Widget _next() {
+  Widget _buttons() {
     return Padding(
-        padding: const EdgeInsets.only(
-            left: 50,
-            right: 50,
-            bottom: 10),
+      padding: const EdgeInsets.only(
+          left: 50,
+          right: 50,
+          bottom: 10),
 
-        child: Row(children: [
+      child: Row(
+        children: <Widget>[
           Expanded(
-            flex: 10,
+              flex: 4,
+
+              child: OutlinedButton(
+                onPressed: (){
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ProfileSetupThree()));
+                },
+                child: const Text('Skip'),
+              )
+          ),
+          Expanded(
+            flex: 1,
+
+            child: Container(),
+          ),
+          Expanded(
+            flex: 4,
+
             child: ElevatedButton(
               onPressed: (){
-                if (_formKey.currentState!.validate()) {
-
-                  _formKey.currentState!.save();
-
+                _formKey.currentState!.save();
+                if (UserBuilder.pronoun != "" ||
+                    UserBuilder.title != "") {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) =>
-                      const ProfileSetupTwo()));
+                      MaterialPageRoute(builder: (context) => ProfileSetupThree()));
                 }
               },
               child: const Text('Next'),
             ),
           )
-        ],)
+        ],
+      ),
+
     );
   }
 
@@ -159,13 +175,14 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
                 flex: 1,
                 child: Container()
             ),
-            const Flexible(
+            Flexible(
                 flex: 5,
                 child: FittedBox(
                   fit: BoxFit.contain,
                   child: Text(
-                      'Welcome to kard.',
-                      style: TextStyle(fontSize: 400.0)
+                    // TODO name is showing up wrong
+                      'Hi! ' + UserBuilder.firstName,
+                      style: const TextStyle(fontSize: 400.0)
                   ),
                 )
             ),
@@ -193,7 +210,7 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
                 child: FittedBox(
                   fit: BoxFit.contain,
                   child: Text(
-                      'Please enter your name',
+                      'Please enter your preferred pronoun and title',
                       style: TextStyle(fontSize: 400.0)
                   ),
                 )

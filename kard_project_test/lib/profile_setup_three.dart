@@ -1,16 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kard_project_test/profile_setup_two.dart';
+import 'package:kard_project_test/sign_in.dart';
+import 'package:kard_project_test/sign_up_page.dart';
 import 'package:kard_project_test/user_builder.dart';
 
-class ProfileSetupOne extends StatefulWidget {
-  const ProfileSetupOne({Key? key}) : super(key: key);
+class ProfileSetupThree extends StatefulWidget {
+  const ProfileSetupThree({Key? key}) : super(key: key);
 
   @override
-  _ProfileSetupOne createState() => _ProfileSetupOne();
+  _ProfileSetupThree createState() => _ProfileSetupThree();
 }
 
-class _ProfileSetupOne extends State<ProfileSetupOne> {
+class _ProfileSetupThree extends State<ProfileSetupThree> {
 
   final _formKey = GlobalKey<FormState>();
 
@@ -41,15 +42,15 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          _firstNameField(),
-          _lastNameField(),
-          _next()
+          _phoneField(),
+          _emailField(),
+          _buttons()
         ],
       ),
     );
   }
 
-  Widget _firstNameField () {
+  Widget _phoneField () {
     return Padding(
       padding: const EdgeInsets.only(
           left: 50,
@@ -58,13 +59,9 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
           top: 10)
       ,
       child: TextFormField(
-        validator: (value) {
-          return value == null||value.isEmpty?
-          "First name cannot be empty" : null;
-        },
 
         //TODO fix this fucking thing. It's fucking disgusting
-        onSaved: (value) => UserBuilder.firstName = value ?? '',
+        onSaved: (value) => UserBuilder.phone = value ?? '',
 
         style: const TextStyle(
           color: Colors.black,
@@ -74,7 +71,7 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
         cursorColor: Colors.black,
 
         decoration: const InputDecoration(
-            hintText: 'First Name',
+            hintText: 'Phone',
             hintStyle: TextStyle(color: Colors.black26),
             border: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.black)
@@ -87,7 +84,7 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
     );
   }
 
-  Widget _lastNameField () {
+  Widget _emailField () {
     return Padding(
       padding: const EdgeInsets.only(
           left: 50,
@@ -98,7 +95,7 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
       child: TextFormField(
 
         //TODO fix this fucking thing. It's fucking disgusting
-        onSaved: (value) => UserBuilder.lastName = value ?? '',
+        onSaved: (value) => UserBuilder.email = value ?? '',
 
         style: const TextStyle(
           color: Colors.black,
@@ -108,7 +105,7 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
         cursorColor: Colors.black,
 
         decoration: const InputDecoration(
-            hintText: 'Last Name',
+            hintText: 'Email',
             hintStyle: TextStyle(color: Colors.black26),
             border: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.black)
@@ -121,31 +118,51 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
     );
   }
 
-  Widget _next() {
+  Widget _buttons() {
     return Padding(
-        padding: const EdgeInsets.only(
-            left: 50,
-            right: 50,
-            bottom: 10),
+      padding: const EdgeInsets.only(
+          left: 50,
+          right: 50,
+          bottom: 10),
 
-        child: Row(children: [
+      child: Row(
+        children: <Widget>[
           Expanded(
-            flex: 10,
+              flex: 4,
+
+              child: OutlinedButton(
+                onPressed: (){
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => SignUp()));
+                  UserBuilder.initializeProfile();
+                },
+                child: const Text('Skip'),
+              )
+          ),
+          Expanded(
+            flex: 1,
+
+            child: Container(),
+          ),
+          Expanded(
+            flex: 4,
+
             child: ElevatedButton(
               onPressed: (){
-                if (_formKey.currentState!.validate()) {
-
-                  _formKey.currentState!.save();
-
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) =>
-                      const ProfileSetupTwo()));
+                _formKey.currentState!.save();
+                if (UserBuilder.phone != "" ||
+                    UserBuilder.email != "") {
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => LoginPage()));
+                  UserBuilder.initializeProfile();
                 }
               },
               child: const Text('Next'),
             ),
           )
-        ],)
+        ],
+      ),
+
     );
   }
 
@@ -159,13 +176,14 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
                 flex: 1,
                 child: Container()
             ),
-            const Flexible(
+            Flexible(
                 flex: 5,
                 child: FittedBox(
                   fit: BoxFit.contain,
                   child: Text(
-                      'Welcome to kard.',
-                      style: TextStyle(fontSize: 400.0)
+                    // TODO name is showing up wrong
+                      'Hi! ' + UserBuilder.firstName,
+                      style: const TextStyle(fontSize: 400.0)
                   ),
                 )
             ),
@@ -193,7 +211,7 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
                 child: FittedBox(
                   fit: BoxFit.contain,
                   child: Text(
-                      'Please enter your name',
+                      'Final Step! \nWhat is your phone number and email?',
                       style: TextStyle(fontSize: 400.0)
                   ),
                 )
