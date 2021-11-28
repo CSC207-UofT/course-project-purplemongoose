@@ -3,10 +3,9 @@ package database.gateway;
 import database.SQLite.commands.*;
 import database.SQLite.helpers.SQLiteDataBaseHelperMainFrame;
 import entity.profiles.ProfileType;
+import entity.profiles.MementoManager;
 
-import java.io.File;
 import java.io.IOException;
-import java.sql.*;
 
 public class ProfileGateway extends DatabaseGateway<SQLiteDataBaseHelperMainFrame> {
     /**
@@ -40,15 +39,28 @@ public class ProfileGateway extends DatabaseGateway<SQLiteDataBaseHelperMainFram
     }
 
     /**
+     * Fetch the profile memento data corresponding to the username.
+     *
+     * @param username the username of the user to fetch data from.
+     * @return The profile data for the user.
+     */
+    public MementoManager getMementoData(String username) {
+        SQLiteMementoQuery mementoQuery = new SQLiteMementoQuery(username);
+        this.dbHelper.executeStatement(mementoQuery);
+
+        return mementoQuery.getMemento();
+    }
+
+    /**
      * Add a profile to the mainframe database.
      *
      * @param username the username for the profile.
      * @param profile the profile object.
      * @return whether the profile could be successfully added.
      */
-    public boolean addProfileData(String username, ProfileType profile) {
+    public boolean addProfileData(String username, ProfileType profile, MementoManager memento) {
         return this.dbHelper.executeStatement(
-                new SQLiteAddProfileStatement(username, profile)
+                new SQLiteAddProfileStatement(username, profile, memento)
         );
     }
 
@@ -59,10 +71,11 @@ public class ProfileGateway extends DatabaseGateway<SQLiteDataBaseHelperMainFram
      * @param profile the profile to update to.
      * @return whether the profile could be successfully updated.
      */
-    public boolean updateProfileData(String username, ProfileType profile) {
+    public boolean updateProfileData(String username, ProfileType profile, MementoManager memento) {
         return this.dbHelper.executeStatement(new SQLiteUpdateProfileStatement(
                 username,
-                profile
+                profile,
+                memento
         ));
     }
 

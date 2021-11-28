@@ -5,9 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kard-CLI/src/main/java/Request.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteMementoQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/Memento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/MementoManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/OrganizationMemento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/PersonMemento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/ViewProfile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/ViewProfileMemento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../kard-CLI/src/main/java/CommandLineInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kard-CLI/src/main/java/CommandLineInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kard-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kard-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_5_5.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteAddProfileStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteAddProfileStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteCreateProfilesTableStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteCreateProfilesTableStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteUpdateProfileStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteUpdateProfileStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/gateway/ProfileGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/gateway/ProfileGateway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/PersonalProfileRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/PersonalProfileRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/datafiles/Name.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/datafiles/Name.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/profiles/Organization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/Organization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/profiles/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/profiles/ProfileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/ProfileType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/profile/CreateProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/CreateProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/profile/DeleteProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/DeleteProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/profile/UpdateProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/UpdateProfile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,10 +122,11 @@
       <recent name="database.SQLite.commands" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/usecase/profile" />
+      <recent name="$PROJECT_DIR$/src/main/java/database/SQLite/commands" />
+      <recent name="$PROJECT_DIR$/src/main/java/entity/profiles" />
       <recent name="$PROJECT_DIR$/src/main" />
       <recent name="$PROJECT_DIR$/src/main/java" />
-      <recent name="$PROJECT_DIR$/../temp_holder" />
-      <recent name="$PROJECT_DIR$/kard-server" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -112,7 +142,7 @@
       <recent name="usecase" />
     </key>
   </component>
-  <component name="RunManager" selected="JAR Application.course-project-purplemongoose-1.0-SNAPSHOT.jar">
+  <component name="RunManager" selected="Spring Boot.Run">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="kard-server" />
@@ -168,15 +198,15 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="JAR Application.course-project-purplemongoose-1.0-SNAPSHOT.jar" />
       <item itemvalue="JUnit.SHA256HashTest.testSame" />
       <item itemvalue="Spring Boot.KardServer" />
       <item itemvalue="Spring Boot.Run" />
-      <item itemvalue="JAR Application.course-project-purplemongoose-1.0-SNAPSHOT.jar" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.course-project-purplemongoose-1.0-SNAPSHOT.jar" />
         <item itemvalue="Spring Boot.Run" />
+        <item itemvalue="JAR Application.course-project-purplemongoose-1.0-SNAPSHOT.jar" />
         <item itemvalue="Spring Boot.KardServer" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.SHA256HashTest.testSame" />
@@ -224,6 +254,7 @@
       <workItem from="1637798085477" duration="46000" />
       <workItem from="1637798635057" duration="17562000" />
       <workItem from="1638036963510" duration="8097000" />
+      <workItem from="1638064643369" duration="1363000" />
     </task>
     <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
       <created>1636166152716</created>

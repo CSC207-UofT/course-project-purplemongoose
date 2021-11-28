@@ -4,6 +4,7 @@ import database.gateway.ProfileGateway;
 import entity.datafiles.Email;
 import entity.datafiles.Name;
 import entity.datafiles.Phone;
+import entity.profiles.MementoManager;
 import entity.profiles.Person;
 
 import java.io.IOException;
@@ -44,7 +45,9 @@ public class UpdateProfile {
             Phone p = new Phone(phone);
             Email e = new Email(email);
             Person person = new Person(n, p, e, profileUsername);
-            return profileGateway.updateProfileData(profileUsername, person);
+            MementoManager memento = profileGateway.getMementoData(profileUsername);
+            memento.addPersonalMemento(n, p, e, profileUsername);
+            return profileGateway.updateProfileData(profileUsername, person, memento);
         } else {
             return false;
         }

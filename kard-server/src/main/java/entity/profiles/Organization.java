@@ -14,10 +14,10 @@ public class Organization implements ProfileType, Serializable {
      */
     @Serial
     private static final long serialVersionUID = 8267757690652968509L;
-    private final String orgName;
-    private final Phone orgPhone;
-    private final Email orgEmail;
-    private final String orgUsername;
+    private String orgName;
+    private Phone orgPhone;
+    private Email orgEmail;
+    private String orgUsername;
 
     // the setters
 
@@ -81,5 +81,18 @@ public class Organization implements ProfileType, Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(orgName, orgPhone, orgEmail, orgUsername);
+    }
+
+    public OrganizationMemento createMemento(){
+        return new OrganizationMemento(this.orgName, this.orgPhone, this.orgEmail, this.orgUsername);
+    }
+
+    public void restore(OrganizationMemento memento){
+        if (memento != null){
+            this.orgName = memento.getName();
+            this.orgPhone = new Phone(memento.getPhone());
+            this.orgEmail = new Email(memento.getEmail());
+            this.orgUsername = memento.getUsername();
+        }
     }
 }

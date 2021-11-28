@@ -13,6 +13,7 @@ public class PersonalProfileRequest {
     public String pronoun;
     public String phone;
     public String email;
+    public String index;
 
     /**
      * Getter for the account username
@@ -68,5 +69,13 @@ public class PersonalProfileRequest {
      */
     public String getEmail() {
         return email;
+    }
+
+    /**
+     * Getter for the index (used for restoring to a memento)
+     * @return the email
+     */
+    public String getIndex() {
+        return index;
     }
 }

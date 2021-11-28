@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class CommandLineInterface {
     private final Scanner sc;
     private String current_username;
+    private Request request;
 
 
     /**
@@ -20,6 +21,7 @@ public class CommandLineInterface {
     public CommandLineInterface() {
         this.sc = new Scanner(System.in).useDelimiter("\\n");
         this.current_username = null;
+        this.request = new Request(null);
     }
 
     /**
@@ -67,7 +69,7 @@ public class CommandLineInterface {
                 break;
             }
 
-            String res = submitLogin(username, password);
+            String res = this.request.submitLogin(username, password);
 
             if (res.equals("5")) {
                 System.out.println("Wrong username or password, please try again!\n");
@@ -78,40 +80,12 @@ public class CommandLineInterface {
             else{
                 this.current_username = username;
                 System.out.println("Logged in!\n");
+                this.request.setCurrentUsername(this.current_username);
                 instructionScreen();
                 events();
                 break;
             }
         }
-    }
-
-    /**
-     * Method used to compile the inputted information into a HTTP request sent to the database,
-     * its information is then verified for log in and returns the result.
-     * @param username the username of the account
-     * @param password the password of the account
-     * @return code of response that indicates if the login was successful, returns the status code of the response
-     */
-    private String submitLogin(String username, String password){
-        String endpoint = "http://cloud.arthurgao.ca:9082/start/login/";
-        String inputJson = String.format("{\"accountUsername\":\"%s\"," +
-                        "\"accountPassword\":\"%s\"}",
-                username, password);
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(endpoint))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(inputJson))
-                .build();
-        HttpClient client = HttpClient.newHttpClient();
-
-        try {
-            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            JSONObject res = new JSONObject(response.body());
-            return res.getString("errorCode");
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        return "404";
     }
 
     /**
@@ -131,7 +105,7 @@ public class CommandLineInterface {
             System.out.print("Press 'y' to continue or press 'n' to restart\n");
             String input = sc.nextLine();
             if (input.equals("y")) {
-                String res = submitSignUp(username, password);
+                String res = this.request.submitSignUp(username, password);
                 if (res.equals("6")){
                     System.out.println("Username already taken, try again\n");
                 }
@@ -151,35 +125,6 @@ public class CommandLineInterface {
     }
 
     /**
-     * Method used to compile the inputted information into a HTTP request sent to the database,
-     * its information is then verified for sign up and returns the result.
-     * @param username the username of the account
-     * @param password the password of the account
-     * @return code of response that indicates if the sign up was successful, returns the status code of the response
-     */
-    private String submitSignUp(String username, String password){
-        String endpoint = "http://cloud.arthurgao.ca:9082/start/signup/";
-        String inputJson = String.format("{\"accountUsername\":\"%s\"," +
-                        "\"accountPassword\":\"%s\"}",
-                username, password);
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(endpoint))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(inputJson))
-                .build();
-        HttpClient client = HttpClient.newHttpClient();
-        try {
-            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            JSONObject res = new JSONObject(response.body());
-            return res.getString("errorCode");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "404";
-
-    }
-
-    /**
      * Events loop for simple cli. The user can choose between the following functions
      *  - Add an existing user from the database to their individual contacts list
      *  - Add a new user to the database
@@ -196,9 +141,8 @@ public class CommandLineInterface {
             System.out.print("> ");
             input = sc.next();
             switch (input) {
-                case "create" -> createProfile();
+                case "profile" -> profileScreen();
                 case "add" -> addContact();
-                case "edit" -> editProfile();
                 case "remove" -> removeContact();
                 case "display" -> displayContacts();
                 case "logout" -> logout();
@@ -209,6 +153,46 @@ public class CommandLineInterface {
             }
         }
         System.out.println("Thank you for using Kard");
+    }
+
+    private void profileScreen() {
+        String input;
+        System.out.println("""
+        
+        +-----------------------Customize Your Profile--------------------------+
+        | Type 'create' to create a public profile                              |
+        | Type 'edit' to edit your existing profile                             |
+        | Type 'restore' to revert your profile to a previous state             |
+        | Type 'back' to go back to the main screen                             |
+        +-----------------------------------------------------------------------+
+        
+        """);
+        System.out.print("your current profile: " + this.request.submitProfileDisplay() + "\n");
+        System.out.print("[profile]: ");
+        input = sc.next();
+        while (!input.equals("back")) {
+            switch (input){
+                case "create" -> createProfile();
+                case "edit" -> editProfile();
+                case "restore" -> restoreProfile();
+            }
+            System.out.print("[profile]: ");
+            input = sc.next();
+        }
+        instructionScreen();
+        events();
+    }
+
+    private void restoreProfile() {
+        System.out.println("+-------------------------PROFILE HISTORY-------------------------+");
+        System.out.println(this.request.submitProfileMementoDisplay());
+        System.out.println("+-----------------------------------------------------------------+");
+        System.out.println("Enter the index of the profile you would like to restore");
+        System.out.print("index: ");
+        String input = sc.next();
+        this.request.submitProfileRestore(input);
+        System.out.print("profile restored!\n");
+        profileScreen();
     }
 
     private void editProfile() {
@@ -227,7 +211,7 @@ public class CommandLineInterface {
         String email = sc.next();
         System.out.println("Press y to submit: ");
         if (sc.next().equals("y")){
-            String res = submitProfileUpdate(first, last, pronoun, title, phone, email);
+            String res = this.request.submitProfileUpdate(first, last, pronoun, title, phone, email);
             if (res.equals("30")){
                 // if a personal profile was already exists
                 System.out.print("your don't have a personal profile yet!");
@@ -239,30 +223,8 @@ public class CommandLineInterface {
         }else{
             System.out.println("unknown command... returning to main screen");
         }
-        instructionScreen();
+        profileScreen();
         events();
-    }
-
-    private String submitProfileUpdate(String first, String last, String pronoun, String title, String phone, String email) {
-        String endpoint = "http://cloud.arthurgao.ca:9082/profile/edit/";
-        String inputJson = String.format("{\"accountUsername\":\"%s\"," + "\"firstName\":\"%s\","
-                        + "\"lastName\":\"%s\","+ "\"title\":\"%s\","+ "\"pronoun\":\"%s\","
-                        + "\"phone\":\"%s\"," + "\"email\":\"%s\"}",
-                this.current_username, first, last, pronoun, title, phone, email);
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(endpoint))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(inputJson))
-                .build();
-        HttpClient client = HttpClient.newHttpClient();
-        try {
-            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            JSONObject res = new JSONObject(response.body());
-            return res.getString("errorCode");
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        return "404";
     }
 
     private void createProfile() {
@@ -281,7 +243,7 @@ public class CommandLineInterface {
         String email = sc.next();
         System.out.println("Press y to submit: ");
         if (sc.next().equals("y")){
-            String res = submitProfileCreation(first, last, pronoun, title, phone, email);
+            String res = this.request.submitProfileCreation(first, last, pronoun, title, phone, email);
             if (res.equals("25}")){
                 // if a personal profile was already exists
                 System.out.print("a personal profile already exists!");
@@ -293,37 +255,17 @@ public class CommandLineInterface {
         }else{
             System.out.println("unknown command... returning to main screen");
         }
-        instructionScreen();
+        profileScreen();
         events();
     }
 
-    private String submitProfileCreation(String first, String last, String title, String pronoun, String phone, String email) {
-        String endpoint = "http://cloud.arthurgao.ca:9082/profile/new/";
-        String inputJson = String.format("{\"accountUsername\":\"%s\"," + "\"firstName\":\"%s\","
-                        + "\"lastName\":\"%s\","+ "\"title\":\"%s\","+ "\"pronoun\":\"%s\","
-                        + "\"phone\":\"%s\"," + "\"email\":\"%s\"}",
-                this.current_username, first, last, pronoun, title, phone, email);
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(endpoint))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(inputJson))
-                .build();
-        HttpClient client = HttpClient.newHttpClient();
-        try {
-            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            JSONObject res = new JSONObject(response.body());
-            return res.getString("errorCode");
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        return "404";
-    }
 
     /**
      * log out, which clears the current username and returns to Main menu.
      */
     private void logout() {
         this.current_username = null;
+        this.request.setCurrentUsername(null);
         startingScreen();
     }
 
@@ -336,7 +278,7 @@ public class CommandLineInterface {
         System.out.print("[add]: ");
         input = sc.next();
         while (!input.equals("back")) {
-            String res = submitContactAddition(input);
+            String res = this.request.submitContactAddition(input);
             switch (res) {
                 case "15" -> {
                     // if the username does not correspond to a profile
@@ -363,34 +305,6 @@ public class CommandLineInterface {
     }
 
     /**
-     * Method used to compile the inputted information into a HTTP request along with the username of
-     * the current user to add the inputted username into the current user's contact.
-     * @param input the username of the contact which the user wants to add
-     * @return status code of response that indicates if the contact addition was successful
-     */
-    private String submitContactAddition(String input){
-        String endpoint = "http://cloud.arthurgao.ca:9082/account/add/contact/";
-        String inputJson = String.format("{\"accountUsername\":\"%s\"," +
-                        "\"contactUsername\":\"%s\"}",
-                this.current_username, input);
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(endpoint))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(inputJson))
-                .build();
-        HttpClient client = HttpClient.newHttpClient();
-        try {
-            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            JSONObject res = new JSONObject(response.body());
-            return res.getString("errorCode");
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        return "404";
-
-    }
-
-    /**
      * Remove a person from the current user's contact list.
      */
     private void removeContact() {
@@ -399,7 +313,7 @@ public class CommandLineInterface {
         System.out.print("[remove]: ");
         input = sc.next();
         while (!input.equals("back")) {
-            String res = submitContactRemoval(input);
+            String res = this.request.submitContactRemoval(input);
             switch (res) {
                 case "15" -> {
                     // if the username does not correspond to a profile
@@ -423,32 +337,6 @@ public class CommandLineInterface {
         }
     }
 
-    /**
-     * Method used to compile the inputted information into a HTTP request along with the username of
-     * the current user to remove the inputted username from the current user's contact.
-     * @param input the username of the contact which the user wants to remove
-     * @return status code of response that indicates if the contact removal was successful
-     */
-    private String submitContactRemoval(String input) {
-        String endpoint = "http://cloud.arthurgao.ca:9082/account/remove/contact/";
-        String inputJson = String.format("{\"accountUsername\":\"%s\"," +
-                        "\"contactUsername\":\"%s\"}",
-                this.current_username, input);
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(endpoint))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(inputJson))
-                .build();
-        HttpClient client = HttpClient.newHttpClient();
-        try {
-            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            JSONObject res = new JSONObject(response.body());
-            return res.getString("errorCode");
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        return "404";
-    }
 
     /**
      * Print a list of all contacts obtained through user.getContact() with some styling;
@@ -461,43 +349,8 @@ public class CommandLineInterface {
         System.out.print("order [ascend, descend]: ");
         String order = sc.next();
         System.out.println("+-------------------------CONTACTS LIST---------------------------+");
-        System.out.println(submitContactDisplay(param, order));
+        System.out.println(this.request.submitContactDisplay(param, order));
         System.out.println("+-----------------------------------------------------------------+");
-    }
-
-    /**
-     * Method used to compile the current username into a HTTP GET request to retrieve a formatted
-     * list of contacts which are stored in the server.
-     * @return a string of the current users contacts, compiled already and ready for display
-     */
-    private String submitContactDisplay(String type, String order) {
-        String endpoint = String.format("http://cloud.arthurgao.ca:9082/account/display/contact?username=%s&type=%s&order=%s",
-                this.current_username, type, order);
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(endpoint))
-                .GET()
-                .build();
-        HttpClient client = HttpClient.newHttpClient();
-        try {
-            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            JSONObject res = new JSONObject(response.body());
-            JSONArray arr = res.getJSONArray("response");
-            if (arr.length() == 0) {
-                return "Your contact list is empty!";
-            } else {
-                StringBuilder contacts = new StringBuilder();
-                for (int i = 0; i < arr.length(); i++) {
-                    JSONObject profile = arr.getJSONObject(i);
-                    contacts.append(String.format(" %s | %s | %s | %s | username: %s\n",
-                            profile.get("name"), profile.get("pronouns"), profile.get("phone"),
-                            profile.get("email"), profile.get("username")));
-                }
-                return contacts.toString();
-            }
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        return "Unable to retrieve contacts list, please try again!";
     }
 
     /**
@@ -507,8 +360,7 @@ public class CommandLineInterface {
         System.out.println("""
         
         +---kard.-------------------------------------------------------------------+
-        | Type 'create' to create a public profile for others to add your as contact|
-        | Type 'edit' to modify your public profile                                 |
+        | Type 'profile' to manage your public profile                              |
         | Type 'add' to add users to your contacts list                             |
         | Type 'remove' to remove users from your contacts list                     |
         | Type 'display' to display your contacts list                              |
