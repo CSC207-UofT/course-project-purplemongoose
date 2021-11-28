@@ -5,38 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
-      <change afterPath="$PROJECT_DIR$/../kard-CLI/src/main/java/Request.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteMementoQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/Memento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/MementoManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/OrganizationMemento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/PersonMemento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/ViewProfile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/ViewProfileMemento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kard-CLI/src/main/java/CommandLineInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kard-CLI/src/main/java/CommandLineInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kard-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kard-server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_5_5.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kard_project_test/lib/profile_setup_one.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kard_project_test/lib/user_builder.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteAddProfileStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteAddProfileStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteCreateProfilesTableStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteCreateProfilesTableStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteUpdateProfileStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/SQLite/commands/SQLiteUpdateProfileStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/gateway/ProfileGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/gateway/ProfileGateway.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/PersonalProfileRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/PersonalProfileRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/datafiles/Name.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/datafiles/Name.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/profiles/Organization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/Organization.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/profiles/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/profiles/ProfileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/ProfileType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/profile/CreateProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/CreateProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/profile/DeleteProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/DeleteProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/profile/UpdateProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/UpdateProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/sign_in.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/sign_in.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/sign_up_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/sign_up_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/user.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

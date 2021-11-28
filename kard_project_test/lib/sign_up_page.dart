@@ -1,8 +1,10 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:kard_project_test/profile_setup_one.dart';
 import 'package:kard_project_test/user.dart';
 import 'package:http/http.dart' as http;
+import 'package:kard_project_test/user_builder.dart';
 
 import 'home_page.dart';
 
@@ -177,7 +179,7 @@ class _SignUpState extends State<SignUp> {
         cursorColor: Colors.black,
 
         decoration: const InputDecoration(
-            hintText: 'Username',
+            hintText: 'Name',
             hintStyle: TextStyle(color: Colors.black26),
             border: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.black)
@@ -192,8 +194,6 @@ class _SignUpState extends State<SignUp> {
 
   void signup(String username, String password) async {
 
-    //TODO implement initstate
-
     Map data = {
       'accountUsername' : username,
       'accountPassword' : password
@@ -201,15 +201,19 @@ class _SignUpState extends State<SignUp> {
 
     String body = json.encode(data);
 
+    // TODO do response processing
     http.Response response = await http.post(
-        Uri.parse('http://localhost:8082/start/signup'),
+        Uri.parse("http://" + Constants.address + "/start/signup"),
         headers: {"Content-Type": "application/json"},
         body: body,
     );
 
+    Constants.setCurrentUser(username);
+
     Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const HomePage()));
+            MaterialPageRoute(builder: (context) => const ProfileSetupOne()));
 
   }
+
 }
 
