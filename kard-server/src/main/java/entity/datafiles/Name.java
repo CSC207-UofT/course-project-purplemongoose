@@ -45,13 +45,13 @@ public class Name implements Serializable {
         if (!pronouns.isEmpty()) {
             this.pronouns = pronouns;
         } else if (pronouns.isEmpty()) {
-            this.pronouns = pronouns;
+            this.pronouns = null;
         }
 
         if (!titles.isEmpty()) {
             this.titles = titles;
         } else if (titles.isEmpty()) {
-            this.titles = titles;
+            this.titles = null;
         }
     }
 
