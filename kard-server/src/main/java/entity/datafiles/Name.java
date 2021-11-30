@@ -2,6 +2,7 @@ package entity.datafiles;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -20,47 +21,27 @@ import java.util.Objects;
 public class Name implements Serializable {
     @Serial
     private static final long serialVersionUID = 194821814127968409L;
-    private final String first;
-    private final String last;
-    private final String pronouns;
-    private final String titles;
+    private String first;
+    private String last;
+    private String pronouns;
+    private String titles;
 
-    // The setters are overloaded so that the pronouns and titles are optional to initiate a person's Name
+    // The setter
 
-    /**
-     * Store the attributes of preferred pronouns, title, first, and last name of a user.
-     *
-     * @param first     The individuals first name
-     * @param last      The individuals last name
-     * @param pronouns  The individuals preferred pronouns
-     * @param titles    The individuals titles (eg. Mr, Mrs, Dr, Mx...)
-     */
-    public Name(String first, String last, String pronouns, String titles) {
-        this.first = first;
-        this.last = last;
-        this.pronouns = pronouns;
-        this.titles = titles;
-    }
-
-    /**
-     * Store the attributes of preferred pronouns, first, and last name of a user.
-     *
-     * @param first     The individuals first name
-     * @param last      The individuals last name
-     * @param pronouns  The individuals preferred pronouns
-     */
-    public Name(String first, String last, String pronouns) {
-        this(first, last, pronouns, null);
-    }
-
-    /**
-     * Store the attributes of first, and last name of a user
-     *
-     * @param first     The individuals first name
-     * @param last      The individuals last name
-     */
-    public Name(String first, String last) {
-        this(first, last, null, null);
+    public Name(String first, String last, String pronouns,
+                        String titles) {
+        if (!first.isEmpty()) {
+            this.first = first;
+        }
+        if (!last.isEmpty()) {
+            this.last = last;
+        }
+        if (!pronouns.isEmpty()) {
+            this.pronouns = pronouns;
+        }
+        if (!titles.isEmpty()) {
+            this.titles = titles;
+        }
     }
 
     // The getters
