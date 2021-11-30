@@ -26,12 +26,10 @@ public abstract class Account implements Serializable {
      * A PersonalUser is each individual human being that is on the app
      * A CorporateUser is any corporation, organization that is on the app
      */
-//    public abstract boolean addContact(Person p); // return true if added successfully
+
     public abstract void addContact(Person p);
-//    public abstract boolean removeContact(Person p); // return true if removed successfully
     public abstract void removeContact(Person p);
-    public abstract boolean checkContacts(Person p); // check if the contact already exists
-//    public abstract Set<ProfileType> getContacts(); // return some sort of container for contacts
+    public abstract boolean checkContacts(Person p);
     public abstract HashSet<String> getContacts();
 
     public abstract boolean addAffiliation(Organization o); // return true if added successfully
