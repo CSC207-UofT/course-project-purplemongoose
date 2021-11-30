@@ -32,14 +32,25 @@ public class Name implements Serializable {
                         String titles) {
         if (!first.isEmpty()) {
             this.first = first;
+        } else if (first.isEmpty()) {
+            this.first = null;
         }
+
         if (!last.isEmpty()) {
             this.last = last;
+        } else if (last.isEmpty()) {
+            this.last = null;
         }
+
         if (!pronouns.isEmpty()) {
             this.pronouns = pronouns;
+        } else if (pronouns.isEmpty()) {
+            this.pronouns = pronouns;
         }
+
         if (!titles.isEmpty()) {
+            this.titles = titles;
+        } else if (titles.isEmpty()) {
             this.titles = titles;
         }
     }
