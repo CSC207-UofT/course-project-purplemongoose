@@ -25,13 +25,13 @@ public final class Connections {
      * Can be a contact or affiliation
      *
      * @param localStore passed in HashMap containing the ProfileType and connection of the Account owner
-     * @param p the target of the new connection
+     * @param profileType the target of the new connection
      * @return true if the connection was successfully added to the HashMap
      */
     public static boolean addConnection(HashMap<ProfileType, String> localStore,
-                                 ProfileType p) {
-        if (!localStore.containsKey(p)) {
-            localStore.put(p, null);
+                                 ProfileType profileType) {
+        if (!localStore.containsKey(profileType)) {
+            localStore.put(profileType, null);
             return true;
         } else {
             return false;
@@ -45,14 +45,14 @@ public final class Connections {
      * Can be a contact or affiliation
      *
      * @param localStore passed in HashMap containing the ProfileType and connection of the Account owner
-     * @param p the target of the new connection
+     * @param profileType the target of the new connection
      * @param association the passed in annotation of the connection described by the Account owner
      * @return true if the connection was successfully added to the HashMap
      */
     public static boolean addConnection(HashMap<ProfileType, String> localStore,
-                                 ProfileType p, String association) {
-        if (!localStore.containsKey(p)) {
-            localStore.put(p, association);
+                                 ProfileType profileType, String association) {
+        if (!localStore.containsKey(profileType)) {
+            localStore.put(profileType, association);
             return true;
         } else {
             return false;

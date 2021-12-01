@@ -27,12 +27,12 @@ public abstract class Account implements Serializable {
      * A CorporateUser is any corporation, organization that is on the app
      */
 
-    public abstract void addContact(Person p);
-    public abstract void removeContact(Person p);
-    public abstract boolean checkContacts(Person p);
+    public abstract void addContact(Person person);
+    public abstract void removeContact(Person person);
+    public abstract boolean checkContacts(Person person);
     public abstract HashSet<String> getContacts();
 
-    public abstract boolean addAffiliation(Organization o); // return true if added successfully
-    public abstract boolean removeAffiliation(Organization o); // return true if removed successfully
+    public abstract boolean addAffiliation(Organization organization); // return true if added successfully
+    public abstract boolean removeAffiliation(Organization organization); // return true if removed successfully
     public abstract Set<ProfileType> getAffiliations(); // return some sort of container for affiliations
 }
