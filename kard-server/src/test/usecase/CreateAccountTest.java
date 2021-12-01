@@ -2,8 +2,10 @@ package usecase;
 
 import entity.accounts.Account;
 import entity.accounts.PersonalAccount;
+import entity.accounts.CorporateAccount;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import usecase.account.CreateAccount;
 import database.gateway.AccountGateway;
@@ -34,6 +36,7 @@ class CreateAccountTest {
     }
 
     @Test
+    @DisplayName("Create a personal account in the database")
     void newPersonalAccount() {
         boolean result = createAccount.newPersonalAccount("spongebob", "patrick123");
         if (result == true){
@@ -46,6 +49,14 @@ class CreateAccountTest {
     }
 
     @Test
+    @DisplayName("Create a corporate account in the database")
     void newCorporateAccount() {
+        boolean result = createAccount.newCorporateAccount("Nike", "frankocean");
+        if (result == true){
+            Account acc = ag.getAccountData("Nike");
+            assertTrue(acc != null);
+            CorporateAccount acc2 = (CorporateAccount) acc;
+            assertTrue(acc instanceof CorporateAccount);
+        }
     }
 }
