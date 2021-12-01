@@ -53,10 +53,10 @@ public class Person implements ProfileType, Serializable {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
+    public boolean equals(Object otherPerson) {
+        if (this == otherPerson) return true;
+        if (otherPerson == null || getClass() != otherPerson.getClass()) return false;
+        Person person = (Person) otherPerson;
         return Objects.equals(name, person.name) && Objects.equals(phone, person.phone) && Objects.equals(email, person.email) && Objects.equals(username, person.username);
     }
 
