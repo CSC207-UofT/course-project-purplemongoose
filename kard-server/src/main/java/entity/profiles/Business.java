@@ -13,7 +13,7 @@ import java.io.Serializable;
  * Businesses have a singular Owner.
  *
  */
-public class Business extends Organization implements Serializable {
+public class Business extends Organization implements Serializable, ProfileType {
     @Serial
     private static final long serialVersionUID = 6906529685826775709L;
     private String companyName;
