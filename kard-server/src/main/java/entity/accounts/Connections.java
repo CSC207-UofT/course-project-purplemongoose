@@ -21,8 +21,27 @@ import java.util.HashMap;
 public final class Connections {
 
     /**
-     * Factory design method to add new connections to account for entries when an association
-     * is not passed in along with a profile
+     * Overridden method to account for entries without association annotations
+     *
+     * Adds a Profile and the association annotation to the passed in HashMap
+     * Can be a contact or affiliation
+     *
+     * @param localStore passed in HashMap containing the ProfileType and connection of the Account owner
+     * @param profileType the target of the new connection
+     * @return true if the connection was successfully added to the HashMap
+     */
+    public static boolean addConnection(HashMap<ProfileType, String> localStore,
+                                        ProfileType profileType) {
+        if (!localStore.containsKey(profileType)) {
+            localStore.put(profileType, null);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Overridden method to account for entries with association annotations
      *
      * Adds a Profile and the association annotation to the passed in HashMap
      * Can be a contact or affiliation
@@ -35,11 +54,7 @@ public final class Connections {
     public static boolean addConnection(HashMap<ProfileType, String> localStore,
                                  ProfileType profileType, String association) {
         if (!localStore.containsKey(profileType)) {
-            if (association != null) {
-                localStore.put(profileType, association);
-            } else {
-                localStore.put(profileType, null);
-            }
+            localStore.put(profileType, association);
             return true;
         } else {
             return false;
