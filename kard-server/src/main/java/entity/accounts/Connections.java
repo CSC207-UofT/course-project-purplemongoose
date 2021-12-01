@@ -35,7 +35,7 @@ public final class Connections {
     public static boolean addConnection(HashMap<ProfileType, String> localStore,
                                  ProfileType profileType, String association) {
         if (!localStore.containsKey(profileType)) {
-            if (!association.isEmpty()) {
+            if (association != null) {
                 localStore.put(profileType, association);
             } else {
                 localStore.put(profileType, null);
