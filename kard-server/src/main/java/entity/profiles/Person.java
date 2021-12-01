@@ -28,30 +28,61 @@ public class Person implements ProfileType, Serializable {
         this.username = username;
     }
 
+    /**
+     * Gets the full name of the Person
+     * @return string representation of full name
+     */
     @Override
     public String getName() {
         return name.getFullName();
     }
 
+    /**
+     * Gets pronouns of the Person
+     * @return string representation of pronouns
+     */
     public String getPronouns() {
         return name.getPronouns();
     }
 
+    /**
+     * Gets phone number of the Person
+     * @return string representation of phone number
+     */
     @Override
     public String getPhone() {
         return phone.getPhone();
     }
 
+    /**
+     * Gets email address of the Person
+     * @return string representation of email address
+     */
     @Override
     public String getEmail() {
         return email.getEmail();
     }
 
+    /**
+     * Gets username of the Person's account
+     *
+     * Return doesn't require it to be a String representation because the username
+     * is used more for implementation, and less for user application
+     *
+     * @return username in type Username
+     */
     @Override
     public String getUsername() {
         return this.username;
     }
 
+    /**
+     * Determines if another Person being passed in refers to the same Person as the
+     * current Person
+     *
+     * @param otherPerson the other Person being compared to
+     * @return true if the compared person is the same as the current Person
+     */
     @Override
     public boolean equals(Object otherPerson) {
         if (this == otherPerson) return true;
