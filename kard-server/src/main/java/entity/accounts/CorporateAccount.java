@@ -41,7 +41,6 @@ public class CorporateAccount extends Account implements Serializable {
      * Currently also implements Iterator to prepare for any iterative
      * mechanism to fetch information about contacts
      */
-//    private final HashMap<ProfileType, String> employees;
     private final HashSet<String> employees;
     private final HashMap<ProfileType, String> affiliations;
 
@@ -62,28 +61,20 @@ public class CorporateAccount extends Account implements Serializable {
      * 1. Employees - connections with individual accounts
      * 2. Affiliations - connections with other organization accounts
      *
-     * @param p Person to add as an employee
-     * @return success of adding a new employee to the HashMap
+     * @param person Person to add as an employee
      */
     @Override
-//    public boolean addContact(Person p) {
-//        return Connections.addConnection(employees, p);
-//    }
-    public void addContact(Person p){
-        this.employees.add(p.getUsername());
+    public void addContact(Person person){
+        this.employees.add(person.getUsername());
     }
 
     /** Remove a contact from the User's contact list.
      *
-     * @param p Person
-     * @return true if client is removed from contacts successfully
+     * @param person Person
      */
     @Override
-//    public boolean removeContact(Person p) {
-//        return Connections.removeConnection(employees, p);
-//    }
-    public void removeContact(Person p){
-        this.employees.remove(p.getUsername());
+    public void removeContact(Person person){
+        this.employees.remove(person.getUsername());
     }
 
     /**
@@ -92,9 +83,6 @@ public class CorporateAccount extends Account implements Serializable {
      * @return set of all the employees connected to this CorporateAccount
      */
     @Override
-//    public Set<ProfileType> getContacts() {
-//        return employees.keySet();
-//    }
     public HashSet<String> getContacts(){
         return this.employees;
     }
@@ -102,49 +90,44 @@ public class CorporateAccount extends Account implements Serializable {
     /**
      * Checks if a certain person is stored as an employee of an Organization
      *
-     * @param p Person being queried
+     * @param person Person being queried
      * @return true if the Person being queried is in this Organization's employees list
      */
     @Override
-    public boolean checkContacts(Person p) {
+    public boolean checkContacts(Person person) {
 //        return employees.containsKey(p);
-        return employees.contains(p.getUsername());
+        return employees.contains(person.getUsername());
     }
 
     /**
-     * Overloaded method
-     *
-     * Adds a new Organization to this CorporateAccount's affiliations
-     *
-     * @param o another Organization to be added
-     * @return true if the new Organization is added
-     */
-    @Override
-    public boolean addAffiliation(Organization o) {
-        return Connections.addConnection(affiliations, o);
-    }
-
-    /**
-     * Overloaded method
-     *
      * Adds a new Organization to this CorporateAccount's affiliations with an annotation of the affiliation
      *
-     * @param o another Organization to be added
+     * @param organization another Organization to be added
+     * @return true if the new Organization is added
+     */
+    public boolean addAffiliation(Organization organization) {
+        return Connections.addConnection(affiliations, organization);
+    }
+
+    /**
+     * Adds a new Organization to this CorporateAccount's affiliations with an annotation of the affiliation
+     *
+     * @param organization another Organization to be added
      * @param association string annotating the nature of the affiliation
      * @return true if the new Organization is added
      */
-    public boolean addAffiliation(Organization o, String association) {
-        return Connections.addConnection(affiliations, o, association);
+    public boolean addAffiliation(Organization organization, String association) {
+        return Connections.addConnection(affiliations, organization, association);
     }
 
     /**
      * Removes a given Organization from this CorporateAccount's connections
      *
-     * @param o Organization to be removed
+     * @param organization Organization to be removed
      * @return true if the Organization is successfully removed
      */
-    public boolean removeAffiliation(Organization o) {
-        return Connections.removeConnection(affiliations, o);
+    public boolean removeAffiliation(Organization organization) {
+        return Connections.removeConnection(affiliations, organization);
     }
 
     /**
