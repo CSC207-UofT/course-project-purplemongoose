@@ -31,7 +31,6 @@ public class Organization implements ProfileType, Serializable {
         this.orgUsername = orgUsername;
     }
 
-
     // the getters
 
     /**
@@ -45,6 +44,10 @@ public class Organization implements ProfileType, Serializable {
 
     /**
      * Gets a string representation of the phone number of the organization
+     *
+     * Use getter method to retrieve string representation of phone number
+     * otherwise stored as class type Phone
+     *
      * @return string for the phone number
      */
     @Override
@@ -54,6 +57,10 @@ public class Organization implements ProfileType, Serializable {
 
     /**
      * Gets a string representation of the email address
+     *
+     * Use getter method to retrieve string representation of email
+     * otherwise stored as class type Email
+     *
      * @return string for the email address
      */
     @Override
@@ -71,10 +78,10 @@ public class Organization implements ProfileType, Serializable {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Organization that = (Organization) o;
+    public boolean equals(Object otherOrg) {
+        if (this == otherOrg) return true;
+        if (otherOrg == null || getClass() != otherOrg.getClass()) return false;
+        Organization that = (Organization) otherOrg;
         return Objects.equals(orgName, that.orgName) && Objects.equals(orgPhone, that.orgPhone) && Objects.equals(orgEmail, that.orgEmail) && Objects.equals(orgUsername, that.orgUsername);
     }
 
