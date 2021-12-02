@@ -7,25 +7,26 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import usecase.start.AuthLogin;
+import entity.accounts.Account;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * A class for testing the LoginAuth class
+ * A class for testing the AuthLogin class
  *
  * @see AuthLogin
  */
 
-class LoginAuthTest {
+class AuthLoginTest {
 
-    AuthLogin loginAuth;
+    AuthLogin authLogin;
 
     @BeforeEach
     void setUp() {
         AccountGateway ag = new AccountGateway();
         PersonalAccount account = new PersonalAccount();
         ag.insertAccountData("spongebob", "patrick123", account);
-        this.loginAuth = new AuthLogin(false);
+        this.authLogin = new AuthLogin(false);
     }
 
     @AfterEach
@@ -38,7 +39,7 @@ class LoginAuthTest {
     @Test
     @DisplayName("Request login with a blank username")
     void requestLoginBlankUser() {
-        boolean blankUser = loginAuth.requestLogin("", "patrick123");
+        boolean blankUser = authLogin.requestLogin("", "patrick123");
         assertFalse(blankUser);
     }
 
@@ -48,7 +49,7 @@ class LoginAuthTest {
     @Test
     @DisplayName("Request login with a blank password")
     void requestLoginBlankPassword() {
-        boolean blankPassword = loginAuth.requestLogin("spongebob", "");
+        boolean blankPassword = authLogin.requestLogin("spongebob", "");
         assertFalse(blankPassword);
     }
 
@@ -58,7 +59,7 @@ class LoginAuthTest {
     @Test
     @DisplayName("Request login with a non-existent username")
     void requestLoginUsernameNotExist() {
-        boolean nonExistentUsername = loginAuth.requestLogin("sponge", "patrick123");
+        boolean nonExistentUsername = authLogin.requestLogin("sponge", "patrick123");
         assertFalse(nonExistentUsername);
     }
 
@@ -68,7 +69,7 @@ class LoginAuthTest {
     @Test
     @DisplayName("Request login with an incorrect password")
     void requestLoginWrongPassword() {
-        boolean wrongPassword = loginAuth.requestLogin("spongebob", "patrick");
+        boolean wrongPassword = authLogin.requestLogin("spongebob", "patrick");
         assertFalse(wrongPassword);
     }
 
@@ -78,7 +79,7 @@ class LoginAuthTest {
     @Test
     @DisplayName("Request login with correct login information")
     void requestLoginSuccessful() {
-        boolean successfulLogin = loginAuth.requestLogin("spongebob", "patrick123");
+        boolean successfulLogin = authLogin.requestLogin("spongebob", "patrick123");
         assertTrue(successfulLogin);
     }
 }
