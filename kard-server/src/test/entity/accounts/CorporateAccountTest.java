@@ -79,7 +79,7 @@ class CorporateAccountTest {
                 new Name("Steven", "Test"),
                 new Phone("6663636363"),
                 new Email("not_steven@y8.com"),
-                "TheFakeJohnSmith"
+                "TheRealJohnSmith"
         );
         Person different =  new Person(
                 new Name("Steven", "Test"),
