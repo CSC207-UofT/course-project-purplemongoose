@@ -41,27 +41,6 @@ public final class Connections {
     }
 
     /**
-     * Overridden method to account for entries with association annotations
-     *
-     * Adds a Profile and the association annotation to the passed in HashMap
-     * Can be a contact or affiliation
-     *
-     * @param localStore passed in HashMap containing the ProfileType and connection of the Account owner
-     * @param profileType the target of the new connection
-     * @param association the passed in annotation of the connection described by the Account owner
-     * @return true if the connection was successfully added to the HashMap
-     */
-    public static boolean addConnection(HashMap<ProfileType, String> localStore,
-                                 ProfileType profileType, String association) {
-        if (!localStore.containsKey(profileType)) {
-            localStore.put(profileType, association);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
      * Removes a Profile from the passed in HashMap
      * @param localStore passed in HashMap containing the ProfileType and connection of the account owner
      * @param p the target of the new connection

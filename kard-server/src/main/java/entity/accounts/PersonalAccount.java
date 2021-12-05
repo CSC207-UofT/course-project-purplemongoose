@@ -1,6 +1,6 @@
 package entity.accounts;
 
-import entity.profiles.Organization;
+
 import entity.profiles.Person;
 import entity.profiles.ProfileType;
 
@@ -8,8 +8,6 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Set;
-import java.util.ArrayList;
 
 /**
  * The account of a Person of kard
@@ -28,8 +26,6 @@ import java.util.ArrayList;
  * algorithmic framework of the types of connections a person can have:
  *
  * 1. Contacts - connections with other individual accounts
- * 2. Affiliations - connections with organization accounts
- *
  */
 public class PersonalAccount extends Account implements Serializable {
 
@@ -38,15 +34,12 @@ public class PersonalAccount extends Account implements Serializable {
     // A local copy of the User's contacts:
 //    private final HashMap<ProfileType, String> contacts;
     private final HashSet<String> contacts;
-     // A local copy of the User's affiliations:
-    private final HashMap<ProfileType, String> affiliations;
 
 
     // Initialize two empty HashMaps for each connection
     public PersonalAccount() {
 //        this.contacts = new HashMap<>();
         this.contacts = new HashSet<>();
-        this.affiliations = new HashMap<>();
     }
 
     /**
@@ -114,35 +107,5 @@ public class PersonalAccount extends Account implements Serializable {
     @Override
     public boolean checkContacts(Person p) {
         return contacts.contains(p.getUsername());
-    }
-
-    /**
-     * Adds a new organization as an affiliation of the person who this Account belongs to
-     *
-     * @param o Organization being queried
-     * @return true if the Organization is added as a new connection, or affiliation
-     */
-    @Override
-    public boolean addAffiliation(Organization o) {
-        return Connections.addConnection(affiliations, o);
-    }
-
-    /**
-     * Removes an organization as an affiliation of the person who this Account belongs to
-     * @param o Organization being queried
-     * @return true if the Organization has been removed as an affiliation
-     */
-    @Override
-    public boolean removeAffiliation(Organization o) {
-        return Connections.removeConnection(affiliations, o);
-    }
-
-    /**
-     *
-     * @return a set of all the Organizations that this Account is connected to
-     */
-    @Override
-    public Set<ProfileType> getAffiliations()  {
-        return affiliations.keySet();
     }
 }

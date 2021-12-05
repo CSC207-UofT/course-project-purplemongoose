@@ -24,8 +24,8 @@ class NameTest {
     @BeforeEach
     void setUp() {
         name = new Name("Heinz", "Doofenshmirtz", "he/him", "Dr.");
-        name2 = new Name("Patrick", "Star", "he/him");
-        name3 = new Name("SpongeBob", "Squarepants");
+        name2 = new Name("Patrick", "Star", "he/him", "");
+        name3 = new Name("SpongeBob", "Squarepants", "", "");
     }
 
     @AfterEach

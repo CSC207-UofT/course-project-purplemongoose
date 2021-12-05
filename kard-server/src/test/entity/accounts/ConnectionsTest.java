@@ -3,8 +3,6 @@ package entity.accounts;
 import entity.datafiles.Email;
 import entity.datafiles.Name;
 import entity.datafiles.Phone;
-import entity.profiles.Business;
-import entity.profiles.Organization;
 import entity.profiles.Person;
 import entity.profiles.ProfileType;
 import org.junit.jupiter.api.AfterEach;
@@ -29,28 +27,14 @@ class ConnectionsTest {
     void setUp() {
         localStore = new HashMap<>();
         test_person_1 = new Person(
-                new Name("Smith", "Johnson"),
+                new Name("Smith", "Johnson", "", ""),
                 new Phone("8881234567"),
                 new Email("smith.joe@gmail.com"),
                 "SmithJoe87"
         );
 
-        localStore.put(new Business(
-                "compName1",
-                new Phone("5551234567"),
-                new Email("name.name@comp.com"),
-                "CompInc",
-                new Person(new Name("bob", "smith", null, null), new Phone("123-456-7777"),
-                        new Email("bob@bobmail.com"), "the_bobinator")
-        ), null);
-        localStore.put(new Organization(
-                "orgName1",
-                new Phone("6661234567"),
-                new Email("name.name@org.com"),
-                "OrgInc"
-        ), null);
         localStore.put(new Person(
-                new Name("Joe", "Smith"),
+                new Name("Joe", "Smith", "", ""),
                 new Phone("7771234567"),
                 new Email("joe.smith@gmail.com"),
                 "JoeSmith78"
@@ -70,7 +54,7 @@ class ConnectionsTest {
     @DisplayName("Add a new connection.")
     void addConnectionNotInMap() {
         Person test_person = new Person(
-                new Name("Jenny", "Smith"),
+                new Name("Jenny", "Smith", "", ""),
                 new Phone("9991234567"),
                 new Email("smith.jen@gmail.com"),
                 "JenSmith87"
@@ -110,7 +94,7 @@ class ConnectionsTest {
     @DisplayName("Remove an non-existing connection")
     void removeConnectionNotInMap() {
         Person test_person = new Person(
-                new Name("Jenny", "Smith"),
+                new Name("Jenny", "Smith", "", ""),
                 new Phone("9991234567"),
                 new Email("smith.jen@gmail.com"),
                 "JenSmith87"

@@ -1,6 +1,5 @@
 package database.gateway;
 
-import database.SQLite.SQLiteDataBase;
 import database.SQLite.commands.SQLiteAccountDataQuery;
 import database.SQLite.commands.SQLiteAddAccountStatement;
 import database.SQLite.commands.SQLiteRemoveAccountStatement;
@@ -9,7 +8,6 @@ import database.SQLite.helpers.SQLiteDataBaseHelperMainFrame;
 import entity.accounts.Account;
 
 import java.io.IOException;
-import java.sql.*;
 
 public class AccountGateway extends DatabaseGateway<SQLiteDataBaseHelperMainFrame> {
     /**

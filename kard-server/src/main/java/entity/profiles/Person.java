@@ -76,6 +76,11 @@ public class Person implements ProfileType, Serializable {
         return this.username;
     }
 
+    @Override
+    public Memento createMemento() {
+        return new PersonMemento(this.name, this.phone, this.email, this.username);
+    }
+
     /**
      * Determines if another Person being passed in refers to the same Person as the
      * current Person
@@ -94,10 +99,6 @@ public class Person implements ProfileType, Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(name, phone, email, username);
-    }
-
-    public PersonMemento createMemento(){
-        return new PersonMemento(this.name, this.phone, this.email, this.username);
     }
 
     public void restore(PersonMemento memento){

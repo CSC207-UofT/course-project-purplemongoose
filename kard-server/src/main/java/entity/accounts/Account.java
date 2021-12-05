@@ -1,12 +1,9 @@
 package entity.accounts;
 
-import entity.profiles.Organization;
 import entity.profiles.Person;
-import entity.profiles.ProfileType;
 
 import java.util.HashSet;
 import java.io.Serializable;
-import java.util.Set;
 
 public abstract class Account implements Serializable {
 
@@ -31,8 +28,4 @@ public abstract class Account implements Serializable {
     public abstract void removeContact(Person person);
     public abstract boolean checkContacts(Person person);
     public abstract HashSet<String> getContacts();
-
-    public abstract boolean addAffiliation(Organization organization); // return true if added successfully
-    public abstract boolean removeAffiliation(Organization organization); // return true if removed successfully
-    public abstract Set<ProfileType> getAffiliations(); // return some sort of container for affiliations
 }

@@ -32,25 +32,25 @@ public class Name implements Serializable {
                         String titles) {
         if (!first.isEmpty()) {
             this.first = first;
-        } else if (first.isEmpty()) {
+        } else {
             this.first = null;
         }
 
         if (!last.isEmpty()) {
             this.last = last;
-        } else if (last.isEmpty()) {
+        } else {
             this.last = null;
         }
 
         if (!pronouns.isEmpty()) {
             this.pronouns = pronouns;
-        } else if (pronouns.isEmpty()) {
+        } else {
             this.pronouns = null;
         }
 
         if (!titles.isEmpty()) {
             this.titles = titles;
-        } else if (titles.isEmpty()) {
+        } else {
             this.titles = null;
         }
     }
@@ -74,6 +74,14 @@ public class Name implements Serializable {
         return first + " " + last;
     }
 
+    public String getTitles() {
+        return titles;
+    }
+
+    public String getPronouns() {
+        return pronouns;
+    }
+
     /**
      * Get all the formal details to address a Person including:
      *   - titles
@@ -90,14 +98,6 @@ public class Name implements Serializable {
         } else {
             return titles + " " + first + " " + last + " (" + pronouns + ")";
         }
-    }
-
-    public String getTitles() {
-        return titles;
-    }
-
-    public String getPronouns() {
-        return pronouns;
     }
 
     @Override
