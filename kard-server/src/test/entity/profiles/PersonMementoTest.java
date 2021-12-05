@@ -25,10 +25,10 @@ public class PersonMementoTest {
     @BeforeEach
     void setUp() {
 
-        Phone phone = new Phone("6475552401");
-        Email email = new Email("jon666@gmail.com");
-        Name name = new Name("George", "Michael", "she/her");
-        PersonMemento personMemento = new PersonMemento(name, phone, email, "george2");
+        phone = new Phone("6475552401");
+        email = new Email("jon666@gmail.com");
+        name = new Name("George", "Michael", "she/her");
+        this.personMemento = new PersonMemento(name, phone, email, "george2");
     }
     @AfterEach
     void tearDown() {
@@ -54,7 +54,7 @@ public class PersonMementoTest {
     @DisplayName("Get original name of PersonMemento")
     void testGetOriginalName(){
         Name result = personMemento.getOriginalName();
-        Name expected = name;
+        Name expected = this.name;
         assertEquals(result, expected);
     }
 
