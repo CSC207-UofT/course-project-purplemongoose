@@ -208,7 +208,7 @@ class _SignUpState extends State<SignUp> {
         body: body,
     );
 
-    Constants.setCurrentUser(username);
+    Constants.setCurrentUser(User(username, password, true));
 
     Navigator.push(context,
             MaterialPageRoute(builder: (context) => const ProfileSetupOne()));

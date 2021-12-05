@@ -1,18 +1,19 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:kard_project_test/user.dart';
 
 class Constants {
 
-  static const String address = "10.0.1.137:8082";
+  static const String address = "cloud.arthurgao.ca:9082";
 
-  static String _currentUser = "";
+  static User? _currentUser;
 
-  static void setCurrentUser(String value) {
+  static void setCurrentUser(User value) {
     _currentUser = value;
   }
 
-  static String getCurrentUser() {
+  static User? getCurrentUser() {
     return _currentUser;
   }
 

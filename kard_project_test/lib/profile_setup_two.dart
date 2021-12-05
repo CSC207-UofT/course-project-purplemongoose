@@ -180,7 +180,6 @@ class _ProfileSetupTwo extends State<ProfileSetupTwo> {
                 child: FittedBox(
                   fit: BoxFit.contain,
                   child: Text(
-                    // TODO name is showing up wrong
                       'Hi! ' + UserBuilder.firstName,
                       style: const TextStyle(fontSize: 400.0)
                   ),

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kard_project_test/user.dart';
+import 'package:kard_project_test/user_builder.dart';
 
 import 'home_page.dart';
 
@@ -125,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
               },
 
               //TODO fix this fucking thing. It's fucking disgusting
-              onSaved: (value) => _password = value ?? 'e',
+              onSaved: (value) => _password = value ?? '',
               obscureText: true,
               style: const TextStyle(
                 color: Colors.black,
@@ -152,22 +153,6 @@ class _LoginPageState extends State<LoginPage> {
 
 
               child: Row(children: [
-                /* Remove Sign Up button from "login" screen
-                Expanded(
-                    flex: 5,
-                    child: OutlinedButton(
-                      onPressed: (){
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => SignUp()));
-                      },
-                      child: const Text('Sign Up'),
-                    )
-                ),
-                Expanded(
-                  child: Container(),
-                  flex: 1,
-                ), */
-
                 Expanded(
                   flex: 10,
                   child: ElevatedButton(
@@ -178,13 +163,6 @@ class _LoginPageState extends State<LoginPage> {
 
                         authenticate(_username, _password);
 
-                        //TODO: This might be removed
-                        // ScaffoldMessenger.of(context).showSnackBar(
-                        //
-                        //
-                        //
-                        //   const SnackBar(content: Text('aay this works!')),
-                        // );
                       }
                     },
                     child: const Text('Log In'),
@@ -199,17 +177,11 @@ class _LoginPageState extends State<LoginPage> {
 
   void authenticate(String username, String password) async {
 
-    //TODO implement initstate
+    User loginUser = await connectUser(_username, _password);
 
-    bool loginSuccess = await connectUser(_username, _password);
-
-      if (loginSuccess) {
-
-        /* Uncomment for testing
-
-        print(_username);
-        print(_password);*/
-
+      if (loginUser.loginSuccess) {
+        Constants.setCurrentUser(loginUser);
+        Constants.getCurrentUser()!.fetchContacts();
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => const HomePage()));
       } else {

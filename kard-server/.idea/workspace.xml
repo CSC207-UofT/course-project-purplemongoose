@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
-      <change afterPath="$PROJECT_DIR$/../kard_project_test/lib/profile_setup_three.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kard_project_test/lib/profile_setup_two.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard-CLI/src/main/java/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kard-CLI/src/main/java/Request.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/profile_setup_one.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/profile_setup_one.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard_project_test/.idea/kard_project_test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard_project_test/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/profile_setup_three.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/profile_setup_three.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/profile_setup_two.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/profile_setup_two.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/sign_in.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/sign_in.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/user_builder.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/user_builder.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -229,6 +231,9 @@
       <workItem from="1637798635057" duration="17562000" />
       <workItem from="1638036963510" duration="8097000" />
       <workItem from="1638064643369" duration="1363000" />
+      <workItem from="1638084953717" duration="2500000" />
+      <workItem from="1638147980711" duration="1371000" />
+      <workItem from="1638729198239" duration="315000" />
     </task>
     <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
       <created>1636166152716</created>
