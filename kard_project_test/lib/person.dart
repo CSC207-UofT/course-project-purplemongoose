@@ -12,8 +12,8 @@ class Person {
       this.pronouns);
 
   Person.fromJson(Map<String, dynamic> json):
-      name = json['name'],
-      phone = json['phone'],
-      email = json['email'],
-      pronouns = json['pronouns'];
+      name = json['name'] ?? '',
+      phone = json['phone'] ?? '',
+      email = json['email'] ?? '',
+      pronouns = json['pronouns'] ?? '';
 }

@@ -42,13 +42,13 @@ class User {
 
   Future<void> fetchContacts() async {
 
+    allContacts = [];
+
     http.Response response = await http.get(
       Uri.parse('http://' + Constants.address +
           '/contact/display?username=' + username +
           '&param=name&order=ascend')
     );
-
-    print(response.body);
 
     if (response.statusCode == 200) {
       makeContacts(response);
@@ -58,6 +58,7 @@ class User {
   void makeContacts(http.Response r) {
     final body = json.decode(r.body);
 
+    print(body);
     List<dynamic> list = body["response"];
 
     for (var i = 0; i < list.length; i++) {

@@ -4,6 +4,8 @@ import 'package:kard_project_test/sign_in.dart';
 import 'package:kard_project_test/sign_up_page.dart';
 import 'package:kard_project_test/user_builder.dart';
 
+import 'home_page.dart';
+
 class ProfileSetupThree extends StatefulWidget {
   const ProfileSetupThree({Key? key}) : super(key: key);
 
@@ -132,9 +134,10 @@ class _ProfileSetupThree extends State<ProfileSetupThree> {
 
               child: OutlinedButton(
                 onPressed: (){
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => SignUp()));
                   UserBuilder.initializeProfile();
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) =>
+                      const HomePage()));
                 },
                 child: const Text('Skip'),
               )
@@ -152,9 +155,10 @@ class _ProfileSetupThree extends State<ProfileSetupThree> {
                 _formKey.currentState!.save();
                 if (UserBuilder.phone != "" ||
                     UserBuilder.email != "") {
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => LoginPage()));
                   UserBuilder.initializeProfile();
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) =>
+                      const HomePage()));
                 }
               },
               child: const Text('Next'),

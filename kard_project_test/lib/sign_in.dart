@@ -181,9 +181,11 @@ class _LoginPageState extends State<LoginPage> {
 
       if (loginUser.loginSuccess) {
         Constants.setCurrentUser(loginUser);
-        Constants.getCurrentUser()!.fetchContacts();
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const HomePage()));
+        Constants.getCurrentUser()!.fetchContacts().then((value) => {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const HomePage()))
+
+        });
       } else {
         setState(() {
           _error = -1;

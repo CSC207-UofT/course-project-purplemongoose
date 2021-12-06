@@ -25,7 +25,6 @@ class UserBuilder {
   static String lastName = "";
   static String pronoun = "";
   static String title = "";
-
   static String phone = "";
   static String email = "";
 
@@ -56,7 +55,7 @@ class UserBuilder {
   static void initializeProfile() async {
 
     Map data = {
-      'accountUsername' : Constants.getCurrentUser(),
+      'accountUsername' : Constants.getCurrentUser()!.username,
       'firstName' : firstName,
       'lastName' : lastName,
       'title' : title,
@@ -68,7 +67,7 @@ class UserBuilder {
     String body = json.encode(data);
 
     http.Response response = await http.post(
-      Uri.parse("http://" + Constants.address + "/profile/new"),
+      Uri.parse("http://" + Constants.address + "/profile/create"),
       headers: {"Content-Type": "application/json"},
       body: body,
     );

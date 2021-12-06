@@ -1,3 +1,8 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+
+
 import 'package:flutter/material.dart';
 import 'package:kard_project_test/person.dart';
 import 'package:kard_project_test/user_builder.dart';
@@ -16,18 +21,12 @@ class _HomePageState extends State<HomePage> {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
-        // appBar: AppBar(
-        //   title: const Text("data"),
-        //   leading: IconButton(
-        //     icon: const Icon(Icons.ac_unit),
-        //     onPressed: () => Navigator.of(context).pop(),
-        //   ),
-        // ),
         backgroundColor: Colors.grey[900],
           body: Padding(
             padding: const EdgeInsets.fromLTRB(10, 50, 10, 10),
             child: Column(
               children: <Widget>[
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -41,17 +40,35 @@ class _HomePageState extends State<HomePage> {
                           fontSize: 25
                       ),
                     ),
-                    Icon(Icons.notifications_none, size: 35, color: Colors.white)
+                    const Icon(Icons.notifications_none, size: 35, color: Colors.white)
                   ],
                 ),
-                Column(
-                    children: persons.map((p) {
-                      return personDetailCard(p);
-                    }).toList()
-                )
+                Expanded(child:
+                  ListView(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      children: persons.map((p) {
+                        return personDetailCard(p);
+                      }).toList()
+                  )
+                ),
               ],
             ),
           ),
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: const Color(0xff03dac6),
+            foregroundColor: Colors.black,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => FullScreenDialog(),
+                  fullscreenDialog: true,
+                ),
+              );
+            },
+            child: Icon(Icons.add),
+          )
       ),
     );
   }
@@ -128,7 +145,129 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
-
-
 }
+
+class FullScreenDialog extends StatelessWidget {
+
+  String addUsername = '';
+  final _formKey = GlobalKey<FormState>();
+
+  FullScreenDialog({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey[900],
+        title: const Text('Add a new kard!'),
+      ),
+      body: Column(
+        children: <Widget>[
+          Form(
+              key: _formKey,
+              child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _usernameField(),
+                _next(context)
+              ],
+            )
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _usernameField () {
+    return Padding(
+      padding: const EdgeInsets.only(
+          left: 50,
+          right: 50,
+          bottom: 10,
+          top: 10)
+      ,
+      child: TextFormField(
+
+        validator: (value) {
+          return value == null||value.isEmpty?
+          "username cannot be empty" : null;
+        },
+
+        onSaved: (value) => addUsername = value ?? '',
+
+        style: const TextStyle(
+          color: Colors.black,
+          fontSize: 22,
+        ),
+
+        cursorColor: Colors.black,
+
+        decoration: const InputDecoration(
+            hintText: 'Username',
+            hintStyle: TextStyle(color: Colors.black26),
+            border: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.black)
+            ),
+            focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.black)
+            )
+        ),
+      ),
+    );
+  }
+
+  Widget _next(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.only(
+            left: 50,
+            right: 50,
+            bottom: 10),
+
+        child: Row(children: [
+          Expanded(
+            flex: 10,
+            child: ElevatedButton(
+              onPressed: (){
+                if (_formKey.currentState!.validate()) {
+                  _formKey.currentState!.save();
+                  addContacts(context);
+                }
+              },
+              child: const Text('Next'),
+            ),
+          )
+        ],)
+    );
+  }
+
+  Future<void> addContacts(BuildContext context) async {
+    Map data = {
+      'accountUsername' : Constants.getCurrentUser()!.username,
+      'contactUsername' : addUsername
+    };
+
+    String body = json.encode(data);
+
+    http.Response response = await http.post(
+      Uri.parse('http://' + Constants.address + '/contact/add'),
+      headers: {"Content-Type": "application/json"},
+      body: body,
+    );
+
+    print(response.body);
+
+    if (response.statusCode == 200) {
+      final body = json.decode(response.body);
+      if (body['response']) {
+        Constants.getCurrentUser()!.fetchContacts().then((value) => {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const HomePage()))
+        });
+      } else {
+        print(body['errorCode']);
+      }
+    }
+  }
+}
+
+
