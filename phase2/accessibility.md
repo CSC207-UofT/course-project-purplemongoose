@@ -38,8 +38,6 @@ Useful and marketable to people with diverse abilities
   - Invites usage by individuals that don't speak English
   - Unambiguous symbols can be interpreted independent of text size
 
-**Future Implementation:**
-
 ### Flexibility in use
 
 Accommodates a wide range of individual preferences and abilities
