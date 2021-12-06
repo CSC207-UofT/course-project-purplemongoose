@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import dto.PersonalProfileRequest;
 import dto.ResponseContainer;
-import usecase.account.SortByName;
 import usecase.profile.*;
 
 @RestController
@@ -29,15 +28,65 @@ public class ProfileController {
      *                a new personal profile
      * @return return a ResponseEntity which contains a 'true'/'false' response and an HTTP status code
      */
-    @PostMapping(path="/new", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResponseContainer> submitNewPersonalProfile(@RequestBody PersonalProfileRequest request) {
+    @PostMapping(path="/create",
+            consumes=MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ResponseContainer> submitCreatePersonalProfile(
+            @RequestBody PersonalProfileRequest request) {
         ResponseContainer response = new ResponseContainer();
         if (createProfile.newPerson(request.getAccountUsername(), request.getFirstName(), request.getLastName(),
                 request.getPronoun(), request.getTitle(), request.getPhone(), request.getEmail())) {
             response.add(true);
         } else {
             response.add(false);
-            response.setError("25"); // if a personal profile was already exists
+            response.setError("106");
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    /**
+     * Takes in the arguments needed to modify a person's personal profile. If a profile doesn't exist, return 'false',
+     * otherwise return 'true' when the changes have been applied
+     *
+     * @param request JSON converted into PersonalProfileRequest which contains all the fields needed for editing
+     *                a personal profile
+     * @return return a ResponseEntity which contains a 'true'/'false' response and an HTTP status code
+     */
+    @PostMapping(path="/edit",
+            consumes=MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ResponseContainer> submitPersonProfileUpdate(
+            @RequestBody PersonalProfileRequest request) {
+        ResponseContainer response = new ResponseContainer();
+        if (updateProfile.updatePersonProfile(request.getAccountUsername(), request.getFirstName(), request.getLastName(),
+                request.getPronoun(), request.getTitle(), request.getPhone(), request.getEmail())) {
+            response.add(true);
+        } else {
+            response.add(false);
+            response.setError("107");
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    /**
+     * Takes in the arguments needed to restore a person's personal profile. If a profile doesn't exist, return 'false',
+     * otherwise return 'true' when the changes have been applied
+     *
+     * @param request JSON converted into PersonalProfileRequest which contains all the fields needed for restoring
+     *                a personal profile
+     * @return return a ResponseEntity which contains a 'true'/'false' response and an HTTP status code
+     */
+    @PostMapping(path="/restore",
+            consumes=MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ResponseContainer> submitPersonProfileRestore(
+            @RequestBody PersonalProfileRequest request) {
+        ResponseContainer response = new ResponseContainer();
+        if (restoreProfile.restorePersonProfile(request.getAccountUsername(), Integer.parseInt(request.getIndex()))) {
+            response.add(true);
+        } else {
+            response.add(false);
+            response.setError("107");
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
@@ -57,64 +106,13 @@ public class ProfileController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    /*
-     * Any methods below this comment are unimplemented, however their headers have been included
-     * to serve as a reference point for future functionality of kard
-     *
-     * TODO: **Phase 2** complete the methods
-     */
-    public void submitNewOrganizationProfile(String profileUUID) {
-        // for phase 2
-    }
-
-    /**
-     * Takes in the arguments needed to modify a person's personal profile. If a profile doesn't exist, return 'false',
-     * otherwise return 'true' when the changes have been applied
-     *
-     * @param request JSON converted into PersonalProfileRequest which contains all the fields needed for editing
-     *                a personal profile
-     * @return return a ResponseEntity which contains a 'true'/'false' response and an HTTP status code
-     */
-    @PostMapping(path="/edit", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResponseContainer> submitPersonProfileUpdate(@RequestBody PersonalProfileRequest request) {
-        ResponseContainer response = new ResponseContainer();
-        if (updateProfile.updatePersonProfile(request.getAccountUsername(), request.getFirstName(), request.getLastName(),
-                request.getPronoun(), request.getTitle(), request.getPhone(), request.getEmail())) {
-            response.add(true);
-        } else {
-            response.add(false);
-            response.setError("30"); // if a personal profile doesn't exist
-        }
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    /**
-     * Takes in the arguments needed to restore a person's personal profile. If a profile doesn't exist, return 'false',
-     * otherwise return 'true' when the changes have been applied
-     *
-     * @param request JSON converted into PersonalProfileRequest which contains all the fields needed for restoring
-     *                a personal profile
-     * @return return a ResponseEntity which contains a 'true'/'false' response and an HTTP status code
-     */
-    @PostMapping(path="/restore", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResponseContainer> restorePersonProfileUpdate(@RequestBody PersonalProfileRequest request) {
-        ResponseContainer response = new ResponseContainer();
-        if (restoreProfile.restorePersonProfile(request.getAccountUsername(), Integer.parseInt(request.getIndex()))) {
-            response.add(true);
-        } else {
-            response.add(false);
-            response.setError("80"); // if a personal profile doesn't exist
-        }
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
     /**
      * Returns the profile of the account associated with the username
      *
      * @param accountUsername a string containing the account username to display the contacts for
      * @return Return a JSON object containing the profile and an HTTP status code.
      */
-    @GetMapping(path="/display/profile", produces=MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path="/display", produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitProfileDisplay(
             @RequestParam(name="username") String accountUsername) {
         ResponseContainer response = new ResponseContainer();
@@ -122,11 +120,4 @@ public class ProfileController {
         response.add(profile);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-
-
-
-    public void submitProfileRemove(String profileUUID) {
-        // for phase 2
-    }
-
 }

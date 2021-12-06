@@ -3,10 +3,8 @@ package entity.accounts;
 import entity.datafiles.Email;
 import entity.datafiles.Name;
 import entity.datafiles.Phone;
-
-import entity.profiles.Organization;
 import entity.profiles.Person;
-import entity.profiles.ProfileType;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -38,24 +36,16 @@ class PersonalAccountTest {
                 "Johnnyboi69"
         ));
         account.addContact(new Person(
-                new Name("Sarah", "johnson"),
+                new Name("Sarah", "johnson", "", ""),
                 new Phone("4166942069"),
                 new Email("Taskmgr_dot_exe@gmail.com"),
                 "NotABot"
         ));
         account.addContact(new Person(
-                new Name("Peter", "Peter", "They/Them"),
+                new Name("Peter", "Peter", "They/Them", ""),
                 new Phone("5555555555555555"),
                 new Email("john.smith@aol.com"),
                 "TheRealJohnSmith"
-        ));
-
-        // A test organization
-        account.addAffiliation(new Organization(
-                "JhonnyboiCorp",
-                new Phone("6471234567"),
-                new Email("inquiries@joe.io"),
-                "JohnnyBoi"
         ));
     }
 
@@ -71,13 +61,13 @@ class PersonalAccountTest {
     @DisplayName("Add a contact")
     void testAddContact(){
         Person test_person = new Person(
-                new Name("Steven", "Test"),
+                new Name("Steven", "Test", "", ""),
                 new Phone("6663636363"),
                 new Email("not_steven@y8.com"),
                 "TheFakeJohnSmith"
         );
         Person different =  new Person(
-                new Name("Steven", "Test"),
+                new Name("Steven", "Test", "", ""),
                 new Phone("6663636363"),
                 new Email("not_steven@y8.com"),
                 "TheFakeJohnSmith"
@@ -137,70 +127,5 @@ class PersonalAccountTest {
 //        assertEquals(expected, before);
 //    }
 
-    /**
-     * Tests the addAffiliation function
-     */
-    @Test
-    @DisplayName("Add an affiliation")
-    void testAddAffiliation(){
-        Organization test_org = new Organization(
-                "StevenInc",
-                new Phone("6663636363"),
-                new Email("not_steven@y8.com"),
-                "JonnyBoi"
-        );
-
-        assertTrue(account.addAffiliation(test_org));
-        assertTrue(account.getAffiliations().contains(test_org));
-    }
-
-    /**
-     * Tests the removeAffiliation function
-     */
-    @Test
-    @DisplayName("Remove an affiliation")
-    void testRemoveAffiliation(){
-        Organization test_org = new Organization(
-                "StevenInc",
-                new Phone("6663636363"),
-                new Email("not_steven@y8.com"),
-                "JonnyBoi"
-        );
-
-        account.addAffiliation(test_org);
-
-        assertFalse(account.removeAffiliation(test_org));
-        assertFalse(account.getAffiliations().contains(test_org));
-    }
-
-    /**
-     * Tests the removeAffiliation function an org that is not affiliated with the account
-     */
-    @Test
-    @DisplayName("remove an affiliation that does not exist")
-    void testRemoveAffiliationNotExists(){
-        Organization test_org = new Organization(
-                "StevenInc",
-                new Phone("6663636363"),
-                new Email("not_steven@y8.com"),
-                "JonnyBoi"
-        );
-
-        assertFalse(account.getAffiliations().contains(test_org));
-        assertFalse(account.removeAffiliation(test_org));
-    }
-
-    /**
-     * Tests the getAffiliations function on an empty affiliations list
-     */
-    @Test
-    @DisplayName("Get the affiliations as a string for an empty affiliations list")
-    void testGetAffiliationsEmpty(){
-        PersonalAccount new_account = new PersonalAccount();
-        Set<ProfileType> expected = Collections.emptySet();
-
-        Set<ProfileType> before = new_account.getAffiliations();
-        assertEquals(expected, before);
-    }
 
 }

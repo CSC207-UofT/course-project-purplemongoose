@@ -5,7 +5,6 @@ import entity.datafiles.Email;
 import entity.datafiles.Name;
 import entity.datafiles.Phone;
 import entity.profiles.MementoManager;
-import entity.profiles.Organization;
 import entity.profiles.Person;
 
 import java.io.IOException;
@@ -47,24 +46,5 @@ public class CreateProfile {
         MementoManager caretaker = new MementoManager();
         caretaker.addPersonalMemento(n, p, e, accountUsername);
         return profileGateway.addProfileData(accountUsername, person, caretaker);
-    }
-
-    /**
-     * Creates a new organization with the given arguments and adds it to the profile database through the
-     * ProfileGateway
-     *
-     * @param accountUsername the username of the account who claims the business
-     * @param name string for name of the organization
-     * @param phone string for the phone number
-     * @param email string for the email
-     * @return whether the profile was successfully created
-     */
-    public boolean newOrganization(String accountUsername, String name, String phone, String email) {
-        Phone p = new Phone(phone);
-        Email e = new Email(email);
-        Organization org = new Organization(name, p, e, accountUsername);
-        MementoManager caretaker = new MementoManager();
-        caretaker.addOrganizationMemento(name, p, e, accountUsername);
-        return profileGateway.addProfileData(accountUsername, org, caretaker);
     }
 }

@@ -28,45 +28,70 @@ public class Person implements ProfileType, Serializable {
         this.username = username;
     }
 
+    /**
+     * Gets the full name of the Person
+     * @return string representation of full name
+     */
     @Override
     public String getName() {
         return name.getFullName();
     }
 
-    public String getPronouns() {
-        return name.getPronouns();
-    }
-
+    /**
+     * Gets phone number of the Person
+     * @return string representation of phone number
+     */
     @Override
     public String getPhone() {
         return phone.getPhone();
     }
 
+    /**
+     * Gets email address of the Person
+     * @return string representation of email address
+     */
     @Override
     public String getEmail() {
         return email.getEmail();
     }
 
+    /**
+     * Gets the pronoun of the Person
+     * @return string representation of the pronoun
+     */
+    public String getPronouns() {
+        return name.getPronouns();
+    }
+
+    /**
+     * Gets username of the Person's account
+     *
+     * @return username in type Username
+     */
     @Override
     public String getUsername() {
         return this.username;
     }
 
+    /**
+     * Determines if another Person being passed in refers to the same Person as the
+     * current Person
+     *
+     * @param otherPerson the other Person being compared to
+     * @return true if the compared person is the same as the current Person
+     */
+
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
+    public boolean equals(Object otherPerson) {
+        if (this == otherPerson) return true;
+        if (otherPerson == null || getClass() != otherPerson.getClass()) return false;
+        Person person = (Person) otherPerson;
         return Objects.equals(name, person.name) && Objects.equals(phone, person.phone) && Objects.equals(email, person.email) && Objects.equals(username, person.username);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(name, phone, email, username);
-    }
-
-    public PersonMemento createMemento(){
-        return new PersonMemento(this.name, this.phone, this.email, this.username);
     }
 
     public void restore(PersonMemento memento){
@@ -76,5 +101,15 @@ public class Person implements ProfileType, Serializable {
             this.email = new Email(memento.getEmail());
             this.username = memento.getUsername();
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name=" + name +
+                ", phone=" + phone +
+                ", email=" + email +
+                ", username='" + username + '\'' +
+                '}';
     }
 }

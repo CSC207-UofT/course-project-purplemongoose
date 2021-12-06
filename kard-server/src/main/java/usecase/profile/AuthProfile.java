@@ -20,6 +20,6 @@ public class AuthProfile {
     }
 
     public boolean checkForProfile(String profileUsername) {
-        return profileGateway.getProfileData(profileUsername) != null;
+        return profileGateway.getProfileData(profileUsername) == null;
     }
 }

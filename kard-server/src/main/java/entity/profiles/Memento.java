@@ -1,9 +1,5 @@
 package entity.profiles;
 
-import entity.datafiles.Email;
-import entity.datafiles.Name;
-import entity.datafiles.Phone;
-
 public abstract class Memento {
 
     public abstract String getName();

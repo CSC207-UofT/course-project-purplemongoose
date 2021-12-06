@@ -4,19 +4,11 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Phone implements Serializable {
+public record Phone(String phone) implements Serializable {
     @Serial
     private static final long serialVersionUID = 3499862814127968409L;
-    private final String phone;
-
-    // The setter
-
-    public Phone(String phone) {
-        this.phone = phone;
-    }
 
     // The getter
-
     public String getPhone() {
         return phone;
     }
