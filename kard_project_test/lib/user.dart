@@ -14,7 +14,7 @@ Future<User> connectUser(String username, String password) async {
   String body = json.encode(data);
 
   http.Response response = await http.post(
-    Uri.parse('http://' + Constants.address + '/start/login'),
+    Uri.parse('http://' + Constants.address + '/kard/login'),
     headers: {"Content-Type": "application/json"},
     body: body,
   );
@@ -36,38 +36,32 @@ class User {
   String password;
   bool loginSuccess;
 
-  late List<Person> allContacts;
+  List<Person> allContacts = [];
 
   User(this.username, this.password, this.loginSuccess);
 
   Future<void> fetchContacts() async {
-    /*TODO: Implement.
+
     http.Response response = await http.get(
       Uri.parse('http://' + Constants.address +
-          '/account/display/contact?username=' + username +
+          '/contact/display?username=' + username +
           '&param=name&order=ascend')
     );
 
-   print(response.body);*/
-   allContacts = [
-     Person("firstName",
-       "lastName",
-       "phone",
-       "email",
-       "pronouns",
-       "title"),
-     Person("ooga",
-         "booga",
-         "123",
-         "123@123.com",
-         "he",
-         "mr"),
-     Person("cooga",
-         "booga",
-         "321",
-         "321@321.com",
-         "she",
-         "ms")];
+    print(response.body);
 
+    if (response.statusCode == 200) {
+      makeContacts(response);
+    }
+  }
+
+  void makeContacts(http.Response r) {
+    final body = json.decode(r.body);
+
+    List<dynamic> list = body["response"];
+
+    for (var i = 0; i < list.length; i++) {
+      allContacts.add(Person.fromJson(list[i]));
+    }
   }
 }

@@ -1,18 +1,19 @@
 class Person {
 
-  String firstName;
-  String lastName;
+  String name;
   String phone;
   String email;
   String pronouns;
-  String title;
 
   Person(
-      this.firstName,
-      this.lastName,
+      this.name,
       this.phone,
       this.email,
-      this.pronouns,
-      this.title);
+      this.pronouns);
 
+  Person.fromJson(Map<String, dynamic> json):
+      name = json['name'],
+      phone = json['phone'],
+      email = json['email'],
+      pronouns = json['pronouns'];
 }

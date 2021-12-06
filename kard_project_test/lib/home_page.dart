@@ -54,82 +54,76 @@ class _HomePageState extends State<HomePage> {
           ),
       ),
     );
-
-    // return Scaffold(
-    //   backgroundColor: Colors.grey[900],
-    //   body: Padding(
-    //     padding: const EdgeInsets.fromLTRB(10, 50, 10, 10),
-    //     child: Column(
-    //       children: <Widget>[
-    //         Row(
-    //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //           children: const <Widget>[
-    //             Icon(Icons.menu, size: 35, color: Colors.white),
-    //             Text('Notifications',
-    //               style: TextStyle (
-    //                   color: Colors.white,
-    //                   fontSize: 25
-    //               ),
-    //             ),
-    //             Icon(Icons.notifications_none, size: 35, color: Colors.white)
-    //           ],
-    //         ),
-    //         Column(
-    //             children: persons.map((p) {
-    //               return personDetailCard(p);
-    //             }).toList()
-    //         )
-    //       ],
-    //     ),
-    //   ),
-    // );
   }
-
 
   List<Person> persons = Constants.getCurrentUser()!.allContacts;
 
-
-  Widget personDetailCard(Person) {
+  Widget personDetailCard(person) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
+      child: GestureDetector(
+        onTap: () {print('woop');},
       child: Card(
         color: Colors.grey[800],
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: <Widget>[
-              // Padding(
-              //   padding: const EdgeInsets.all(8.0),
-              //   child: Container(
-              //       width: 50.0,
-              //       height: 50.0,
-              //       decoration: BoxDecoration(
-              //           shape: BoxShape.circle,
-              //           image: DecorationImage(
-              //               fit: BoxFit.cover,
-              //               image: AssetImage(Person.profileImg)
-              //           )
-              //       )),
-              // ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(Person.firstName,
-                    style: const TextStyle (
-                        color: Colors.white,
-                        fontSize: 18
+
+            child: Row(
+              children: <Widget>[
+                // Padding(
+                //   padding: const EdgeInsets.all(8.0),
+                //   child: Container(
+                //       width: 50.0,
+                //       height: 50.0,
+                //       decoration: BoxDecoration(
+                //           shape: BoxShape.circle,
+                //           image: DecorationImage(
+                //               fit: BoxFit.cover,
+                //               image: AssetImage(Person.profileImg)
+                //           )
+                //       )),
+                // ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(person.name,
+                      style: const TextStyle (
+                          color: Colors.white,
+                          fontSize: 24
+                      ),
                     ),
-                  ),
-                  Text(Person.phone,
-                    style: const TextStyle (
-                        color: Colors.white,
-                        fontSize: 12
+                    const Padding(padding: EdgeInsets.only(
+                      bottom: 10
+                    )),
+                    Text(person.pronouns,
+                      style: const TextStyle (
+                          color: Colors.white,
+                          fontSize: 12
+                      ),
                     ),
-                  )
-                ],
-              )
-            ],
-          ),
+                    const Padding(padding: EdgeInsets.only(
+                        bottom: 3
+                    )),
+                    Text(person.phone,
+                      style: const TextStyle (
+                          color: Colors.white,
+                          fontSize: 12
+                      ),
+                    ),
+                    const Padding(padding: EdgeInsets.only(
+                        bottom: 3
+                    )),
+                    Text(person.email,
+                      style: const TextStyle (
+                          color: Colors.white,
+                          fontSize: 12
+                      )
+                    )
+                  ],
+                )
+              ],
+            ),
+          )
         ),
       ),
     );

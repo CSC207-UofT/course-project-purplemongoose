@@ -103,13 +103,6 @@ class _SignUpState extends State<SignUp> {
 
                   signup(_username, _password);
 
-                  //TODO: This might be removed
-                  // ScaffoldMessenger.of(context).showSnackBar(
-                  //
-                  //
-                  //
-                  //   const SnackBar(content: Text('aay this works!')),
-                  // );
                 }
               },
               child: const Text('Create Account'),
@@ -203,7 +196,7 @@ class _SignUpState extends State<SignUp> {
 
     // TODO do response processing
     http.Response response = await http.post(
-        Uri.parse("http://" + Constants.address + "/start/signup"),
+        Uri.parse("http://" + Constants.address + "/account/create"),
         headers: {"Content-Type": "application/json"},
         body: body,
     );

@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
-      <change beforePath="$PROJECT_DIR$/../kard-CLI/src/main/java/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kard-CLI/src/main/java/Request.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kard_project_test/.idea/kard_project_test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kard_project_test/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/profile_setup_three.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/profile_setup_three.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/profile_setup_two.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/profile_setup_two.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/sign_in.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/sign_in.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/person.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/person.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/sign_up_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/sign_up_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/user.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../kard_project_test/lib/user_builder.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard_project_test/lib/user_builder.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,11 +50,11 @@
     <setting file="file://$PROJECT_DIR$/src/main/java/database/SQLite/SQLiteDataBaseFile.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/database/SQLite/SQLiteDataBase.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/spring/controller/AccountController.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/entity/accounts/CorporateAccount.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/entity/accounts/PersonalAccount.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/entity/accounts/Account.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/database/gateway/ProfileGateway.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/database/gateway/AccountGateway.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/entity/accounts/CorporateAccount.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
