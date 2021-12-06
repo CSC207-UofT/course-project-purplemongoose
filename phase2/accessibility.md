@@ -125,4 +125,7 @@ companies.
 
 ## Target demographics
 
-Whether or not the program is less likely to be used by a certain demographic
+This application, kard, is not likely to be less used to be one less group than another. Its user interface is
+designed so that it is easily used and accommodates to a variety of different audiences. On the backend, the 
+way that the entities and relationships are set up allow for the extended application to organizations beyond
+just corporate settings. 
