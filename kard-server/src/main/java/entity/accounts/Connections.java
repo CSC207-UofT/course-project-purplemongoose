@@ -30,8 +30,7 @@ public final class Connections {
      * @param profileType the target of the new connection
      * @return true if the connection was successfully added to the HashMap
      */
-    public static boolean addConnection(HashMap<ProfileType, String> localStore,
-                                        ProfileType profileType) {
+    public static boolean addConnection(HashMap<ProfileType, String> localStore, ProfileType profileType) {
         if (!localStore.containsKey(profileType)) {
             localStore.put(profileType, null);
             return true;
@@ -46,8 +45,7 @@ public final class Connections {
      * @param p the target of the new connection
      * @return true if the connection was successfully removed from the HashMap
      */
-    public static boolean removeConnection(HashMap<ProfileType, String> localStore,
-                                    ProfileType p) {
+    public static boolean removeConnection(HashMap<ProfileType, String> localStore, ProfileType p) {
         localStore.remove(p);
         return false;
     }

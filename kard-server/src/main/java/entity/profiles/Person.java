@@ -45,6 +45,10 @@ public class Person implements ProfileType, Serializable {
         return name.getPronouns();
     }
 
+    public String getTitle() {
+        return name.getTitles();
+    }
+
     /**
      * Gets phone number of the Person
      * @return string representation of phone number
@@ -76,11 +80,6 @@ public class Person implements ProfileType, Serializable {
         return this.username;
     }
 
-    @Override
-    public Memento createMemento() {
-        return new PersonMemento(this.name, this.phone, this.email, this.username);
-    }
-
     /**
      * Determines if another Person being passed in refers to the same Person as the
      * current Person
@@ -108,5 +107,15 @@ public class Person implements ProfileType, Serializable {
             this.email = new Email(memento.getEmail());
             this.username = memento.getUsername();
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name=" + name +
+                ", phone=" + phone +
+                ", email=" + email +
+                ", username='" + username + '\'' +
+                '}';
     }
 }

@@ -14,7 +14,6 @@ import dto.ResponseContainer;
 @RequestMapping("kard")
 public class LoginController {
     AuthLogin auth = new AuthLogin(false);
-    CreateAccount createAccount = new CreateAccount(false);
 
     /**
      * Takes in a StartRequest object and authenticates the information provided. If either the username or password is
@@ -32,7 +31,7 @@ public class LoginController {
             response.add(true);
         } else {
             response.add(false);
-            response.setError("105"); // login attempt failed
+            response.setError("105");
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

@@ -34,6 +34,7 @@ public class ListContact {
 
     /**
      * Returns all the contacts of an account
+     *
      * @param accountUsername the account's username
      * @return array of profile objects
      */
@@ -44,6 +45,8 @@ public class ListContact {
         for (String username : contacts) {
             ProfileType profile = profileGateway.getProfileData(username);
             profiles.add(profile);
+            //todo temp
+            System.out.println(profile);
         }
         return profiles.toArray(new ProfileType[0]);
     }

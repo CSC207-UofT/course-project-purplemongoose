@@ -1,17 +1,21 @@
 package spring.controller;
 
-import dto.ContactRequest;
-import dto.ResponseContainer;
-import entity.profiles.ProfileType;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import usecase.account.AuthContact;
 import usecase.account.ListContact;
 import usecase.account.ModifyContact;
 import usecase.account.SortByName;
 import usecase.profile.AuthProfile;
+import dto.ContactRequest;
+import dto.ResponseContainer;
+import entity.profiles.ProfileType;
+
+import java.util.Arrays;
 
 @RestController
 @RequestMapping("contact")
@@ -40,7 +44,9 @@ public class ContactController {
      * @param request JSON converted to ContactRequest which contains the account username and contact username
      * @return Return a JSON 'true'/'false' response along with an HTTP status code.
      */
-    @PostMapping(path="/add", produces=MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path="/add",
+            consumes=MediaType.APPLICATION_JSON_VALUE,
+            produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitContactAddition(@RequestBody ContactRequest request) {
         ResponseContainer response = new ResponseContainer();
         if (authProfile.checkForProfile(request.getContactUsername())) {
@@ -69,7 +75,9 @@ public class ContactController {
      * @param contactUsername username of the contact to be removed
      * @return Return a JSON 'true'/'false' response along with an HTTP status code.
      */
-    @PostMapping(path="/remove", produces=MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path="/remove",
+            consumes=MediaType.APPLICATION_JSON_VALUE,
+            produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitContactRemoval(
             @RequestParam(name="username") String accountUsername,
             @RequestParam(name="contact") String contactUsername) {
@@ -96,7 +104,6 @@ public class ContactController {
      * @return Return a JSON object containing all the contacts and an HTTP status code.
      */
     @GetMapping(path="/display",
-            consumes=MediaType.APPLICATION_JSON_VALUE,
             produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitContactDisplay(
             @RequestParam(name="username") String accountUsername,
@@ -106,12 +113,13 @@ public class ContactController {
         ProfileType[] contacts = new ProfileType[0];
         if (param.equals("none")) {
             contacts = listContact.getContacts(accountUsername);
-        }
-        else if (param.equals("name")) {
+        } else if (param.equals("name")) {
             listContact.setSorter(new SortByName());
             contacts = listContact.getSortedContacts(accountUsername, order);
         }
         response.add(contacts);
+
+        System.out.println(Arrays.toString(contacts));
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

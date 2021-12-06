@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import dto.PersonalProfileRequest;
 import dto.ResponseContainer;
-import usecase.account.SortByName;
 import usecase.profile.*;
 
 @RestController
@@ -29,10 +28,10 @@ public class ProfileController {
      *                a new personal profile
      * @return return a ResponseEntity which contains a 'true'/'false' response and an HTTP status code
      */
-    @PostMapping(path="/new",
+    @PostMapping(path="/create",
             consumes=MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResponseContainer> submitNewPersonalProfile(
+    public ResponseEntity<ResponseContainer> submitCreatePersonalProfile(
             @RequestBody PersonalProfileRequest request) {
         ResponseContainer response = new ResponseContainer();
         if (createProfile.newPerson(request.getAccountUsername(), request.getFirstName(), request.getLastName(),
@@ -40,13 +39,9 @@ public class ProfileController {
             response.add(true);
         } else {
             response.add(false);
-            response.setError("106"); // if a personal profile was already exists
+            response.setError("106");
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    public void submitProfileRemove(String profileUUID) {
-        // for phase 2
     }
 
     /**
@@ -68,7 +63,7 @@ public class ProfileController {
             response.add(true);
         } else {
             response.add(false);
-            response.setError("107"); // if a personal profile doesn't exist
+            response.setError("107");
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
@@ -84,14 +79,14 @@ public class ProfileController {
     @PostMapping(path="/restore",
             consumes=MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResponseContainer> restorePersonProfileUpdate(
+    public ResponseEntity<ResponseContainer> submitPersonProfileRestore(
             @RequestBody PersonalProfileRequest request) {
         ResponseContainer response = new ResponseContainer();
         if (restoreProfile.restorePersonProfile(request.getAccountUsername(), Integer.parseInt(request.getIndex()))) {
             response.add(true);
         } else {
             response.add(false);
-            response.setError("107"); // if a personal profile doesn't exist
+            response.setError("107");
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

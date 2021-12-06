@@ -12,5 +12,4 @@ public interface ProfileType extends Serializable {
     String getPhone();
     String getEmail();
     String getUsername();
-    Memento createMemento();
 }

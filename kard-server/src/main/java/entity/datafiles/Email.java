@@ -7,15 +7,9 @@ import java.util.Objects;
 /**
  * Class that stores information about the Person's email address
  */
-public class Email implements Serializable {
+public record Email(String email) implements Serializable {
     @Serial
     private static final long serialVersionUID = 4578621814127968409L;
-    private final String email;
-
-    // The setter
-    public Email(String email) {
-        this.email = email;
-    }
 
     // The getter
     public String getEmail() {
