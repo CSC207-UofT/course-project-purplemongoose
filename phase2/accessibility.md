@@ -44,7 +44,8 @@ Accommodates a wide range of individual preferences and abilities
 
 **Relevant features:**
 
--
+- Multiple ways to complete actions 
+  - Swipe or tap to return to previous page
 
 **Future Implementation:**
 
@@ -55,13 +56,15 @@ or current concentration level
 
 **Relevant features:**
 
-- Multiple ways to complete actions
-  - Swipe or tap to return to previous page
 - Different colour theme for setup and normal application use
   - Light colour theme for setup, dark colour theme for homepage
   - Visual distinction between different stages of the app setup and usage
+- Use simple, unambiguous symbols for different features and actions
+  - Simple line drawings for buttons to go back, add users, or check own status
+  - Clear person silhouette for users with no profile photo setting
 
 **Future Implementation:**
+- Add pop-up confirmation dialogues after a contact is added to a user's contact list
 
 ### Perceptible information
 
