@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.teal,
       ),
       home: const MyHomePage(title: 'Arthur\'s Bullshit'),
     );
@@ -133,7 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: OutlinedButton(
               onPressed: (){
                 Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => SignUp()));
+                  MaterialPageRoute(builder: (context) => const SignUp()));
               },
               child: const Text('Sign Up'),
             )
@@ -149,14 +149,13 @@ class _MyHomePageState extends State<MyHomePage> {
             child: ElevatedButton(
               onPressed: (){
                 Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LoginPage()));
+                  MaterialPageRoute(builder: (context) => const LoginPage()));
               },
               child: const Text('Sign In'),
             ),
           )
         ],
       ),
-
     );
   }
 }

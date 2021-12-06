@@ -76,8 +76,6 @@ public class Request {
         return "404";
     }
 
-    // ################ Profiles
-
     public String submitProfileCreate(String first, String last, String title, String pronoun, String phone, String email) {
         String endpoint = "http://"+ this.url +"/profile/create/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," + "\"firstName\":\"%s\","
@@ -121,6 +119,7 @@ public class Request {
         }
         return "404";
     }
+
 
     public String submitProfileRestore(String index) {
         String endpoint = "http://"+ this.url +"/profile/restore/";
@@ -297,6 +296,4 @@ public class Request {
         }
         return "Unable to retrieve contacts list, please try again!";
     }
-
-
 }
