@@ -27,47 +27,87 @@ given principle or how that principle does not apply to this program
 
 ### Equitable use
 
-**Definition:** Useful and marketable to people with diverse abilities
-
-### Flexibility in use
-
-**Definition:** Accommodates a wide range of individual preferences and abilities
-
-### Simple and intuitive use
-
-**Definition:** Is easy to understand, regardless of experience, knowledge, language skills,
-or current concentration level
+Useful and marketable to people with diverse abilities
 
 **Relevant features:**
 
-- 
-
-### Perceptible information
-
-**Definition:** Communicates necessary information effectively to the user, regardless of
-ambient conditions or user's sensory abilities
-
-### Tolerance for error
-
-**Definition:** Minimizes hazards and adverse consequences of accidental or unintended actions
-
-**Relevant features:**
-
+- Ability to skip setup questions (email, phone number) 
+  - Preserves option for user privacy
+  - Does not discriminate against users based on access to resources
 - 
 
 **Future Implementation:**
 
-- Confirmation popups after passing in command and before command response
+### Flexibility in use
+
+Accommodates a wide range of individual preferences and abilities
+
+**Relevant features:**
+
+-
+
+**Future Implementation:**
+
+### Simple and intuitive use
+
+Is easy to understand, regardless of experience, knowledge, language skills,
+or current concentration level
+
+**Relevant features:**
+
+- Multiple ways to complete actions
+  - Swipe or tap to return to previous page
+- Different colour theme for setup and normal application use
+  - Light colour theme for setup, dark colour theme for homepage
+  - Visual distinction between different stages of the app setup and usage
+
+**Future Implementation:**
+
+### Perceptible information
+
+Communicates necessary information effectively to the user, regardless of
+ambient conditions or user's sensory abilities
+
+**Relevant features:**
+
+- Colour theme follows guidelines for visual contrast between features
+- Dark colour theme in main usage screen with high text contrast reduces eye strain
+
+**Future Implementation:**
+
+### Tolerance for error
+
+Minimizes hazards and adverse consequences of accidental or unintended actions
+
+**Relevant features:**
+
+- Option to return to previous page of setup form to resolve mistakes
+- Confirmation and safeguard pop-up dialogues after passing in command and before in-app command response
+
+**Future Implementation:**
 
 ### Low physical effort
 
-**Definition:** Used effectively and comfortably and with minimum fatigue 
+Used effectively and comfortably and with minimum fatigue 
+
+**Relevant features:**
+
+- Multiple options to complete tasks
+  - Avoids mandatory physical strain for simple actions
+  - Accommodates for individuals of different physical ability
+
+**Future Implementation:**
 
 ### Size and space for approach and use
 
-**Definition:** Appropriate size and space is provided for approach, reach, manipulation, and use 
+Appropriate size and space is provided for approach, reach, manipulation, and use 
 regardless of the user's body size, posture, or mobility
 
+**Relevant features:**
+
+- Spaces between buttons and input fields follow Google's Material 2 guidelines
+
+**Future Implementation:**
 
 ## Audience
 
