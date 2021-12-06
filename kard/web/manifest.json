@@ -1,6 +1,6 @@
 {
-    "name": "kard",
-    "short_name": "kard",
+    "name": "kard_project_test",
+    "short_name": "kard_project_test",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
