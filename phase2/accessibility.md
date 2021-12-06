@@ -4,15 +4,15 @@
 
 - [Introduction](#introduction)
 - [Principles of Universal Design](#universal-design-principles)
-  - [Equitable use](equitable-use)
-  - [Flexibility in use](flexible-use)
-  - [Simple and intuitive use](simple-intuitive-use)
-  - [Perceptible information](perceptible-information)
-  - [Tolerance for error](tolerance-error)
-  - [Low physical effort](low-physical-effort)
-  - [Size and space for approach and use](size-shape-approach)
-- [Audience](audience)
-- [Target demographics](target-demographics)
+  - [Equitable use](#equitable-use)
+  - [Flexibility in use](#flexible-in-use)
+  - [Simple and intuitive use](#simple-and-intuitive-use)
+  - [Perceptible information](#perceptible-information)
+  - [Tolerance for error](#tolerance-for-error)
+  - [Low physical effort](#low-physical-effort)
+  - [Size and space for approach and use](#size-and-shape-for-approach-and-use)
+- [Audience](#audience)
+- [Target demographics](#target-demographics)
 
 ## Introduction
 
