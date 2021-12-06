@@ -1,7 +1,7 @@
 package dto;
 
 /**
- * Class that is serialized into a JSON response for the endpoint - only contains one response
+ * Class that is serialized into a JSON response for the endpoint - contains one response and error code
  */
 public class ResponseContainer {
     public Object response;

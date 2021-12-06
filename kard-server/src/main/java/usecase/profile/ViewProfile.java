@@ -21,7 +21,7 @@ public class ViewProfile {
     }
 
     /**
-     * view the profile with the given arguments
+     * View the profile with the given arguments.
      * This method assumes that the person whose profile is being edited has been created already
      *
      * @param profileUsername the username of the account who the profile is associated with

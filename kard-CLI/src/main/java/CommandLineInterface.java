@@ -14,7 +14,7 @@ public class CommandLineInterface {
     }
 
     /**
-     * Function that starts up the CLI for interacting with the user.
+     * Starts up the CLI for interacting with the user and displays a logo.
      */
     public void run() {
         System.out.println("""
@@ -29,7 +29,7 @@ public class CommandLineInterface {
     }
 
     /**
-     * starting screen of the CLI that appears after enter is pressed after the logo appears,
+     * Starting screen of the CLI that appears after enter is pressed after the logo appears,
      * this screen allows the user to log in or sign up.
      */
     public void startingScreen() {

@@ -4,11 +4,19 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * Class that stores information about the Person's phone number
+ *
+ * In the future, multiple phone numbers can be stored
+ */
 public record Phone(String phone) implements Serializable {
     @Serial
     private static final long serialVersionUID = 3499862814127968409L;
 
-    // The getter
+    /**
+     * Getter for the phone
+     * @return the string representation of the phone number
+     */
     public String getPhone() {
         return phone;
     }
