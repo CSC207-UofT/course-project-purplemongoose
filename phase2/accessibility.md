@@ -85,7 +85,7 @@ Minimizes hazards and adverse consequences of accidental or unintended actions
 **Relevant features:**
 
 - Option to return to previous page of setup form to resolve mistakes
-- Confirmation and safeguard pop-up dialogues after passing in command and before in-app command response
+- Confirmation and safeguard pop-up dialogues after passing in command and before in-app command response to prevent unintentional actions
 
 **Future Implementation:**
 
@@ -114,10 +114,13 @@ regardless of the user's body size, posture, or mobility
 
 ## Audience
 
-Who this program would be marketed towards, if sold or licensed
-
-Discuss a category of audience and provide some detail
-
+If sold or licensed, kard would be marketed towards other companies trying to build networks amongst their
+own employees and with other companies. Since kard is a paperless, digital business card application that 
+has all the necessary information for a business card, this allows individuals from these companies to 
+initiate the same type of connection without meeting in person and adapting their thick wallets' worth of 
+business cards into a part of their digital lives. A subset of this audience would likely be younger professionals
+who are trying to develop their corporate presence and connections and live a minimalistic, environmentally
+friendly lifestyle that they implement by going paperless if possible.
 
 ## Target demographics
 
