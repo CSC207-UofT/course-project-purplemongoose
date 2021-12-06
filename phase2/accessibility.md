@@ -114,13 +114,14 @@ regardless of the user's body size, posture, or mobility
 
 ## Audience
 
-If sold or licensed, kard would be marketed towards other companies trying to build networks amongst their
-own employees and with other companies. Since kard is a paperless, digital business card application that 
-has all the necessary information for a business card, this allows individuals from these companies to 
-initiate the same type of connection without meeting in person and adapting their thick wallets' worth of 
-business cards into a part of their digital lives. A subset of this audience would likely be younger professionals
-who are trying to develop their corporate presence and connections and live a minimalistic, environmentally
-friendly lifestyle that they implement by going paperless if possible.
+If sold or licensed, kard would be marketed towards other companies in order to help them and their employees
+build networks amongst their team and with other companies. To market, kard features a paperless, digital 
+business card sharing tool that behaves the same as a physical business card. The main companies that implement
+kard will likely do so to appeal to a younger workforce and to promote environmentally conscious solutions 
+within their company. Like traditional business cards, kard will likely appeal more to young professionals or 
+professionals looking for a new job to build their industry connections. An additional subset given the digital 
+feature of kard will likely appeal greater to the more tech-savvy and environmentally-aware members of the 
+companies.
 
 ## Target demographics
 
