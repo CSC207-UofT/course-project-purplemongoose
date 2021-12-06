@@ -56,18 +56,22 @@ class _MyHomePageState extends State<MyHomePage> {
   // final _formKey = GlobalKey<FormState>();
 
   @override
+
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-            kardLogo(),
-            welcomeText(),
-            buttons()
-          ]
-        ),
-      )
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        body: Center(
+         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+              kardLogo(),
+              welcomeText(),
+              buttons()
+              ]
+            ),
+          )
+        )
     );
   }
 
