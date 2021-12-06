@@ -26,7 +26,7 @@ public class Request {
      * @return code of response that indicates if the login was successful, returns the status code of the response
      */
     public String submitLogin(String username, String password){
-        String endpoint = "http://localhost:8082/start/login/";
+        String endpoint = "http://10.0.1.163:8082/start/login/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," +
                         "\"accountPassword\":\"%s\"}",
                 username, password);
@@ -55,7 +55,7 @@ public class Request {
      * @return code of response that indicates if the sign up was successful, returns the status code of the response
      */
     public String submitSignUp(String username, String password){
-        String endpoint = "http://localhost:8082/start/signup/";
+        String endpoint = "http://10.0.1.163:8082/start/signup/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," +
                         "\"accountPassword\":\"%s\"}",
                 username, password);
@@ -76,7 +76,7 @@ public class Request {
     }
 
     public String submitProfileUpdate(String first, String last, String pronoun, String title, String phone, String email) {
-        String endpoint = "http://localhost:8082/profile/edit/";
+        String endpoint = "http://10.0.1.163:8082/profile/edit/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," + "\"firstName\":\"%s\","
                         + "\"lastName\":\"%s\","+ "\"title\":\"%s\","+ "\"pronoun\":\"%s\","
                         + "\"phone\":\"%s\"," + "\"email\":\"%s\"}",
@@ -98,7 +98,7 @@ public class Request {
     }
 
     public String submitProfileRestore(String index) {
-        String endpoint = "http://localhost:8082/profile/restore/";
+        String endpoint = "http://10.0.1.163:8082/profile/restore/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," + "\"index\":\"%s\"}",
                 this.current_username, index);
         HttpRequest request = HttpRequest.newBuilder()
@@ -118,7 +118,7 @@ public class Request {
     }
 
     public String submitProfileCreation(String first, String last, String title, String pronoun, String phone, String email) {
-        String endpoint = "http://localhost:8082/profile/new/";
+        String endpoint = "http://10.0.1.163:8082/profile/new/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," + "\"firstName\":\"%s\","
                         + "\"lastName\":\"%s\","+ "\"title\":\"%s\","+ "\"pronoun\":\"%s\","
                         + "\"phone\":\"%s\"," + "\"email\":\"%s\"}",
@@ -146,7 +146,7 @@ public class Request {
      * @return status code of response that indicates if the contact addition was successful
      */
     public String submitContactAddition(String input){
-        String endpoint = "http://localhost:8082/account/add/contact/";
+        String endpoint = "http://10.0.1.163:8082/account/add/contact/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," +
                         "\"contactUsername\":\"%s\"}",
                 this.current_username, input);
@@ -173,7 +173,7 @@ public class Request {
      * @return status code of response that indicates if the contact removal was successful
      */
     public String submitContactRemoval(String input) {
-        String endpoint = "http://localhost:8082/account/remove/contact/";
+        String endpoint = "http://10.0.1.163:8082/account/remove/contact/";
         String inputJson = String.format("{\"accountUsername\":\"%s\"," +
                         "\"contactUsername\":\"%s\"}",
                 this.current_username, input);
@@ -199,7 +199,7 @@ public class Request {
      * @return a string of the current users contacts, compiled already and ready for display
      */
     public String submitContactDisplay(String type, String order) {
-        String endpoint = String.format("http://localhost:8082/account/display/contact?username=%s&type=%s&order=%s",
+        String endpoint = String.format("http://10.0.1.163:8082/account/display/contact?username=%s&type=%s&order=%s",
                 this.current_username, type, order);
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(endpoint))
@@ -234,7 +234,7 @@ public class Request {
      * @return a string of the current users past profiles, compiled already and ready for display
      */
     public String submitProfileMementoDisplay() {
-        String endpoint = String.format("http://localhost:8082/profile/display/memento?username=%s",
+        String endpoint = String.format("http://10.0.1.163:8082/profile/display/memento?username=%s",
                 this.current_username);
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(endpoint))
@@ -269,7 +269,7 @@ public class Request {
      * @return a string of the current users profile, compiled already and ready for display
      */
     public String submitProfileDisplay() {
-        String endpoint = String.format("http://localhost:8082/profile/display/profile?username=%s",
+        String endpoint = String.format("http://10.0.1.163:8082/profile/display/profile?username=%s",
                 this.current_username);
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(endpoint))

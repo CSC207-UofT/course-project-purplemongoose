@@ -1,18 +1,19 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:kard_project_test/user.dart';
 
 class Constants {
 
   static const String address = "10.0.1.137:8082";
 
-  static String _currentUser = "";
+  static User? _currentUser;
 
-  static void setCurrentUser(String value) {
+  static void setCurrentUser(User value) {
     _currentUser = value;
   }
 
-  static String getCurrentUser() {
+  static User? getCurrentUser() {
     return _currentUser;
   }
 
@@ -24,7 +25,6 @@ class UserBuilder {
   static String lastName = "";
   static String pronoun = "";
   static String title = "";
-
   static String phone = "";
   static String email = "";
 
@@ -55,7 +55,7 @@ class UserBuilder {
   static void initializeProfile() async {
 
     Map data = {
-      'accountUsername' : Constants.getCurrentUser(),
+      'accountUsername' : Constants.getCurrentUser()!.username,
       'firstName' : firstName,
       'lastName' : lastName,
       'title' : title,
@@ -67,7 +67,7 @@ class UserBuilder {
     String body = json.encode(data);
 
     http.Response response = await http.post(
-      Uri.parse("http://" + Constants.address + "/profile/new"),
+      Uri.parse("http://" + Constants.address + "/profile/create"),
       headers: {"Content-Type": "application/json"},
       body: body,
     );
