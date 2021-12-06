@@ -42,9 +42,6 @@ public class ProfilesTest {
     void testGetName(){
         String profileName = profile.getName();
         assertEquals("George Michael", profileName);
-
-        String profilePronouns = profile.getPronouns();
-        assertEquals("she/her", profilePronouns);
     }
 
     /**

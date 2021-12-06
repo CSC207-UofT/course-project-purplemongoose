@@ -49,38 +49,6 @@ class NameTest {
     }
 
     /**
-     * Tests getting all details
-     */
-
-//    @Test
-//    @DisplayName("Get all details")
-//    void getAllDetails() {
-//        String allDetails = name.getAllDetails();
-//        String allDetails2 = name2.getAllDetails();
-//        String allDetails3 = name3.getAllDetails();
-//
-//        assertEquals(allDetails, "Dr. Heinz Doofenshmirtz (he/him)");
-//        assertEquals(allDetails2, "Patrick Star (he/him)");
-//        assertEquals(allDetails3, "SpongeBob Squarepants");
-//    }
-
-    /**
-     * Tests getting titles
-     */
-
-    @Test
-    @DisplayName("Get titles")
-    void getTitles() {
-        String title = name.getTitles();
-        String title2 = name2.getTitles();
-        String title3 = name3.getTitles();
-
-        assertEquals(title, "Dr.");
-        assertNull(title2);
-        assertNull(title3);
-    }
-
-    /**
      * Tests getting pronouns
      */
 

@@ -1,6 +1,6 @@
 package spring.controller;
 
-import dto.CreateAccountRequest;
+import dto.AccountRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +38,7 @@ public class AccountController {
             consumes=MediaType.APPLICATION_JSON_VALUE,
             produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseContainer> submitPersonalAccountCreate(
-            @RequestBody CreateAccountRequest request) {
+            @RequestBody AccountRequest request) {
         ResponseContainer response = new ResponseContainer();
         if (createAccount.newPersonalAccount(request.getAccountUsername(), request.getAccountPassword())) {
             response.add(true);

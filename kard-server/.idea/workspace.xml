@@ -6,22 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
       <change beforePath="$PROJECT_DIR$/../kard-CLI/src/main/java/CommandLineInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kard-CLI/src/main/java/CommandLineInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kard-CLI/src/main/java/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kard-CLI/src/main/java/Request.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/DeleteAccountRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/datafiles/Name.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/datafiles/Name.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/CreateAccountRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/AccountRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/profiles/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/profiles/ProfileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/ProfileType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/AccountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/ContactController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/account/DeleteAccount.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/usecase/account/ListContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/account/ListContact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/profile/AuthProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/AuthProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/profile/DeleteProfile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/UUIDGenerator.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/entity/datafile/NameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/datafile/NameTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/entity/profiles/ProfilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/profiles/ProfilesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/usecase/UUIDGeneratorTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +236,8 @@
       <workItem from="1638730495868" duration="3089000" />
       <workItem from="1638742938269" duration="5202000" />
       <workItem from="1638749575086" duration="2860000" />
-      <workItem from="1638754722905" duration="11377000" />
+      <workItem from="1638754722905" duration="11950000" />
+      <workItem from="1638772308232" duration="2934000" />
     </task>
     <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
       <created>1636166152716</created>

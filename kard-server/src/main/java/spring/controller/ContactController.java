@@ -71,25 +71,22 @@ public class ContactController {
      *  Error code: 15 - username does not correspond with a corresponding profile
      *  Error code: 17 - the profile is not a contact
      *
-     * @param accountUsername username of the account
-     * @param contactUsername username of the contact to be removed
+     * @param request JSON converted to ContactRequest which contains the account username and contact username
      * @return Return a JSON 'true'/'false' response along with an HTTP status code.
      */
     @PostMapping(path="/remove",
             consumes=MediaType.APPLICATION_JSON_VALUE,
             produces=MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResponseContainer> submitContactRemoval(
-            @RequestParam(name="username") String accountUsername,
-            @RequestParam(name="contact") String contactUsername) {
+    public ResponseEntity<ResponseContainer> submitContactRemoval(@RequestBody ContactRequest request) {
         ResponseContainer response = new ResponseContainer();
-        if (authProfile.checkForProfile(contactUsername)) {
+        if (authProfile.checkForProfile(request.getContactUsername())) {
             response.add(false);
             response.setError("102");
-        } else if (!authContact.checkForContact(accountUsername, contactUsername)){
+        } else if (!authContact.checkForContact(request.getAccountUsername(), request.getContactUsername())){
             response.add(false);
             response.setError("104");
         } else {
-            modifyContact.removeContact(accountUsername, contactUsername);
+            modifyContact.removeContact(request.getAccountUsername(), request.getContactUsername());
             response.add(true);
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
@@ -118,8 +115,6 @@ public class ContactController {
             contacts = listContact.getSortedContacts(accountUsername, order);
         }
         response.add(contacts);
-
-        System.out.println(Arrays.toString(contacts));
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

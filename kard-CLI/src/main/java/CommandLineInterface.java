@@ -94,20 +94,33 @@ public class CommandLineInterface {
      * to account database for registration.
      */
     private void signUpScreen() {
+        String username;
+        String password;
         System.out.println("Sign up [type '/b' to exit]:");
         while (true) {
-            System.out.print("Username: ");
-            String username = sc.nextLine();
-            if (username.equals("/b")) {
-                startingScreen();
-                break;
+            while(true) {
+                System.out.print("Username: ");
+                username = sc.nextLine();
+                if (username.equals("/b")) {
+                    startingScreen();
+                    break;
+                } else if (username.equals("")) {
+                    System.out.println("Cannot be empty!");
+                } else {
+                    break;
+                }
             }
-
-            System.out.print("Password: ");
-            String password = sc.nextLine();
-            if (password.equals("/b")) {
-                startingScreen();
-                break;
+            while(true) {
+                System.out.print("Password: ");
+                password = sc.nextLine();
+                if (password.equals("/b")) {
+                    startingScreen();
+                    break;
+                } else if (password.equals("")) {
+                    System.out.println("Cannot be empty!");
+                } else {
+                    break;
+                }
             }
 
             System.out.print("Are you sure?\n");

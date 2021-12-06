@@ -38,18 +38,6 @@ public class Person implements ProfileType, Serializable {
     }
 
     /**
-     * Gets pronouns of the Person
-     * @return string representation of pronouns
-     */
-    public String getPronouns() {
-        return name.getPronouns();
-    }
-
-    public String getTitle() {
-        return name.getTitles();
-    }
-
-    /**
      * Gets phone number of the Person
      * @return string representation of phone number
      */
@@ -68,10 +56,15 @@ public class Person implements ProfileType, Serializable {
     }
 
     /**
+     * Gets the pronoun of the Person
+     * @return string representation of the pronoun
+     */
+    public String getPronouns() {
+        return name.getPronouns();
+    }
+
+    /**
      * Gets username of the Person's account
-     *
-     * Return doesn't require it to be a String representation because the username
-     * is used more for implementation, and less for user application
      *
      * @return username in type Username
      */
@@ -87,6 +80,7 @@ public class Person implements ProfileType, Serializable {
      * @param otherPerson the other Person being compared to
      * @return true if the compared person is the same as the current Person
      */
+
     @Override
     public boolean equals(Object otherPerson) {
         if (this == otherPerson) return true;

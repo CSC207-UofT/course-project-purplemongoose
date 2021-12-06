@@ -45,8 +45,6 @@ public class ListContact {
         for (String username : contacts) {
             ProfileType profile = profileGateway.getProfileData(username);
             profiles.add(profile);
-            //todo temp
-            System.out.println(profile);
         }
         return profiles.toArray(new ProfileType[0]);
     }
