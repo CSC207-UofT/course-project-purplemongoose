@@ -9,69 +9,12 @@ import java.util.Objects;
  * This class assumes that all names that are passed in are already
  * divided for their first and last name, pronouns, and titles.
  *
- * For the methods that retrieve the name from the user, need
- * to implement a parser for the input so that the first and last name,
- * optional pronouns and titles are passed into class Name as 4 distinct
- * arguments.
- *
- * Constructor overloaded for different representations of a name depending
- * on which attributes the end user chooses to use.
+ * Optional fields such as pronouns and titles can be passed in as empty string
  */
-public class Name implements Serializable {
+public record Name(String first, String last, String pronouns,
+                   String titles) implements Serializable {
     @Serial
     private static final long serialVersionUID = 194821814127968409L;
-    private final String first;
-    private final String last;
-    private final String pronouns;
-    private final String titles;
-
-    // The setters are overloaded so that the pronouns and titles are optional to initiate a person's Name
-
-    /**
-     * Store the attributes of preferred pronouns, title, first, and last name of a user.
-     *
-     * @param first     The individuals first name
-     * @param last      The individuals last name
-     * @param pronouns  The individuals preferred pronouns
-     * @param titles    The individuals titles (eg. Mr, Mrs, Dr, Mx...)
-     */
-    public Name(String first, String last, String pronouns, String titles) {
-        this.first = first;
-        this.last = last;
-        this.pronouns = pronouns;
-        this.titles = titles;
-    }
-
-    /**
-     * Store the attributes of preferred pronouns, first, and last name of a user.
-     *
-     * @param first     The individuals first name
-     * @param last      The individuals last name
-     * @param pronouns  The individuals preferred pronouns
-     */
-    public Name(String first, String last, String pronouns) {
-        this(first, last, pronouns, null);
-    }
-
-    /**
-     * Store the attributes of first, and last name of a user
-     *
-     * @param first     The individuals first name
-     * @param last      The individuals last name
-     */
-    public Name(String first, String last) {
-        this(first, last, null, null);
-    }
-
-    // The getters
-
-    public String getFirst(){
-        return first;
-    }
-
-    public String getLast(){
-        return last;
-    }
 
     /**
      * Get the users full name
@@ -79,31 +22,14 @@ public class Name implements Serializable {
      * @return String representation of the individuals full name
      */
     public String getFullName() {
-        return first + " " + last;
+        return titles + " " + first + " " + last;
     }
 
     /**
-     * Get all the formal details to address a Person including:
-     *   - titles
-     *   - names
-     *   - pronouns
+     * Getter for the pronouns
      *
-     * @return String representation of all formal details for the individual
+     * @return String representation of pronouns
      */
-    public String getAllDetails() {
-        if (titles == null & pronouns != null) {
-            return first + " " + last + " (" + pronouns + ")";
-        } else if (titles == null){
-            return first + " " + last;
-        } else {
-            return titles + " " + first + " " + last + " (" + pronouns + ")";
-        }
-    }
-
-    public String getTitles() {
-        return titles;
-    }
-
     public String getPronouns() {
         return pronouns;
     }
@@ -113,7 +39,8 @@ public class Name implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Name name = (Name) o;
-        return Objects.equals(first, name.first) && Objects.equals(last, name.last) && Objects.equals(pronouns, name.pronouns) && Objects.equals(titles, name.titles);
+        return Objects.equals(first, name.first) && Objects.equals(last, name.last)
+                && Objects.equals(pronouns, name.pronouns) && Objects.equals(titles, name.titles);
     }
 
     @Override

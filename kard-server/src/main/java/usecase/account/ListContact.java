@@ -34,6 +34,7 @@ public class ListContact {
 
     /**
      * Returns all the contacts of an account
+     *
      * @param accountUsername the account's username
      * @return array of profile objects
      */
@@ -48,6 +49,12 @@ public class ListContact {
         return profiles.toArray(new ProfileType[0]);
     }
 
+    /**
+     * Returns all the sorted contacts of an account
+     *
+     * @param accountUsername the account's username
+     * @return array of profile objects
+     */
     public ProfileType[] getSortedContacts(String accountUsername, String order) {
         ProfileType[] sortedContacts = getContacts(accountUsername);
         sorter.sort(sortedContacts, order);

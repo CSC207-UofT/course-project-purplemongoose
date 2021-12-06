@@ -19,7 +19,13 @@ public class AuthProfile {
         }
     }
 
+    /**
+     * Checks if the profile exists in the database
+     *
+     * @param profileUsername username for the profile
+     * @return whether the profile exists
+     */
     public boolean checkForProfile(String profileUsername) {
-        return profileGateway.getProfileData(profileUsername) != null;
+        return profileGateway.getProfileData(profileUsername) == null;
     }
 }

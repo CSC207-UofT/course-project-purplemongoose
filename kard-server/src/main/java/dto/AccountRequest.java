@@ -2,11 +2,11 @@ package dto;
 
 /**
  * Class which some JSON objects are serialized into from HTTP POST or GET requests. This one in particular contains
- * the account's username and password for login or signup.
+ * the account's username and password.
  */
-public class StartRequest {
+public class AccountRequest {
     public String accountUsername;
-    public String accountPassword; // should be hashed already
+    public String accountPassword;
 
     /**
      * Getter for the account username
