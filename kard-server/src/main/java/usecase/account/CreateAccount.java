@@ -22,6 +22,7 @@ public class CreateAccount {
 
     /**
      * Creates a new personal account and calls the AccountGateway to add it to the database
+     *
      * @param username string for account username
      * @param password string for account password
      * @return if the account was successfully created

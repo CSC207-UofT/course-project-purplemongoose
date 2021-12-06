@@ -17,6 +17,9 @@ import entity.profiles.ProfileType;
 
 import java.util.Arrays;
 
+/**
+ * Defines methods for interacting with an account's contacts
+ */
 @RestController
 @RequestMapping("contact")
 public class ContactController {
@@ -38,11 +41,11 @@ public class ContactController {
      * for the frontend and an error code to specify the error if something goes wrong.
      *
      * Error code: 0 - by default is ok
-     * Error code: 15 - username does not correspond with a corresponding profile
-     * Error code: 16 - the profile is already a contact
+     * Error code: 102 - username does not correspond with a profile
+     * Error code: 103 - the profile is already a contact
      *
      * @param request JSON converted to ContactRequest which contains the account username and contact username
-     * @return Return a JSON 'true'/'false' response along with an HTTP status code.
+     * @return Return a JSON object containing a 'true'/'false' response along with an HTTP status code.
      */
     @PostMapping(path="/add",
             consumes=MediaType.APPLICATION_JSON_VALUE,
@@ -67,12 +70,12 @@ public class ContactController {
      * to a profile, then checks if profile is currently a contact. Will return a 'true', 'false' response for the
      * frontend and an error code to specify the error if something goes wrong.
      *
-     *  Error code: 0 - by default is ok
-     *  Error code: 15 - username does not correspond with a corresponding profile
-     *  Error code: 17 - the profile is not a contact
+     * Error code: 0 - by default is ok
+     * Error code: 101 - username does not correspond with a profile
+     * Error code: 104 - the profile is not a contact
      *
      * @param request JSON converted to ContactRequest which contains the account username and contact username
-     * @return Return a JSON 'true'/'false' response along with an HTTP status code.
+     * @return Return a JSON object containing 'true'/'false' response along with an HTTP status code.
      */
     @PostMapping(path="/remove",
             consumes=MediaType.APPLICATION_JSON_VALUE,

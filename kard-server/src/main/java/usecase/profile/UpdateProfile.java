@@ -25,9 +25,9 @@ public class UpdateProfile {
     }
 
     /**
-     * update the personal profiles with the given arguments,
-     * and adds it back to the profile database through the ProfileGateway.
-     * This method assumes that the person whose profile is being edited has been created already
+     * Update the personal profiles with the given arguments, and adds it back to the profile
+     * database through the ProfileGateway. This method assumes that the person whose
+     * profile is being edited has been created already.
      *
      * @param profileUsername the username of the account who the profile is associated with
      * @param first string for the first name

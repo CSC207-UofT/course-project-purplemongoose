@@ -10,8 +10,37 @@
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/AccountRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/AccountRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/ResponseContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/ResponseContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/accounts/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/accounts/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/accounts/Connections.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/accounts/PersonalAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/accounts/PersonalAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/datafiles/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/datafiles/Email.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/datafiles/Name.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/datafiles/Name.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/datafiles/Phone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/datafiles/Phone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/profiles/Memento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/Memento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/profiles/MementoManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/MementoManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/profiles/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/profiles/PersonMemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/PersonMemento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/profiles/ProfileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/ProfileType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/ContactController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/account/AuthContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/account/AuthContact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/account/CreateAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/account/CreateAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/account/ListContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/account/ListContact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/account/ModifyContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/account/ModifyContact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/account/SortBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/account/SortBehavior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/account/SortByName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/account/SortByName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/profile/AuthProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/AuthProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/profile/RestoreProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/RestoreProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/profile/UpdateProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/UpdateProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/profile/ViewProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/ViewProfile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/usecase/profile/ViewProfileMemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/ViewProfileMemento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/start/AuthLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/start/AuthLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/entity/accounts/ConnectionsTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +84,9 @@
     <setting file="file://$PROJECT_DIR$/src/main/java/entity/accounts/Account.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/database/gateway/AccountGateway.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/database/gateway/ProfileGateway.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/database/gateway/AccountGateway.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/entity/accounts/Account.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/spring/controller/AccountController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
@@ -312,11 +344,6 @@
             <State />
           </value>
         </entry>
-      </map>
-    </option>
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="6a9807bd-c070-4969-91f8-618b28b00715" value="TOOL_WINDOW" />
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
