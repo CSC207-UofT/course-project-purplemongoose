@@ -20,17 +20,34 @@ given principle or how that principle does not apply to this program
 
 ### Equitable use
 
+**Definition:** Useful and marketable to people with diverse abilities 
+
 ### Flexibility in use
+
+**Definition:** Accommodates a wide range of individual preferences and abilities
 
 ### Simple and intuitive use
 
+**Definition:** Is asy to understand, regardless of experience, knowledge, language skills,
+or current concentration level
+
 ### Perceptible information
+
+**Definition:** Communicates necessary information effectively to the user, regardless of
+ambient conditions or user's sensory abilities
 
 ### Tolerance for error
 
+**Definition:** Minimizes hazards and adverse consequences of accidental or unintended actions
+
 ### Low physical effort
 
+**Definition:** Used effectively and comfortably and with minimum fatigue 
+
 ### Size and space for approach and use
+
+**Definition:** Appropriate size and space is provided for approach, reach, manipulation, and use 
+regardless of the user's body size, posture, or mobility
 
 
 ## Audience
