@@ -46,6 +46,12 @@ public class MementoManager implements Serializable {
         return (PersonMemento) this.mementoHistory.get(key);
     }
 
+    public OrganizationMemento getOrganizationMemento(int index){
+        List<String> keys = List.copyOf(this.mementoHistory.keySet());
+        String key = keys.get(index);
+        return (OrganizationMemento) this.mementoHistory.get(key);
+    }
+
     public Memento[] getHistory(){
         ArrayList<Memento> history = new ArrayList<>();
         for (String key : this.mementoHistory.keySet()) {
