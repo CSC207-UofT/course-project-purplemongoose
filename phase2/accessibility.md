@@ -48,9 +48,9 @@ Accommodates a wide range of individual preferences and abilities
 
 - Multiple ways to complete actions 
   - Swipe or tap to return to previous page
-
-**Future Implementation:**
-
+- Submit as much or as little information as each user is comfortable with
+- Backend implementation allows for a variety of organizations that implement kard 
+  
 ### Simple and intuitive use
 
 Is easy to understand, regardless of experience, knowledge, language skills,
@@ -65,9 +65,6 @@ or current concentration level
   - Simple line drawings for buttons to go back, add users, or check own status
   - Clear person silhouette for users with no profile photo setting
 
-**Future Implementation:**
-- Add pop-up confirmation dialogues after a contact is added to a user's contact list
-
 ### Perceptible information
 
 Communicates necessary information effectively to the user, regardless of
@@ -78,8 +75,6 @@ ambient conditions or user's sensory abilities
 - Colour theme follows guidelines for visual contrast between features
 - Dark colour theme in main usage screen with high text contrast reduces eye strain
 
-**Future Implementation:**
-
 ### Tolerance for error
 
 Minimizes hazards and adverse consequences of accidental or unintended actions
@@ -88,8 +83,6 @@ Minimizes hazards and adverse consequences of accidental or unintended actions
 
 - Option to return to previous page of setup form to resolve mistakes
 - Confirmation and safeguard pop-up dialogues after passing in command and before in-app command response to prevent unintentional actions
-
-**Future Implementation:**
 
 ### Low physical effort
 
@@ -102,9 +95,7 @@ Used effectively and comfortably and with minimum fatigue
   - Accommodates for individuals of different physical ability
 - Very few steps to complete any operation
   - Simulates simplicity and appeal of traditional physical business cards with technological convenience
-
-**Future Implementation:**
-
+  
 ### Size and space for approach and use
 
 Appropriate size and space is provided for approach, reach, manipulation, and use 
@@ -114,8 +105,6 @@ regardless of the user's body size, posture, or mobility
 
 - Spaces between buttons and input fields follow Google's Material 2 guidelines
 - Implementation on different platforms allows users to transition seamlessly if their device disposition is insufficient for their use
-
-**Future Implementation:**
 
 ## Audience
 
