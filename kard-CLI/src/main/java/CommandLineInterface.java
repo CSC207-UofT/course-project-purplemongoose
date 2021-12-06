@@ -1,18 +1,8 @@
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.util.Scanner;
 
 public class CommandLineInterface {
     private final Scanner sc;
-    private String current_username;
-    private Request request;
-
+    private final Request request;
 
     /**
      * Constructor for the CLI, instance variables: sc is used to read user input,
@@ -20,7 +10,6 @@ public class CommandLineInterface {
      */
     public CommandLineInterface() {
         this.sc = new Scanner(System.in).useDelimiter("\\n");
-        this.current_username = null;
         this.request = new Request(null);
     }
 
@@ -28,7 +17,14 @@ public class CommandLineInterface {
      * Function that starts up the CLI for interacting with the user.
      */
     public void run() {
-        logoScreen();
+        System.out.println("""
+                ██╗  ██╗ █████╗ ██████╗ ██████╗
+                ██║ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+                █████╔╝ ███████║██████╔╝██║  ██║
+                ██╔═██╗ ██╔══██║██╔══██╗██║  ██║
+                ██║  ██╗██║  ██║██║  ██║██████╔╝
+                ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝"""
+        );
         startingScreen();
     }
 
@@ -37,12 +33,19 @@ public class CommandLineInterface {
      * this screen allows the user to log in or sign up.
      */
     public void startingScreen() {
+        eventLoop:
         while (true) {
-            System.out.println("Type 'login' to login or 'signup' to create an account");
+            System.out.println("Type 'login' or 'signup'");
             String input = sc.nextLine();
             switch (input) {
-                case "login" -> loginScreen();
-                case "signup" -> signUpScreen();
+                case "login" -> {
+                    loginScreen();
+                    break eventLoop;
+                }
+                case "signup" -> {
+                    signUpScreen();
+                    break eventLoop;
+                }
                 default -> System.out.println("Command not recognized... Try again\n");
             }
         }
@@ -53,34 +56,32 @@ public class CommandLineInterface {
      * to account database for verification.
      */
     private void loginScreen() {
-        System.out.println("Please log in:");
-
+        System.out.println("Login [type '/b' to exit]:");
         while (true) {
             System.out.print("Username: ");
             String username = sc.nextLine();
-            if (username.equals("back")) {
+            if (username.equals("/b")) {
                 startingScreen();
                 break;
             }
             System.out.print("Password: ");
             String password = sc.nextLine();
-            if (password.equals("back")) {
+            if (password.equals("/b")) {
                 startingScreen();
                 break;
             }
 
             String res = this.request.submitLogin(username, password);
 
-            if (res.equals("5")) {
+            if (res.equals("105")) {
                 System.out.println("Wrong username or password, please try again!\n");
             }
             else if (res.equals("404")){
                 System.out.println("Log in attempt failed, please try again!\n");
             }
-            else{
-                this.current_username = username;
+            else {
                 System.out.println("Logged in!\n");
-                this.request.setCurrentUsername(this.current_username);
+                this.request.setCurrentUsername(username);
                 instructionScreen();
                 events();
                 break;
@@ -93,20 +94,41 @@ public class CommandLineInterface {
      * to account database for registration.
      */
     private void signUpScreen() {
-        System.out.println("Sign up:");
-
+        String username;
+        String password;
+        System.out.println("Sign up [type '/b' to exit]:");
         while (true) {
-            System.out.print("Username: ");
-            String username = sc.nextLine();
-            System.out.print("Password: ");
-            String password = sc.nextLine();
+            while(true) {
+                System.out.print("Username: ");
+                username = sc.nextLine();
+                if (username.equals("/b")) {
+                    startingScreen();
+                    break;
+                } else if (username.equals("")) {
+                    System.out.println("Cannot be empty!");
+                } else {
+                    break;
+                }
+            }
+            while(true) {
+                System.out.print("Password: ");
+                password = sc.nextLine();
+                if (password.equals("/b")) {
+                    startingScreen();
+                    break;
+                } else if (password.equals("")) {
+                    System.out.println("Cannot be empty!");
+                } else {
+                    break;
+                }
+            }
 
             System.out.print("Are you sure?\n");
             System.out.print("Press 'y' to continue or press 'n' to restart\n");
             String input = sc.nextLine();
             if (input.equals("y")) {
                 String res = this.request.submitSignUp(username, password);
-                if (res.equals("6")){
+                if (res.equals("100")){
                     System.out.println("Username already taken, try again\n");
                 }
                 else if (res.equals("404")){
@@ -137,8 +159,7 @@ public class CommandLineInterface {
         String input;
         eventLoop:
         while (true) {
-//          instructionScreen();
-            System.out.print("> ");
+            System.out.print("[kard]: ");
             input = sc.next();
             switch (input) {
                 case "profile" -> profileScreen();
@@ -147,12 +168,12 @@ public class CommandLineInterface {
                 case "display" -> displayContacts();
                 case "logout" -> logout();
                 case "quit" -> {
+                    System.out.println("Thank you for using Kard");
                     break eventLoop;
                 }
                 default -> System.out.println("Command not recognized... Try again\n");
             }
         }
-        System.out.println("Thank you for using Kard");
     }
 
     private void profileScreen() {
@@ -163,14 +184,14 @@ public class CommandLineInterface {
         | Type 'create' to create a public profile                              |
         | Type 'edit' to edit your existing profile                             |
         | Type 'restore' to revert your profile to a previous state             |
-        | Type 'back' to go back to the main screen                             |
+        | Type '/b' to go back to the main screen                               |
         +-----------------------------------------------------------------------+
         
         """);
-        System.out.print("your current profile: " + this.request.submitProfileDisplay() + "\n");
+        System.out.print("Your current profile: " + this.request.submitProfileDisplay() + "\n");
         System.out.print("[profile]: ");
         input = sc.next();
-        while (!input.equals("back")) {
+        while (!input.equals("/b")) {
             switch (input){
                 case "create" -> createProfile();
                 case "edit" -> editProfile();
@@ -187,41 +208,48 @@ public class CommandLineInterface {
         System.out.println("+-------------------------PROFILE HISTORY-------------------------+");
         System.out.println(this.request.submitProfileMementoDisplay());
         System.out.println("+-----------------------------------------------------------------+");
-        System.out.println("Enter the index of the profile you would like to restore");
-        System.out.print("index: ");
-        String input = sc.next();
-        this.request.submitProfileRestore(input);
-        System.out.print("profile restored!\n");
+        while(true) {
+            System.out.println("Enter the index of the profile you would like to restore");
+            System.out.print("Index: ");
+            String input = sc.next();
+            String res = this.request.submitProfileRestore(input);
+            if (res.equals("107")) {
+                System.out.printf("Profile corresponding to index [%s] not found!%n", input);
+            }
+            else {
+                break;
+            }
+        }
+        System.out.print("Profile restored!\n");
         profileScreen();
     }
 
     private void editProfile() {
         System.out.println("Edit your profile by filling out your information below");
-        System.out.print("first name: ");
+        System.out.print("First name: ");
         String first = sc.next();
-        System.out.print("last name: ");
+        System.out.print("Last name: ");
         String last = sc.next();
-        System.out.print("preferred pronoun: ");
+        System.out.print("Preferred pronouns: ");
         String pronoun = sc.next();
-        System.out.print("title: ");
+        System.out.print("Titles: ");
         String title = sc.next();
-        System.out.print("phone number: ");
+        System.out.print("Phone number: ");
         String phone = sc.next();
-        System.out.print("email: ");
+        System.out.print("Email: ");
         String email = sc.next();
         System.out.println("Press y to submit: ");
         if (sc.next().equals("y")){
             String res = this.request.submitProfileUpdate(first, last, pronoun, title, phone, email);
-            if (res.equals("30")){
-                // if a personal profile was already exists
-                System.out.print("your don't have a personal profile yet!");
-            }else if (res.equals("404")){
-                System.out.print("could not create profile!");
-            }else{
-                System.out.print("profile successfully updated!");
+            if (res.equals("107")){
+                System.out.print("You don't have a personal profile yet!");
+            } else if (res.equals("404")){
+                System.out.print("Could not create profile!");
+            } else {
+                System.out.print("Profile successfully updated!");
             }
-        }else{
-            System.out.println("unknown command... returning to main screen");
+        } else {
+            System.out.println("Unknown command... Returning to main screen");
         }
         profileScreen();
         events();
@@ -229,43 +257,39 @@ public class CommandLineInterface {
 
     private void createProfile() {
         System.out.println("Create your profile by filling out your information below");
-        System.out.print("first name: ");
+        System.out.print("First name: ");
         String first = sc.next();
-        System.out.print("last name: ");
+        System.out.print("Last name: ");
         String last = sc.next();
-        System.out.print("preferred pronoun: ");
+        System.out.print("Preferred pronouns: ");
         String pronoun = sc.next();
-        System.out.print("title: ");
+        System.out.print("Titles: ");
         String title = sc.next();
-        System.out.print("phone number: ");
+        System.out.print("Phone number: ");
         String phone = sc.next();
-        System.out.print("email: ");
+        System.out.print("Email: ");
         String email = sc.next();
         System.out.println("Press y to submit: ");
-        if (sc.next().equals("y")){
-            String res = this.request.submitProfileCreation(first, last, pronoun, title, phone, email);
-            if (res.equals("25}")){
-                // if a personal profile was already exists
-                System.out.print("a personal profile already exists!");
-            }else if(res.equals("404")){
-                System.out.print("could not create profile!");
-            }else{
-                System.out.print("profile successfully created!");
+        if (sc.next().equals("y")) {
+            String res = this.request.submitProfileCreate(first, last, pronoun, title, phone, email);
+            switch(res) {
+                case "106" -> System.out.print("Profile already exists!");
+                case "404" -> System.out.print("Could not create profile!");
+                default -> System.out.print("Profile successfully created!");
             }
-        }else{
-            System.out.println("unknown command... returning to main screen");
+        } else {
+            System.out.println("Unknown command... Returning to main screen");
         }
         profileScreen();
         events();
     }
 
-
     /**
-     * log out, which clears the current username and returns to Main menu.
+     * Log out, which clears the current username and returns to Main menu.
      */
     private void logout() {
-        this.current_username = null;
         this.request.setCurrentUsername(null);
+        sc.nextLine();
         startingScreen();
     }
 
@@ -274,26 +298,21 @@ public class CommandLineInterface {
      */
     private void addContact() {
         String input;
-        System.out.println("Type the username of the person you want to add; type 'back' to return to the main menu");
+        System.out.println("Type the username of the person you want to add; type '/b' to return to the main menu");
         System.out.print("[add]: ");
         input = sc.next();
-        while (!input.equals("back")) {
+        while (!input.equals("/b")) {
             String res = this.request.submitContactAddition(input);
             switch (res) {
-                case "15" -> {
-                    // if the username does not correspond to a profile
-                    //display message that this user does not exist in the db
-                    // using display classes (in the future)
+                case "102" -> {
                     System.out.printf("The username [%s] could not be found!\n", input);
                     return;
                 }
-                case "16" -> {
-                    // if the profile is already a contact
+                case "103" -> {
                     System.out.printf("%s is already a contact!\n", input);
                     return;
                 }
                 case "404" -> {
-                    // connection failed
                     System.out.println("Contact could not be added, please try again!");
                     return;
                 }
@@ -309,45 +328,68 @@ public class CommandLineInterface {
      */
     private void removeContact() {
         String input;
-        System.out.println("Type the name of the person you want to remove; type 'back' to return to the main menu");
+        System.out.println("Type the name of the person you want to remove; type '/b' to return to the main menu");
         System.out.print("[remove]: ");
         input = sc.next();
-        while (!input.equals("back")) {
+        while (!input.equals("/b")) {
             String res = this.request.submitContactRemoval(input);
             switch (res) {
-                case "15" -> {
-                    // if the username does not correspond to a profile
-                    System.out.printf("%s could not be found!\n", input);
+                case "102" -> {
+                    System.out.printf("[%s] could not be found!\n", input);
                     return;
                 }
-                case "17" -> {
-                    // if the profile is not a contact
-                    System.out.printf("%s is not a contact!\n", input);
+                case "104" -> {
+                    System.out.printf("[%s] is not a contact!\n", input);
                     return;
                 }
                 case "404" -> {
-                    // connection failed
                     System.out.println("Could not remove contact, please try again!");
                     return;
                 }
-                default -> System.out.printf("%s has been successfully removed!\n", input);
+                default -> System.out.printf("[%s] has been successfully removed!\n", input);
             }
             System.out.print("[remove]: ");
             input = sc.next();
         }
     }
 
-
     /**
      * Print a list of all contacts obtained through user.getContact() with some styling;
      */
     private void displayContacts() {
-        System.out.println("Enter the parameter to sort by [none, name]:");
-        System.out.print("sort by: ");
-        String param = sc.next();
-        System.out.println("Enter the order of the results:");
-        System.out.print("order [ascend, descend]: ");
-        String order = sc.next();
+        String param;
+        String order = null;
+        boolean sorted = false;
+        eventLoop:
+        while(true) {
+            System.out.println("Enter the parameter to sort by [none, name]:");
+            System.out.print("Sort by: ");
+            param = sc.next();
+            switch (param) {
+                case "name" -> {
+                    sorted = true;
+                    break eventLoop;
+                }
+                case "none" -> {
+                    break eventLoop;
+                }
+                default -> System.out.println("Unknown sorting parameter... Try again!");
+            }
+        }
+        if (sorted) {
+            eventLoop:
+            while(true) {
+                System.out.println("Enter the order of the results:");
+                System.out.print("Order [ascend, descend]: ");
+                order = sc.next();
+                switch (order) {
+                    case "ascend", "descend" -> {
+                        break eventLoop;
+                    }
+                    default -> System.out.println("Unknown order... Try again!");
+                }
+            }
+        }
         System.out.println("+-------------------------CONTACTS LIST---------------------------+");
         System.out.println(this.request.submitContactDisplay(param, order));
         System.out.println("+-----------------------------------------------------------------+");
@@ -364,24 +406,10 @@ public class CommandLineInterface {
         | Type 'add' to add users to your contacts list                             |
         | Type 'remove' to remove users from your contacts list                     |
         | Type 'display' to display your contacts list                              |
-        | Type 'logout' to log out and return to main menu                          |
+        | Type 'logout' to logout of your account                                   |
         | Type 'quit' to exit the program                                           |
         +---------------------------------------------------------------------------+
         
         """);
-    }
-
-    private void logoScreen() {
-        System.out.println("""
-                ██╗  ██╗ █████╗ ██████╗ ██████╗
-                ██║ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-                █████╔╝ ███████║██████╔╝██║  ██║
-                ██╔═██╗ ██╔══██║██╔══██╗██║  ██║
-                ██║  ██╗██║  ██║██║  ██║██████╔╝
-                ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝"""
-        );
-
-        System.out.println("Press enter to continue...");
-        try {sc.nextLine();} catch (Exception ignored) {}
     }
 }

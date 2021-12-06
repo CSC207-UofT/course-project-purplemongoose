@@ -3,10 +3,6 @@ package entity.profiles;
 import entity.datafiles.Email;
 import entity.datafiles.Name;
 import entity.datafiles.Phone;
-import entity.profiles.Memento;
-import entity.profiles.OrganizationMemento;
-import entity.profiles.PersonMemento;
-import entity.profiles.ProfileType;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -23,18 +19,11 @@ public class MementoManager implements Serializable {
     private LinkedHashMap<String, Memento> mementoHistory;
 
     public MementoManager(){
-        this.mementoHistory = new LinkedHashMap<String, Memento>();
+        this.mementoHistory = new LinkedHashMap<>();
     }
 
     public void addPersonalMemento(Name name, Phone phone, Email email, String username){
         Memento newMem = new PersonMemento(name, phone, email, username);
-        Date dNow = new Date( );
-        SimpleDateFormat ft = new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
-        this.mementoHistory.put(ft.format(dNow), newMem);
-    }
-
-    public void addOrganizationMemento(String name, Phone phone, Email email, String username){
-        Memento newMem = new OrganizationMemento(name, phone, email, username);
         Date dNow = new Date( );
         SimpleDateFormat ft = new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
         this.mementoHistory.put(ft.format(dNow), newMem);

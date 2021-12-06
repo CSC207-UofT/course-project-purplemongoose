@@ -1,3 +1,5 @@
+# kard
+
 ## Contents
 
  - [Git Setup](#git-setup)
@@ -12,9 +14,9 @@
    - [kard-cli](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/kard-CLI) - A separate project for the command line. This project needs `kard-server` to be running as it uses it as a back end and communicates with it using HTTP requests
    - [kard](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/kard_project_test) - A mobile app for kard written in Flutter and Dart. This project also needs `kard-server` to be running since it relies on it as a backend and also uses HTTP to send requests.
 
+
  ## Techonologies
 
- Last updated October 21, 2021
  This project is written primarily in Java and developed in the IDE: [IntelliJ](https://www.jetbrains.com/idea/)
 
  Unit tests are written with [Junit5.7](https://junit.org/junit5/) 
@@ -24,6 +26,7 @@
  ## Project Phases
 
  Project [Phase 0](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/phase0)
+
  Project [Phase 1](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/phase1)
  Project [Phase 2]()
 

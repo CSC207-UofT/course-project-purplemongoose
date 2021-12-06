@@ -34,6 +34,7 @@ public class ListContact {
 
     /**
      * Returns all the contacts of an account
+     *
      * @param accountUsername the account's username
      * @return array of profile objects
      */

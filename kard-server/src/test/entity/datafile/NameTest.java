@@ -24,8 +24,8 @@ class NameTest {
     @BeforeEach
     void setUp() {
         name = new Name("Heinz", "Doofenshmirtz", "he/him", "Dr.");
-        name2 = new Name("Patrick", "Star", "he/him");
-        name3 = new Name("SpongeBob", "Squarepants");
+        name2 = new Name("Patrick", "Star", "he/him", "");
+        name3 = new Name("SpongeBob", "Squarepants", "", "");
     }
 
     @AfterEach
@@ -46,38 +46,6 @@ class NameTest {
         assertEquals(fullName, "Heinz Doofenshmirtz");
         assertEquals(fullName2, "Patrick Star");
         assertEquals(fullName3, "SpongeBob Squarepants");
-    }
-
-    /**
-     * Tests getting all details
-     */
-
-    @Test
-    @DisplayName("Get all details")
-    void getAllDetails() {
-        String allDetails = name.getAllDetails();
-        String allDetails2 = name2.getAllDetails();
-        String allDetails3 = name3.getAllDetails();
-
-        assertEquals(allDetails, "Dr. Heinz Doofenshmirtz (he/him)");
-        assertEquals(allDetails2, "Patrick Star (he/him)");
-        assertEquals(allDetails3, "SpongeBob Squarepants");
-    }
-
-    /**
-     * Tests getting titles
-     */
-
-    @Test
-    @DisplayName("Get titles")
-    void getTitles() {
-        String title = name.getTitles();
-        String title2 = name2.getTitles();
-        String title3 = name3.getTitles();
-
-        assertEquals(title, "Dr.");
-        assertNull(title2);
-        assertNull(title3);
     }
 
     /**

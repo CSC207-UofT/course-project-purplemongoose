@@ -21,38 +21,18 @@ import java.util.HashMap;
 public final class Connections {
 
     /**
-     * Adds a Profile to the passed in HashMap
-     * Can be a contact or affiliation
-     *
-     * @param localStore passed in HashMap containing the ProfileType and connection of the Account owner
-     * @param p the target of the new connection
-     * @return true if the connection was successfully added to the HashMap
-     */
-    public static boolean addConnection(HashMap<ProfileType, String> localStore,
-                                 ProfileType p) {
-        if (!localStore.containsKey(p)) {
-            localStore.put(p, null);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * Overloaded method: for when an additional association is passed in to annotate the nature of the connection
+     * Overridden method to account for entries without association annotations
      *
      * Adds a Profile and the association annotation to the passed in HashMap
      * Can be a contact or affiliation
      *
      * @param localStore passed in HashMap containing the ProfileType and connection of the Account owner
-     * @param p the target of the new connection
-     * @param association the passed in annotation of the connection described by the Account owner
+     * @param profileType the target of the new connection
      * @return true if the connection was successfully added to the HashMap
      */
-    public static boolean addConnection(HashMap<ProfileType, String> localStore,
-                                 ProfileType p, String association) {
-        if (!localStore.containsKey(p)) {
-            localStore.put(p, association);
+    public static boolean addConnection(HashMap<ProfileType, String> localStore, ProfileType profileType) {
+        if (!localStore.containsKey(profileType)) {
+            localStore.put(profileType, null);
             return true;
         } else {
             return false;
@@ -65,8 +45,7 @@ public final class Connections {
      * @param p the target of the new connection
      * @return true if the connection was successfully removed from the HashMap
      */
-    public static boolean removeConnection(HashMap<ProfileType, String> localStore,
-                                    ProfileType p) {
+    public static boolean removeConnection(HashMap<ProfileType, String> localStore, ProfileType p) {
         localStore.remove(p);
         return false;
     }
