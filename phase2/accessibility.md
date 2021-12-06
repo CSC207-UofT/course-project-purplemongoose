@@ -31,7 +31,7 @@ Useful and marketable to people with diverse abilities
 
 **Relevant features:**
 
-- Ability to skip setup questions (email, phone number) 
+- Ability to skip setup questions (pronouns, titles, email, phone number) 
   - Preserves option for user privacy
   - Does not discriminate against users based on access to resources
 - 
