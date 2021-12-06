@@ -29,6 +29,10 @@ public class ViewProfileMemento {
      * @return a list of mementos representing the complete profile history of the user
      */
     public Memento[] viewProfileMemento(String profileUsername) {
-        return profileGateway.getMementoData(profileUsername).getHistory();
+        if (profileGateway.getMementoData(profileUsername) == null){
+            return null;
+        }else {
+            return profileGateway.getMementoData(profileUsername).getHistory();
+        }
     }
 }

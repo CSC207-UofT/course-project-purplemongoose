@@ -101,7 +101,12 @@ public class ProfileController {
     public ResponseEntity<ResponseContainer> submitProfileMementoDisplay(
             @RequestParam(name="username") String accountUsername) {
         ResponseContainer response = new ResponseContainer();
-        Memento[] history = viewProfileMemento.viewProfileMemento(accountUsername);
+        Memento[] history;
+        if (viewProfileMemento.viewProfileMemento(accountUsername) == null){
+            history = new Memento[0];
+        }else{
+            history = viewProfileMemento.viewProfileMemento(accountUsername);
+        }
         response.add(history);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

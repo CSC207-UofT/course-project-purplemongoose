@@ -36,5 +36,12 @@
       <jdbc-url>jdbc:sqlite:D:\uoft\CSC207\Project\course-project-purplemongoose\kard-server\data\mainframe.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="mainframe [2]" uuid="2ca8a544-a4ef-4714-b593-ce11adffdf19">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/data/mainframe.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

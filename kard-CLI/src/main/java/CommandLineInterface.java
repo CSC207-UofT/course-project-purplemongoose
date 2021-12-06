@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.Scanner;
 
 public class CommandLineInterface {
@@ -208,7 +209,7 @@ public class CommandLineInterface {
         System.out.println("+-------------------------PROFILE HISTORY-------------------------+");
         System.out.println(this.request.submitProfileMementoDisplay());
         System.out.println("+-----------------------------------------------------------------+");
-        while(true) {
+        while(!Objects.equals(this.request.submitProfileMementoDisplay(), "Your haven't made any changes to your profile yet!")) {
             System.out.println("Enter the index of the profile you would like to restore");
             System.out.print("Index: ");
             String input = sc.next();
@@ -217,10 +218,10 @@ public class CommandLineInterface {
                 System.out.printf("Profile corresponding to index [%s] not found!%n", input);
             }
             else {
+                System.out.print("Profile restored!\n");
                 break;
             }
         }
-        System.out.print("Profile restored!\n");
         profileScreen();
     }
 
