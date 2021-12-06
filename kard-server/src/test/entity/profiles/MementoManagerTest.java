@@ -35,7 +35,7 @@ class MementoManagerTest {
 
         PersonMemento personMemento = mementoManager.getPersonalMemento(0);
         Name actual = personMemento.getOriginalName();
-        assertTrue(name == actual);
+        assertSame(name, actual);
 
     }
 
@@ -50,11 +50,11 @@ class MementoManagerTest {
 
         OrganizationMemento organizationMemento = mementoManager.getOrganizationMemento(0);
         String actual = organizationMemento.getPhone();
-        assertTrue("938475002" == actual);
+        assertSame("938475002", actual);
     }
 
     @Test
-    @DisplayName("Get memento history")
+    @DisplayName("Get Memento history")
     void getHistory() {
 
         Name name = new Name("John", "Smith", "he/him");
@@ -69,6 +69,6 @@ class MementoManagerTest {
         mementoManager.addOrganizationMemento(name2, phone2, email2, "adidas");
 
         Memento[] hist = mementoManager.getHistory();
-        assertTrue(hist[0].getEmail()=="adidas@gmail.com");
+        assertSame("adidas@gmail.com", hist[0].getEmail());
     }
 }
