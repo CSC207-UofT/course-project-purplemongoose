@@ -34,7 +34,9 @@ Useful and marketable to people with diverse abilities
 - Ability to skip setup questions (pronouns, titles, email, phone number) 
   - Preserves option for user privacy
   - Does not discriminate against users based on access to resources
-- 
+- Titles are supplemented with unambiguous, universal symbols independent of any language
+  - Invites usage by individuals that don't speak English
+  - Unambiguous symbols can be interpreted independent of text size
 
 **Future Implementation:**
 
@@ -98,6 +100,8 @@ Used effectively and comfortably and with minimum fatigue
 - Multiple options to complete tasks
   - Avoids mandatory physical strain for simple actions
   - Accommodates for individuals of different physical ability
+- Very few steps to complete any operation
+  - Simulates simplicity and appeal of traditional physical business cards with technological convenience
 
 **Future Implementation:**
 
@@ -109,6 +113,7 @@ regardless of the user's body size, posture, or mobility
 **Relevant features:**
 
 - Spaces between buttons and input fields follow Google's Material 2 guidelines
+- Implementation on different platforms allows users to transition seamlessly if their device disposition is insufficient for their use
 
 **Future Implementation:**
 
