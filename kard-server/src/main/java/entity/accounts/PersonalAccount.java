@@ -10,12 +10,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 /**
- * The account of a Person of kard
- *
- * Stores information about each individual User's contacts and optionally,
- * their association, which is how they're related to them (ex. current coworker,
- * previous coworker, client, etc).
- *
+ * The account of a Person of kard. Stores information about each individual User's contacts.
  * If no connection was declared during initialization of contact, then
  * connection is null.
  *
@@ -28,61 +23,28 @@ import java.util.HashSet;
  * 1. Contacts - connections with other individual accounts
  */
 public class PersonalAccount extends Account implements Serializable {
-
-    // Two types of connections: contacts and affiliations
-    // Same data structure, different data.
-    // A local copy of the User's contacts:
-//    private final HashMap<ProfileType, String> contacts;
+    @Serial
+    private static final long serialVersionUID = 8267757690267757690L;
     private final HashSet<String> contacts;
 
-
-    // Initialize two empty HashMaps for each connection
     public PersonalAccount() {
-//        this.contacts = new HashMap<>();
         this.contacts = new HashSet<>();
     }
 
     /**
      * Add a contact to a User's contacts list
      *
-     * The following two methods overload each other: if no association is
-     * provided, then add a new contact to contacts with a null value.
-     *
-     * If there is an association provided, then add a new contact to contacts
-     * with the value determined in association.
-     *
      * @param p Person to be connected to
-     * @return true if the new person is added to the HashMap of contacts
      */
-
     @Override
     public void addContact(Person p) {
-//        return Connections.addConnection(contacts, p);
         this.contacts.add(p.getUsername());
     }
-    @Serial
-    private static final long serialVersionUID = 8267757690267757690L;
-    /**
-     * Overloaded method
-     *
-     * String association annotates the type of connection between the person that this account
-     * belongs to and the Person being added
-     *
-     * Examples of associations include "rival", "partner", "client", "colleague", etc.
-     *
-     * @param p Person to be connected to
-     * @param association string to annotate the type of assocation between this user and the queried
-     * @return true if the new person is added to the HashMap of contacts
-     */
-//    public boolean addContact(Person p, String association) {
-//        return Connections.addConnection(contacts, p, association);
-//    }
 
     /**
      * Remove a person to the User's contact list.
      *
      * @param p person to remove from contacts list
-     * @return Success of removing from contacts list
      */
     @Override
     public void removeContact(Person p) {

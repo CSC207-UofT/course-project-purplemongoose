@@ -11,6 +11,9 @@ import dto.PersonalProfileRequest;
 import dto.ResponseContainer;
 import usecase.profile.*;
 
+/**
+ * Defines methods for interacting with an account's profile
+ */
 @RestController
 @RequestMapping("profile")
 public class ProfileController {
@@ -21,12 +24,15 @@ public class ProfileController {
     RestoreProfile restoreProfile = new RestoreProfile(false);
 
     /**
-     * Takes in the arguments needed to construct a new personal profile. If a profile already exists, return 'false',
-     * otherwise return 'true'
+     * Takes in the arguments needed to construct a new personal profile. If a profile already exists,
+     * return 'false', otherwise return 'true'
+     *
+     * Error code: 0 - by default is ok
+     * Error code: 106 - the profile already exists
      *
      * @param request JSON converted into PersonalProfileRequest which contains all the fields needed for create
      *                a new personal profile
-     * @return return a ResponseEntity which contains a 'true'/'false' response and an HTTP status code
+     * @return return a JSON object containing a 'true'/'false' response and an HTTP status code
      */
     @PostMapping(path="/create",
             consumes=MediaType.APPLICATION_JSON_VALUE,
@@ -45,12 +51,15 @@ public class ProfileController {
     }
 
     /**
-     * Takes in the arguments needed to modify a person's personal profile. If a profile doesn't exist, return 'false',
-     * otherwise return 'true' when the changes have been applied
+     * Takes in the arguments needed to modify a person's personal profile. If a profile doesn't exist,
+     * return 'false', otherwise return 'true' when the changes have been applied
      *
-     * @param request JSON converted into PersonalProfileRequest which contains all the fields needed for editing
-     *                a personal profile
-     * @return return a ResponseEntity which contains a 'true'/'false' response and an HTTP status code
+     * Error code: 0 - by default is ok
+     * Error code: 107 - the profile doesn't exist
+     *
+     * @param request JSON converted into PersonalProfileRequest which contains all the fields
+     *                needed for editing a personal profile
+     * @return return a JSON object containing a 'true'/'false' response and an HTTP status code
      */
     @PostMapping(path="/edit",
             consumes=MediaType.APPLICATION_JSON_VALUE,
@@ -69,12 +78,15 @@ public class ProfileController {
     }
 
     /**
-     * Takes in the arguments needed to restore a person's personal profile. If a profile doesn't exist, return 'false',
-     * otherwise return 'true' when the changes have been applied
+     * Takes in the arguments needed to restore a person's personal profile. If a profile doesn't exist,
+     * return 'false', otherwise return 'true' when the changes have been applied
+     *
+     * Error code: 0 - by default is ok
+     * Error code: 107 - the profile doesn't exist
      *
      * @param request JSON converted into PersonalProfileRequest which contains all the fields needed for restoring
      *                a personal profile
-     * @return return a ResponseEntity which contains a 'true'/'false' response and an HTTP status code
+     * @return return a JSON object containing a 'true'/'false' response and an HTTP status code
      */
     @PostMapping(path="/restore",
             consumes=MediaType.APPLICATION_JSON_VALUE,

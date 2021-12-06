@@ -10,6 +10,9 @@ import usecase.start.AuthLogin;
 import dto.LoginRequest;
 import dto.ResponseContainer;
 
+/**
+ * Defines methods for interacting with the login process
+ */
 @RestController
 @RequestMapping("kard")
 public class LoginController {
@@ -19,8 +22,11 @@ public class LoginController {
      * Takes in a StartRequest object and authenticates the information provided. If either the username or password is
      * wrong, then a 'false' response is sent back. Otherwise, a 'true' response is sent back.
      *
+     * Error code: 0 - by default is ok
+     * Error code: 105 - login failed
+     *
      * @param request JSON converted into StartRequest which contains the username and password
-     * @return return a ResponseEntity which contains a 'true'/'false' response and an HTTP status code
+     * @return return a JSON object containing a 'true'/'false' response and an HTTP status code
      */
     @PostMapping(path="/login",
             consumes=MediaType.APPLICATION_JSON_VALUE,

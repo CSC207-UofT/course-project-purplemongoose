@@ -8,14 +8,8 @@ import java.util.Objects;
  * A class to store all the detail of a person's name
  * This class assumes that all names that are passed in are already
  * divided for their first and last name, pronouns, and titles.
- * <p>
- * For the methods that retrieve the name from the user, need
- * to implement a parser for the input so that the first and last name,
- * optional pronouns and titles are passed into class Name as 4 distinct
- * arguments.
- * <p>
- * Constructor overloaded for different representations of a name depending
- * on which attributes the end user chooses to use.
+ *
+ * Optional fields such as pronouns and titles can be passed in as empty string
  */
 public record Name(String first, String last, String pronouns,
                    String titles) implements Serializable {
@@ -31,6 +25,11 @@ public record Name(String first, String last, String pronouns,
         return titles + " " + first + " " + last;
     }
 
+    /**
+     * Getter for the pronouns
+     *
+     * @return String representation of pronouns
+     */
     public String getPronouns() {
         return pronouns;
     }

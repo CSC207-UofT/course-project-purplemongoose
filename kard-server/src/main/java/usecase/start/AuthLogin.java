@@ -4,9 +4,6 @@ import database.gateway.AuthenticationGateway;
 
 import java.io.IOException;
 
-/**
- * This class contains use cases for login authentication
- */
 public class AuthLogin {
     private AuthenticationGateway authGateway;
 
