@@ -4,6 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
+      <change afterPath="$PROJECT_DIR$/../kard/assets/Profile_Placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kard/lib/user_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard/lib/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard/lib/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard/lib/person.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard/lib/person.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard/lib/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../kard/lib/user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kard/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../kard/pubspec.yaml" afterDir="false" />
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added RestoreProfile class">
       <change beforePath="$PROJECT_DIR$/../kard-CLI/kard-CLI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../kard-CLI/kard-CLI.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../kard-CLI/src/main/java/CommandLineInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kard-CLI/src/main/java/CommandLineInterface.java" afterDir="false" />

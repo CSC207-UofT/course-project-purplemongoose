@@ -4,6 +4,7 @@ import 'dart:async';
 
 
 import 'package:flutter/material.dart';
+import 'package:kard_project_test/main.dart';
 import 'package:kard_project_test/person.dart';
 import 'package:kard_project_test/user_builder.dart';
 
@@ -18,6 +19,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
@@ -31,8 +33,9 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     IconButton(
-                      icon: const Icon(Icons.menu, size: 35, color: Colors.white),
-                      onPressed: () => Navigator.of(context).pop(),
+                      icon: const Icon(Icons.arrow_back_ios_new, size: 35, color: Colors.white),
+                      onPressed: () => Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => const MyHomePage(title: "title")))
                     ),
                     const Text('kards',
                       style: TextStyle (
@@ -40,7 +43,24 @@ class _HomePageState extends State<HomePage> {
                           fontSize: 25
                       ),
                     ),
-                    const Icon(Icons.notifications_none, size: 35, color: Colors.white)
+                    IconButton(
+                      icon: const Icon(Icons.account_circle_outlined, size: 35, color: Colors.white),
+                      onPressed: () => showDialog<String>(
+                          context: context,
+                          builder: (BuildContext context) => AlertDialog(
+                              title: const Text('This is you!'),
+                              content: Text('Your username is ' + Constants.getCurrentUser()!.username),
+                              actions: <Widget>[
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context, 'OK');
+                                  },
+                                  child: const Text('OK'),
+                                ),
+                              ]
+                          )
+                      ),
+                    )
                   ],
                 ),
                 Expanded(child:
@@ -73,9 +93,20 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  void rebuildAllChildren(BuildContext context) {
+    void rebuild(Element el) {
+      el.markNeedsBuild();
+      el.visitChildren(rebuild);
+    }
+    (context as Element).visitChildren(rebuild);
+  }
+
   List<Person> persons = Constants.getCurrentUser()!.allContacts;
 
   Widget personDetailCard(person) {
+
+    final double nameWidth = MediaQuery.of(context).size.width - 145;
+
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: GestureDetector(
@@ -87,28 +118,57 @@ class _HomePageState extends State<HomePage> {
 
             child: Row(
               children: <Widget>[
-                // Padding(
-                //   padding: const EdgeInsets.all(8.0),
-                //   child: Container(
-                //       width: 50.0,
-                //       height: 50.0,
-                //       decoration: BoxDecoration(
-                //           shape: BoxShape.circle,
-                //           image: DecorationImage(
-                //               fit: BoxFit.cover,
-                //               image: AssetImage(Person.profileImg)
-                //           )
-                //       )),
-                // ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(2, 0, 8, 0),
+                  child: Container(
+                      width: 70.0,
+                      height: 70.0,
+                      child: const Icon(Icons.account_circle, size: 70, color: Colors.white),
+                  )
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(person.name,
-                      style: const TextStyle (
-                          color: Colors.white,
-                          fontSize: 24
+                    SizedBox(
+                      width: (nameWidth),
+                      child: Row(
+                        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget> [
+                          Text(person.name,
+                            style: const TextStyle (
+                                color: Colors.white,
+                                fontSize: 18
+                            ),
+                          ),
+                          const Spacer(),
+                          IconButton(
+                              icon: const Icon(Icons.cancel_outlined, size: 20, color: Colors.white),
+                              onPressed: () => showDialog<String>(
+                                  context: context,
+                                  builder: (BuildContext context) => AlertDialog(
+                                      title: const Text('Remove Contact?'),
+                                      content: Text('Are you sure you want to remove '
+                                      + person.name + ' from your contacts?'),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(context, 'Cancel'),
+                                          child: const Text('Cancel'),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            removeContact(person);
+                                            Navigator.pop(context, 'OK');
+                                          },
+                                          child: const Text('OK'),
+                                        ),
+                                      ]
+                                  )
+                              )
+                          )
+                        ],
                       ),
                     ),
+
                     const Padding(padding: EdgeInsets.only(
                       bottom: 10
                     )),
@@ -145,6 +205,36 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  Future<void> removeContact(Person p) async {
+
+      Map data = {
+        'accountUsername' : Constants.getCurrentUser()!.username,
+        'contactUsername' : p.username
+      };
+
+      String body = json.encode(data);
+
+      http.Response response = await http.post(
+        Uri.parse('http://' + Constants.address + '/contact/remove'),
+        headers: {"Content-Type": "application/json"},
+        body: body,
+      );
+
+      print(response.body);
+
+      if (response.statusCode == 200) {
+        final body = json.decode(response.body);
+        if (body['response']) {
+          Constants.getCurrentUser()!.fetchContacts().then((value) => {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const HomePage()))
+          });
+        } else {
+          print(body['errorCode']);
+        }
+      }
+    }
 }
 
 class FullScreenDialog extends StatelessWidget {

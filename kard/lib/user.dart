@@ -63,6 +63,10 @@ class User {
 
     for (var i = 0; i < list.length; i++) {
       allContacts.add(Person.fromJson(list[i]));
+
+      if (allContacts[i].name.length > 19) {
+        allContacts[i].name = allContacts[i].name.substring(0, 15) + '...';
+      }
     }
   }
 }
