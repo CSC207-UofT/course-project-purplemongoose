@@ -6,18 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kard/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../kard/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kard-CLI/src/main/java/CommandLineInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kard-CLI/src/main/java/CommandLineInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/CreateAccountRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/AccountRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/profiles/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/profiles/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/ContactController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/account/ListContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/account/ListContact.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/entity/datafile/NameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/datafile/NameTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/entity/profiles/ProfilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/profiles/ProfilesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/usecase/UUIDGeneratorTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
