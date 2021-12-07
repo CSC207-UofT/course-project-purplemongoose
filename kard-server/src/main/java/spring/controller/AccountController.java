@@ -9,30 +9,23 @@ import org.springframework.web.bind.annotation.*;
 import dto.ResponseContainer;
 import usecase.account.*;
 
-/*
- * A connection point between the external user interfaces and the back end of kard
- *
- * New user interfaces should use HTTP to access the Spring server here
- *
- * When connecting with one of the controllers in this class, ensure that the
- * appropriate kind of HTTP request (GET or POST) is being used. These will be specified in the
- * javadoc comments fo the individual controller.
+/**
+ * Defines methods for interacting with an account
  */
 @RestController
 @RequestMapping("account")
-
 public class AccountController {
-    /**
-     * Defines methods for interactions between a user's profile and the other users in their contacts
-     */
     CreateAccount createAccount = new CreateAccount(false);
 
     /**
      * Takes in a LoginRequest object and authenticates the attempts to make a new account with the given information.
      * If the username is already taken, then a 'false' response is sent back. Otherwise, a 'true' response is sent.
      *
+     * Error code: 0 - by default is ok
+     * Error code: 100 - username is already in use
+     *
      * @param request JSON converted into StartRequest which contains the username and password
-     * @return return a ResponseEntity which contains a 'true'/'false' response and an HTTP status code
+     * @return return a JSON object containing a 'true'/'false' response and an HTTP status code
      */
     @PostMapping(path="/create",
             consumes=MediaType.APPLICATION_JSON_VALUE,
@@ -44,7 +37,7 @@ public class AccountController {
             response.add(true);
         } else {
             response.add(false);
-            response.setError("100"); // username has already been taken
+            response.setError("100");
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

@@ -28,6 +28,7 @@ public class ModifyContact {
     /**
      * Adds a profile to the accounts contact list. The profile object is fetched from the profile database via the
      * ProfileGateway. Then the account data is updated via the account database.
+     *
      * @param accountUsername string for the account's username
      * @param contactUsername string for the contact's username
      */
@@ -41,6 +42,7 @@ public class ModifyContact {
     /**
      * Removes a profile from the accounts contact list. The profile object is fetched from the profile database via the
      * ProfileGateway. Then the account data is updated via the account database.
+     *
      * @param accountUsername string for the account's username
      * @param contactUsername string for the contact's username
      */

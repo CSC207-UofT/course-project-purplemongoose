@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.Scanner;
 
 public class CommandLineInterface {
@@ -14,7 +15,7 @@ public class CommandLineInterface {
     }
 
     /**
-     * Function that starts up the CLI for interacting with the user.
+     * Starts up the CLI for interacting with the user and displays a logo.
      */
     public void run() {
         System.out.println("""
@@ -29,7 +30,7 @@ public class CommandLineInterface {
     }
 
     /**
-     * starting screen of the CLI that appears after enter is pressed after the logo appears,
+     * Starting screen of the CLI that appears after enter is pressed after the logo appears,
      * this screen allows the user to log in or sign up.
      */
     public void startingScreen() {
@@ -148,11 +149,12 @@ public class CommandLineInterface {
 
     /**
      * Events loop for simple cli. The user can choose between the following functions
+     *  - Open up the profile page
      *  - Add an existing user from the database to their individual contacts list
      *  - Add a new user to the database
-     *  - Remove an existing user from the current user's contact list
-     *      NOTE: This DOES NOT remove the user from the overall database
+     *  - Remove a contact from the current user's contacts
      *  - Display all the contacts of the current user
+     *  - Logout to the home screen
      *  - Quit the program
      */
     private void events() {
@@ -176,6 +178,9 @@ public class CommandLineInterface {
         }
     }
 
+    /**
+     * Event loop for the profile screen. Here the user can modify their own profile.
+     */
     private void profileScreen() {
         String input;
         System.out.println("""
@@ -204,11 +209,15 @@ public class CommandLineInterface {
         events();
     }
 
+    /**
+     * This screen lists their past profiles with accompanying indexes. The user can choose a past profile they
+     * wish to restore to by indicating the index.
+     */
     private void restoreProfile() {
         System.out.println("+-------------------------PROFILE HISTORY-------------------------+");
         System.out.println(this.request.submitProfileMementoDisplay());
         System.out.println("+-----------------------------------------------------------------+");
-        while(true) {
+        while(!Objects.equals(this.request.submitProfileMementoDisplay(), "Your haven't made any changes to your profile yet!")) {
             System.out.println("Enter the index of the profile you would like to restore");
             System.out.print("Index: ");
             String input = sc.next();
@@ -217,13 +226,16 @@ public class CommandLineInterface {
                 System.out.printf("Profile corresponding to index [%s] not found!%n", input);
             }
             else {
+                System.out.print("Profile restored!\n");
                 break;
             }
         }
-        System.out.print("Profile restored!\n");
         profileScreen();
     }
 
+    /**
+     * This page allows the user to enter in new information to update their profile with
+     */
     private void editProfile() {
         System.out.println("Edit your profile by filling out your information below");
         System.out.print("First name: ");
@@ -255,6 +267,9 @@ public class CommandLineInterface {
         events();
     }
 
+    /**
+     * This page allows the user to make a new account if they don't currently have one
+     */
     private void createProfile() {
         System.out.println("Create your profile by filling out your information below");
         System.out.print("First name: ");

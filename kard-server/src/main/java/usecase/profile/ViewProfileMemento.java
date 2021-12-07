@@ -23,12 +23,16 @@ public class ViewProfileMemento {
     }
 
     /**
-     * view the profile history with the given arguments
+     * View the profile history with the given arguments
      *
      * @param profileUsername the username of the account who the profile history is associated with
      * @return a list of mementos representing the complete profile history of the user
      */
     public Memento[] viewProfileMemento(String profileUsername) {
-        return profileGateway.getMementoData(profileUsername).getHistory();
+        if (profileGateway.getMementoData(profileUsername) == null){
+            return null;
+        }else {
+            return profileGateway.getMementoData(profileUsername).getHistory();
+        }
     }
 }
