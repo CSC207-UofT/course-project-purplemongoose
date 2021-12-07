@@ -1,6 +1,7 @@
 package usecase;
 
 import database.gateway.AccountGateway;
+import database.gateway.AuthenticationGateway;
 import entity.accounts.PersonalAccount;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,6 +9,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import usecase.start.AuthLogin;
 import entity.accounts.Account;
+
+import java.io.File;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,14 +27,27 @@ class AuthLoginTest {
 
     @BeforeEach
     void setUp() {
-        AccountGateway ag = new AccountGateway();
+        AccountGateway ag = null;
+        try {
+            ag = new AccountGateway("./temp/mainframe.db");
+            this.authLogin = new AuthLogin(new AuthenticationGateway("./temp/mainframe.db"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         PersonalAccount account = new PersonalAccount();
+        assert ag != null;
         ag.insertAccountData("spongebob", "patrick123", account);
-        this.authLogin = new AuthLogin(false);
+
     }
 
     @AfterEach
     void tearDown() {
+        // Deleting the temporary database after testing
+        File tempDB = new File("./temp/mainframe.db");
+        if (tempDB.delete()) {
+            File tempFolder = new File("./temp/");
+            tempFolder.delete();
+        }
     }
 
     /**

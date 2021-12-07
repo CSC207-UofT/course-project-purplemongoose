@@ -27,7 +27,7 @@ public class PersonMementoTest {
 
         phone = new Phone("6475552401");
         email = new Email("jon666@gmail.com");
-        name = new Name("George", "Michael", "she/her");
+        name = new Name("George", "Michael", "she/her", "");
         this.personMemento = new PersonMemento(name, phone, email, "george2");
     }
     @AfterEach
@@ -38,7 +38,7 @@ public class PersonMementoTest {
     @DisplayName("Get name of PersonMemento")
     void testGetName(){
         String result = personMemento.getName();
-        String expected = "George Michael";
+        String expected = " George Michael";
         assertEquals(result, expected);
     }
 

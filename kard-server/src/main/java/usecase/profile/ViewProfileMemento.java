@@ -8,18 +8,10 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 
 public class ViewProfileMemento {
-    private ProfileGateway profileGateway;
+    private final ProfileGateway profileGateway;
 
-    public ViewProfileMemento(boolean inMemory) {
-        if (inMemory) {
-            profileGateway = new ProfileGateway();
-        } else {
-            try {
-                profileGateway = new ProfileGateway("./data/mainframe.db");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+    public ViewProfileMemento(ProfileGateway pg) {
+        this.profileGateway = pg;
     }
 
     /**

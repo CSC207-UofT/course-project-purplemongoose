@@ -5,18 +5,10 @@ import database.gateway.AuthenticationGateway;
 import java.io.IOException;
 
 public class AuthLogin {
-    private AuthenticationGateway authGateway;
+    private final AuthenticationGateway authGateway;
 
-    public AuthLogin(boolean inMemory) {
-        if (inMemory) {
-            authGateway = new AuthenticationGateway();
-        } else {
-            try {
-                authGateway = new AuthenticationGateway("./data/mainframe.db");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+    public AuthLogin(AuthenticationGateway ag) {
+        this.authGateway = ag;
     }
 
     /**

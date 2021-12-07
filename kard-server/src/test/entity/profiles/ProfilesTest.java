@@ -41,7 +41,7 @@ public class ProfilesTest {
     @DisplayName("Get names of Profiles")
     void testGetName(){
         String profileName = profile.getName();
-        assertEquals("George Michael", profileName);
+        assertEquals(" George Michael", profileName);
     }
 
     /**

@@ -43,9 +43,9 @@ class NameTest {
         String fullName2 = name2.getFullName();
         String fullName3 = name3.getFullName();
 
-        assertEquals(fullName, "Heinz Doofenshmirtz");
-        assertEquals(fullName2, "Patrick Star");
-        assertEquals(fullName3, "SpongeBob Squarepants");
+        assertEquals(fullName, "Dr. Heinz Doofenshmirtz");
+        assertEquals(fullName2, " Patrick Star");
+        assertEquals(fullName3, " SpongeBob Squarepants");
     }
 
     /**
@@ -61,6 +61,6 @@ class NameTest {
 
         assertEquals(pronouns, "he/him");
         assertEquals(pronouns2, "he/him");
-        assertNull(pronouns3);
+        assertEquals(pronouns3, "");
     }
 }
