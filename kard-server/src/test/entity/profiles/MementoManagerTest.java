@@ -1,14 +1,13 @@
 package entity.profiles;
 
-import entity.datafiles.Email;
-import entity.datafiles.Name;
-import entity.datafiles.Phone;
-import org.junit.jupiter.api.AfterEach;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import entity.datafiles.Email;
+import entity.datafiles.Name;
+import entity.datafiles.Phone;
 
 class MementoManagerTest {
 

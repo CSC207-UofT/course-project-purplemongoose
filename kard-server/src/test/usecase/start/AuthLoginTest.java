@@ -1,8 +1,10 @@
 package usecase.start;
 
+import database.SQLite.SQLiteDataBaseManager;
 import database.gateway.AccountGateway;
 import database.gateway.AuthenticationGateway;
 import entity.accounts.PersonalAccount;
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.junit.jupiter.api.*;
 
 import java.io.File;
@@ -35,13 +37,10 @@ class AuthLoginTest {
     }
 
     @AfterAll
-    static void tearDown() {
-        // Deleting the temporary database after testing
-        File tempDB = new File("./AuthLogin/mainframe.db");
-        if (tempDB.delete()) {
-            File tempFolder = new File("./AuthLogin/");
-            tempFolder.delete();
-        }
+    static void tearDown() throws IOException {
+        // Close the connection and delete the directory
+        SQLiteDataBaseManager.close();
+        FileUtils.forceDelete(new File("./AuthLogin"));
     }
 
     /**

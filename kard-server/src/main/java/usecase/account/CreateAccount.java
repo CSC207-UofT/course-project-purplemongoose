@@ -3,8 +3,6 @@ package usecase.account;
 import database.gateway.AccountGateway;
 import entity.accounts.PersonalAccount;
 
-import java.io.IOException;
-
 public class CreateAccount {
     private final AccountGateway accountGateway;
 

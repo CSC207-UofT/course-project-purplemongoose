@@ -1,13 +1,13 @@
 package spring.controller;
 
-import database.gateway.ProfileGateway;
-import entity.profiles.Memento;
-import entity.profiles.ProfileType;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import database.gateway.ProfileGateway;
+import entity.profiles.Memento;
+import entity.profiles.ProfileType;
 import dto.PersonalProfileRequest;
 import dto.ResponseContainer;
 import usecase.profile.*;

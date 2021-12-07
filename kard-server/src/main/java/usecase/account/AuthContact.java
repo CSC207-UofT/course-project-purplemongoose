@@ -4,9 +4,6 @@ import database.gateway.AccountGateway;
 import database.gateway.ProfileGateway;
 import entity.accounts.Account;
 import entity.profiles.Person;
-import entity.profiles.ProfileType;
-
-import java.io.IOException;
 
 public class AuthContact {
     private final AccountGateway accountGateway;

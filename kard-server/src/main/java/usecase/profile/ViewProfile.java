@@ -3,8 +3,6 @@ package usecase.profile;
 import database.gateway.ProfileGateway;
 import entity.profiles.ProfileType;
 
-import java.io.IOException;
-
 public class ViewProfile {
     private final ProfileGateway profileGateway;
 

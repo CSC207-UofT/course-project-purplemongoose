@@ -2,10 +2,6 @@ package usecase.profile;
 
 import database.gateway.ProfileGateway;
 import entity.profiles.Memento;
-import entity.profiles.ProfileType;
-
-import java.io.IOException;
-import java.util.LinkedHashMap;
 
 public class ViewProfileMemento {
     private final ProfileGateway profileGateway;
@@ -23,7 +19,7 @@ public class ViewProfileMemento {
     public Memento[] viewProfileMemento(String profileUsername) {
         if (profileGateway.getMementoData(profileUsername) == null){
             return null;
-        }else {
+        } else {
             return profileGateway.getMementoData(profileUsername).getHistory();
         }
     }

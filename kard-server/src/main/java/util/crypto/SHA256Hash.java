@@ -11,7 +11,7 @@ import java.security.NoSuchAlgorithmException;
  * Created by referencing https://www.geeksforgeeks.org/cryptographic-hash-function-in-java/ as well
  * as java documentation.
  */
-public class SHA256Hash extends CryptoHash{
+public class SHA256Hash extends CryptoHash {
     @Override
     public String hash(String input, byte[] salt) {
         ByteArrayOutputStream inputBytes = new ByteArrayOutputStream();

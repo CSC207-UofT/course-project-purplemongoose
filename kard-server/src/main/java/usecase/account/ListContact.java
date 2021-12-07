@@ -5,7 +5,6 @@ import database.gateway.ProfileGateway;
 import entity.accounts.Account;
 import entity.profiles.ProfileType;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 

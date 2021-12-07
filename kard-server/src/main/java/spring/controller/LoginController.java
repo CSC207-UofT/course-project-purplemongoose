@@ -6,7 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import usecase.account.CreateAccount;
+import database.gateway.AuthenticationGateway;
 import usecase.start.AuthLogin;
 import dto.LoginRequest;
 import dto.ResponseContainer;

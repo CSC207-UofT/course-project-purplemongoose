@@ -27,4 +27,15 @@ class PhoneTest {
 
         assertEquals(actual, expected);
     }
+
+    /**
+     * Tests for the equals override of profiles
+     */
+    @Test
+    @DisplayName("Test the equals override")
+    void testCheckEqualObjects(){
+        Phone phone1 = new Phone("12345");
+        Phone phone2 = new Phone("12345");
+        assertEquals(phone1, phone2);
+    }
 }

@@ -5,8 +5,6 @@ import database.gateway.ProfileGateway;
 import entity.accounts.Account;
 import entity.profiles.Person;
 
-import java.io.IOException;
-
 public class ModifyContact {
     private final AccountGateway accountGateway;
     private final ProfileGateway profileGateway;

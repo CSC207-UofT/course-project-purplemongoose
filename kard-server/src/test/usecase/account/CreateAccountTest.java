@@ -1,11 +1,15 @@
 package usecase.account;
 
-import org.junit.jupiter.api.*;
-
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import database.gateway.AccountGateway;
 import database.gateway.AuthenticationGateway;
+import database.SQLite.SQLiteDataBaseManager;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,13 +34,10 @@ public class CreateAccountTest {
     }
 
     @AfterAll
-    static void tearDown() {
-        // Deleting the temporary database after testing
-        File tempDB = new File("./CreateAccount/mainframe.db");
-        if (tempDB.delete()) {
-            File tempFolder = new File("./CreateAccount/");
-            tempFolder.delete();
-        }
+    static void tearDown() throws IOException {
+        // Close the connection and delete the directory
+        SQLiteDataBaseManager.close();
+        FileUtils.forceDelete(new File("./CreateAccount"));
     }
 
     /**

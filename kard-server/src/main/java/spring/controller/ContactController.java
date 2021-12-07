@@ -1,13 +1,12 @@
 package spring.controller;
 
-
-import database.gateway.AccountGateway;
-import database.gateway.ProfileGateway;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import database.gateway.AccountGateway;
+import database.gateway.ProfileGateway;
 import usecase.account.AuthContact;
 import usecase.account.ListContact;
 import usecase.account.ModifyContact;
@@ -18,7 +17,7 @@ import dto.ResponseContainer;
 import entity.profiles.ProfileType;
 
 import java.io.IOException;
-import java.util.Arrays;
+
 
 /**
  * Defines methods for interacting with an account's contacts

@@ -1,12 +1,8 @@
 package usecase.profile;
 
 import database.gateway.ProfileGateway;
-import entity.datafiles.Email;
-import entity.datafiles.Name;
-import entity.datafiles.Phone;
-import entity.profiles.*;
-
-import java.io.IOException;
+import entity.profiles.Person;
+import entity.profiles.PersonMemento;
 
 public class RestoreProfile {
     private final ProfileGateway profileGateway;

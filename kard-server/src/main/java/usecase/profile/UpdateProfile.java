@@ -7,8 +7,6 @@ import entity.datafiles.Phone;
 import entity.profiles.MementoManager;
 import entity.profiles.Person;
 
-import java.io.IOException;
-
 public class UpdateProfile {
     private final ProfileGateway profileGateway;
 

@@ -2,8 +2,6 @@ package usecase.profile;
 
 import database.gateway.ProfileGateway;
 
-import java.io.IOException;
-
 public class AuthProfile {
     private final ProfileGateway profileGateway;
 

@@ -1,5 +1,13 @@
 package usecase.account;
 
+import org.apache.tomcat.util.http.fileupload.FileUtils;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import database.SQLite.SQLiteDataBaseManager;
 import database.gateway.AccountGateway;
 import database.gateway.ProfileGateway;
 import entity.datafiles.Email;
@@ -7,17 +15,10 @@ import entity.datafiles.Name;
 import entity.datafiles.Phone;
 import entity.profiles.Person;
 import entity.profiles.ProfileType;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import usecase.profile.CreateProfile;
 
 import java.io.File;
 import java.io.IOException;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ListContactTest {
     private static ListContact listContact;
@@ -56,13 +57,10 @@ public class ListContactTest {
     }
 
     @AfterAll
-    static void tearDown() {
-        // Deleting the temporary database after testing
-        File tempDB = new File("./ListContact/mainframe.db");
-        if (tempDB.delete()) {
-            File tempFolder = new File("./ListContact/");
-            tempFolder.delete();
-        }
+    static void tearDown() throws IOException {
+        // Close the connection and delete the directory
+        SQLiteDataBaseManager.close();
+        FileUtils.forceDelete(new File("./ListContact"));
     }
 
     /**
@@ -81,7 +79,7 @@ public class ListContactTest {
      */
     @Test
     @DisplayName("Display a contact list with two contacts")
-    void displayTwoContacts() {
+    void displayContacts() {
         createAccount.newPersonalAccount("user2", "123");
         modifyContact.addContact("user2", "john");
         modifyContact.addContact("user2", "sarah");
@@ -106,8 +104,8 @@ public class ListContactTest {
      * Tests displaying a sorted contact list with 3 contacts in ascending order by name
      */
     @Test
-    @DisplayName("Display a contact list with three sorted contacts")
-    void displayThreeSortedContacts() {
+    @DisplayName("Display a contact list with three ascending sorted contacts")
+    void displayAscendingSortedContacts() {
         listContact.setSorter(new SortByName());
         createAccount.newPersonalAccount("user3", "123");
         modifyContact.addContact("user3", "john");
@@ -132,5 +130,37 @@ public class ListContactTest {
         assertEquals(contacts[0], expected[0]);
         assertEquals(contacts[1], expected[1]);
         assertEquals(contacts[2], expected[2]);
+    }
+
+    /**
+     * Tests displaying a sorted contact list with 3 contacts in descending order by name
+     */
+    @Test
+    @DisplayName("Display a contact list with three ascending sorted contacts")
+    void displayDescendingSortedContacts() {
+        listContact.setSorter(new SortByName());
+        createAccount.newPersonalAccount("user4", "123");
+        modifyContact.addContact("user4", "john");
+        modifyContact.addContact("user4", "sarah");
+        modifyContact.addContact("user4", "peter");
+        ProfileType[] contacts = listContact.getSortedContacts("user4", "descend");
+
+        ProfileType[] expected = {new Person(
+                new Name("John", "Smith", "He/Him", "Dr."),
+                new Phone("6471234567"),
+                new Email("joe.mama@joe.io"),
+                "john"), new Person(
+                new Name("Peter", "Peter", "He/Him", "Mr."),
+                new Phone("6475534937"),
+                new Email("john.smith@aol.com"),
+                "peter"),new Person(
+                new Name("Sarah", "Johnson", "She/Her", "Ms."),
+                new Phone("6471234623"),
+                new Email("Taskmgr_dot_exe@gmail.com"),
+                "sarah")};
+
+        assertEquals(contacts[2], expected[0]);
+        assertEquals(contacts[1], expected[1]);
+        assertEquals(contacts[0], expected[2]);
     }
 }

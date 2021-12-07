@@ -2,8 +2,6 @@ package usecase.start;
 
 import database.gateway.AuthenticationGateway;
 
-import java.io.IOException;
-
 public class AuthLogin {
     private final AuthenticationGateway authGateway;
 

@@ -1,6 +1,7 @@
 package entity.datafile;
 
 import entity.datafiles.Name;
+import entity.datafiles.Phone;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -58,5 +59,16 @@ class NameTest {
         assertEquals(pronouns, "he/him");
         assertEquals(pronouns2, "he/him");
         assertEquals(pronouns3, "");
+    }
+
+    /**
+     * Tests for the equals override of Name
+     */
+    @Test
+    @DisplayName("Test the equals override")
+    void testCheckEqualObjects(){
+        Name name1 = new Name("Heinz", "Doofenshmirtz", "he/him", "Dr.");
+        Name name2 = new Name("Heinz", "Doofenshmirtz", "he/him", "Dr.");
+        assertEquals(name1, name2);
     }
 }
