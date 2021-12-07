@@ -22,8 +22,8 @@ The most current version of [kard-server](https://github.com/CSC207-UofT/course-
 
 If for any reason you may need to test on a different instance of [kard-server](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/kard-server) you may change the:
 
-- `private final String url` variable on line 12 of [`Request.java`](https://github.com/CSC207-UofT/course-project-purplemongoose/blob/main/kard-CLI/src/main/java/Request.java) in `kard-CLI/src/main/java/Request.java` if you are using the CLI to access kard.
-- `static constant String address` variable on line 8 of [`user_builder.dart`](https://github.com/CSC207-UofT/course-project-purplemongoose/blob/main/kard/lib/user_builder.dart) in  `kard/lib/user_builder.dart` if you are using the Flutter application to access kard.
+- `private final String url` variable on line 12 of [`Request.java`](https://github.com/CSC207-UofT/course-project-purplemongoose/blob/42027fe1e96b2b37730a83ec0f52de1b6fb15b85/kard-CLI/src/main/java/Request.java#L12) in `kard-CLI/src/main/java/Request.java` if you are using the CLI to access kard.
+- `static constant String address` variable on line 8 of [`user_builder.dart`](https://github.com/CSC207-UofT/course-project-purplemongoose/blob/42027fe1e96b2b37730a83ec0f52de1b6fb15b85/kard/lib/user_builder.dart#L8) in  `kard/lib/user_builder.dart` if you are using the Flutter application to access kard.
 
 To `"localhost:8082"` and ensure to run [kard-server](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/kard-server) on your local machine during testing using this method.
 
