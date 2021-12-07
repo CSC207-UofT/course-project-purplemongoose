@@ -16,10 +16,6 @@ class PhoneTest {
         phone = new Phone("5554443333");
     }
 
-    @AfterEach
-    void tearDown() {
-    }
-
     /**
      * Tests getting a phone number
      */

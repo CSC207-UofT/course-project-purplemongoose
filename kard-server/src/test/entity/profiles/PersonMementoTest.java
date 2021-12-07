@@ -30,9 +30,6 @@ public class PersonMementoTest {
         name = new Name("George", "Michael", "she/her", "");
         this.personMemento = new PersonMemento(name, phone, email, "george2");
     }
-    @AfterEach
-    void tearDown() {
-    }
 
     @Test
     @DisplayName("Get name of PersonMemento")

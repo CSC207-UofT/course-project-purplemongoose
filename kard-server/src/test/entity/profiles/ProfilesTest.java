@@ -21,15 +21,10 @@ public class ProfilesTest {
 
     @BeforeEach
     void setUp() {
-
         Phone phone = new Phone("6475552401");
         Email email = new Email("jon666@gmail.com");
         Name name = new Name("George", "Michael", "she/her", "");
         profile = new Person(name, phone, email, "george2");
-
-    }
-    @AfterEach
-    void tearDown() {
     }
 
     /**

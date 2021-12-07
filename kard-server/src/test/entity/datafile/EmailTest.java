@@ -21,10 +21,6 @@ class EmailTest {
         email = new Email("john.smith@email.com");
     }
 
-    @AfterEach
-    void tearDown() {
-    }
-
     /**
      * Tests getting an email from an email object
      */

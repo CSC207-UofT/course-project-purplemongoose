@@ -19,10 +19,6 @@ class MementoManagerTest {
         this.mementoManager = new MementoManager();
     }
 
-    @AfterEach
-    void tearDown() {
-    }
-
     @Test
     @DisplayName("Add and get a PersonMemento")
     void addAndGetPersonalMemento() {

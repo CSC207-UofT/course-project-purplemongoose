@@ -28,7 +28,6 @@ public class AccountController {
         }
     }
 
-
     /**
      * Takes in a LoginRequest object and authenticates the attempts to make a new account with the given information.
      * If the username is already taken, then a 'false' response is sent back. Otherwise, a 'true' response is sent.

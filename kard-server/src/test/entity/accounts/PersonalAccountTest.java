@@ -49,11 +49,6 @@ class PersonalAccountTest {
         ));
     }
 
-    @AfterEach
-    void tearDown() {
-
-    }
-
     /**
      * Tests adding a contact to the Account
      */

@@ -28,10 +28,6 @@ class NameTest {
         name3 = new Name("SpongeBob", "Squarepants", "", "");
     }
 
-    @AfterEach
-    void tearDown() {
-    }
-
     /**
      * Tests getting the full name
      */
