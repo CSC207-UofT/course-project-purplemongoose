@@ -28,10 +28,6 @@ class NameTest {
         name3 = new Name("SpongeBob", "Squarepants", "", "");
     }
 
-    @AfterEach
-    void tearDown() {
-    }
-
     /**
      * Tests getting the full name
      */
@@ -43,7 +39,7 @@ class NameTest {
         String fullName2 = name2.getFullName();
         String fullName3 = name3.getFullName();
 
-        assertEquals(fullName, "Heinz Doofenshmirtz");
+        assertEquals(fullName, "Dr. Heinz Doofenshmirtz");
         assertEquals(fullName2, "Patrick Star");
         assertEquals(fullName3, "SpongeBob Squarepants");
     }
@@ -61,6 +57,6 @@ class NameTest {
 
         assertEquals(pronouns, "he/him");
         assertEquals(pronouns2, "he/him");
-        assertNull(pronouns3);
+        assertEquals(pronouns3, "");
     }
 }
