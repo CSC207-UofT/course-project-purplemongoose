@@ -5,31 +5,19 @@ import database.gateway.ProfileGateway;
 import entity.accounts.Account;
 import entity.profiles.Person;
 
-import java.io.IOException;
-
 /**
  * Class for modifying the contacts of an account.
  *
  * Provides methods for adding and removing contacts from the account's contact list.
  * Methods in this class assume that the account is already in the database.
  */
-
 public class ModifyContact {
-    private AccountGateway accountGateway;
-    private ProfileGateway profileGateway;
+    private final AccountGateway accountGateway;
+    private final ProfileGateway profileGateway;
 
-    public ModifyContact(boolean inMemory) {
-        if (inMemory) {
-            accountGateway = new AccountGateway();
-            profileGateway = new ProfileGateway();
-        } else {
-            try {
-                accountGateway = new AccountGateway("./data/mainframe.db");
-                profileGateway = new ProfileGateway("./data/mainframe.db");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+    public ModifyContact(AccountGateway ag, ProfileGateway pg) {
+        this.accountGateway = ag;
+        this.profileGateway = pg;
     }
 
     /**

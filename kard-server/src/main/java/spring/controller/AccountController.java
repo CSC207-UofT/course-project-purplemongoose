@@ -1,13 +1,16 @@
 package spring.controller;
 
-import dto.AccountRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import database.gateway.AccountGateway;
+import dto.AccountRequest;
 import dto.ResponseContainer;
 import usecase.account.*;
+
+import java.io.IOException;
 
 /**
  * Defines methods for interacting with an account
@@ -15,7 +18,15 @@ import usecase.account.*;
 @RestController
 @RequestMapping("account")
 public class AccountController {
-    CreateAccount createAccount = new CreateAccount(false);
+    CreateAccount createAccount;
+
+    {
+        try {
+            createAccount = new CreateAccount(new AccountGateway("./data/mainframe.db"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Takes in a LoginRequest object and authenticates the attempts to make a new account with the given information.

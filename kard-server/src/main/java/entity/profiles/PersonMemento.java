@@ -6,6 +6,7 @@ import entity.datafiles.Phone;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * Class for creating a PersonMemento which is a snapshot of the state of a personal profile (Person object)
@@ -80,5 +81,4 @@ public class PersonMemento extends Memento implements Serializable{
     public String getUsername() {
         return this.username;
     }
-
 }

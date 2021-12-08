@@ -1,15 +1,14 @@
 package entity.profiles;
 
+import static org.junit.jupiter.api.Assertions.*;
 import entity.accounts.PersonalAccount;
-import entity.datafiles.Email;
-import entity.datafiles.Name;
-import entity.datafiles.Phone;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import entity.datafiles.Email;
+import entity.datafiles.Name;
+import entity.datafiles.Phone;
 
 /**
  * A class for testing the MementoManager class
@@ -26,10 +25,10 @@ class MementoManagerTest {
         this.mementoManager = new MementoManager();
     }
 
+
     /**
      * Tests adding a PersonMemento and fetching a PersonalMemento
      */
-
     @Test
     @DisplayName("Add and get a PersonMemento")
     void addAndGetPersonalMemento() {
@@ -49,11 +48,9 @@ class MementoManagerTest {
     /**
      * Tests getting Memento history
      */
-
     @Test
     @DisplayName("Get Memento history")
     void getHistory() {
-
         Name name = new Name("John", "Smith", "he/him", "Mr.");
         Phone phone = new Phone("98239824");
         Email email = new Email("johnsmith@gmail.com");
@@ -66,6 +63,6 @@ class MementoManagerTest {
         mementoManager.addPersonalMemento(name2, phone2, email2, "john111");
 
         Memento[] hist = mementoManager.getHistory();
-        assertSame("adidas@gmail.com", hist[0].getEmail());
+        assertSame("johnsmith@gmail.com", hist[0].getEmail());
     }
 }

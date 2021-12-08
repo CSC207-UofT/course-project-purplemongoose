@@ -1,15 +1,13 @@
 package entity.profiles;
 
-import org.junit.jupiter.api.AfterEach;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
-import entity.profiles.PersonMemento;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import entity.datafiles.Phone;
 import entity.datafiles.Name;
 import entity.datafiles.Email;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 /**
  * A class for testing the PersonMemento class
  *
@@ -34,7 +32,6 @@ public class PersonMementoTest {
     /**
      * Tests getting the name of a PersonMemento
      */
-
     @Test
     @DisplayName("Get name of PersonMemento")
     void testGetName(){
@@ -102,5 +99,4 @@ public class PersonMementoTest {
         String expected = "george2";
         assertEquals(result, expected);
     }
-
 }

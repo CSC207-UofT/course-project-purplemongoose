@@ -3,21 +3,11 @@ package usecase.profile;
 import database.gateway.ProfileGateway;
 import entity.profiles.ProfileType;
 
-import java.io.IOException;
-
 public class ViewProfile {
-    private ProfileGateway profileGateway;
+    private final ProfileGateway profileGateway;
 
-    public ViewProfile(boolean inMemory) {
-        if (inMemory) {
-            profileGateway = new ProfileGateway();
-        } else {
-            try {
-                profileGateway = new ProfileGateway("./data/mainframe.db");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+    public ViewProfile(ProfileGateway pg) {
+        this.profileGateway = pg;
     }
 
     /**

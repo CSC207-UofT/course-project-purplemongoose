@@ -5,7 +5,6 @@ import database.gateway.ProfileGateway;
 import entity.accounts.Account;
 import entity.profiles.ProfileType;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -17,21 +16,12 @@ import java.util.HashSet;
 
 public class ListContact {
     SortBehavior sorter;
-    private AccountGateway accountGateway;
-    private ProfileGateway profileGateway;
+    private final AccountGateway accountGateway;
+    private final ProfileGateway profileGateway;
 
-    public ListContact(boolean inMemory) {
-        if (inMemory) {
-            accountGateway = new AccountGateway();
-            profileGateway = new ProfileGateway();
-        } else {
-            try {
-                accountGateway = new AccountGateway("./data/mainframe.db");
-                profileGateway = new ProfileGateway("./data/mainframe.db");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+    public ListContact(AccountGateway ag, ProfileGateway pg) {
+        this.accountGateway = ag;
+        this.profileGateway = pg;
     }
 
     public void setSorter(SortBehavior sorter) {
