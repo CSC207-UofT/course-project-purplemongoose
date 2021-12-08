@@ -5,13 +5,11 @@ import entity.datafiles.Name;
 import entity.datafiles.Phone;
 import entity.profiles.Person;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collections;
-import java.util.Set;
+import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -49,11 +47,6 @@ class PersonalAccountTest {
         ));
     }
 
-    @AfterEach
-    void tearDown() {
-
-    }
-
     /**
      * Tests adding a contact to the Account
      */
@@ -78,54 +71,51 @@ class PersonalAccountTest {
         assertTrue(account.checkContacts(test_person));
     }
 
-//    /**
-//     * Tests removing a contact of the Account
-//     */
-//    @Test
-//    @DisplayName("Remove a person")
-//    void testRemoveContact(){
-//        Person test_person = new Person(
-//                new Name("Peter", "Peter", "They/Them"),
-//                new Phone("5555555555555555"),
-//                new Email("john.smith@aol.com"),
-//                "TheRealJohnSmith"
-//        );
-//
-//        assertFalse(account.removeContact(test_person));
-//        assertFalse(account.checkContacts(test_person));
-//    }
+    /**
+     * Tests removing a contact of the Account
+     */
+    @Test
+    @DisplayName("Remove a person")
+    void testRemoveContact(){
+        Person test_person = new Person(
+                new Name("Peter", "Peter", "They/Them", "Prof."),
+                new Phone("5555555555555555"),
+                new Email("john.smith@aol.com"),
+                "TheRealJohnSmith"
+        );
 
-//    /**
-//     * Tests removing a person that is not a contact of the Account
-//     */
-//    @Test
-//    @DisplayName("Remove a person that doesn't exist")
-//    void testRemoveContactNotExists(){
-//        Person test_person = new Person(
-//                new Name("Steven", "Test"),
-//                new Phone("6663636363"),
-//                new Email("not_steven@y8.com"),
-//                "TheFakeJohnSmith"
-//        );
-//
-//        Set<ProfileType> before = account.getContacts();
-//        assertFalse(account.removeContact(test_person));
-//        Set<ProfileType> after = account.getContacts();
-//        assertEquals(before, after);
-//    }
+        account.removeContact(test_person);
+        assertFalse(account.checkContacts(test_person));
+    }
 
-//    /**
-//     * Tests the getContacts function on an empty contact list
-//     */
-//    @Test
-//    @DisplayName("Get the contacts as a string for an empty contact list")
-//    void testGetContactsEmpty(){
-//        PersonalAccount new_account = new PersonalAccount();
-//        Set<ProfileType> expected = Collections.emptySet();
-//
-//        Set<ProfileType> before = new_account.getContacts();
-//        assertEquals(expected, before);
-//    }
+    /**
+     * Tests removing a person that is not a contact of the Account
+     */
+    @Test
+    @DisplayName("Remove a person that doesn't exist")
+    void testRemoveContactNotExists(){
+        Person test_person = new Person(
+                new Name("Steven", "Test", "He/Him", ""),
+                new Phone("6663636363"),
+                new Email("not_steven@y8.com"),
+                "TheFakeJohnSmith"
+        );
 
+        HashSet<String> before = account.getContacts();
+        account.removeContact(test_person);
+        HashSet<String> after = account.getContacts();
+        assertEquals(before, after);
+    }
 
+    /**
+     * Tests the getContacts function on an empty contact list
+     */
+    @Test
+    @DisplayName("Get the contacts as a string for an empty contact list")
+    void testGetContactsEmpty(){
+        PersonalAccount new_account = new PersonalAccount();
+        HashSet<String> expected = new HashSet<>();
+        HashSet<String> before = new_account.getContacts();
+        assertEquals(expected, before);
+    }
 }
