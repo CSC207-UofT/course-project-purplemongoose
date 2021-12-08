@@ -5,6 +5,12 @@ import database.gateway.ProfileGateway;
 import entity.accounts.Account;
 import entity.profiles.Person;
 
+/**
+ * Class for modifying the contacts of an account.
+ *
+ * Provides methods for adding and removing contacts from the account's contact list.
+ * Methods in this class assume that the account is already in the database.
+ */
 public class ModifyContact {
     private final AccountGateway accountGateway;
     private final ProfileGateway profileGateway;

@@ -22,6 +22,9 @@ public record Name(String first, String last, String pronouns,
      * @return String representation of the individuals full name
      */
     public String getFullName() {
+        if (titles.equals("")) {
+            return first + " " + last;
+        }
         return titles + " " + first + " " + last;
     }
 

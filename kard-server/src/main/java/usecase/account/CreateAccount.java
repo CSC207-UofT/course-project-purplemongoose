@@ -3,6 +3,9 @@ package usecase.account;
 import database.gateway.AccountGateway;
 import entity.accounts.PersonalAccount;
 
+/**
+ * Class for creating a new Account and storing it in the database.
+ */
 public class CreateAccount {
     private final AccountGateway accountGateway;
 
