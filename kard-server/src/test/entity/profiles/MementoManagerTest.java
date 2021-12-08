@@ -10,6 +10,8 @@ import entity.datafiles.Email;
 import entity.datafiles.Name;
 import entity.datafiles.Phone;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * A class for testing the MementoManager class
  *
@@ -50,7 +52,7 @@ class MementoManagerTest {
      */
     @Test
     @DisplayName("Get Memento history")
-    void getHistory() {
+    void getHistory() throws InterruptedException {
         Name name = new Name("John", "Smith", "he/him", "Mr.");
         Phone phone = new Phone("98239824");
         Email email = new Email("johnsmith@gmail.com");
@@ -60,7 +62,9 @@ class MementoManagerTest {
         Email email2 = new Email("adidas@gmail.com");
 
         mementoManager.addPersonalMemento(name, phone, email, "john111");
+        TimeUnit.SECONDS.sleep(1);
         mementoManager.addPersonalMemento(name2, phone2, email2, "john111");
+        TimeUnit.SECONDS.sleep(1);
 
         Memento[] hist = mementoManager.getHistory();
         assertSame("johnsmith@gmail.com", hist[0].getEmail());
