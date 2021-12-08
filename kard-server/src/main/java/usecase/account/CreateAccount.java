@@ -5,6 +5,11 @@ import entity.accounts.PersonalAccount;
 
 import java.io.IOException;
 
+/**
+ * Class for creating a new Account and storing it in the database.
+ */
+
+
 public class CreateAccount {
     private AccountGateway accountGateway;
 

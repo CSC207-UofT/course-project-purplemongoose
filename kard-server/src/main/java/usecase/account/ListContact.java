@@ -9,6 +9,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+/**
+ * Class for listing the contacts of an account.
+ *
+ * Methods in this class assume the account is already in the database.
+ */
+
 public class ListContact {
     SortBehavior sorter;
     private AccountGateway accountGateway;
