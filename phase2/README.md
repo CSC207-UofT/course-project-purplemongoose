@@ -12,7 +12,6 @@ TODO: ARHTUR - fix
     - [Packaging](#packaging)
   - [Kard-Server Implementation Details](#kard-server-implementation-details)
   - [Design and Architecture](#design-and-architecture)
-    - [SOLID](#solid)
     - [Clean Architecture](#clean-architecture)
     - [Design Problems](#design-problems)
     - [Design Patterns](#design-patterns)
@@ -34,6 +33,7 @@ As of December 9, an initial shippable version of kard has been completed:
 - Updated the Kard Flutter application to better adhere to accessibility guidelines laid out in Googles [Material Design 2](https://material.io/design) and [Material Design 3](https://m3.material.io) guidelines.
 - Added sorting to fetch order for contacts. A user can now sort their contacts alphabetically.
 - Added rollback ability to individual profiles, allowing users to view and rollback changes they made to their profile like an erroneous edit.
+- Massive overhaul of the SQLite database to allow for more flexibility.
 
 ## Navigating the Github Repository
 
@@ -65,19 +65,22 @@ The implementation of the RESTful API can be observed throughout the entire app,
 
 The benefit following RESTful API is that it allows for one centralized backend (and database) for the frontend to communicate with. If each frontend were to have its own backend that it communicate directly with, it would be difficult to synchonize account data and profiles without needing alot of network related code or switching to a server based database like MySQL or MongoDB. Using HTTP requests has allowed us to create a highly customizeable database with SQLite while avoiding the complications of signing up and connecting to a server database.
 
-TODO: ARTHUR expand on Flutter Application implementation
+TODO: ARTHUR expand on Flutter Application implementation & maybe talk about Docker and hosting
 
 ## Design and Architecture
 
-While the scope of the project has remained the same since phase 1, nearly all the backend code has been redone in some shape or form. Take the usecases for example, we used to bundle all the account related use cases in one mega class called `AccountUseCases`. In phase 2 we removed these huge usecase classes and separated them out into smaller classes which have specific roles (e.g. `CreateAccount`).  This way we follow the Single-Responsibility Principle of SOLID and has made unit testing much easier.
+As we've pointed out in the design document for phase 1, the OLID principle were lacking in the previous iteration of our project. However for phase 2, we made it our goal to ensure these principle are present.
 
-...
+**S:** We used to bundle all account related use cases in one mega class called `AccountUseCases` and that same pattern was followed for other use cases. In phase 2 we removed these huge use case classes and separated them out into smaller classes which have specific roles (e.g. `CreateAccount` only handles account creation). Additionally, the controllers only are only responsibile for one branch of requests. For example the `ContactController` only contains methods that act on contacts, those being `submitContactAddition`, `submitContactRemoval`, `submitContactDisplay`. By separating the controllers into their respective role, the URL for the controllers becomes quite easy for frontend applications to use. If the Flutter app wanted to display the contacts, it would just send a request to `http://host-url:8082/contact/display`.
 
-### SOLID
+**O:** Although Open-Closed Principle is used in various sections of our program, it is most commonly seen in entities as they lay the foundation of our program. For example, in our profile entities, we have `ProfileType` as  the interface which all profile classes must implemenent. Due to time constraints, we only have `Person` as the profile class, but if given more time, we could have implemented classes like `Company` which could be a parent class of `Business`, and so forth. Our memento classes also implement `ProfileType`; without having to modify the subclasses of `ProfileType` to support mementos, we have a class like `PersonMemento` which extends `Memento` which implements `ProfileType` instead. As a result, our entities are open for extension, but closed for modification.
 
-Some of our code follow the single responsibility principle. For example `LoginAuth` only deals with authenticating the login information and returning back whether the attempt was successful for not. However, some classes might be too large and encompassing. Take `AccountUseCases` as an example; it contains methods that create Account instances while also having methods that modify the contacts in accounts. We instead should separate `AccountUseCases` into two separate classes - one that deals with the creation and deletion of Account objects (maybe called `ManageAccount`) and the other which deals with the contacts of account (`ManageContacts`). This problem was more due to issues with selecting viable names for certain classes at the beginning, so we just decided to clump everything to do with accounts under one umbrella class.
+**L:** While our entities are a good showcase of Liskov Subsitution Principle, our current iteration of the program only has one subclass of each entity interface superclass. However in our Strategy design pattern implementation of contact sorting, Liskov Subsitution principle is present. The interface `SortBehaviour` has `SortByName` as an implementor. The `sort` method for `SortByName` and other possible subclasses (e.g. `SortByTimeStamp`) will only ever take in a array of `ProfileType` objects and the order in which to sort it (`"ascend"`, `"descend"`). As such `.sort()` of all the subclasses of `SortBehaviour` can be used wherever `SortBehaviour.sort()` is used.
 
-As for the other principles (SOLID), our code current does not have the depth to showcase the them well. This is because the major improvements on our program for phase 1 were mostly on the frontend side of things (Flutter GUI, CLI, REST API). As a result, the backend functionality only consists of creating an account and profile, logging in, and adding a profile to the accounts contacts list. For phase 2, we plan on adding the algorithmic brunt of our program which will be creating and editing various cards which will definitely showcase the SOLID principle much better. We also plan on adding layers of separation between the various layers to make testing easier which will also apply SOLID principles.
+**I:** An example the Interface Segregation Principle can be found in `PersonalAccount` which implements `Account`. `Account` contains the following methods: `addContact`, `removeContact`, `checkContact` and `getContacts`. In `PersonalAccount` all of these methods are implemented and make sense contextually (as opposed to something like a square class implementing a shape interface with a volume method) All the subclasses that are implementing an interface support the methods from the superclass that are being inherited. There are no errors in Intelliji about subclasses not implementing superclass methods so all the subclasses that are implementing an interface support the methods from the superclass being inherited.
+
+**D:** The Dependency Inversion Principle is used in our project, but is best demonstrated in our database implementation. Many if not all of our use cases rely on accessing the database in some way. Originally,
+the database classes which directly interacted with the SQLite wrapper class was coupled to the use cases. This meant testing was impossible to do with use cases and more importantly, broke the Dependency Inversion Principle as the high level modules (use cases) depended on low level modules (database wrapper). In phase 2, we added a layer of separation by introducing `SQLiteDataBaseHelper` and `DataBaseGateway`. `SQLiteDataBaseHelper` provides an interface to the database for the gateways while the gateways obfuscate the database implementation for the use cases by providing a high level layer of interaction. As a result, the use cases now depend on `DataBaseGateway` which itself depends `SQLiteDataBaseHelper`. Instead of depending on concretions, the use cases now depend on abstraction and thus follows the Dependency Inversion Principle.
 
 ### Clean Architecture
 
@@ -97,7 +100,17 @@ TODO: ARTHUR
 
 ### Design Patterns
 
-TODO: LING&ARTHUR
+There are 4 main design patterns used in our project:
+
+- Command
+  - TODO: STEWART
+- Memento
+  - TODO: KEVIN
+- Strategy
+  - TODO: LING
+- Dependency Injection
+  - TODO: LING
+  - inject gateway to be used for use cases
 
 ## Other Notes
 
