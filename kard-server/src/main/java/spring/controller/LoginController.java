@@ -1,14 +1,17 @@
 package spring.controller;
 
+import database.gateway.AuthenticationGateway;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import usecase.account.CreateAccount;
+import database.gateway.AuthenticationGateway;
 import usecase.start.AuthLogin;
 import dto.LoginRequest;
 import dto.ResponseContainer;
+
+import java.io.IOException;
 
 /**
  * Defines methods for interacting with the login process
@@ -16,7 +19,17 @@ import dto.ResponseContainer;
 @RestController
 @RequestMapping("kard")
 public class LoginController {
-    AuthLogin auth = new AuthLogin(false);
+    AuthLogin auth;
+
+    {
+        try {
+            auth = new AuthLogin(
+                    new AuthenticationGateway("./data/mainframe.db")
+            );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Takes in a StartRequest object and authenticates the information provided. If either the username or password is

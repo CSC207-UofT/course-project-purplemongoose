@@ -1,6 +1,7 @@
 package entity.datafile;
 
 import entity.datafiles.Email;
+import entity.datafiles.Phone;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -21,10 +22,6 @@ class EmailTest {
         email = new Email("john.smith@email.com");
     }
 
-    @AfterEach
-    void tearDown() {
-    }
-
     /**
      * Tests getting an email from an email object
      */
@@ -35,5 +32,16 @@ class EmailTest {
         String actual = email.getEmail();
 
         assertEquals(expected, actual);
+    }
+
+    /**
+     * Tests for the equals override of Email
+     */
+    @Test
+    @DisplayName("Test the equals override")
+    void testCheckEqualObjects(){
+        Email mail1 = new Email("cool@mail.com");
+        Email mail2 = new Email("cool@mail.com");
+        assertEquals(mail1, mail2);
     }
 }

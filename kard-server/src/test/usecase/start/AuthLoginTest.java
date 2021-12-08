@@ -1,13 +1,14 @@
-package usecase;
+package usecase.start;
 
+import database.SQLite.SQLiteDataBaseManager;
 import database.gateway.AccountGateway;
+import database.gateway.AuthenticationGateway;
 import entity.accounts.PersonalAccount;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import usecase.start.AuthLogin;
-import entity.accounts.Account;
+import org.apache.tomcat.util.http.fileupload.FileUtils;
+import org.junit.jupiter.api.*;
+
+import java.io.File;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,19 +19,28 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 class AuthLoginTest {
+    private static AuthLogin authLogin;
 
-    AuthLogin authLogin;
-
-    @BeforeEach
-    void setUp() {
-        AccountGateway ag = new AccountGateway();
+    @BeforeAll
+    static void setUp() {
+        AccountGateway ag = null;
+        try {
+            ag = new AccountGateway("./AuthLogin/mainframe.db");
+            authLogin = new AuthLogin(new AuthenticationGateway("./AuthLogin/mainframe.db"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         PersonalAccount account = new PersonalAccount();
+        assert ag != null;
         ag.insertAccountData("spongebob", "patrick123", account);
-        this.authLogin = new AuthLogin(false);
+
     }
 
-    @AfterEach
-    void tearDown() {
+    @AfterAll
+    static void tearDown() throws IOException {
+        // Close the connection and delete the directory
+        SQLiteDataBaseManager.close();
+        FileUtils.forceDelete(new File("./AuthLogin"));
     }
 
     /**

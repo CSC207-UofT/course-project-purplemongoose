@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * Class that stores information about the Person's email address
  *
- * In the future, multiple emails can be stored
+ * In the future, multiple emails can be stored`
  */
 public record Email(String email) implements Serializable {
     @Serial

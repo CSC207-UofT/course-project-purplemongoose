@@ -1,26 +1,14 @@
 package usecase.profile;
 
 import database.gateway.ProfileGateway;
-import entity.datafiles.Email;
-import entity.datafiles.Name;
-import entity.datafiles.Phone;
-import entity.profiles.*;
-
-import java.io.IOException;
+import entity.profiles.Person;
+import entity.profiles.PersonMemento;
 
 public class RestoreProfile {
-    private ProfileGateway profileGateway;
+    private final ProfileGateway profileGateway;
 
-    public RestoreProfile(boolean inMemory) {
-        if (inMemory) {
-            profileGateway = new ProfileGateway();
-        } else {
-            try {
-                profileGateway = new ProfileGateway("./data/mainframe.db");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+    public RestoreProfile(ProfileGateway pg) {
+        this.profileGateway = pg;
     }
 
     /**
