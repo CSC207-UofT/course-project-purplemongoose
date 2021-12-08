@@ -4,23 +4,22 @@
 
 TODO: ARHTUR - fix
 
-- [Summary](#description-of-work-done)
-- [Navigating Github](#navigating-the-github-repository)
-- [Project Structure](#description-of-project-structure)
+- [kard Phase 1 design document](#kard-phase-1-design-document)
+  - [Contents](#contents)
+  - [Description of Work Done](#description-of-work-done)
+  - [Navigating the Github Repository](#navigating-the-github-repository)
+  - [Description of Project Structure](#description-of-project-structure)
     - [Packaging](#packaging)
-- [Design and Architecture](#design-and-architecture)
+  - [Kard-Server Implementation Details](#kard-server-implementation-details)
+  - [Design and Architecture](#design-and-architecture)
     - [SOLID](#solid)
     - [Clean Architecture](#clean-architecture)
     - [Design Problems](#design-problems)
     - [Design Patterns](#design-patterns)
-- [Description of the UI](#descriptions-of-the-ui)
-    - [Flutter App](#flutter-app)
-    - [CLI](#command-line-application)
-- [Other Notes](#other-notes)
+  - [Other Notes](#other-notes)
     - [Refactoring](#refactoring)
-    - [Use of Github](#use-of-github-and-git)
-    - [Questions](#some-questions)
-- [Contributions](#major-contributions-to-kard)
+    - [Use of Github and Git](#use-of-github-and-git)
+  - [Major Contributions to kard](#major-contributions-to-kard)
 
 ## Description of Work Done
 
@@ -60,17 +59,19 @@ Another benefit of packaging by layer is that it was very easy to spot violation
 
 In phase 1, kards backend was modified so that instead of running a command line application, it responded to HTTP GET and POST requests. In doing so, we implemented a form of a [RESTful API](https://www.redhat.com/en/topics/api/what-is-a-rest-api) into our backend, allowing any frontend user interface, like the command line or mobile application, to be completely disconnected.
 
-For phase 2, we have continued development down this path.....
-
-TODO: LING add details
+For phase 2, we have continued development down this path by further developing the controllers to adhere to REST. In phase 1, some of the controllers used did not GET and POST properly. GET meant for viewing something in the backend while POST is used to change some values in the backend. In phase 2, GET and POST are used in proper places as opposed to phase 1 where GET was mainly used (improperly).
 
 The implementation of the RESTful API can be observed throughout the entire app, with a specific example being if a user wishes to login. In this example the application the user is using would send a POST request to `http://host-IPv4:port/kard/login/` containing the JSON `{accountUsername: username, accountPassword: password}`. The server would then receive and process this request, returning to the user interface application another JSON containing the result of the login function specifically whether the password matches the username and the can, therefore, login.
+
+The benefit following RESTful API is that it allows for one centralized backend (and database) for the frontend to communicate with. If each frontend were to have its own backend that it communicate directly with, it would be difficult to synchonize account data and profiles without needing alot of network related code or switching to a server based database like MySQL or MongoDB. Using HTTP requests has allowed us to create a highly customizeable database with SQLite while avoiding the complications of signing up and connecting to a server database.
 
 TODO: ARTHUR expand on Flutter Application implementation
 
 ## Design and Architecture
 
-TODO: LING update this section to reflect changes made in phase 2
+While the scope of the project has remained the same since phase 1, nearly all the backend code has been redone in some shape or form. Take the usecases for example, we used to bundle all the account related use cases in one mega class called `AccountUseCases`. In phase 2 we removed these huge usecase classes and separated them out into smaller classes which have specific roles (e.g. `CreateAccount`).  This way we follow the Single-Responsibility Principle of SOLID and has made unit testing much easier.
+
+...
 
 ### SOLID
 
