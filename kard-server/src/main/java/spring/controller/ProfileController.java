@@ -1,15 +1,18 @@
 package spring.controller;
 
-import entity.profiles.Memento;
-import entity.profiles.ProfileType;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import database.gateway.ProfileGateway;
+import entity.profiles.Memento;
+import entity.profiles.ProfileType;
 import dto.PersonalProfileRequest;
 import dto.ResponseContainer;
 import usecase.profile.*;
+
+import java.io.IOException;
 
 /**
  * Defines methods for interacting with an account's profile
@@ -17,11 +20,28 @@ import usecase.profile.*;
 @RestController
 @RequestMapping("profile")
 public class ProfileController {
-    CreateProfile createProfile = new CreateProfile(false);
-    UpdateProfile updateProfile = new UpdateProfile(false);
-    ViewProfile viewProfile = new ViewProfile(false);
-    ViewProfileMemento viewProfileMemento = new ViewProfileMemento(false);
-    RestoreProfile restoreProfile = new RestoreProfile(false);
+    CreateProfile createProfile;
+    UpdateProfile updateProfile;
+    ViewProfile viewProfile;
+    ViewProfileMemento viewProfileMemento;
+    RestoreProfile restoreProfile;
+
+    {
+        try {
+            createProfile = new CreateProfile(
+                    new ProfileGateway("./data/mainframe.db"));
+            updateProfile = new UpdateProfile(
+                    new ProfileGateway("./data/mainframe.db"));
+            viewProfile = new ViewProfile(
+                    new ProfileGateway("./data/mainframe.db"));
+            viewProfileMemento = new ViewProfileMemento(
+                    new ProfileGateway("./data/mainframe.db"));
+            restoreProfile = new RestoreProfile(
+                    new ProfileGateway("./data/mainframe.db"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Takes in the arguments needed to construct a new personal profile. If a profile already exists,

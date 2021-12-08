@@ -1,11 +1,12 @@
 package spring.controller;
 
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import database.gateway.AccountGateway;
+import database.gateway.ProfileGateway;
 import usecase.account.AuthContact;
 import usecase.account.ListContact;
 import usecase.account.ModifyContact;
@@ -15,7 +16,8 @@ import dto.ContactRequest;
 import dto.ResponseContainer;
 import entity.profiles.ProfileType;
 
-import java.util.Arrays;
+import java.io.IOException;
+
 
 /**
  * Defines methods for interacting with an account's contacts
@@ -23,16 +25,27 @@ import java.util.Arrays;
 @RestController
 @RequestMapping("contact")
 public class ContactController {
-    AuthContact authContact;
-    AuthProfile authProfile;
-    ModifyContact modifyContact;
-    ListContact listContact;
+    private AuthContact authContact;
+    private AuthProfile authProfile;
+    private ModifyContact modifyContact;
+    private ListContact listContact;
 
-    public ContactController() {
-        this.authContact = new AuthContact(false);
-        this.authProfile = new AuthProfile(false);
-        this.modifyContact = new ModifyContact(false);
-        this.listContact = new ListContact(false);
+    {
+        try {
+            authContact = new AuthContact(
+                    new AccountGateway("./data/mainframe.db"),
+                    new ProfileGateway("./data/mainframe.db"));
+            authProfile = new AuthProfile(
+                    new ProfileGateway("./data/mainframe.db"));
+            modifyContact = new ModifyContact(
+                    new AccountGateway("./data/mainframe.db"),
+                    new ProfileGateway("./data/mainframe.db"));
+            listContact = new ListContact(
+                    new AccountGateway("./data/mainframe.db"),
+                    new ProfileGateway("./data/mainframe.db"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

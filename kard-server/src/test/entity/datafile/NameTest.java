@@ -1,6 +1,7 @@
 package entity.datafile;
 
 import entity.datafiles.Name;
+import entity.datafiles.Phone;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -28,10 +29,6 @@ class NameTest {
         name3 = new Name("SpongeBob", "Squarepants", "", "");
     }
 
-    @AfterEach
-    void tearDown() {
-    }
-
     /**
      * Tests getting the full name
      */
@@ -43,9 +40,9 @@ class NameTest {
         String fullName2 = name2.getFullName();
         String fullName3 = name3.getFullName();
 
-        assertEquals(fullName, "Heinz Doofenshmirtz");
-        assertEquals(fullName2, "Patrick Star");
-        assertEquals(fullName3, "SpongeBob Squarepants");
+        assertEquals(fullName, "Dr. Heinz Doofenshmirtz");
+        assertEquals(fullName2, " Patrick Star");
+        assertEquals(fullName3, " SpongeBob Squarepants");
     }
 
     /**
@@ -61,6 +58,17 @@ class NameTest {
 
         assertEquals(pronouns, "he/him");
         assertEquals(pronouns2, "he/him");
-        assertNull(pronouns3);
+        assertEquals(pronouns3, "");
+    }
+
+    /**
+     * Tests for the equals override of Name
+     */
+    @Test
+    @DisplayName("Test the equals override")
+    void testCheckEqualObjects(){
+        Name name1 = new Name("Heinz", "Doofenshmirtz", "he/him", "Dr.");
+        Name name2 = new Name("Heinz", "Doofenshmirtz", "he/him", "Dr.");
+        assertEquals(name1, name2);
     }
 }

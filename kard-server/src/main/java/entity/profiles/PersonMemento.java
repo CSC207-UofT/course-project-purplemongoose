@@ -6,6 +6,7 @@ import entity.datafiles.Phone;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Objects;
 
 
 public class PersonMemento extends Memento implements Serializable{
@@ -71,5 +72,4 @@ public class PersonMemento extends Memento implements Serializable{
     public String getUsername() {
         return this.username;
     }
-
 }

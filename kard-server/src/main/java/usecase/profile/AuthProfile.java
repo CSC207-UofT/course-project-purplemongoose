@@ -2,21 +2,11 @@ package usecase.profile;
 
 import database.gateway.ProfileGateway;
 
-import java.io.IOException;
-
 public class AuthProfile {
-    private ProfileGateway profileGateway;
+    private final ProfileGateway profileGateway;
 
-    public AuthProfile(boolean inMemory) {
-        if (inMemory) {
-            profileGateway = new ProfileGateway();
-        } else {
-            try {
-                profileGateway = new ProfileGateway("./data/mainframe.db");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+    public AuthProfile(ProfileGateway pg) {
+        this.profileGateway = pg;
     }
 
     /**

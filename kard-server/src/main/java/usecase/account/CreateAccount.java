@@ -3,21 +3,11 @@ package usecase.account;
 import database.gateway.AccountGateway;
 import entity.accounts.PersonalAccount;
 
-import java.io.IOException;
-
 public class CreateAccount {
-    private AccountGateway accountGateway;
+    private final AccountGateway accountGateway;
 
-    public CreateAccount (boolean inMemory) {
-        if (inMemory) {
-            accountGateway = new AccountGateway();
-        } else {
-            try {
-                accountGateway = new AccountGateway("./data/mainframe.db");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+    public CreateAccount (AccountGateway ag) {
+        this.accountGateway = ag;
     }
 
     /**

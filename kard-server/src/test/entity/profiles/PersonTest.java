@@ -1,35 +1,29 @@
 package entity.profiles;
 
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import entity.datafiles.Email;
 import entity.datafiles.Name;
 import entity.datafiles.Phone;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
 /**
- * A class for testing the Person, Organization and Business classes
+ * A class for testing the Person classe
  *
  * @see Person
  */
 
-public class ProfilesTest {
+public class PersonTest {
     Person profile;
 
     @BeforeEach
     void setUp() {
-
         Phone phone = new Phone("6475552401");
         Email email = new Email("jon666@gmail.com");
-        Name name = new Name("George", "Michael", "she/her", "");
+        Name name = new Name("George", "Michael", "she/her", "Ms.");
         profile = new Person(name, phone, email, "george2");
-
-    }
-    @AfterEach
-    void tearDown() {
     }
 
     /**
@@ -41,7 +35,7 @@ public class ProfilesTest {
     @DisplayName("Get names of Profiles")
     void testGetName(){
         String profileName = profile.getName();
-        assertEquals("George Michael", profileName);
+        assertEquals("Ms. George Michael", profileName);
     }
 
     /**
@@ -73,6 +67,38 @@ public class ProfilesTest {
     void testGetUsername(){
         String profileUsername = profile.getUsername();
         assertEquals("george2", profileUsername);
+    }
 
+    /**
+     * Tests for the pronouns getters of profiles
+     */
+    @Test
+    @DisplayName("Get pronouns of Profiles")
+    void testGetPronouns(){
+        String profileUsername = profile.getPronouns();
+        assertEquals("she/her", profileUsername);
+    }
+
+    /**
+     * Tests for the equals override of profiles
+     */
+    @Test
+    @DisplayName("Test the equals override")
+    void testCheckEqualObjects(){
+        Phone phone1 = new Phone("12345");
+        Phone phone2 = new Phone("12345");
+        assertEquals(phone1, phone2);
+    }
+
+    /**
+     * Tests for the toString method of profiles
+     */
+    @Test
+    @DisplayName("Test the toString override")
+    void testToString(){
+        String strRepresention = profile.toString();
+        String expected = "Person{name=Name[first=George, last=Michael, pronouns=she/her, titles=Ms.], " +
+                "phone=Phone[phone=6475552401], email=Email[email=jon666@gmail.com], username='george2'}";
+        assertEquals(expected, strRepresention);
     }
 }

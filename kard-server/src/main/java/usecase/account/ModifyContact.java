@@ -5,24 +5,13 @@ import database.gateway.ProfileGateway;
 import entity.accounts.Account;
 import entity.profiles.Person;
 
-import java.io.IOException;
-
 public class ModifyContact {
-    private AccountGateway accountGateway;
-    private ProfileGateway profileGateway;
+    private final AccountGateway accountGateway;
+    private final ProfileGateway profileGateway;
 
-    public ModifyContact(boolean inMemory) {
-        if (inMemory) {
-            accountGateway = new AccountGateway();
-            profileGateway = new ProfileGateway();
-        } else {
-            try {
-                accountGateway = new AccountGateway("./data/mainframe.db");
-                profileGateway = new ProfileGateway("./data/mainframe.db");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+    public ModifyContact(AccountGateway ag, ProfileGateway pg) {
+        this.accountGateway = ag;
+        this.profileGateway = pg;
     }
 
     /**

@@ -7,21 +7,11 @@ import entity.datafiles.Phone;
 import entity.profiles.MementoManager;
 import entity.profiles.Person;
 
-import java.io.IOException;
-
 public class CreateProfile {
-    private ProfileGateway profileGateway;
+    private final ProfileGateway profileGateway;
 
-    public CreateProfile(boolean inMemory) {
-        if (inMemory) {
-            profileGateway = new ProfileGateway();
-        } else {
-            try {
-                profileGateway = new ProfileGateway("./data/mainframe.db");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+    public CreateProfile(ProfileGateway pg) {
+        this.profileGateway = pg;
     }
 
     /**
