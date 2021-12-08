@@ -1,5 +1,6 @@
 package entity.profiles;
 
+import entity.accounts.PersonalAccount;
 import entity.datafiles.Email;
 import entity.datafiles.Name;
 import entity.datafiles.Phone;
@@ -10,6 +11,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * A class for testing the MementoManager class
+ *
+ * @see MementoManager
+ */
+
 class MementoManagerTest {
 
     MementoManager mementoManager;
@@ -19,9 +26,9 @@ class MementoManagerTest {
         this.mementoManager = new MementoManager();
     }
 
-    @AfterEach
-    void tearDown() {
-    }
+    /**
+     * Tests adding a PersonMemento and fetching a PersonalMemento
+     */
 
     @Test
     @DisplayName("Add and get a PersonMemento")
@@ -39,6 +46,9 @@ class MementoManagerTest {
 
     }
 
+    /**
+     * Tests getting Memento history
+     */
 
     @Test
     @DisplayName("Get Memento history")
