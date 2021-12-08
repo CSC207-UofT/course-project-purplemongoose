@@ -5,32 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/ContactController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/account/AuthContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/account/AuthContact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/account/CreateAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/account/CreateAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/account/ListContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/account/ListContact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/account/ModifyContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/account/ModifyContact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/profile/AuthProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/AuthProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/profile/CreateProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/CreateProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/profile/RestoreProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/RestoreProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/profile/UpdateProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/UpdateProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/profile/ViewProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/ViewProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/profile/ViewProfileMemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/profile/ViewProfileMemento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/start/AuthLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/start/AuthLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/crypto/SHA256Hash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/crypto/SHA256Hash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/entity/datafile/EmailTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/datafile/EmailTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/entity/datafile/NameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/datafile/NameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/entity/datafile/PhoneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/datafile/PhoneTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/entity/profiles/MementoManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/profiles/MementoManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/entity/profiles/PersonMementoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/profiles/PersonMementoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/entity/profiles/ProfilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/entity/profiles/PersonTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/usecase/account/CreateAccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/usecase/account/CreateAccountTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/usecase/account/ListContactTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/usecase/account/ListContactTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/usecase/start/AuthLoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/usecase/start/AuthLoginTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +21,8 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="Interface" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -67,10 +43,10 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/database/SQLite/SQLiteDataBase.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/database/SQLite/SQLiteDataBaseFile.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/spring/controller/AccountController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/database/SQLite/SQLiteDataBase.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/entity/accounts/PersonalAccount.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/spring/controller/AccountController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/entity/accounts/Account.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/database/gateway/AccountGateway.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/database/gateway/ProfileGateway.java" root0="FORCE_HIGHLIGHTING" />
@@ -125,112 +101,84 @@
       <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="usecase.account" />
-      <recent name="usecase.start" />
       <recent name="util" />
       <recent name="" />
       <recent name="entity.profiles" />
+      <recent name="usecase" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="util.crypto" />
       <recent name="usecase" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in kard-server">
-    <configuration name="All in kard-server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.Run">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="kard-server" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonTest.testCheckEqualObjects" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SHA256HashTest.testSame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="kard-server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="entity.profiles.*" />
+          <option name="PATTERN" value="util.crypto.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="entity.profiles" />
-      <option name="MAIN_CLASS_NAME" value="entity.profiles.PersonTest" />
-      <option name="METHOD_NAME" value="testCheckEqualObjects" />
+      <option name="PACKAGE_NAME" value="util.crypto" />
+      <option name="MAIN_CLASS_NAME" value="util.crypto.SHA256HashTest" />
+      <option name="METHOD_NAME" value="testSame" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RestoreProfileTest.restorePreviousEdit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="course-project-purplemongoose-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/course-project-purplemongoose-1.0-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="KardServer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="kard-server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="usecase.profile.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="usecase.profile" />
-      <option name="MAIN_CLASS_NAME" value="usecase.profile.RestoreProfileTest" />
-      <option name="METHOD_NAME" value="restorePreviousEdit" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="controller.KardServer" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UpdateProfileTest.updateAccountNoProfile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Run" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="kard-server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="usecase.profile.*" />
+          <option name="PATTERN" value="spring.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="usecase.profile" />
-      <option name="MAIN_CLASS_NAME" value="usecase.profile.UpdateProfileTest" />
-      <option name="METHOD_NAME" value="updateAccountNoProfile" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ViewProfileTest.CheckForProfileSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="kard-server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="usecase.profile.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="usecase.profile" />
-      <option name="MAIN_CLASS_NAME" value="usecase.profile.ViewProfileTest" />
-      <option name="METHOD_NAME" value="CheckForProfileSuccess" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Run" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="kard-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="spring.Run" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.All in kard-server" />
-      <item itemvalue="JUnit.RestoreProfileTest.restorePreviousEdit" />
-      <item itemvalue="JUnit.ViewProfileTest.CheckForProfileSuccess" />
-      <item itemvalue="JUnit.UpdateProfileTest.updateAccountNoProfile" />
-      <item itemvalue="JUnit.PersonTest.testCheckEqualObjects" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JAR Application.course-project-purplemongoose-1.0-SNAPSHOT.jar" />
+      <item itemvalue="JUnit.SHA256HashTest.testSame" />
+      <item itemvalue="Spring Boot.KardServer" />
       <item itemvalue="Spring Boot.Run" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in kard-server" />
-        <item itemvalue="JUnit.PersonTest.testCheckEqualObjects" />
-        <item itemvalue="JUnit.UpdateProfileTest.updateAccountNoProfile" />
-        <item itemvalue="JUnit.ViewProfileTest.CheckForProfileSuccess" />
-        <item itemvalue="JUnit.RestoreProfileTest.restorePreviousEdit" />
+        <item itemvalue="Spring Boot.Run" />
+        <item itemvalue="JAR Application.course-project-purplemongoose-1.0-SNAPSHOT.jar" />
+        <item itemvalue="Spring Boot.KardServer" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.SHA256HashTest.testSame" />
       </list>
     </recent_temporary>
   </component>
@@ -277,11 +225,6 @@
       <workItem from="1638036963510" duration="8097000" />
       <workItem from="1638064643369" duration="1363000" />
       <workItem from="1638811684947" duration="7220000" />
-      <workItem from="1638847443644" duration="13790000" />
-      <workItem from="1638863336023" duration="1264000" />
-      <workItem from="1638864644055" duration="1044000" />
-      <workItem from="1638865717824" duration="6318000" />
-      <workItem from="1638872165340" duration="5009000" />
     </task>
     <task id="LOCAL-00001" summary="fixed error in Name and started NameTest">
       <created>1636166152716</created>
@@ -378,29 +321,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added edit profile feature to server. Also implemented the functionality in CLI. Some tests are commented out and need to be redone. Some Javadoc needs to be redone. No memento yet, will push it ASAP" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/kard_server$ListContactTest.ic" NAME="ListContactTest Coverage Results" MODIFIED="1638865207021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>usecase.account.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$AuthLoginTest_requestLoginSuccessful.ic" NAME="AuthLoginTest.requestLoginSuccessful Coverage Results" MODIFIED="1638854409408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>usecase.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$CreateAccountTest.ic" NAME="CreateAccountTest Coverage Results" MODIFIED="1638857924082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>usecase.account.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$SHA256HashTest_testSame.ic" NAME="SHA256HashTest.testSame Coverage Results" MODIFIED="1638856989828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>util.crypto.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$AuthProfileTest.ic" NAME="AuthProfileTest Coverage Results" MODIFIED="1638870725308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>usecase.profile.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$All_in_kard_server.ic" NAME="All in kard-server Coverage Results" MODIFIED="1636223352732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/kard_server$AccountUseCasesTest.ic" NAME="AccountUseCasesTest Coverage Results" MODIFIED="1636169488595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/kard_server$ModifyContactTest.ic" NAME="ModifyContactTest Coverage Results" MODIFIED="1638867680258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>usecase.account.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$AuthContactTest.ic" NAME="AuthContactTest Coverage Results" MODIFIED="1638868161322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>usecase.account.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/kard_server$ProfileUseCasesTest__1_.ic" NAME="ProfileUseCasesTest (1) Coverage Results" MODIFIED="1636169802008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>entity.usecase.*</FILTER>
     </SUITE>
@@ -411,20 +331,7 @@
       <EXCLUDED_FILTER>request.*</EXCLUDED_FILTER>
       <EXCLUDED_FILTER>response.*</EXCLUDED_FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$PersonTest_testCheckEqualObjects.ic" NAME="PersonTest.testCheckEqualObjects Coverage Results" MODIFIED="1638876730745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>entity.profiles.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$Run.ic" NAME="Run Coverage Results" MODIFIED="1638847936244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>spring.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$ListContactTest_displayTwoContacts.ic" NAME="ListContactTest.displayTwoContacts Coverage Results" MODIFIED="1638861239637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>usecase.account.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$AuthLoginTest.ic" NAME="AuthLoginTest Coverage Results" MODIFIED="1638866267157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>usecase.start.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$ListContactTest_displayThreeSortedContacts.ic" NAME="ListContactTest.displayThreeSortedContacts Coverage Results" MODIFIED="1638863583048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>usecase.account.*</FILTER>
-    </SUITE>
+    <SUITE FILE_PATH="coverage/kard_server$All_in_kard_server.ic" NAME="All in kard-server Coverage Results" MODIFIED="1636223352732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/kard_server$AccountUseCasesTest.ic" NAME="AccountUseCasesTest Coverage Results" MODIFIED="1636169488595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
