@@ -2,7 +2,7 @@
 
 
 <details>
-  <summary>Click to expand!</summary>
+  <summary>Contents</summary>
 
 ## Contents
 
