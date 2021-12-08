@@ -1,5 +1,6 @@
 package entity.profiles;
 
+import entity.accounts.PersonalAccount;
 import entity.datafiles.Email;
 import entity.datafiles.Name;
 import entity.datafiles.Phone;
@@ -10,6 +11,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * A class for testing the MementoManager class
+ *
+ * @see MementoManager
+ */
+
 class MementoManagerTest {
 
     MementoManager mementoManager;
@@ -19,15 +26,15 @@ class MementoManagerTest {
         this.mementoManager = new MementoManager();
     }
 
-    @AfterEach
-    void tearDown() {
-    }
+    /**
+     * Tests adding a PersonMemento and fetching a PersonalMemento
+     */
 
     @Test
     @DisplayName("Add and get a PersonMemento")
     void addAndGetPersonalMemento() {
 
-        Name name = new Name("John", "Smith", "he/him");
+        Name name = new Name("John", "Smith", "he/him", "Mr.");
         Phone phone = new Phone("98239824");
         Email email = new Email("johnsmith@gmail.com");
 
@@ -39,34 +46,24 @@ class MementoManagerTest {
 
     }
 
-    @Test
-    @DisplayName("Add and get a OrganizationMemento")
-    void addAndGetOrganizationMemento() {
-        String name = "Adidas";
-        Phone phone = new Phone("938475002");
-        Email email = new Email("adidas@gmail.com");
-
-        mementoManager.addOrganizationMemento(name, phone, email, "adidas");
-
-        OrganizationMemento organizationMemento = mementoManager.getOrganizationMemento(0);
-        String actual = organizationMemento.getPhone();
-        assertSame("938475002", actual);
-    }
+    /**
+     * Tests getting Memento history
+     */
 
     @Test
     @DisplayName("Get Memento history")
     void getHistory() {
 
-        Name name = new Name("John", "Smith", "he/him");
+        Name name = new Name("John", "Smith", "he/him", "Mr.");
         Phone phone = new Phone("98239824");
         Email email = new Email("johnsmith@gmail.com");
 
-        String name2 = "Adidas";
+        Name name2 = new Name("John", "Smith", "he/him", "Dr..");
         Phone phone2 = new Phone("938475002");
         Email email2 = new Email("adidas@gmail.com");
 
         mementoManager.addPersonalMemento(name, phone, email, "john111");
-        mementoManager.addOrganizationMemento(name2, phone2, email2, "adidas");
+        mementoManager.addPersonalMemento(name2, phone2, email2, "john111");
 
         Memento[] hist = mementoManager.getHistory();
         assertSame("adidas@gmail.com", hist[0].getEmail());
