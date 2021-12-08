@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498f69f9-90d9-41d8-af1e-dca9bba36060" name="Changes" comment="added docs to NameTest">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/AccountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/ContactController.java" afterDir="false" />
@@ -68,12 +67,12 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/database/SQLite/SQLiteDataBaseFile.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/database/SQLite/SQLiteDataBase.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/database/SQLite/SQLiteDataBaseFile.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/spring/controller/AccountController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/entity/accounts/PersonalAccount.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/entity/accounts/Account.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/database/gateway/AccountGateway.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/spring/controller/AccountController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/database/gateway/ProfileGateway.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MavenRunner">
@@ -219,11 +218,11 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.All in kard-server" />
-      <item itemvalue="Spring Boot.Run" />
       <item itemvalue="JUnit.RestoreProfileTest.restorePreviousEdit" />
       <item itemvalue="JUnit.ViewProfileTest.CheckForProfileSuccess" />
       <item itemvalue="JUnit.UpdateProfileTest.updateAccountNoProfile" />
       <item itemvalue="JUnit.PersonTest.testCheckEqualObjects" />
+      <item itemvalue="Spring Boot.Run" />
     </list>
     <recent_temporary>
       <list>
@@ -379,11 +378,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added edit profile feature to server. Also implemented the functionality in CLI. Some tests are commented out and need to be redone. Some Javadoc needs to be redone. No memento yet, will push it ASAP" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/kard_server$ModifyContactTest.ic" NAME="ModifyContactTest Coverage Results" MODIFIED="1638867680258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/kard_server$ListContactTest.ic" NAME="ListContactTest Coverage Results" MODIFIED="1638865207021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>usecase.account.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$ProfileUseCasesTest__1_.ic" NAME="ProfileUseCasesTest (1) Coverage Results" MODIFIED="1636169802008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>entity.usecase.*</FILTER>
+    <SUITE FILE_PATH="coverage/kard_server$AuthLoginTest_requestLoginSuccessful.ic" NAME="AuthLoginTest.requestLoginSuccessful Coverage Results" MODIFIED="1638854409408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>usecase.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/kard_server$CreateAccountTest.ic" NAME="CreateAccountTest Coverage Results" MODIFIED="1638857924082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>usecase.account.*</FILTER>
@@ -391,31 +390,19 @@
     <SUITE FILE_PATH="coverage/kard_server$SHA256HashTest_testSame.ic" NAME="SHA256HashTest.testSame Coverage Results" MODIFIED="1638856989828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>util.crypto.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$All_in_kard_server.ic" NAME="All in kard-server Coverage Results" MODIFIED="1638877156872" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/kard_server$AuthLoginTest.ic" NAME="AuthLoginTest Coverage Results" MODIFIED="1638866267157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>usecase.start.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$ListContactTest_displayThreeSortedContacts.ic" NAME="ListContactTest.displayThreeSortedContacts Coverage Results" MODIFIED="1638863583048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>usecase.account.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$Run.ic" NAME="Run Coverage Results" MODIFIED="1638847936244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>spring.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$ListContactTest.ic" NAME="ListContactTest Coverage Results" MODIFIED="1638865207021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>usecase.account.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$AccountUseCasesTest.ic" NAME="AccountUseCasesTest Coverage Results" MODIFIED="1636169488595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/kard_server$ListContactTest_displayTwoContacts.ic" NAME="ListContactTest.displayTwoContacts Coverage Results" MODIFIED="1638861239637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>usecase.account.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$PersonTest_testCheckEqualObjects.ic" NAME="PersonTest.testCheckEqualObjects Coverage Results" MODIFIED="1638876730745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>entity.profiles.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/kard_server$AuthProfileTest.ic" NAME="AuthProfileTest Coverage Results" MODIFIED="1638870725308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>usecase.profile.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/kard_server$All_in_kard_server.ic" NAME="All in kard-server Coverage Results" MODIFIED="1636223352732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/kard_server$AccountUseCasesTest.ic" NAME="AccountUseCasesTest Coverage Results" MODIFIED="1636169488595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/kard_server$ModifyContactTest.ic" NAME="ModifyContactTest Coverage Results" MODIFIED="1638867680258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>usecase.account.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/kard_server$AuthContactTest.ic" NAME="AuthContactTest Coverage Results" MODIFIED="1638868161322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>usecase.account.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/kard_server$ProfileUseCasesTest__1_.ic" NAME="ProfileUseCasesTest (1) Coverage Results" MODIFIED="1636169802008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>entity.usecase.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/kard_server$All_in_course_project_purplemongoose.ic" NAME="All in course-project-purplemongoose Coverage Results" MODIFIED="1636169898069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <EXCLUDED_FILTER>CLI.*</EXCLUDED_FILTER>
@@ -424,8 +411,20 @@
       <EXCLUDED_FILTER>request.*</EXCLUDED_FILTER>
       <EXCLUDED_FILTER>response.*</EXCLUDED_FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/kard_server$AuthLoginTest_requestLoginSuccessful.ic" NAME="AuthLoginTest.requestLoginSuccessful Coverage Results" MODIFIED="1638854409408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>usecase.*</FILTER>
+    <SUITE FILE_PATH="coverage/kard_server$PersonTest_testCheckEqualObjects.ic" NAME="PersonTest.testCheckEqualObjects Coverage Results" MODIFIED="1638876730745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>entity.profiles.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/kard_server$Run.ic" NAME="Run Coverage Results" MODIFIED="1638847936244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>spring.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/kard_server$ListContactTest_displayTwoContacts.ic" NAME="ListContactTest.displayTwoContacts Coverage Results" MODIFIED="1638861239637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>usecase.account.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/kard_server$AuthLoginTest.ic" NAME="AuthLoginTest Coverage Results" MODIFIED="1638866267157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>usecase.start.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/kard_server$ListContactTest_displayThreeSortedContacts.ic" NAME="ListContactTest.displayThreeSortedContacts Coverage Results" MODIFIED="1638863583048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>usecase.account.*</FILTER>
     </SUITE>
   </component>
 </project>
