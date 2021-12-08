@@ -1,5 +1,9 @@
 # kard
 
+
+<details>
+  <summary>Click to expand!</summary>
+
 ## Contents
 
  - [Git Setup](#git-setup)
@@ -9,12 +13,20 @@
  - [Libaries](#libaries)
  - [Authors](#authors)
 
- ## Git Setup
+</details>
+
+## Git Setup
 
  At the root dirctory of the Github repository there are three separate IntelliJ projects.
    - [kard-server](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/kard-server) - The server backend for kard. This is the core of kard
    - [kard-cli](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/kard-CLI) - A separate project for the command line. This project needs `kard-server` to be running as it uses it as a back end and communicates with it using HTTP requests
    - [kard](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/kard_project_test) - A mobile app for kard written Dart using the Flutter framework. This project also needs `kard-server` to be running since it relies on it as a backend and also uses HTTP to send requests.
+
+<br/>
+<div align="right">
+    <b><a href="#----">↥ back to top</a></b>
+</div>
+<br/>
 
 ## Deployment
 
@@ -27,6 +39,12 @@ If for any reason you may need to test on a different instance of [kard-server](
 
 To `"localhost:8082"` and ensure to run [kard-server](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/kard-server) on your local machine during testing using this method.
 
+<br/>
+<div align="right">
+    <b><a href="#----">↥ back to top</a></b>
+</div>
+<br/>
+
  ## Techonologies
 
 This server side of kard is written primarily in Java and developed in the [IntelliJ IDE](https://www.jetbrains.com/idea/) and is an implementation of a [Java Spring Boot Application](https://spring.io)
@@ -36,19 +54,38 @@ This server side of kard is written primarily in Java and developed in the [Inte
 
 The front end GUI application is written in [Dart](https://dart.dev) using the [Flutter](https://flutter.dev) framework to make a cross platform accessible app.
 
+<br/>
+<div align="right">
+    <b><a href="#----">↥ back to top</a></b>
+</div>
+<br/>
+
  ## Project Phases
 
 - Project [Phase 0](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/phase0)
 - Project [Phase 1](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/phase1)
 - Project [Phase 2](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/phase2)
 
-## Libaries
+<br/>
+<div align="right">
+    <b><a href="#----">↥ back to top</a></b>
+</div>
+
+<br/>
+
+## Libraries
 
 This project uses the following libraries:
 
 - [sqlite-jdbc](https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc)
 - [org.json](https://mvnrepository.com/artifact/org.json/json)
 - [Flutter](https://flutter.dev)
+
+<br/>
+<div align="right">
+    <b><a href="#----">↥ back to top</a></b>
+</div>
+<br/>
 
  ## Authors
 

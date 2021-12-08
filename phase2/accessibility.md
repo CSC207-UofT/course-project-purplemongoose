@@ -1,5 +1,8 @@
 # kard Accessibility Document
 
+<details>
+  <summary>Contents</summary>
+
 ## Contents
 
 - [Introduction](#introduction)
@@ -14,20 +17,27 @@
 - [Audience](#audience)
 - [Target demographics](#target-demographics)
 
+</details>
+
 ## Introduction
 
-The mobile application interface is implemented and designed based on the accessibility guidelines described in
-[Google's Material 2 Design Guidelines](https://material.io/design). This features requirements regarding
-the **clarity** and **robustness** of the design. 
+The graphical user interface of the application is implemented and designed based on the accessibility guidelines described in [Google's Material 2 Design Guidelines](https://material.io/design) with further references to [Google's Material You (Material 3) Design Guidelines](https://m3.material.io). This features requirements regarding the **clarity** and **robustness** of the design. 
+
+Furthermore, since the application was developed using the open source the [Flutter](https://flutter.dev) framework, it has made it possible and feasible to ship kard with Web, iOs, Android, MacOS and Windows applications simultaneously increasing accessibility to the application by providing various venues for accessing the kard backend server.
+
+<br/>
+<div align="right">
+    <b><a href="#----">↥ back to top</a></b>
+</div>
+<br/>
 
 ## Principles of Universal Design
 
-Either a description of the features that can be implemented in accordance to a
-given principle or how that principle does not apply to this program
+Either a description of the features that can be implemented in accordance to a given principle or how that principle does not apply to this program
 
 ### Equitable use
 
-Useful and marketable to people with diverse abilities
+> Useful and marketable to people with diverse abilities
 
 **Relevant features:**
 
@@ -40,7 +50,7 @@ Useful and marketable to people with diverse abilities
 
 ### Flexibility in use
 
-Accommodates a wide range of individual preferences and abilities
+> Accommodates a wide range of individual preferences and abilities
 
 **Relevant features:**
 
@@ -51,8 +61,7 @@ Accommodates a wide range of individual preferences and abilities
   
 ### Simple and intuitive use
 
-Is easy to understand, regardless of experience, knowledge, language skills,
-or current concentration level
+> Is easy to understand, regardless of experience, knowledge, language skills, or current concentration level
 
 **Relevant features:**
 
@@ -65,8 +74,7 @@ or current concentration level
 
 ### Perceptible information
 
-Communicates necessary information effectively to the user, regardless of
-ambient conditions or user's sensory abilities
+> Communicates necessary information effectively to the user, regardless of ambient conditions or user's sensory abilities
 
 **Relevant features:**
 
@@ -75,7 +83,7 @@ ambient conditions or user's sensory abilities
 
 ### Tolerance for error
 
-Minimizes hazards and adverse consequences of accidental or unintended actions
+> Minimizes hazards and adverse consequences of accidental or unintended actions
 
 **Relevant features:**
 
@@ -84,7 +92,7 @@ Minimizes hazards and adverse consequences of accidental or unintended actions
 
 ### Low physical effort
 
-Used effectively and comfortably and with minimum fatigue 
+> Used effectively and comfortably and with minimum fatigue 
 
 **Relevant features:**
 
@@ -96,13 +104,18 @@ Used effectively and comfortably and with minimum fatigue
   
 ### Size and space for approach and use
 
-Appropriate size and space is provided for approach, reach, manipulation, and use 
-regardless of the user's body size, posture, or mobility
+> Appropriate size and space is provided for approach, reach, manipulation, and use regardless of the user's body size, posture, or mobility
 
 **Relevant features:**
 
 - Spaces between buttons and input fields follow Google's Material 2 guidelines
 - Implementation on different platforms allows users to transition seamlessly if their device disposition is insufficient for their use
+
+<br/>
+<div align="right">
+    <b><a href="#----">↥ back to top</a></b>
+</div>
+<br/>
 
 ## Audience
 
@@ -114,6 +127,12 @@ within their company. Like traditional business cards, kard will likely appeal m
 professionals looking for a new job to build their industry connections. An additional subset given the digital 
 feature of kard will likely appeal greater to the more tech-savvy and environmentally-aware members of the 
 companies.
+
+<br/>
+<div align="right">
+    <b><a href="#----">↥ back to top</a></b>
+</div>
+<br/>
 
 ## Target demographics
 
