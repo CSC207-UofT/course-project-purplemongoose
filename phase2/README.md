@@ -88,7 +88,7 @@ the database classes which directly interacted with the SQLite wrapper class was
 
 We should note that due to the large amount of effort initially to design our CRC cards to follow Clean Architecture closely and during the re-write, the code has been very straightforward to expand on and edit features. With the Dependency Rule being followed for every layer, a re-write of the controllers to allow for HTTP functionality required no editing to the entities and use cases since they did not rely on each other. 
 
-To see how we have applied clean architecture visually, we have included an annotated UML diagram where the layers are marked out. As seen, there are clear separation between the 4 layers, and the dependency goes in one direction. Also, notice there are classes that are not included in any of the layers. These classes serve more of a helper functionality to the controllers as all they are designed to do is interpret JSON files and store HTTP responses, which are all handled with the controllers. 
+To see how we have applied Clean Architecture visually, we have included an annotated UML diagram where the layers are marked out. As seen, there are clear separation between the 4 layers, and the dependency goes in one direction. Also, notice there are classes that are not included in any of the layers. These classes serve more of a helper functionality to the controllers as all they are designed to do is interpret JSON files and store HTTP responses, which are all handled with the controllers. 
 
 ![Kard phase 1 UML](README.assets/uml%20diagram%20phase%202.png)
 
@@ -104,28 +104,27 @@ TODO: ARTHUR
 
 ### Design Patterns
 
-There are 4 main design patterns used in our project:
+There are 3 main design patterns used in our project:
 
-- Command
+- **Command**
   - TODO: STEWART
-- Memento
+- **Memento**
   - The Memento Design Pattern is used to create the functionality that allows the user to restore his/her profile to any previous state. 
-  - This design pattern is implemented using classes including: Memento, PersonMemento, MementoManager, and RestoreProfile. 
-  - The Memento and PersonMemento classes are implemented similar to ProfileType and Person classes in the entities, as they are essentially copies for each profile. 
-  - We implemented a seperate caretaker class called MementoManager. This is where the past editions of profiles, or mementos, are managed. The MementoManager has an instance variable of a LinkedHashMap called history that stored all the mementos from past edits. This class also contains methods like get or add mementos, as well as a getter for the entire history. 
-  - To facilitate storage of the edit history, we created a new column in our profile database that is dedicated to storing the MementoManager for each user. Each Memento and MementoManager objects are implemented as serializables, so we store a single serialized MementoManager object for each user in our database. 
+  - This design pattern is implemented using classes including: `Memento`, `PersonMemento`, `MementoManager`, and `RestoreProfile`. 
+  - The `Memento` and `PersonMemento` classes are implemented similar to `ProfileType`and `Person` classes in the entities, as they are essentially copies for each profile. 
+  - We implemented a seperate caretaker class called `MementoManager`. This is where the past editions of profiles, or mementos, are managed. The `MementoManager` has an instance variable of a `LinkedHashMap` called `history` that stores all the mementos from past edits. This class also contains methods like get or add mementos, as well as a getter for the entire history. 
+  - To facilitate storage of the edit history, we created a new column in our profile database that is dedicated to storing the `MementoManager` for each user. Each `Memento` and `MementoManager` objects are implemented as serializables, so we store a single serialized `MementoManager` object for each user in our database. 
   - The design pattern is used as follows in a real life scenario:
-    1. The user creates a profile for the first time. This profile is then used to create a PersonMemento, along with a MementoManager. This PersonMemento is added to MementoManager's history. 
-    2. For each edit of the profile, a new PersonMemento is created and added to MementoManager. 
-    3. When the user wants to restore the profile to a previous state, the MementoManager returns an array of all of its PersonMementos, representing the state of the profile after each past edit. 
+    1. The user creates a profile for the first time. This profile is then used to create a `PersonMemento`, along with a `MementoManager`. This `PersonMemento` is added to `MementoManager` history. 
+    2. For each edit of the profile, a new `PersonMemento` is created and added to `MementoManager`. 
+    3. When the user wants to restore the profile to a previous state, the `MementoManager` returns an array of all of the `PersonMemento` objects, representing the state of the profile after each past edit. 
     4. The user then sees the array, and selects the index of the past profile he/she wants to return to. 
-    5. With the index inputted, the MementoManager restores the profile. 
-  - Between our group, we discussed a potential limit on the number of past profiles we would keep, but since there is no obvious downside to storing the entire history, given our program's low usage, we decided that the MementoManager would store ALL past profiles with no limits. 
-- Strategy
-  - The Strategy Design Pattern is used to implement sorting of an account contact list for displaying.
-- Dependency Injection
-  - TODO: LING
-  - inject gateway to be used for use cases
+    5. With the index inputted, the `MementoManager` restores the profile. 
+  - Between our group, we discussed a potential limit on the number of past profiles we would keep, but since there is no obvious downside to storing the entire history, given our program's low usage, we decided that the `ementoManager` would store ALL past profiles with no limits. 
+- **Strategy**
+  - The Strategy Design Pattern is used to implement sorting of an account's contact list for displaying.
+  - This design pattern is implemented using two classes: `SortBehavior` which is an interface, and `SortByName` which implements `SortBehavior`. `SortByName` inherits the `sort` method from `SortBehavior` but its algorithm is tailored to sort by the contact's name.
+  - `ListContact` has a instance variable `sorter` of type `SortBehavior` and there is a method called `setSorter` which takes in subclasses of `SortBehavior` and sets `sorter` to that object. Now when `ListContact` calls `getSortedContacts`, `sorter.sort()` will sort the contacts based on the `SortBehavior` subclass we chose. (e.g. `SortByName`)
 
 ## Other Notes
 
