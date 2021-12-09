@@ -1,8 +1,9 @@
 # kard Phase 2 design document
 
+<details>
+  <summary>Contents</summary>
+
 ## Contents
-
-
 
 - [kard Phase 2 design document](#kard-phase-2-design-document)
   - [Contents](#contents)
@@ -21,6 +22,8 @@
     - [Testing](#testing)
   - [Major Contributions to kard](#major-contributions-to-kard)
 
+</details>
+
 ## Description of Work Done
 
 As of December 9, an initial shippable version of kard has been completed:
@@ -36,6 +39,12 @@ As of December 9, an initial shippable version of kard has been completed:
 - Added rollback ability to individual profiles, allowing users to view and rollback changes they made to their profile like an erroneous edit.
 - Massive overhaul of the SQLite database to allow for more flexibility.
 
+<br/>
+<div align="right">
+    <b><a href="#kard-phase-2-design-document">↥ back to top</a></b>
+</div>
+<br/>
+
 ## Navigating the Github Repository
 
  At the root dirctory of the Github repository there are three separate IntelliJ projects.
@@ -43,6 +52,12 @@ As of December 9, an initial shippable version of kard has been completed:
    - [kard-server](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/kard-server) - The server backend for kard. This is the core of kard
    - [kard-cli](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/kard-CLI) - A separate project for the command line. This project needs `kard-server` to be running as it uses it as a back end and communicates with it using HTTP requests. Note that by default, 
    - [kard](https://github.com/CSC207-UofT/course-project-purplemongoose/tree/main/kard_project_test) - A mobile app for kard written Dart using the Flutter framework. This project also needs `kard-server` to be running since it relies on it as a backend and also uses HTTP to send requests.
+
+<br/>
+<div align="right">
+    <b><a href="#kard-phase-2-design-document">↥ back to top</a></b>
+</div>
+<br/>
 
 ## Using Kard
 
@@ -58,6 +73,12 @@ All of the above profiles are on the version of kard server at cloud.arthurgao.c
 
 You may also create multiple accounts and add yourself. Just note that no two account may have the same username.
 
+<br/>
+<div align="right">
+    <b><a href="#kard-phase-2-design-document">↥ back to top</a></b>
+</div>
+<br/>
+
 ## Description of Project Structure
 
 Currently the project works in a server client manner. The servers responsibilities include doing computations and providing methods for interacting with the SQLite database.
@@ -72,6 +93,12 @@ Another benefit of packaging by layer is that it was very easy to spot violation
 
 After packaging by layer, the sub packages are by feature, which allowed us to group code for different features together to make the both easier to find, and limit their scope, thus helping us fulfill the single responsibility principle. 
 
+<br/>
+<div align="right">
+    <b><a href="#kard-phase-2-design-document">↥ back to top</a></b>
+</div>
+<br/>
+
 ## Kard-Server Implementation Details
 
 In phase 1, kards backend was modified so that instead of running a command line application, it responded to HTTP GET and POST requests. In doing so, we implemented a form of a [RESTful API](https://www.redhat.com/en/topics/api/what-is-a-rest-api) into our backend, allowing any frontend user interface, like the command line or mobile application, to be completely disconnected.
@@ -82,6 +109,12 @@ The implementation of the RESTful API can be observed throughout the entire app,
 
 The benefit following RESTful API is that it allows for one centralized backend (and database) for the frontend to communicate with. If each frontend were to have its own backend that it communicate directly with, it would be difficult to synchonize account data and profiles without needing alot of network related code or switching to a server based database like MySQL or MongoDB. Using HTTP requests has allowed us to create a highly customizable database with SQLite while avoiding the complications of signing up and connecting to a server database.
 
+<br/>
+<div align="right">
+    <b><a href="#kard-phase-2-design-document">↥ back to top</a></b>
+</div>
+<br/>
+
 ## Kard Application
 
 The final kard deliverable application is coded in [Dart](https://dart.dev) using the open source [Flutter Framework](https://flutter.dev) allowing us to build a iOS, Android, and Web apps simultaneously with one Dart code base. The application was built to follow [Material Design 2]() and to a certain extent [Material You (Material Design 3)](), however Material Design 3 implementation is limited as it was released during the development of kard. If we continue development on the application, a future goal would be to shift all components to the Material You versions.
@@ -90,9 +123,21 @@ The front end dart application was built purely as a way to display the informat
 
 The kard application has been developed on both iOS and Android devices and is fully tested and confirmed working on both. 
 
+<br/>
+<div align="right">
+    <b><a href="#kard-phase-2-design-document">↥ back to top</a></b>
+</div>
+<br/>
+
 ## Deployment of Kard
 
 The final version of Kard-server was built by maven and then wrapped into a fat jar containing all the dependencies necessary to run kard, some of these include Junit5 and Spring Boot. This jar was then built into a docker container and uploaded to Docker Hub under Affixrevy/kard. This docker hub container was then deployed on Arthur's personal server where it is accessible to the web after port forwarding at "cloud.arthurgao.ca:9082". Real HTTP requests can be made to this address anywhere in the world and they will be handled by Arthur's server, running a version of kard-server. This functionality has been tested on both CLI and Android, away from the local network in Arthurs condo. 
+
+<br/>
+<div align="right">
+    <b><a href="#kard-phase-2-design-document">↥ back to top</a></b>
+</div>
+<br/>
 
 ## Design and Architecture
 
@@ -109,6 +154,12 @@ As we've pointed out in the design document for phase 1, the OLID principle were
 **D:** The Dependency Inversion Principle is used in our project, but is best demonstrated in our database implementation. Many if not all of our use cases rely on accessing the database in some way. Originally,
 the database classes which directly interacted with the SQLite wrapper class was coupled to the use cases. This meant testing was impossible to do with use cases and more importantly, broke the Dependency Inversion Principle as the high level modules (use cases) depended on low level modules (database wrapper). In phase 2, we added a layer of separation by introducing `SQLiteDataBaseHelper` and `DataBaseGateway`. `SQLiteDataBaseHelper` provides an interface to the database for the gateways while the gateways obfuscate the database implementation for the use cases by providing a high level layer of interaction. As a result, the use cases now depend on `DataBaseGateway` which itself depends on `SQLiteDataBaseHelper`. Instead of depending on concretions, the use cases now depend on abstraction and thus follows the Dependency Inversion Principle.
 
+<br/>
+<div align="right">
+    <b><a href="#kard-phase-2-design-document">↥ back to top</a></b>
+</div>
+<br/>
+
 ## Clean Architecture
 
 We should note that due to the large amount of effort initially to design our CRC cards to follow Clean Architecture closely and during the re-write, the code has been very straightforward to expand on and edit features. With the Dependency Rule being followed for every layer, a re-write of the controllers to allow for HTTP functionality required no editing to the entities and use cases since they did not rely on each other. 
@@ -121,6 +172,12 @@ Suppose the GUI sends a request for a new account to be made. `submitSignUp` fro
 - TODO: LIng
 
 The Dependency Rule states that source code dependencies should only point outwards. An example of this would be the `ProfileUseCases` class. It imports `ProfileGateway` and various entity classes but does not import from the controllers thus keeping in line with the Dependency Rule.
+
+<br/>
+<div align="right">
+    <b><a href="#kard-phase-2-design-document">↥ back to top</a></b>
+</div>
+<br/>
 
 ## Design Patterns
 
@@ -155,6 +212,12 @@ There are 4 main design patterns used in our project:
 - Dependency Injection
   - TODO: LING
   - inject gateway to be used for use cases
+
+<br/>
+<div align="right">
+    <b><a href="#kard-phase-2-design-document">↥ back to top</a></b>
+</div>
+<br/>
 
 ## Other Notes
 
@@ -191,6 +254,12 @@ We chose to not write tests for controllers as they are written in a way to rece
 
 We also didn't implement tests for our Flutter application and our CommandLineInterface as they are UIs, which are hard to test with actual code and we just proved that they work with our presentation and actual uses of our application. 
 
+<br/>
+<div align="right">
+    <b><a href="#kard-phase-2-design-document">↥ back to top</a></b>
+</div>
+<br/>
+
 ## Major Contributions to kard
 
 | Name     | Responsibilities                                             |
@@ -208,7 +277,13 @@ We also didn't implement tests for our Flutter application and our CommandLineIn
 
 #### Ling
 
+[Use Case Refactor - Pull Request 58](https://github.com/CSC207-UofT/course-project-purplemongoose/pull/58)
 
+This pull request contains my work on the use cases refactor where I separated out the three mega size use cases into separate classes that follow Single Responsibility Principle. it also contains my work on sorting of contacts where I implemented the Strategy Design Pattern
+
+[HTTP Controllers - Pull Request 48](https://github.com/CSC207-UofT/course-project-purplemongoose/pull/48)
+
+This pull request contains my initial work on the REST controllers which implement HTTP protocols. Although this is one pull request, the controllers were quite dynamic and changed significantly as kard progressed.
 
 #### Arthur
 
@@ -237,3 +312,9 @@ This pull request contains the contributions by Kevin to the rollback and profil
 #### Sila
 
 Sila has failed to communicate with the group and provide us with a pull request that shows her contributions best. Therefore, we are forced to leave this out, since we do not wish to put words in her mouth.
+
+<br/>
+<div align="right">
+    <b><a href="#kard-phase-2-design-document">↥ back to top</a></b>
+</div>
+<br/>
