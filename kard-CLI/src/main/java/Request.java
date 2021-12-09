@@ -9,7 +9,7 @@ import java.net.http.HttpResponse;
 
 public class Request {
     private String current_username;
-    private final String url = "localhost:8082";
+    private final String url = "cloud.arthurgao.ca:9082";
     public Request(String username){
         this.current_username = username;
     }
@@ -18,10 +18,76 @@ public class Request {
         this.current_username = s;
     }
 
-    // ################ Account stuff
+    /**
+     * Method to determine if HTTP request was received and returned correctly by kard-server
+     *
+     * @param request   HTTP requests to send
+     * @param client    an HTTP client
+     * @return          Success or error code, 404 if page not found
+     */
+    private String getRequestError(HttpRequest request, HttpClient client) {
+        try {
+            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            JSONObject res = new JSONObject(response.body());
+            return res.getString("errorCode");
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "404";
+    }
+
+    /**
+     * Method to build the JSON containing relevant information for an HTTP request to kard-server defined at endpoint
+     * requiring all the contact information of the user.
+     *
+     * @param first     The first name of the user
+     * @param last      The last name of the user
+     * @param title     The title the user prefers
+     * @param pronoun   The pronoun(s) the user prefers
+     * @param phone     A phone number to reach the user at
+     * @param email     An email to reach the user at
+     * @param endpoint  URL to send the request to
+     * @return          A JSON for the HTTP request to kard-server
+     */
+    private String buildRequestJSON(String first, String last, String title, String pronoun, String phone,
+                                    String email, String endpoint) {
+        String inputJson = String.format("{\"accountUsername\":\"%s\"," + "\"firstName\":\"%s\","
+                        + "\"lastName\":\"%s\","+ "\"title\":\"%s\","+ "\"pronoun\":\"%s\","
+                        + "\"phone\":\"%s\"," + "\"email\":\"%s\"}",
+                this.current_username, first, last, pronoun, title, phone, email);
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(endpoint))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(inputJson))
+                .build();
+        HttpClient client = HttpClient.newHttpClient();
+        return getRequestError(request, client);
+    }
+
+    /**
+     * Method to build the JSON contain relevant information where only username is required for the HTTP POST
+     *
+     * @param input     The username of the user
+     * @param endpoint  URL to send the request to
+     * @return          The error code from the request if any. 0 if request successful
+     */
+    private String buildUsernameRequestJSON(String input, String endpoint) {
+        String inputJson = String.format("{\"accountUsername\":\"%s\"," +
+                        "\"contactUsername\":\"%s\"}",
+                this.current_username, input);
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(endpoint))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(inputJson))
+                .build();
+        HttpClient client = HttpClient.newHttpClient();
+        return getRequestError(request, client);
+    }
+
     /**
      * Method used to compile the inputted information into a HTTP request sent to the database,
      * its information is then verified for log in and returns the result.
+     *
      * @param username the username of the account
      * @param password the password of the account
      * @return code of response that indicates if the login was successful, returns the status code of the response
@@ -38,14 +104,7 @@ public class Request {
                 .build();
         HttpClient client = HttpClient.newHttpClient();
 
-        try {
-            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            JSONObject res = new JSONObject(response.body());
-            return res.getString("errorCode");
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        return "404";
+        return getRequestError(request, client);
     }
 
     /**
@@ -58,6 +117,7 @@ public class Request {
      */
     public String submitSignUp(String username, String password){
         String endpoint = "http://"+ this.url +"/account/create/";
+
         String inputJson = String.format("{\"accountUsername\":\"%s\"," +
                         "\"accountPassword\":\"%s\"}",
                 username, password);
@@ -90,24 +150,7 @@ public class Request {
      */
     public String submitProfileCreate(String first, String last, String title, String pronoun, String phone, String email) {
         String endpoint = "http://"+ this.url +"/profile/create/";
-        String inputJson = String.format("{\"accountUsername\":\"%s\"," + "\"firstName\":\"%s\","
-                        + "\"lastName\":\"%s\","+ "\"title\":\"%s\","+ "\"pronoun\":\"%s\","
-                        + "\"phone\":\"%s\"," + "\"email\":\"%s\"}",
-                this.current_username, first, last, pronoun, title, phone, email);
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(endpoint))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(inputJson))
-                .build();
-        HttpClient client = HttpClient.newHttpClient();
-        try {
-            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            JSONObject res = new JSONObject(response.body());
-            return res.getString("errorCode");
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        return "404";
+        return buildRequestJSON(first, last, title, pronoun, phone, email, endpoint);
     }
 
     /**
@@ -123,24 +166,7 @@ public class Request {
      */
     public String submitProfileUpdate(String first, String last, String pronoun, String title, String phone, String email) {
         String endpoint = "http://"+ this.url +"/profile/edit/";
-        String inputJson = String.format("{\"accountUsername\":\"%s\"," + "\"firstName\":\"%s\","
-                        + "\"lastName\":\"%s\","+ "\"title\":\"%s\","+ "\"pronoun\":\"%s\","
-                        + "\"phone\":\"%s\"," + "\"email\":\"%s\"}",
-                this.current_username, first, last, pronoun, title, phone, email);
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(endpoint))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(inputJson))
-                .build();
-        HttpClient client = HttpClient.newHttpClient();
-        try {
-            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            JSONObject res = new JSONObject(response.body());
-            return res.getString("errorCode");
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        return "404";
+        return buildRequestJSON(first, last, pronoun, title, phone, email, endpoint);
     }
 
     /**
@@ -159,14 +185,7 @@ public class Request {
                 .POST(HttpRequest.BodyPublishers.ofString(inputJson))
                 .build();
         HttpClient client = HttpClient.newHttpClient();
-        try {
-            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            JSONObject res = new JSONObject(response.body());
-            return res.getString("errorCode");
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        return "404";
+        return getRequestError(request, client);
     }
 
     /**
@@ -247,23 +266,7 @@ public class Request {
      */
     public String submitContactAddition(String input){
         String endpoint = "http://"+ this.url +"/contact/add/";
-        String inputJson = String.format("{\"accountUsername\":\"%s\"," +
-                        "\"contactUsername\":\"%s\"}",
-                this.current_username, input);
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(endpoint))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(inputJson))
-                .build();
-        HttpClient client = HttpClient.newHttpClient();
-        try {
-            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            JSONObject res = new JSONObject(response.body());
-            return res.getString("errorCode");
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        return "404";
+        return buildUsernameRequestJSON(input, endpoint);
     }
 
     /**
@@ -275,23 +278,7 @@ public class Request {
      */
     public String submitContactRemoval(String input) {
         String endpoint = "http://"+ this.url +"/contact/remove/";
-        String inputJson = String.format("{\"accountUsername\":\"%s\"," +
-                        "\"contactUsername\":\"%s\"}",
-                this.current_username, input);
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(endpoint))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(inputJson))
-                .build();
-        HttpClient client = HttpClient.newHttpClient();
-        try {
-            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            JSONObject res = new JSONObject(response.body());
-            return res.getString("errorCode");
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        return "404";
+        return buildUsernameRequestJSON(input, endpoint);
     }
 
     /**
