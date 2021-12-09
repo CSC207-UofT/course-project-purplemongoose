@@ -207,11 +207,10 @@ There are 4 main design patterns used in our project:
     4. The user then sees the array, and selects the index of the past profile he/she wants to return to. 
     5. With the index inputted, the MementoManager restores the profile. 
   - Between our group, we discussed a potential limit on the number of past profiles we would keep, but since there is no obvious downside to storing the entire history, given our program's low usage, we decided that the MementoManager would store ALL past profiles with no limits. 
-- Strategy
-  - TODO: LING
-- Dependency Injection
-  - TODO: LING
-  - inject gateway to be used for use cases
+- **Strategy**
+  - The Strategy Design Pattern is used to implement sorting of an account's contact list for displaying.
+  - This design pattern is implemented using two classes: `SortBehavior` which is an interface, and `SortByName` which implements `SortBehavior`. `SortByName` inherits the `sort` method from `SortBehavior` but its algorithm is tailored to sort by the contact's name.
+  - `ListContact` has a instance variable `sorter` of type `SortBehavior` and there is a method called `setSorter` which takes in subclasses of `SortBehavior` and sets `sorter` to that object. Now when `ListContact` calls `getSortedContacts`, `sorter.sort()` will sort the contacts based on the `SortBehavior` subclass we chose. (e.g. `SortByName`)
 
 <br/>
 <div align="right">
@@ -253,6 +252,10 @@ We managed to test the entire entity and usecase directory with almost complete 
 We chose to not write tests for controllers as they are written in a way to receive and handle HTTP POST and GET requests, so it makes little sense to test them in the same project. 
 
 We also didn't implement tests for our Flutter application and our CommandLineInterface as they are UIs, which are hard to test with actual code and we just proved that they work with our presentation and actual uses of our application. 
+
+As of writing, our testing coverage is:
+
+![Testing Coverage](README.assets/coverage.png)
 
 <br/>
 <div align="right">
