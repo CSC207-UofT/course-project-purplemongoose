@@ -31,7 +31,7 @@ The program covers all tasks mentioned in the specification. Even though some of
 there are sufficient comments that describe the scope for Phase 2. Good implementation of database and UI and their
 integration with the Java application.
 
-***RESPONSE: We have continued to implement features to kard including but not limited to: editing profiles, fully functional iOs/Android application - TODO: Expand***
+***RESPONSE: We have continued to implement features to kard including but not limited to: editing profiles, fully functional iOs/Android application.***
 
 ## Refactoring and code smells
 
@@ -43,11 +43,11 @@ integration with the Java application.
 
 - Insufficient authentication testing coverage
 
-  ***RESPONSE: TODO: Ling ADD***
+  ***RESPONSE: We added several tests cases for our `AuthLogin` use case covers various login examples (e.g. empty userame, correct password)***
 
 - Avoid redundant code in tests which highlights problems with the inherent design of the application as indicated in the design document.
 
-  ***RESPONSE: TODO: Ling ADD***
+  ***RESPONSE: Redundant code was a major issue in phase 1 tests as our use cases were too closely coupled with the database. As a result we had tons of boilerplate code just to set things up for testing. In phase 2, we added some separation between those two layers, and as a result, only code that is needed is written. ***
 
 ## Code style and documentation
 
@@ -64,7 +64,7 @@ integration with the Java application.
           Objects.requireNonNull(first);
           Objects.requireNonNull(last);
       }
-      // javadocs and other methods ommited for concisensess
+      // javadocs and other methods ommited for conciseness
     }
     ```
   
@@ -75,10 +75,6 @@ integration with the Java application.
 - I like that you're storing name and other PII as hashcodes 
   
   - Demonstrates deep thought about both design and implementation. 
-  
-- I hope you also understand in depth how the `Objects.hash` method works. 
-
-  ​	***TODO: LING - demonstrate understanding***
 
 - More descriptive variable names
 
@@ -98,11 +94,11 @@ integration with the Java application.
 
 - You should also add some type checking for inputs such as phone no. and email.
 
-  ***TODO: CAN WE STILL DO THIS?***
+  ***RESPONSE: Unfortunately did not have time to implement input checking, but it should be quite simple implementation wise. We could use a regex matcher on the frontend to ensure no funky inputs get sent to the backend?***
 
 - Do something or explain why `ResponseContainer` interface is empty
 
-  ***TODO: LING - Is this resolved***
+  ***RESPONSE: We removed the interface and swapped it out for a single concrete class instead***
 
 - Why is there an empty data folder? 
 
@@ -128,7 +124,7 @@ integration with the Java application.
 - Unclear which layer databases, requests, and resources fall into
   - Clean up or add explanation in design document
   
-    ***TODO: Ling - provide explanation***
+    ***RESPONSE: After the database redo, the database itself lies in the outermost layer (Frameworks & Drivers). The database gateway which provides and interface for the use cases and database lies in the Interface Adapters. ***
 
 ## SOLID
 
@@ -138,4 +134,4 @@ integration with the Java application.
   - Address this in phase 2
 
   - Include explanations within the design documents		
-  - ***TODO: Address***
+  - ***RESPONSE: Since phase 1, we have added a lot more algorithmic complexity in our backend. As a result, each of the SOLID principles can be seen to some degree, some more than others due to time limitation.***
