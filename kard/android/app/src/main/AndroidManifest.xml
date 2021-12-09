@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.company.kard_project_test">
+    package="ca.arthurgao.kard">
    <application
-        android:label="kard_project_test"
+        android:label="kard"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

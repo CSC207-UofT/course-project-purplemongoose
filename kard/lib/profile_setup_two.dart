@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kard_project_test/profile_setup_three.dart';
-import 'package:kard_project_test/sign_in.dart';
-import 'package:kard_project_test/sign_up_page.dart';
 import 'package:kard_project_test/user_builder.dart';
 
 class ProfileSetupTwo extends StatefulWidget {
