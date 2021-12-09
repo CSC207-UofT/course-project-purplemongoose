@@ -17,6 +17,19 @@ public record Name(String first, String last, String pronouns,
     private static final long serialVersionUID = 194821814127968409L;
 
     /**
+     * Constructor for the name of a person. Requires First and Last names to not be null
+     *
+     * @param first     First name of the individual
+     * @param last      Last name of the individual
+     * @param pronouns  Preferred pronouns of the individual
+     * @param titles    Titles to refer to the person with
+     */
+    public Name {
+        Objects.requireNonNull(first);
+        Objects.requireNonNull(last);
+    }
+
+    /**
      * Get the users full name
      *
      * @return String representation of the individuals full name
