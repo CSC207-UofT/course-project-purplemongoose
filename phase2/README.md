@@ -9,18 +9,28 @@
   - [Contents](#contents)
   - [Description of Work Done](#description-of-work-done)
   - [Navigating the Github Repository](#navigating-the-github-repository)
+  - [Using Kard](#using-kard)
   - [Description of Project Structure](#description-of-project-structure)
     - [Packaging](#packaging)
   - [Kard-Server Implementation Details](#kard-server-implementation-details)
+  - [Kard Application](#kard-application)
+  - [Deployment of Kard](#deployment-of-kard)
   - [Design and Architecture](#design-and-architecture)
-    - [Clean Architecture](#clean-architecture)
-    - [Design Problems](#design-problems)
-    - [Design Patterns](#design-patterns)
+  - [Clean Architecture](#clean-architecture)
+    - [Scenario Walkthrough](#scenario-walkthrough)
+  - [Design Patterns](#design-patterns)
   - [Other Notes](#other-notes)
     - [Refactoring](#refactoring)
     - [Use of Github and Git](#use-of-github-and-git)
     - [Testing](#testing)
   - [Major Contributions to kard](#major-contributions-to-kard)
+    - [Significant Pull Requests From Each Member](#significant-pull-requests-from-each-member)
+      - [Ling](#ling)
+      - [Arthur](#arthur)
+      - [Victoria](#victoria)
+      - [Stewart](#stewart)
+      - [Kevin](#kevin)
+      - [Sila](#sila)
 
 </details>
 
@@ -167,9 +177,8 @@ We should note that due to the large amount of effort initially to design our CR
 To see how we have applied clean architecture visually, we have included an annotated UML diagram where the layers are marked out. As seen, there are clear separation between the 4 layers, and the dependency goes in one direction. Also, notice there are classes that are not included in any of the layers. These classes serve more of a helper functionality to the controllers as all they are designed to do is interpret JSON files and store HTTP responses, which are all handled with the controllers. 
 
 ![Kard phase 1 UML](README.assets/uml%20diagram%20phase%202.png)
-- Scenario Walkthrough
-Suppose the GUI sends a request for a new account to be made. `submitSignUp` from `StartController` would then receive that request and call `createNewAccount` from `AccountUseCases` to create an account. `createAccount` then instantiates a new `PersonalAccount` object and calls the insertAccountData from `AccountGateway` to add it to the database along with the username and password sent over with the request.
-- TODO: LIng
+### Scenario Walkthrough
+Suppose the GUI (CLI or Flutter) sends a request for a new account to be made. `submitPersonalAccountCreate` from `AccountController` would then receive that request and call `newPersonalAccount` from the `CreateAccount` use case to create an account. `createNewPersonalAccount` then instantiates a new `PersonalAccount` object and calls `insertAccountData` from `AccountGateway` to add it to the database along with the username and password sent over with the request. 
 
 The Dependency Rule states that source code dependencies should only point outwards. An example of this would be the `ProfileUseCases` class. It imports `ProfileGateway` and various entity classes but does not import from the controllers thus keeping in line with the Dependency Rule.
 
