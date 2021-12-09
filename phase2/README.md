@@ -13,7 +13,8 @@ TODO: ARHTUR - fix
   - [Kard-Server Implementation Details](#kard-server-implementation-details)
   - [Design and Architecture](#design-and-architecture)
     - [Clean Architecture](#clean-architecture)
-    - [Design Problems](#design-problems)
+      - [Scenario Walkthrough](#scenario-walkthrough)
+    - [Areas of Improvement](#areas-of-improvement)
     - [Design Patterns](#design-patterns)
   - [Other Notes](#other-notes)
     - [Refactoring](#refactoring)
@@ -90,12 +91,14 @@ We should note that due to the large amount of effort initially to design our CR
 To see how we have applied clean architecture visually, we have included an annotated UML diagram where the layers are marked out. As seen, there are clear separation between the 4 layers, and the dependency goes in one direction. Also, notice there are classes that are not included in any of the layers. These classes serve more of a helper functionality to the controllers as all they are designed to do is interpret JSON files and store HTTP responses, which are all handled with the controllers. 
 
 ![Kard phase 1 UML](README.assets/uml%20diagram%20phase%202.png)
-- Scenario Walkthrough
+
+#### Scenario Walkthrough
+
 Suppose the GUI sends a request for a new account to be made. `submitSignUp` from `StartController` would then receive that request and call `createNewAccount` from `AccountUseCases` to create an account. `createAccount` then instantiates a new `PersonalAccount` object and calls the insertAccountData from `AccountGateway` to add it to the database along with the username and password sent over with the request.
 
 The Dependency Rule states that source code dependencies should only point outwards. An example of this would be the `ProfileUseCases` class. It imports `ProfileGateway` and various entity classes but does not import from the controllers thus keeping in line with the Dependency Rule.
 
-### Design Problems
+### Areas of Improvement
 
 TODO: ARTHUR
 
@@ -106,7 +109,7 @@ There are 4 main design patterns used in our project:
 - Command
   - TODO: STEWART
 - Memento
-  - The memento design pattern is used to create the functionality that allows the user to restore his/her profile to any previous state. 
+  - The Memento Design Pattern is used to create the functionality that allows the user to restore his/her profile to any previous state. 
   - This design pattern is implemented using classes including: Memento, PersonMemento, MementoManager, and RestoreProfile. 
   - The Memento and PersonMemento classes are implemented similar to ProfileType and Person classes in the entities, as they are essentially copies for each profile. 
   - We implemented a seperate caretaker class called MementoManager. This is where the past editions of profiles, or mementos, are managed. The MementoManager has an instance variable of a LinkedHashMap called history that stored all the mementos from past edits. This class also contains methods like get or add mementos, as well as a getter for the entire history. 
@@ -119,7 +122,7 @@ There are 4 main design patterns used in our project:
     5. With the index inputted, the MementoManager restores the profile. 
   - Between our group, we discussed a potential limit on the number of past profiles we would keep, but since there is no obvious downside to storing the entire history, given our program's low usage, we decided that the MementoManager would store ALL past profiles with no limits. 
 - Strategy
-  - TODO: LING
+  - The Strategy Design Pattern is used to implement sorting of an account contact list for displaying.
 - Dependency Injection
   - TODO: LING
   - inject gateway to be used for use cases
@@ -146,7 +149,7 @@ TODO: LING pick out some more pull requests or commits detailing refactors made 
 
 ### Use of Github and Git
 
-Git has been used extensively to manage and facilitate the development of kard. We constantly use branches whenever new  features are being added to stage them and test before merging to main. Minimal committing to main have been made as we kept main as a fully working and tested version of the code. 
+Git has been used extensively to manage and facilitate the development of kard. We constantly use branches whenever new  features are being added to stage them and test before merging to main. Minimal committing to main have been made as we kept main as a fully working and tested version of the code.
 
 There has been limited usage of Github issues and actions - for issues in the code, we have used our Discord Server to communicate. As for actions, we plan on implementing some for phase 2 to ensure that there is some automatic checking of files that we push.
 
@@ -156,9 +159,13 @@ TODO: ARTHUR - implement GitHub actions
 
 We managed to test the entire entity and usecase directory with almost complete coverage. This, in turn, tests for a significant chunk of our project. In addition, by testing usecases, we are also implicitly testing for our gateways since as illustrated on our UML diagram, our usecases heavily depend on our gateways for communication with the database. So by testing usecases, we too tested for gateways.
 
-We chose to not write tests for controllers as they are written in a way to receive and handle HTTP POST and GET requests, so it makes little sense to test them in the same project. 
+We chose to not write tests for controllers as they are written in a way to receive and handle HTTP POST and GET requests, so it makes little sense to test them in the same project.
 
-We also didn't implement tests for our Flutter application and our CommandLineInterface as they are UIs, which are hard to test with actual code and we just proved that they work with our presentation and actual uses of our application. 
+We also didn't implement tests for our Flutter application and our CommandLineInterface as they are UIs, which are hard to test with actual code so we just proved that they work with our presentation and actual uses of our application.
+
+As of writing, our testing coverage is:
+
+![Testing Coverage](README.assets/coverage.png)
 
 ## Major Contributions to kard
 
