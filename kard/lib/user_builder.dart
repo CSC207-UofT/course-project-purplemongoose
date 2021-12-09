@@ -5,7 +5,7 @@ import 'package:kard_project_test/user.dart';
 
 class Constants {
 
-  static const String address = "10.0.1.137:8082";
+  static const String address = "cloud.arthurgao.ca:9082";
 
   static User? _currentUser;
 
