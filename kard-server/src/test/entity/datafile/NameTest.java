@@ -41,8 +41,8 @@ class NameTest {
         String fullName3 = name3.getFullName();
 
         assertEquals(fullName, "Dr. Heinz Doofenshmirtz");
-        assertEquals(fullName2, " Patrick Star");
-        assertEquals(fullName3, " SpongeBob Squarepants");
+        assertEquals(fullName2, "Patrick Star");
+        assertEquals(fullName3, "SpongeBob Squarepants");
     }
 
     /**

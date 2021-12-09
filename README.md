@@ -2,7 +2,7 @@
 
 
 <details>
-  <summary>Click to expand!</summary>
+  <summary>Contents</summary>
 
 ## Contents
 
@@ -24,7 +24,7 @@
 
 <br/>
 <div align="right">
-    <b><a href="#----">↥ back to top</a></b>
+    <b><a href="#kard">↥ back to top</a></b>
 </div>
 <br/>
 
@@ -41,7 +41,7 @@ To `"localhost:8082"` and ensure to run [kard-server](https://github.com/CSC207-
 
 <br/>
 <div align="right">
-    <b><a href="#----">↥ back to top</a></b>
+    <b><a href="#kard">↥ back to top</a></b>
 </div>
 <br/>
 
@@ -56,7 +56,7 @@ The front end GUI application is written in [Dart](https://dart.dev) using the [
 
 <br/>
 <div align="right">
-    <b><a href="#----">↥ back to top</a></b>
+    <b><a href="#kard">↥ back to top</a></b>
 </div>
 <br/>
 
@@ -68,7 +68,7 @@ The front end GUI application is written in [Dart](https://dart.dev) using the [
 
 <br/>
 <div align="right">
-    <b><a href="#----">↥ back to top</a></b>
+    <b><a href="#kard">↥ back to top</a></b>
 </div>
 
 <br/>
@@ -83,7 +83,7 @@ This project uses the following libraries:
 
 <br/>
 <div align="right">
-    <b><a href="#----">↥ back to top</a></b>
+    <b><a href="#kard">↥ back to top</a></b>
 </div>
 <br/>
 

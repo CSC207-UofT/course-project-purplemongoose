@@ -25,17 +25,24 @@ public class PersonMementoTest {
 
         phone = new Phone("6475552401");
         email = new Email("jon666@gmail.com");
-        name = new Name("George", "Michael", "she/her", "");
+        name = new Name("George", "Michael", "she/her", "Dr.");
         this.personMemento = new PersonMemento(name, phone, email, "george2");
     }
 
+    /**
+     * Tests getting the name of a PersonMemento
+     */
     @Test
     @DisplayName("Get name of PersonMemento")
     void testGetName(){
         String result = personMemento.getName();
-        String expected = " George Michael";
+        String expected = "Dr. George Michael";
         assertEquals(result, expected);
     }
+
+    /**
+     * Tests getting the pronouns of a PersonMemento
+     */
 
     @Test
     @DisplayName("Get pronouns of PersonMemento")
@@ -45,6 +52,10 @@ public class PersonMementoTest {
         assertEquals(result, expected);
     }
 
+    /**
+     * Tests getting the original name of a PersonMemento
+     */
+
     @Test
     @DisplayName("Get original name of PersonMemento")
     void testGetOriginalName(){
@@ -52,6 +63,10 @@ public class PersonMementoTest {
         Name expected = this.name;
         assertEquals(result, expected);
     }
+
+    /**
+     * Tests getting the phone of a PersonMemento
+     */
 
     @Test
     @DisplayName("Get phone of PersonMemento")
@@ -61,6 +76,10 @@ public class PersonMementoTest {
         assertEquals(result, expected);
     }
 
+    /**
+     * Tests getting the email of a PersonMemento
+     */
+
     @Test
     @DisplayName("Get email of PersonMemento")
     void testGetEmail(){
@@ -68,6 +87,10 @@ public class PersonMementoTest {
         String expected = "jon666@gmail.com";
         assertEquals(result, expected);
     }
+
+    /**
+     * Tests getting the username of a PersonMemento
+     */
 
     @Test
     @DisplayName("Get username of PersonMemento")

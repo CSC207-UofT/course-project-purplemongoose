@@ -8,6 +8,15 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * Class for creating a PersonMemento which is a snapshot of the state of a personal profile (Person object)
+ * at a particular point in time.
+ *
+ * Stores the name, phone, email and username of the Person at the time the Memento is created.
+ *
+ * Provides getters for the name, pronouns, the original Name object, phone, email and username of the Person at
+ * the time the Memento is created.
+ */
 
 public class PersonMemento extends Memento implements Serializable{
     @Serial
