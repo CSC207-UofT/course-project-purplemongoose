@@ -167,6 +167,7 @@ public class CommandLineInterface {
                 case "remove" -> removeContact();
                 case "display" -> displayContacts();
                 case "logout" -> logout();
+                case "quit" -> System.exit(0);
                 default -> System.out.println("Command not recognized... Try again\n");
             }
         }
