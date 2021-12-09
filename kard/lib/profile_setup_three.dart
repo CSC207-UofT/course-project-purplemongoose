@@ -62,7 +62,6 @@ class _ProfileSetupThree extends State<ProfileSetupThree> {
       ,
       child: TextFormField(
 
-        //TODO fix this fucking thing. It's fucking disgusting
         onSaved: (value) => UserBuilder.phone = value ?? '',
 
         style: const TextStyle(
@@ -96,7 +95,6 @@ class _ProfileSetupThree extends State<ProfileSetupThree> {
       ,
       child: TextFormField(
 
-        //TODO fix this fucking thing. It's fucking disgusting
         onSaved: (value) => UserBuilder.email = value ?? '',
 
         style: const TextStyle(

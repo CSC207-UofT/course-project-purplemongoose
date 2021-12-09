@@ -32,14 +32,12 @@ class _SignUpState extends State<SignUp> {
     final _width = MediaQuery.of(context).size.width;
     final _height = MediaQuery.of(context).size.height;
 
-    //TODO this works but is not good practice. Replace
     double keyboard = MediaQuery.of(context).viewInsets.bottom;
     final double logoWidth, logoHeight;
     if (keyboard == 0) {
       logoWidth = _width/2;
       logoHeight = _width/2;
     } else if (_width/_height >= 0.5625) {
-      //TODO tune logo size
       logoWidth = 0;
       logoHeight = 0;
     } else {
@@ -125,7 +123,6 @@ class _SignUpState extends State<SignUp> {
           "Password cannot be empty" : null;
         },
 
-        //TODO fix this fucking thing. It's fucking disgusting
         onSaved: (value) => _password = value ?? 'e',
         obscureText: true,
         style: const TextStyle(
@@ -161,7 +158,6 @@ class _SignUpState extends State<SignUp> {
           "Username cannot be empty" : null;
         },
 
-        //TODO fix this fucking thing. It's fucking disgusting
         onSaved: (value) => _username = value ?? 'e',
 
         style: const TextStyle(
@@ -194,7 +190,6 @@ class _SignUpState extends State<SignUp> {
 
     String body = json.encode(data);
 
-    // TODO do response processing
     http.Response response = await http.post(
         Uri.parse("http://" + Constants.address + "/account/create"),
         headers: {"Content-Type": "application/json"},

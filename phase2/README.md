@@ -136,7 +136,18 @@ The front end dart application was built purely as a way to display the informat
 
 The kard application has been developed on both iOS and Android devices and is fully tested and confirmed working on both. 
 
+A screenshot of the kard application home screen running on iPhone:
+
+<img src="/Users/arthurgao/Library/Application Support/typora-user-images/simulator_screenshot_2B302D1E-02B7-4045-946A-D1E743E3F9C5.png" alt="simulator_screenshot_2B302D1E-02B7-4045-946A-D1E743E3F9C5" style="zoom:30%;" />
+
+A screenshot of the Landing Screen of kard running on iPhone:
+
+<img src="/Users/arthurgao/Documents/final_test/course-project-purplemongoose/phase2/README.assets/simulator_screenshot_A2E014F9-3AF3-435A-A841-487AF3E874AD.png" alt="simulator_screenshot_A2E014F9-3AF3-435A-A841-487AF3E874AD" style="zoom:30%;" />
+
+
+
 <br/>
+
 <div align="right">
     <b><a href="#kard-phase-2-design-document">↥ back to top</a></b>
 </div>

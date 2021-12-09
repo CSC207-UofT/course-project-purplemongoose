@@ -59,7 +59,6 @@ class _ProfileSetupTwo extends State<ProfileSetupTwo> {
       ,
       child: TextFormField(
 
-        //TODO fix this fucking thing. It's fucking disgusting
         onSaved: (value) => UserBuilder.title = value ?? '',
 
         style: const TextStyle(
@@ -93,7 +92,6 @@ class _ProfileSetupTwo extends State<ProfileSetupTwo> {
       ,
       child: TextFormField(
 
-        //TODO fix this fucking thing. It's fucking disgusting
         onSaved: (value) => UserBuilder.pronoun = value ?? '',
 
         style: const TextStyle(

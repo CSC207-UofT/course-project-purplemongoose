@@ -72,7 +72,5 @@ class UserBuilder {
       body: body,
     );
 
-    // TODO do response processing
-
   }
 }

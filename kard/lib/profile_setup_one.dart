@@ -63,7 +63,6 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
           "First name cannot be empty" : null;
         },
 
-        //TODO fix this fucking thing. It's fucking disgusting
         onSaved: (value) => UserBuilder.firstName = value ?? '',
 
         style: const TextStyle(
@@ -97,7 +96,6 @@ class _ProfileSetupOne extends State<ProfileSetupOne> {
       ,
       child: TextFormField(
 
-        //TODO fix this fucking thing. It's fucking disgusting
         onSaved: (value) => UserBuilder.lastName = value ?? '',
 
         style: const TextStyle(
