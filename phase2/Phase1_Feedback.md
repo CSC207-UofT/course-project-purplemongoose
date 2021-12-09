@@ -26,18 +26,21 @@ Feedback from the TA after Phase 1 to be addressed. ***Responses to feedback in 
   ***RESPONSE: Implemented Memento, Strategy, and Command design patterns. Discussed these implementations in [Design Document]()***
 
 ## Functionality
-The program covers all tasks mentioned in the specification. Even though some of them are partially implemented yet, 
-there are sufficient comments that describe the scope for Phase 2. Good implementation of database and UI and their 
+
+The program covers all tasks mentioned in the specification. Even though some of them are partially implemented yet,
+there are sufficient comments that describe the scope for Phase 2. Good implementation of database and UI and their
 integration with the Java application.
 
 ***RESPONSE: We have continued to implement features to kard including but not limited to: editing profiles, fully functional iOs/Android application - TODO: Expand***
 
 ## Refactoring and code smells
+
 - Address the identified code smells
 
   ***RESPONSE: All identified code smells have been addressed. Refer to [Design Document]() for evidence on continued refactoring*** 
 
 ## Testing
+
 - Insufficient authentication testing coverage
 
   ***RESPONSE: TODO: Ling ADD***
@@ -47,6 +50,7 @@ integration with the Java application.
   ***RESPONSE: TODO: Ling ADD***
 
 ## Code style and documentation
+
 - The `Name.java` class contains 3 different constructors based on whether some attributes are passed or not. 
   - You can consider using a single constructor with default values as null so that there is no repeated code. 
   
@@ -127,9 +131,11 @@ integration with the Java application.
     ***TODO: Ling - provide explanation***
 
 ## SOLID
+
 - Limited scope of following SOLID principles
   - Clean up with more work on the backend
-- Deducting marks because team has yet to implement any "OLID" principles. 
+- Deducting marks because team has yet to implement any "OLID" principles.
   - Address this in phase 2
+
   - Include explanations within the design documents		
   - ***TODO: Address***
