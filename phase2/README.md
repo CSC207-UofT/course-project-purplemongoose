@@ -5,40 +5,42 @@
 
 ## Contents
 
-- [kard Phase 2 design document](#kard-phase-2-design-document)
-  - [Contents](#contents)
-  - [Description of Work Done](#description-of-work-done)
-  - [Navigating the Github Repository](#navigating-the-github-repository)
-  - [Using Kard](#using-kard)
-  - [Description of Project Structure](#description-of-project-structure)
-    - [Packaging](#packaging)
-  - [Kard-Server Implementation Details](#kard-server-implementation-details)
-  - [Kard Application](#kard-application)
-  - [Deployment of Kard](#deployment-of-kard)
-  - [Design and Architecture](#design-and-architecture)
-  - [Clean Architecture](#clean-architecture)
-    - [Scenario Walkthrough](#scenario-walkthrough)
-  - [Design Patterns](#design-patterns)
-  - [Other Notes](#other-notes)
-    - [Refactoring](#refactoring)
-    - [Use of Github and Git](#use-of-github-and-git)
-    - [Testing](#testing)
-  - [Major Contributions to kard](#major-contributions-to-kard)
-    - [Significant Pull Requests From Each Member](#significant-pull-requests-from-each-member)
-      - [Ling](#ling)
-      - [Arthur](#arthur)
-      - [Victoria](#victoria)
-      - [Stewart](#stewart)
-      - [Kevin](#kevin)
-      - [Sila](#sila)
+- [Critical Documents](#other-critical-documents)
+- [Description of Work Done](#description-of-work-done)
+- [Navigating Github](#navigating-the-github-repository)
+- [Using Kard](#using-kard)
+- [Project Structure](#description-of-project-structure)
+- [Server Implementation Details](#kard-server-implementation-details)
+- [Application](#kard-application)
+- [Deployment](#deployment-of-kard)
+- [Design and Architecture](#design-and-architecture)
+- [Clean Architecture](#clean-architecture)
+- [Design Patterns](#design-patterns)
+- [Other Notes](#other-notes)
+- [Contributions](#major-contributions-to-kard)
 
 </details>
+
+## Other Critical Documents
+
+- [PDF of our powerpoint presentation from Dec 6th](https://github.com/CSC207-UofT/course-project-purplemongoose/blob/main/phase2/CSC207-KARD.pdf)
+- [Final updated project specification](https://github.com/CSC207-UofT/course-project-purplemongoose/blob/main/phase2/specification.md)
+- [Accessibility document](https://github.com/CSC207-UofT/course-project-purplemongoose/blob/main/phase2/accessibility.md)
+- [Our responses to phase 1 feedback](https://github.com/CSC207-UofT/course-project-purplemongoose/blob/main/phase2/Phase1_Feedback.md)
+- [Project Wiki](https://github.com/CSC207-UofT/course-project-purplemongoose/wiki)
+
+<br/>
+
+<div align="right">
+    <b><a href="#kard-phase-2-design-document">↥ back to top</a></b>
+</div>
+<br/>
 
 ## Description of Work Done
 
 As of December 9, an initial shippable version of kard has been completed:
 
-- Update of the phase 1 code base addressing concerns and feedback from phase 1. Detailed breakdown to the responses and changed stemming from phase 1 feedback can be found [here]()
+- Update of the phase 1 code base addressing concerns and feedback from phase 1. Detailed breakdown to the responses and changed stemming from phase 1 feedback can be found [here](https://github.com/CSC207-UofT/course-project-purplemongoose/blob/main/phase2/Phase1_Feedback.md)
 - Update the Kard Flutter application to reach near feature parity with the command line application including
   - Signing up and creating an individual profile
   - Logging in and accessing an individuals contacts
@@ -50,6 +52,7 @@ As of December 9, an initial shippable version of kard has been completed:
 - Massive overhaul of the SQLite database to allow for more flexibility.
 
 <br/>
+
 <div align="right">
     <b><a href="#kard-phase-2-design-document">↥ back to top</a></b>
 </div>
@@ -144,6 +147,7 @@ The kard application has been developed on both iOS and Android devices and is f
 The final version of Kard-server was built by maven and then wrapped into a fat jar containing all the dependencies necessary to run kard, some of these include Junit5 and Spring Boot. This jar was then built into a docker container and uploaded to Docker Hub under Affixrevy/kard. This docker hub container was then deployed on Arthur's personal server where it is accessible to the web after port forwarding at "cloud.arthurgao.ca:9082". Real HTTP requests can be made to this address anywhere in the world and they will be handled by Arthur's server, running a version of kard-server. This functionality has been tested on both CLI and Android, away from the local network in Arthurs condo. 
 
 <br/>
+
 <div align="right">
     <b><a href="#kard-phase-2-design-document">↥ back to top</a></b>
 </div>
@@ -222,6 +226,7 @@ There are 4 main design patterns used in our project:
   - `ListContact` has a instance variable `sorter` of type `SortBehavior` and there is a method called `setSorter` which takes in subclasses of `SortBehavior` and sets `sorter` to that object. Now when `ListContact` calls `getSortedContacts`, `sorter.sort()` will sort the contacts based on the `SortBehavior` subclass we chose. (e.g. `SortByName`)
 
 <br/>
+
 <div align="right">
     <b><a href="#kard-phase-2-design-document">↥ back to top</a></b>
 </div>
@@ -326,7 +331,12 @@ This pull request contains the contributions by Kevin to the rollback and profil
 Sila has failed to communicate with the group and provide us with a pull request that shows her contributions best. Therefore, we are forced to leave this out, since we do not wish to put words in her mouth.
 
 <br/>
+
 <div align="right">
     <b><a href="#kard-phase-2-design-document">↥ back to top</a></b>
 </div>
 <br/>
+
+Thank you for your help and guidance through the semester and we hope this document helped you understand the work that has been completed on kard. We wish you the best on all of your future endeavours.
+
+\- the pURPLEmONGOOSE team
