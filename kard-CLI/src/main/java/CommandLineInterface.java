@@ -155,11 +155,9 @@ public class CommandLineInterface {
      *  - Remove a contact from the current user's contacts
      *  - Display all the contacts of the current user
      *  - Logout to the home screen
-     *  - Quit the program
      */
     private void events() {
         String input;
-        eventLoop:
         while (true) {
             System.out.print("[kard]: ");
             input = sc.next();
@@ -169,10 +167,6 @@ public class CommandLineInterface {
                 case "remove" -> removeContact();
                 case "display" -> displayContacts();
                 case "logout" -> logout();
-                case "quit" -> {
-                    System.out.println("Thank you for using Kard");
-                    break eventLoop;
-                }
                 default -> System.out.println("Command not recognized... Try again\n");
             }
         }
